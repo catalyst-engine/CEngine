@@ -1,6 +1,7 @@
 #include "../libs/imgui/imgui.h"
 #include "../libs/imgui/imgui_impl_glfw.h"
 #include "../libs/imgui/imgui_impl_opengl3.h"
+#include "ui/Block.h"
 #include <stdio.h>
 
 #define GLSL_VERSION "#version 130"
@@ -15,6 +16,7 @@ static void glfw_error_callback(int error, const char *description) {
 
 // Main code
 int main(int, char **) {
+    ui::document::AddElement<Block>();
     glfwSetErrorCallback(glfw_error_callback);
     if (!glfwInit())
         return 1;
@@ -76,6 +78,7 @@ int main(int, char **) {
             static int counter = 0;
 
 
+            ui::document::Render();
             ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
 
             ImGui::PushFont(robotoBold);

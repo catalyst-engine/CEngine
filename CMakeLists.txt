@@ -17,6 +17,9 @@ add_executable(
         src/imgui_demo.cpp
         ${IMGUI_DIR}/imgui_tables.cpp
         ${IMGUI_DIR}/imgui_widgets.cpp
+        src/util/LinkedList.h
+        src/ui/UIComponent.h
+        src/ui/Block.h
 )
 
 target_link_libraries(catalyst_engine PRIVATE Catch2::Catch2 Catch2::Catch2WithMain)
