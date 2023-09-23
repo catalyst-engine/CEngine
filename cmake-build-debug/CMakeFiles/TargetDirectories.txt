@@ -1,3 +1,0 @@
-C:/Users/russi/CLionProjects/catalyst-engine/cmake-build-debug/CMakeFiles/catalyst_engine.dir
-C:/Users/russi/CLionProjects/catalyst-engine/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/russi/CLionProjects/catalyst-engine/cmake-build-debug/CMakeFiles/rebuild_cache.dir
