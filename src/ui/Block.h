@@ -1,21 +1,12 @@
-//
-// Created by russi on 9/23/2023.
-//
-
-#ifndef CATALYST_ENGINE_BLOCK_H
-#define CATALYST_ENGINE_BLOCK_H
-
-
-#include "UIComponent.h"
+#pragma once
+#include "UI.h"
 #include "../../libs/imgui/imgui.h"
 
-class Block : public ui::AbstractUI {
+class Block : public UI::AbstractUI {
 public:
-    void Render() override {
+    void render() override {
         ImGui::Begin("Hello, world 2!");
-        ImGui::Text("This is some useful text.");
+        renderChildren();
         ImGui::End();
     }
 };
-
-#endif //CATALYST_ENGINE_BLOCK_H
