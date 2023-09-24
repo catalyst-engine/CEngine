@@ -1,3 +1,5 @@
+#ifndef CATALYST_ENGINE_DOUBLE_LINKED_LIST_H
+#define CATALYST_ENGINE_DOUBLE_LINKED_LIST_H
 #pragma once
 
 #include <cstdarg>
@@ -14,10 +16,17 @@ namespace Util::Basic {
     };
 
     template<typename T>
-    class LinkedList {
+    class DoubleLinkedList {
     public:
         size_t getLength() {
             return length;
+        }
+
+        void clear() {
+            start = nullptr;
+            end = nullptr;
+            iterator = nullptr;
+            length = 0;
         }
 
         T *get(size_t index) {
@@ -73,6 +82,13 @@ namespace Util::Basic {
             removeAt(index);
         }
 
+        void replaceAt(size_t index, T *value) {
+            ListItem<T> *pItem = getItem(index);
+            if (pItem != nullptr) {
+                pItem->value = value;
+            }
+        }
+
         void removeAt(size_t index) {
             if (length == 0 || index > length) {
                 return;
@@ -106,7 +122,7 @@ namespace Util::Basic {
             length++;
         }
 
-        bool includes(T* item) {
+        bool includes(T *item) {
             ListItem<T> *current = start;
             while (current != nullptr) {
                 if (current->value == item) {
@@ -174,3 +190,4 @@ namespace Util::Basic {
     };
 }
 
+#endif

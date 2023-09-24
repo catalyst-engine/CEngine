@@ -1,17 +1,20 @@
+#ifndef CATALYST_ENGINE_TEXTCOMPONENT_H
+#define CATALYST_ENGINE_TEXTCOMPONENT_H
 #pragma once
 
 #include "UI.h"
 #include "../../libs/imgui/imgui.h"
+#include "AbstractUIComponent.h"
 
 namespace Text {
     ImFont *currentActiveFont = nullptr;
 
-    class Text : public UI::AbstractUI {
+    class TextComponent : public AbstractUIComponent {
     private:
-        char const *text = "";
+        std::string text = "";
         ImFont *font = nullptr;
     public:
-        void setText(char const *c) {
+        void setText(std::string c) {
             text = c;
         }
 
@@ -24,8 +27,9 @@ namespace Text {
             } else {
                 currentActiveFont = nullptr;
             }
-            ImGui::Text(text);
+            ImGui::Text(nullptr, &text);
         }
     };
 
 }
+#endif

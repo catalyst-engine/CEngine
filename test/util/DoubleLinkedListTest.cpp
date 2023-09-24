@@ -1,10 +1,10 @@
 #define CATCH_CONFIG_MAIN
 
 #include "../../libs/catch2/catch.h"
-#include "../../src/util/LinkedList.h"
+#include "../../src/util/DoubleLinkedList.h"
 
 TEST_CASE("Should add elements to list", "[list-add]") {
-    auto *list = new Util::Basic::LinkedList<int>();
+    auto *list = new Util::Basic::DoubleLinkedList<int>();
     int value = 1;
     int value2 = 2;
     int value3 = 3;
@@ -15,8 +15,19 @@ TEST_CASE("Should add elements to list", "[list-add]") {
     REQUIRE(list->getLength() == 3);
 }
 
+TEST_CASE("Should replaceAtIndex", "[list-replace]") {
+    auto *list = new Util::Basic::DoubleLinkedList<int>();
+    int value = 1;
+    int value2 = 2;
+    list->push(&value);
+    REQUIRE(list->get(0) == &value);
+    list->replaceAt(0, &value2);
+    REQUIRE(list->get(0) == &value2);
+    REQUIRE(list->getLength() == 1);
+}
+
 TEST_CASE("Should remove element from list", "[list-remove]") {
-    auto *list = new Util::Basic::LinkedList<int>();
+    auto *list = new Util::Basic::DoubleLinkedList<int>();
     int value = 1;
     list->push(&value);
 
@@ -26,7 +37,7 @@ TEST_CASE("Should remove element from list", "[list-remove]") {
 }
 
 TEST_CASE("Should remove element from index", "[list-remove-index]") {
-    auto *list = new Util::Basic::LinkedList<int>();
+    auto *list = new Util::Basic::DoubleLinkedList<int>();
     int value = 1;
     int value2 = 2;
     int value3 = 3;
@@ -41,7 +52,7 @@ TEST_CASE("Should remove element from index", "[list-remove-index]") {
 }
 
 TEST_CASE("Should iterate", "[list-iterate]") {
-    auto *list = new Util::Basic::LinkedList<int>();
+    auto *list = new Util::Basic::DoubleLinkedList<int>();
     int value = 1;
     int value2 = 2;
     int value3 = 3;

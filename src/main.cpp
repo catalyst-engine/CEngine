@@ -1,8 +1,8 @@
 #include "../libs/imgui/imgui.h"
 #include "../libs/imgui/imgui_impl_glfw.h"
 #include "../libs/imgui/imgui_impl_opengl3.h"
-#include "ui/Block.h"
-#include "ui/Text.h"
+#include "ui/BlockComponent.h"
+#include "ui/TextComponent.h"
 
 #include <stdio.h>
 
@@ -19,8 +19,8 @@ static void glfw_error_callback(int error, const char *description) {
 
 // Main code
 int main(int, char **) {
-    auto *pBlock = UI::Document::addElement<Block>();
-    auto *text = pBlock->addChild<Text::Text>();
+    auto *pBlock = UI::Document::addElement<BlockComponent>("KEY");
+    auto *text = pBlock->addChild<Text::TextComponent>("KEY");
     text->setText("TEST");
 
     glfwSetErrorCallback(glfw_error_callback);

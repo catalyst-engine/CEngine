@@ -18,13 +18,17 @@ add_executable(
         src/imgui_demo.cpp
         ${IMGUI_DIR}/imgui_tables.cpp
         ${IMGUI_DIR}/imgui_widgets.cpp
-        src/util/LinkedList.h
+        src/util/DoubleLinkedList.h
         src/ui/UI.h
-        src/ui/Block.h
-        src/ui/Text.h
+        src/ui/BlockComponent.h
+        src/ui/TextComponent.h
+        src/ui/AbstractUIComponent.h
+        src/util/DynamicMap.h
 )
 
-add_executable(linked-list test/util/LinkedListTest.cpp)
+add_executable(linked-list test/util/DoubleLinkedListTest.cpp)
+add_executable(dynamic-map test/util/DynamicMapTest.cpp)
+add_executable(ui test/ui/UITest.cpp)
 
 target_link_libraries(catalyst_engine PRIVATE opengl32)
 target_link_libraries(catalyst_engine PRIVATE glfw)
