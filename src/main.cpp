@@ -1,15 +1,18 @@
-#include "../libs/imgui/imgui.h"
-#include "../libs/imgui/imgui_impl_glfw.h"
-#include "../libs/imgui/imgui_impl_opengl3.h"
-#include "ui/BlockComponent.h"
-#include "ui/TextComponent.h"
+#include <imgui.h>
+#include <imgui_impl_glfw.h>
+#include <imgui_impl_opengl3.h>
+
+#include "glad/glad.h"
+#include "GLFW/glfw3.h"
+
+#include "ui/Document.h"
+#include "ui/components/PanelUI.h"
+#include "ui/components/TextUI.h"
 
 #include <stdio.h>
 
 #define GLSL_VERSION "#version 130"
 #define GL_SILENCE_DEPRECATION
-
-#include <GLFW/glfw3.h>
 
 
 static void glfw_error_callback(int error, const char *description) {
@@ -19,8 +22,10 @@ static void glfw_error_callback(int error, const char *description) {
 
 // Main code
 int main(int, char **) {
-    auto *pBlock = UI::Document::addElement<BlockComponent>("KEY");
-    auto *text = pBlock->addChild<Text::TextComponent>("KEY");
+    auto* document = new UI::Document;
+    document->init();
+    auto *pBlock = document->addElement<PanelUI>("KEY", nullptr);
+    auto *text = document->addElement<TextUI::TextUI>("KEY", pBlock);
     text->setText("TEST");
 
     glfwSetErrorCallback(glfw_error_callback);
@@ -84,7 +89,7 @@ int main(int, char **) {
             static int counter = 0;
 
 
-            UI::Document::render();
+            document->render();
             ImGui::Begin(
                     "Hello, world!");                          // Create a window called "Hello, world!" and append into it.
 

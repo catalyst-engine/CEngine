@@ -2,8 +2,7 @@
 #define CATALYST_ENGINE_DOUBLE_LINKED_LIST_H
 #pragma once
 
-#include <cstdarg>
-#include <cstdlib>
+#include <cstddef>
 
 namespace Util::Basic {
     template<typename T>

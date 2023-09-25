@@ -1,6 +1,6 @@
 #define CATCH_CONFIG_MAIN
 
-#include "../../libs/catch2/catch.h"
+#include <catch.hpp>
 #include "../../src/util/DoubleLinkedList.h"
 #include "../../src/util/DynamicMap.h"
 

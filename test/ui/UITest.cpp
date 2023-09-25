@@ -1,9 +1,10 @@
 #define CATCH_CONFIG_MAIN
 
-#include "../../libs/catch2/catch.h"
-#include "../../src/ui/AbstractUIComponent.h"
+#include <catch.hpp>
+#include "../../src/ui/Document.cpp"
+#include "../../src/ui/components/UIComponent.cpp"
 
-class Test : public AbstractUIComponent {
+class Test : public UIComponent {
 public:
     void render() override {
 
@@ -11,13 +12,16 @@ public:
 };
 
 TEST_CASE("Should add element", "[ui-add]") {
-    UI::Document::addElement<Test>("c");
-    REQUIRE(UI::elements.getList()->getLength() == 1);
+    UI::Document document;
+    document.addElement<Test>("c", nullptr);
+    REQUIRE(document.getElements().getList()->getLength() == 1);
 }
 
 TEST_CASE("Should add child", "[ui-add-child]") {
-    Test *pTest = UI::Document::addElement<Test>("c");
-    pTest->addChild<Test>("2");
+
+    UI::Document document;
+    Test *pTest = document.addElement<Test>("c", nullptr);
+    document.addElement<Test>("2", pTest);
     REQUIRE(pTest->getChildren()->getLength() == 1);
-    REQUIRE(UI::elements.getList()->getLength() == 2);
+    REQUIRE(document.getElements().getList()->getLength() == 2);
 }
