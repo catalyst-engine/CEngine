@@ -1,0 +1,16 @@
+{
+  "name" : "catalyst-engine",
+  "version-string" : "1.0.0",
+  "builtin-baseline" : "5a38b5ec0eee3d1a1a6faab5e944617fee2697cf",
+  "dependencies" : [ {
+    "name" : "glfw3",
+    "version>=" : "3.3.8#2",
+    "$comment" : "  # this is heuristically generated, and may not be correct\n\n  find_package(glfw3 CONFIG REQUIRED)\n\n  target_link_libraries(main PRIVATE glfw)\n"
+  }, {
+    "name" : "imgui",
+    "version>=" : "1.89.9"
+  }, {
+    "name" : "imguizmo",
+    "version>=" : "1.83#1"
+  } ]
+}

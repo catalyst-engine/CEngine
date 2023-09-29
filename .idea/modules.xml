@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/catalyst-engine.iml" filepath="$PROJECT_DIR$/.idea/catalyst-engine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/editor.iml" filepath="$PROJECT_DIR$/.idea/editor.iml" />
     </modules>
   </component>
 </project>
