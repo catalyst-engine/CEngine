@@ -32,7 +32,7 @@ namespace Util::FS{
                 text += std::string(line);
             }
             file.close();
-            return "0";
+            return text;
         }
         else{
             return "-1";
