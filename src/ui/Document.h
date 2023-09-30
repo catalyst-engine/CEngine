@@ -3,14 +3,13 @@
 #define CATALYST_ENGINE_DOCUMENT_H
 
 #include "components/IComponent.h"
-#include "../util/DynamicMap.h"
+#include "../util/structures/DynamicMap.h"
 
-namespace UI {
-
+namespace Catalyst::ui {
     class Document {
     private:
-        DynamicMap<std::string, IComponent> elements;
-        Util::Basic::DoubleLinkedList<IComponent> roots;
+        util::structs::DynamicMap<std::string, IComponent> elements;
+        Catalyst::util::structs::List<IComponent> roots;
     public:
         void init();
 
@@ -21,7 +20,7 @@ namespace UI {
 
         void render();
 
-        DynamicMap<std::string, IComponent> getElements();
+        util::structs::DynamicMap<std::string, IComponent> getElements();
     };
 
 } // UI

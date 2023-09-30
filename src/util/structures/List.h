@@ -4,7 +4,7 @@
 
 #include <cstddef>
 
-namespace Util::Basic {
+namespace Catalyst::util::structs {
     template<typename T>
     struct ListItem {
         T *value;
@@ -15,7 +15,7 @@ namespace Util::Basic {
     };
 
     template<typename T>
-    class DoubleLinkedList {
+    class List {
     public:
         size_t getLength() {
             return length;
@@ -182,10 +182,10 @@ namespace Util::Basic {
         }
 
     private:
-        Util::Basic::ListItem<T> *start = nullptr;
-        Util::Basic::ListItem<T> *end = nullptr;
+        Catalyst::util::structs::ListItem <T> *start = nullptr;
+        Catalyst::util::structs::ListItem <T> *end = nullptr;
         size_t length = 0;
-        Util::Basic::ListItem<T> *iterator = nullptr;
+        Catalyst::util::structs::ListItem <T> *iterator = nullptr;
     };
 }
 

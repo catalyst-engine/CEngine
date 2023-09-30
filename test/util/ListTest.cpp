@@ -1,10 +1,10 @@
 #define CATCH_CONFIG_MAIN
-
-#include <catch.hpp>
-#include "../../src/util/DoubleLinkedList.h"
+#include <catch2/catch_test_macros.hpp>
+#include "../../src/util/structures/List.h"
+using namespace Catalyst::util::structs;
 
 TEST_CASE("Should add elements to list", "[list-add]") {
-    auto *list = new Util::Basic::DoubleLinkedList<int>();
+    auto *list = new List<int>();
     int value = 1;
     int value2 = 2;
     int value3 = 3;
@@ -16,7 +16,7 @@ TEST_CASE("Should add elements to list", "[list-add]") {
 }
 
 TEST_CASE("Should replaceAtIndex", "[list-replace]") {
-    auto *list = new Util::Basic::DoubleLinkedList<int>();
+    auto *list = new List<int>();
     int value = 1;
     int value2 = 2;
     list->push(&value);
@@ -27,7 +27,7 @@ TEST_CASE("Should replaceAtIndex", "[list-replace]") {
 }
 
 TEST_CASE("Should remove element from list", "[list-remove]") {
-    auto *list = new Util::Basic::DoubleLinkedList<int>();
+    auto *list = new List<int>();
     int value = 1;
     list->push(&value);
 
@@ -37,7 +37,7 @@ TEST_CASE("Should remove element from list", "[list-remove]") {
 }
 
 TEST_CASE("Should remove element from index", "[list-remove-index]") {
-    auto *list = new Util::Basic::DoubleLinkedList<int>();
+    auto *list = new List<int>();
     int value = 1;
     int value2 = 2;
     int value3 = 3;
@@ -52,7 +52,7 @@ TEST_CASE("Should remove element from index", "[list-remove-index]") {
 }
 
 TEST_CASE("Should iterate", "[list-iterate]") {
-    auto *list = new Util::Basic::DoubleLinkedList<int>();
+    auto *list = new List<int>();
     int value = 1;
     int value2 = 2;
     int value3 = 3;

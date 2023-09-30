@@ -1,7 +1,7 @@
 
 #include "Document.h"
 
-namespace UI {
+namespace Catalyst::ui {
     template<typename T>
     T *Document::addElement(std::string id, IComponent *parent) {
         if (elements.has(id)) {
@@ -34,7 +34,7 @@ namespace UI {
 
     }
 
-    DynamicMap<std::string, IComponent> Document::getElements() {
+    util::structs::DynamicMap<std::string, IComponent> Document::getElements() {
         return elements;
     }
 } // UI

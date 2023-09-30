@@ -4,26 +4,28 @@
 
 #include <string>
 
-class IComponent {
-public:
-    /**
-     * Updates component state
-     */
-    virtual void update() {}
+namespace Catalyst::ui {
+    class IComponent {
+    public:
+        /**
+         * Updates component state
+         */
+        virtual void update() {}
 
-    /**
-     * Renders component with state
-     */
-    virtual void render() {}
+        /**
+         * Renders component with state
+         */
+        virtual void render() {}
 
-    virtual void setId(std::string &newId) {}
+        virtual void setId(std::string &newId) {}
 
-    virtual std::string getId() {
-        return "";
-    }
+        virtual std::string getId() {
+            return "";
+        }
 
-    virtual void addChild(IComponent *child){}
+        virtual void addChild(IComponent *child) {}
 
-};
-
+    };
+}
 #endif //CATALYST_ENGINE_ICOMPONENT_H
+

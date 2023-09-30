@@ -1,11 +1,9 @@
 
 #include "TextUI.h"
 
-namespace TextUI {
-    ImFont *currentActiveFont = nullptr;
-
+namespace Catalyst::ui {
     void TextUI::render() {
-        bool isFontValid = TextUI::font != nullptr && TextUI::font != currentActiveFont;
+        bool isFontValid = TextUI::font != currentActiveFont;
         if (isFontValid) {
             ImGui::PopFont();
             ImGui::PushFont(TextUI::font);

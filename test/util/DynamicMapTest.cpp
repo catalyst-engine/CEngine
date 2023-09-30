@@ -1,8 +1,10 @@
 #define CATCH_CONFIG_MAIN
 
-#include <catch.hpp>
-#include "../../src/util/DoubleLinkedList.h"
-#include "../../src/util/DynamicMap.h"
+#include <catch2/catch_all.hpp>
+#include "../../src/util/structures/List.h"
+#include "../../src/util/structures/DynamicMap.h"
+
+using namespace Catalyst::util::structs;
 
 TEST_CASE("Should add elements", "[map-add]") {
     DynamicMap<const char *, int> map;
@@ -48,7 +50,7 @@ TEST_CASE("Should remove element", "[map-remove]") {
 }
 
 TEST_CASE("Should have element", "[map-get]") {
-    struct Test{
+    struct Test {
         int a;
     };
 
@@ -98,14 +100,14 @@ TEST_CASE("Should return keys", "[map-keys]") {
     map.set("two", &value2);
     map.set("three", &value3);
     auto keys = map.getKeys();
-    for(int i =0; i< 3; i++){
-        if(keys[i] == "one"){
+    for (int i = 0; i < 3; i++) {
+        if (keys[i] == "one") {
             existsKey1 = true;
         }
-        if(keys[i] == "two"){
+        if (keys[i] == "two") {
             existsKey2 = true;
         }
-        if(keys[i] == "three"){
+        if (keys[i] == "three") {
             existsKey3 = true;
         }
     }
