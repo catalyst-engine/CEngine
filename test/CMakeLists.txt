@@ -1,5 +1,5 @@
 set(CMAKE_CXX_STANDARD 23)
-add_executable(ui_test ui/UITest.cpp)
+add_executable(ui_test ui/DocumentTest.cpp)
 add_executable(dynamic_map_test util/DynamicMapTest.cpp)
 add_executable(list_test util/ListTest.cpp)
 

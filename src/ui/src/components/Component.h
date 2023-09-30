@@ -2,14 +2,14 @@
 #ifndef CATALYST_ENGINE_UICOMPONENT_H
 #define CATALYST_ENGINE_UICOMPONENT_H
 
-#include "../../util/structures/List.h"
-#include "../../util/structures/DynamicMap.h"
+#include "../../../util/structures/List.h"
+#include "../../../util/structures/DynamicMap.h"
 #include "AbstractComponent.h"
 
 namespace Catalyst::ui {
     class Component : public AbstractComponent {
     private:
-        Catalyst::util::structs::DynamicMap<std::string, AbstractComponent> children;
+        Catalyst::util::List<AbstractComponent> children;
         std::string id;
     public:
         /**
@@ -26,10 +26,7 @@ namespace Catalyst::ui {
 
         std::string getId() override;
 
-        Catalyst::util::structs::List<AbstractComponent> *getChildren();
-
-        void addChild(AbstractComponent *child) override;
-
+        Catalyst::util::List<AbstractComponent> *getChildren() override;
     protected:
         void renderChildren();
     };

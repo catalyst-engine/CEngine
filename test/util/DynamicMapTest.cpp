@@ -4,7 +4,7 @@
 #include "../../src/util/structures/List.h"
 #include "../../src/util/structures/DynamicMap.h"
 
-using namespace Catalyst::util::structs;
+using namespace Catalyst::util;
 
 TEST_CASE("Should add elements", "[map-add]") {
     DynamicMap<std::string, int> map;

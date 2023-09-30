@@ -3,6 +3,7 @@
 #define CATALYST_ENGINE_ICOMPONENT_H
 
 #include <string>
+#include "../../../util/structures/List.h"
 
 namespace Catalyst::ui {
     class AbstractComponent {
@@ -23,7 +24,9 @@ namespace Catalyst::ui {
             return "";
         }
 
-        virtual void addChild(AbstractComponent *child) {}
+        virtual Catalyst::util::List<AbstractComponent> *getChildren() {
+            return nullptr;
+        }
     };
 }
 #endif //CATALYST_ENGINE_ICOMPONENT_H

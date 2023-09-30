@@ -4,7 +4,7 @@
 
 #include <cstddef>
 
-namespace Catalyst::util::structs {
+namespace Catalyst::util {
     template<typename T>
     struct ListItem {
         T *value;
@@ -39,7 +39,7 @@ namespace Catalyst::util::structs {
             return nullptr;
         }
 
-        ListItem<T> *getItem(size_t index) {
+        Catalyst::util::ListItem<T> *getItem(size_t index) {
             int i = 0;
             ListItem<T> *current = start;
             while (i < index && current != nullptr) {
@@ -181,11 +181,19 @@ namespace Catalyst::util::structs {
             return value;
         }
 
+        Catalyst::util::ListItem<T> *getFirst() {
+            return start;
+        }
+
+        Catalyst::util::ListItem<T> *getLast() {
+            return end;
+        }
+
     private:
-        Catalyst::util::structs::ListItem <T> *start = nullptr;
-        Catalyst::util::structs::ListItem <T> *end = nullptr;
+        Catalyst::util::ListItem<T> *start = nullptr;
+        Catalyst::util::ListItem<T> *end = nullptr;
         size_t length = 0;
-        Catalyst::util::structs::ListItem <T> *iterator = nullptr;
+        Catalyst::util::ListItem<T> *iterator = nullptr;
     };
 }
 
