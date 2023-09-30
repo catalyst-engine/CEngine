@@ -30,13 +30,16 @@ endif ()
 add_executable(catalyst src/main.cpp
         src/util/structures/List.h
         src/util/structures/DynamicMap.h
-        src/ui/components/AbstractComponent.h
-        src/ui/components/Component.cpp
-        src/ui/components/Component.h
-        src/ui/Document.cpp
-        src/ui/Document.h
-        src/ui/components/Section.cpp
-        src/ui/components/Section.h
+        src/ui/src/components/AbstractComponent.h
+        src/ui/src/components/Component.cpp
+        src/ui/src/components/Component.h
+        src/ui/src/Document.cpp
+        src/ui/src/Document.h
+        src/ui/src/components/Section.cpp
+        src/ui/src/components/Section.h
+        src/ui/src/Window.cpp
+        src/ui/src/Window.h
+        src/ui/src/Window.cpp
 )
 
 target_link_libraries(catalyst PRIVATE

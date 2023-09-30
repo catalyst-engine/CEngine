@@ -6,19 +6,19 @@
 #include "unordered_map"
 #include "List.h"
 
-namespace Catalyst::util::structs{
+namespace Catalyst::util{
     template<typename K, typename V>
     class DynamicMap {
     private:
         std::unordered_map<K, V *> map;
-        Catalyst::util::structs::List<V> array;
+        List<V> array;
         size_t size = 0;
     public:
         std::unordered_map<K, V> *getMap() {
             return &map;
         }
 
-        Catalyst::util::structs::List<V> *getList() {
+        List<V> *getList() {
             return &array;
         }
 
