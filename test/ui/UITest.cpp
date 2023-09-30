@@ -1,9 +1,8 @@
-#define CATCH_CONFIG_MAIN
 #include <catch2/catch_test_macros.hpp>
 #include "../../src/ui/Document.cpp"
-#include "../../src/ui/components/UIComponent.cpp"
+#include "../../src/ui/components/Component.cpp"
 
-class Test : public Catalyst::ui::UIComponent {
+class Test : public Catalyst::ui::Component {
 public:
     void render() override {
 

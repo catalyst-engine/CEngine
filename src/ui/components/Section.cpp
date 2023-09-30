@@ -1,7 +1,6 @@
-
-#include "PanelUI.h"
+#include "Section.h"
 namespace Catalyst::ui {
-    void PanelUI::render() {
+    void Section::render() {
         ImGui::Begin("Hello, world 2!");
         renderChildren();
         ImGui::End();

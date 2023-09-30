@@ -10,6 +10,9 @@
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
+#include "ui/Document.h"
+#include "ui/components/Section.h"
+//#include "ui/components/PanelUI.h"
 #include <stdio.h>
 #define GL_SILENCE_DEPRECATION
 #if defined(IMGUI_IMPL_OPENGL_ES2)
@@ -37,6 +40,9 @@ static void glfw_error_callback(int error, const char* description)
 // Main code
 int main(int, char**)
 {
+    auto* doc = new Catalyst::ui::Document();
+    Catalyst::ui::Section* section = doc->addElement<Catalyst::ui::Section>("1", nullptr);
+
     glfwSetErrorCallback(glfw_error_callback);
     if (!glfwInit())
         return 1;
@@ -142,6 +148,8 @@ int main(int, char**)
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
+        doc->render();
+        section->render();
         // 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
         if (show_demo_window)
             ImGui::ShowDemoWindow(&show_demo_window);
@@ -150,6 +158,7 @@ int main(int, char**)
         {
             static float f = 0.0f;
             static int counter = 0;
+
 
             ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
 

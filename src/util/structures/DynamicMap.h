@@ -29,7 +29,7 @@ namespace Catalyst::util::structs{
         }
 
         void deleteKey(K key) {
-            if (!map.contains(key)) {
+            if (!has(key)) {
                 return;
             }
             V *value = map[key];
@@ -39,7 +39,7 @@ namespace Catalyst::util::structs{
         }
 
         void set(K key, V *value) {
-            if (map.contains(key)) {
+            if (has(key)) {
                 int index = array.indexOf(get(key));
                 array.replaceAt(index, value);
             } else {
@@ -50,7 +50,7 @@ namespace Catalyst::util::structs{
         }
 
         V *get(K key) {
-            if (!map.contains(key)) {
+            if (!has(key)) {
                 return nullptr;
             }
             return map[key];
@@ -73,7 +73,7 @@ namespace Catalyst::util::structs{
         }
 
         bool has(K key) {
-            return map.contains(key);
+            return map.count(key);
         }
     };
 }

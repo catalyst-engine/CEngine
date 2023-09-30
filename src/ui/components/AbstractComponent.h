@@ -5,7 +5,7 @@
 #include <string>
 
 namespace Catalyst::ui {
-    class IComponent {
+    class AbstractComponent {
     public:
         /**
          * Updates component state
@@ -23,8 +23,7 @@ namespace Catalyst::ui {
             return "";
         }
 
-        virtual void addChild(IComponent *child) {}
-
+        virtual void addChild(AbstractComponent *child) {}
     };
 }
 #endif //CATALYST_ENGINE_ICOMPONENT_H
