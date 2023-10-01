@@ -4,15 +4,14 @@
 #define CATALYST_VIEWFACTORY_H
 
 #include <string>
-#include "xercesc/util/XMLString.hpp"
 
 namespace Catalyst::ui {
-    class AbstractView;
+    class IView;
     class TextView;
     class SectionView;
     class ViewFactory {
     public:
-        static AbstractView *getViewByTag(const char *tag);
+        static IView *getViewByTag(const char *tag);
     };
 }
 #endif

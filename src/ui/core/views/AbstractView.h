@@ -12,7 +12,6 @@ namespace Catalyst::ui {
     private:
         Catalyst::util::List<IView> children;
         std::string id;
-        AbstractController *controller = nullptr;
     public:
         void setController(AbstractController *ctr);
 

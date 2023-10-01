@@ -7,7 +7,7 @@ namespace Catalyst::ui {
     }
 
     void AbstractView::update() {
-        if(controller != nullptr) {
+        if (controller != nullptr) {
             controller->update();
         }
     }
@@ -30,13 +30,5 @@ namespace Catalyst::ui {
             IView *next = children.next();
             next->render();
         }
-    }
-
-    void AbstractView::setController(AbstractController *ctr) {
-        controller = ctr;
-    }
-
-    AbstractController *AbstractView::getController() {
-        return controller;
     }
 }

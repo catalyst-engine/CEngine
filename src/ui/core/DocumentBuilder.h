@@ -3,26 +3,27 @@
 #define CATALYST_DOCUMENTBUILDER_H
 
 #include <iostream>
-#include <xercesc/parsers/XercesDOMParser.hpp>
-#include <xercesc/dom/DOM.hpp>
-#include <xercesc/sax/HandlerBase.hpp>
-#include <xercesc/util/XMLString.hpp>
-#include <xercesc/util/PlatformUtils.hpp>
-
+#include "pugixml.hpp"
 
 namespace Catalyst::ui {
     class Document;
+
     class ViewFactory;
+
     class ControllerFactory;
+
+    class IView;
 
     class DocumentBuilder {
     public:
-        static bool
-        parseAndValidateXML(const char *xmlFileName, const char *xsdFileName, Catalyst::ui::Document *document);
+        static bool loadFromXML(const char *xmlFileName, Catalyst::ui::Document *document);
 
     private:
         static void
-        loadIntoDocument(Document *document, xercesc_3_2::DOMDocument *dom);
+        loadIntoDocument(Document *document, pugi::xml_node root, IView *parent);
+
+        static void
+        processNode(pugi::xml_node node, Document *document, IView *parent);
     };
 
 }

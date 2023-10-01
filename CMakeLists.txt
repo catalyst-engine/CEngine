@@ -3,13 +3,17 @@ set(CMAKE_TOOLCHAIN_FILE "C:/src/vcpkg/scripts/buildsystems/vcpkg.cmake")
 
 project(catalyst)
 
+
+configure_file(src/ui/definitions/Schema.xsd Schema.xsd COPYONLY)
+configure_file(src/ui/definitions/Footer.xml Footer.xml COPYONLY)
+
 find_package(glad REQUIRED)
 find_package(glfw3 REQUIRED)
 find_package(glm REQUIRED)
 find_package(imgui REQUIRED)
 find_package(Catch2 REQUIRED)
 find_package(OpenGL REQUIRED)
-find_package(XercesC REQUIRED)
+find_package(pugixml CONFIG REQUIRED)
 
 set(CMAKE_CXX_STANDARD 23)
 
@@ -57,6 +61,8 @@ add_executable(catalyst src/main.cpp
         src/ui/stores/AbstractStore.h
         src/ui/core/ControllerFactory.cpp
         src/ui/core/ViewFactory.cpp
+        src/DEFINITIONS.h
+        src/ui/core/views/IView.cpp
 )
 
 target_link_libraries(catalyst PRIVATE
@@ -66,11 +72,9 @@ target_link_libraries(catalyst PRIVATE
         glm::glm
         imgui::imgui
         Catch2::Catch2
-        XercesC::XercesC
+        pugixml::shared pugixml::pugixml
         imm32
 )
 
 add_subdirectory(test)
 
-configure_file(src/ui/definitions/Schema.xsd Schema.xsd COPYONLY)
-configure_file(src/ui/definitions/Footer.xml Footer.xsd COPYONLY)

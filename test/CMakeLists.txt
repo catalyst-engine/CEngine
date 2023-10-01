@@ -5,9 +5,15 @@ add_executable(document_test ui/DocumentTest.cpp
         ../src/ui/core/controllers/AbstractController.cpp
         ../src/ui/core/ControllerFactory.cpp
         ../src/ui/core/ViewFactory.cpp
+        ../src/DEFINITIONS.h
+        ../src/ui/core/views/IView.cpp
 )
-add_executable(dynamic_map_test util/DynamicMapTest.cpp)
-add_executable(list_test util/ListTest.cpp)
+add_executable(dynamic_map_test util/DynamicMapTest.cpp
+        ../src/DEFINITIONS.h
+        ../src/ui/core/views/IView.cpp)
+add_executable(list_test util/ListTest.cpp
+        ../src/DEFINITIONS.h
+        ../src/ui/core/views/IView.cpp)
 add_executable(document_builder_test ui/DocumentBuilderTest.cpp
         ../src/util/structures/List.h
         ../src/util/structures/DynamicMap.h
@@ -29,6 +35,8 @@ add_executable(document_builder_test ui/DocumentBuilderTest.cpp
         ../src/ui/core/controllers/AbstractController.cpp
         ../src/ui/core/ControllerFactory.cpp
         ../src/ui/core/ViewFactory.cpp
+        ../src/DEFINITIONS.h
+        ../src/ui/core/views/IView.cpp
 )
 
 configure_file(ui/sampleUI.xml sampleUI.xml COPYONLY)
@@ -52,6 +60,8 @@ add_executable(window_test main_test.cpp
         ../src/ui/core/controllers/AbstractController.cpp
         ../src/ui/core/ControllerFactory.cpp
         ../src/ui/core/ViewFactory.cpp
+        ../src/DEFINITIONS.h
+        ../src/ui/core/views/IView.cpp
 )
 
 target_link_libraries(document_test
@@ -62,7 +72,7 @@ target_link_libraries(document_test
         glm::glm
         imgui::imgui
         Catch2::Catch2WithMain
-        XercesC::XercesC
+        pugixml::shared pugixml::pugixml
         imm32
 )
 
@@ -74,7 +84,7 @@ target_link_libraries(window_test PRIVATE
         glm::glm
         imgui::imgui
         Catch2::Catch2WithMain
-        XercesC::XercesC
+        pugixml::shared pugixml::pugixml
         imm32
 )
 
@@ -85,7 +95,7 @@ target_link_libraries(document_builder_test PRIVATE
         glm::glm
         imgui::imgui
         Catch2::Catch2WithMain
-        XercesC::XercesC
+        pugixml::shared pugixml::pugixml
         imm32
 )
 target_link_libraries(dynamic_map_test PRIVATE Catch2::Catch2WithMain)

@@ -4,9 +4,13 @@
 
 #include <string>
 #include "../../../util/structures/List.h"
+#include "pugixml.hpp"
 
 namespace Catalyst::ui {
+    class AbstractController;
     class IView {
+    protected:
+        AbstractController *controller = nullptr;
     public:
         /**
          * Updates component state
@@ -27,6 +31,12 @@ namespace Catalyst::ui {
         virtual Catalyst::util::List<IView> *getChildren() {
             return nullptr;
         }
+
+        virtual void load(pugi::xml_node node){}
+
+        void setController(AbstractController *ctr);
+
+        AbstractController *getController();
     };
 }
 #endif

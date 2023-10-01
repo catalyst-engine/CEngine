@@ -9,7 +9,7 @@ int main(int, char **) {
     if (!window.init()) {
         return 1;
     }
-    window.getDocument()->addElement<Catalyst::ui::SectionView>("SEC", nullptr);
+    Catalyst::ui::DocumentBuilder::loadFromXML("Footer.xml", window.getDocument());
     window.start();
     return 0;
 }
