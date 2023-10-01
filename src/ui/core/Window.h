@@ -1,6 +1,6 @@
+#pragma once
 #ifndef CATALYST_WINDOW_H
 #define CATALYST_WINDOW_H
-
 
 #include "imgui.h"
 #include "GLFW/glfw3.h"

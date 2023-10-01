@@ -1,4 +1,4 @@
-
+#pragma once
 #ifndef CATALYST_ENGINE_ICOMPONENT_H
 #define CATALYST_ENGINE_ICOMPONENT_H
 
@@ -6,7 +6,7 @@
 #include "../../../util/structures/List.h"
 
 namespace Catalyst::ui {
-    class AbstractComponent {
+    class IView {
     public:
         /**
          * Updates component state
@@ -24,10 +24,10 @@ namespace Catalyst::ui {
             return "";
         }
 
-        virtual Catalyst::util::List<AbstractComponent> *getChildren() {
+        virtual Catalyst::util::List<IView> *getChildren() {
             return nullptr;
         }
     };
 }
-#endif //CATALYST_ENGINE_ICOMPONENT_H
+#endif
 

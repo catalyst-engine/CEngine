@@ -1,0 +1,8 @@
+//
+// Created by russi on 10/1/2023.
+//
+
+#ifndef CATALYST_ABSTRACTSTORE_H
+#define CATALYST_ABSTRACTSTORE_H
+
+#endif //CATALYST_ABSTRACTSTORE_H

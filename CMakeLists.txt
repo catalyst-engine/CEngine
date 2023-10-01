@@ -9,6 +9,7 @@ find_package(glm REQUIRED)
 find_package(imgui REQUIRED)
 find_package(Catch2 REQUIRED)
 find_package(OpenGL REQUIRED)
+find_package(XercesC REQUIRED)
 
 set(CMAKE_CXX_STANDARD 23)
 
@@ -30,16 +31,32 @@ endif ()
 add_executable(catalyst src/main.cpp
         src/util/structures/List.h
         src/util/structures/DynamicMap.h
-        src/ui/src/components/AbstractComponent.h
-        src/ui/src/components/Component.cpp
-        src/ui/src/components/Component.h
-        src/ui/src/Document.cpp
-        src/ui/src/Document.h
-        src/ui/src/components/Section.cpp
-        src/ui/src/components/Section.h
-        src/ui/src/Window.cpp
-        src/ui/src/Window.h
-        src/ui/src/Window.cpp
+
+        src/ui/core/views/IView.h
+        src/ui/core/views/AbstractView.cpp
+        src/ui/core/views/AbstractView.h
+        src/ui/core/views/SectionView.cpp
+        src/ui/core/views/SectionView.h
+        src/ui/core/views/TextView.cpp
+        src/ui/core/views/TextView.h
+
+        src/ui/core/Document.cpp
+        src/ui/core/Document.h
+        src/ui/core/Window.cpp
+        src/ui/core/Window.h
+        src/ui/core/DocumentBuilder.cpp
+        src/ui/core/DocumentBuilder.h
+        src/ui/core/ViewFactory.h
+        src/ui/core/ControllerFactory.h
+        src/ui/core/controllers/TextController.cpp
+        src/ui/core/controllers/TextController.h
+
+        src/ui/core/controllers/AbstractController.cpp
+        src/ui/core/controllers/AbstractController.h
+
+        src/ui/stores/AbstractStore.h
+        src/ui/core/ControllerFactory.cpp
+        src/ui/core/ViewFactory.cpp
 )
 
 target_link_libraries(catalyst PRIVATE
@@ -49,7 +66,11 @@ target_link_libraries(catalyst PRIVATE
         glm::glm
         imgui::imgui
         Catch2::Catch2
+        XercesC::XercesC
         imm32
 )
 
 add_subdirectory(test)
+
+configure_file(src/ui/definitions/Schema.xsd Schema.xsd COPYONLY)
+configure_file(src/ui/definitions/Footer.xml Footer.xsd COPYONLY)

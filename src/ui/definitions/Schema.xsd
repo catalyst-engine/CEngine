@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:complexType name="TextView">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="controller" type="xs:string"/>
+                <xs:attribute name="id" type="xs:string"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="BlockView">
+        <xs:sequence>
+            <xs:element name="TextView" type="TextView" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="controller" type="xs:string"/>
+        <xs:attribute name="id" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="SectionView">
+        <xs:sequence>
+            <xs:element type="BlockView" name="BlockView" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="TextView" type="TextView" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="controller" type="xs:string"/>
+        <xs:attribute name="id" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:element name="Body">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="SectionView" name="SectionView" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
