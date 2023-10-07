@@ -2,7 +2,7 @@
 #ifndef CATALYST_ENGINE_DOCUMENT_H
 #define CATALYST_ENGINE_DOCUMENT_H
 
-#include "../../../util/structures/DynamicMap.h"
+#include "../../../util/structures/List.h"
 #include "../../../util/ILoggable.h"
 #include <string>
 

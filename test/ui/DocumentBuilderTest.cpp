@@ -1,6 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
 #include "../editor/ui/core/views/IView.h"
-#include "../editor/ui/core/controllers/TextController.cpp"
 #include "../editor/ui/core/Document.h"
 #include "../editor/ui/core/DocumentBuilder.h"
 

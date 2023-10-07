@@ -5,7 +5,8 @@ configure_file(editor/ui/definitions/Sample.xml Sample.xml COPYONLY)
 
 add_executable(catalyst main.cpp
         util/structures/List.h
-        util/structures/DynamicMap.h
+        util/structures/Map.cpp
+        util/structures/Map.h
         editor/ui/core/views/IView.h
         editor/ui/core/views/AbstractView.cpp
         editor/ui/core/views/AbstractView.h
@@ -32,6 +33,8 @@ add_executable(catalyst main.cpp
         DEFINITIONS.h
         util/ILoggable.cpp
         util/ILoggable.h
+        util/Timer.cpp
+        util/Timer.h
 )
 
 target_link_libraries(catalyst PRIVATE

@@ -1,12 +1,10 @@
 #include "DocumentBuilder.h"
 
 #include "views/IView.h"
-#include "views/TextView.h"
 #include "controllers/AbstractController.h"
 #include "Document.h"
 #include "ViewFactory.h"
 #include "ControllerFactory.h"
-#include "../../../DEFINITIONS.h"
 
 using namespace std;
 namespace Catalyst::ui {

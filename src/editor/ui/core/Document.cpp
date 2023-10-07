@@ -1,4 +1,3 @@
-
 #include "Document.h"
 #include "views/IView.h"
 
