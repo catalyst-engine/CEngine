@@ -9,6 +9,7 @@ namespace Catalyst::ui {
      * @return nullptr if not found or else IView*
      */
     IView *Document::getElementById(std::string id) {
+        CONSOLE_LOG("GETTING ELEMENT: {0}", id)
         Catalyst::util::ListItem<IView> *current = roots.getFirst();
         while (current != nullptr) {
             IView *found = searchFor(current, id);
@@ -21,6 +22,7 @@ namespace Catalyst::ui {
     }
 
     IView *Document::searchFor(Catalyst::util::ListItem<IView> *item, const std::string &id) {
+        CONSOLE_LOG("SEARCHING: {0}", id)
         if (item->value->getId() == id) {
             return item->value;
         }
@@ -61,20 +63,25 @@ namespace Catalyst::ui {
     }
 
     bool Document::addElement(std::string id, IView *component, IView *parent) {
+        CONSOLE_LOG("ADDING ELEMENT: {0}", id)
         IView *found = getElementById(id);
         if (found != nullptr) {
+            CONSOLE_LOG("ELEMENT FOUND WITH SAME ID: {0}", id)
             return false;
         }
         component->setId(id);
         bindElement(component, parent);
+        CONSOLE_LOG("ELEMENT ADDED: {0}", id)
         return true;
     }
 
     void Document::bindElement(IView *component, IView *parent) {
         if (parent != nullptr) {
+            CONSOLE_LOG("BINDING {0} TO {1}", component->getId(), parent->getId())
             Catalyst::util::List<IView> *children = parent->getChildren();
             children->push(component);
         } else {
+            CONSOLE_LOG("BINDING {0} TO ROOT", component->getId())
             roots.push(component);
         }
         elementsSize++;

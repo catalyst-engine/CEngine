@@ -7,6 +7,8 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 #include "Document.h"
+#include "DocumentBuilder.h"
+#include "../../../util/ILoggable.h"
 
 #define BACKGROUND_R .5
 #define BACKGROUND_G .5
@@ -16,13 +18,15 @@
 #define GLSL_VERSION "#version 130"
 
 namespace Catalyst::ui {
-    class Window {
+    class Window : public Catalyst::ILoggable {
     private:
+        const char *name;
         GLFWwindow *window = nullptr;
         ImGuiIO io;
         bool vsync = false;
         bool isRunning = false;
         Document document;
+        DocumentBuilder documentBuilder;
         int display_w = 0, display_h = 0;
 
         static void onError(int error, const char *description) {
@@ -50,6 +54,9 @@ namespace Catalyst::ui {
         void onShutdown();
 
     public:
+        explicit Window(const char *name) : Catalyst::ILoggable("Window") {
+            this->name = name;
+        }
 
         bool init();
 
@@ -58,6 +65,8 @@ namespace Catalyst::ui {
         GLFWwindow *getWindow();
 
         void start();
+
+        DocumentBuilder *getBuilder();
     };
 }
 #endif //CATALYST_WINDOW_H

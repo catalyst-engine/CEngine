@@ -6,13 +6,17 @@
 
 TEST_CASE("Should parse xml", "[document-parse]") {
     auto *doc = new Catalyst::ui::Document;
-    bool result = Catalyst::ui::DocumentBuilder::loadFromXML("sampleUI.xml", doc);
+    Catalyst::ui::DocumentBuilder builder;
+    builder.setDocument(doc);
+    bool result = builder.loadFromXML("sampleUI.xml");
     REQUIRE(result == true);
 }
 
 TEST_CASE("Should load XML", "[document-parse]") {
     auto *doc = new Catalyst::ui::Document;
-    bool result = Catalyst::ui::DocumentBuilder::loadFromXML("sampleUI.xml", doc);
+    Catalyst::ui::DocumentBuilder builder;
+    builder.setDocument(doc);
+    bool result = builder.loadFromXML("sampleUI.xml");
 
     REQUIRE(result == true);
     REQUIRE(doc->getElements().getLength() == 1);

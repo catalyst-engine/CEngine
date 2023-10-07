@@ -30,8 +30,8 @@ add_executable(catalyst main.cpp
         editor/ui/core/ViewFactory.cpp
         editor/ui/core/views/IView.cpp
         DEFINITIONS.h
-        util/AbstractLogger.cpp
-        util/AbstractLogger.h
+        util/ILoggable.cpp
+        util/ILoggable.h
 )
 
 target_link_libraries(catalyst PRIVATE

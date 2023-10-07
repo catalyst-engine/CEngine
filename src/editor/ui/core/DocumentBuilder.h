@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "pugixml.hpp"
+#include "../../../util/ILoggable.h"
 
 namespace Catalyst::ui {
     class Document;
@@ -14,16 +15,24 @@ namespace Catalyst::ui {
 
     class IView;
 
-    class DocumentBuilder {
-    public:
-        static bool loadFromXML(const char *xmlFileName, Catalyst::ui::Document *document);
-
+    class DocumentBuilder : public Catalyst::ILoggable {
     private:
-        static void
-        loadIntoDocument(Document *document, pugi::xml_node root, IView *parent);
+        Document *document;
 
-        static void
-        processNode(pugi::xml_node node, Document *document, IView *parent);
+        void
+        loadIntoDocument(pugi::xml_node root, IView *parent);
+
+        void
+        processNode(pugi::xml_node node, IView *parent);
+
+    public:
+        bool loadFromXML(const char *xmlFileName);
+
+        void setDocument(Document *doc) {
+            this->document = doc;
+        }
+
+        explicit DocumentBuilder() : Catalyst::ILoggable("DocumentBuilder") {}
     };
 
 }
