@@ -1,12 +1,15 @@
-#include "ui/src/Window.h"
-#include "ui/src/components/Section.h"
+#include "ui/core/Window.h"
+#include "ui/core/views/IView.h"
+#include "ui/core/Document.h"
+#include "ui/core/DocumentBuilder.h"
+#include "ui/core/views/SectionView.h"
 
 int main(int, char **) {
     Catalyst::ui::Window window{};
     if (!window.init()) {
         return 1;
     }
-    window.getDocument()->addElement<Catalyst::ui::Section>("SEC", nullptr);
+    Catalyst::ui::DocumentBuilder::loadFromXML("Sample.xml", window.getDocument());
     window.start();
     return 0;
 }

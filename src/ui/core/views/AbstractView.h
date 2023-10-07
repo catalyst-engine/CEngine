@@ -1,19 +1,19 @@
-
+#pragma once
 #ifndef CATALYST_ENGINE_UICOMPONENT_H
 #define CATALYST_ENGINE_UICOMPONENT_H
 
 #include "../../../util/structures/List.h"
 #include "../../../util/structures/DynamicMap.h"
-#include "AbstractComponent.h"
+#include "IView.h"
 
 namespace Catalyst::ui {
-    class Component : public AbstractComponent {
+    class AbstractView : public IView {
     private:
-        Catalyst::util::List<AbstractComponent> children;
+        Catalyst::util::List<IView> children;
         std::string id;
     public:
         /**
-        * Updates component state
+        * Updates component state by executing controller
         */
         void update() override;
 
@@ -26,7 +26,8 @@ namespace Catalyst::ui {
 
         std::string getId() override;
 
-        Catalyst::util::List<AbstractComponent> *getChildren() override;
+        Catalyst::util::List<IView> *getChildren() override;
+
     protected:
         void renderChildren();
     };
