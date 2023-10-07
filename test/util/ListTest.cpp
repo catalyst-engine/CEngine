@@ -68,6 +68,17 @@ TEST_CASE("Should get first item", "[list-first]") {
     REQUIRE(list->getFirst()->value == pInt);
 }
 
+TEST_CASE("Should get null as first item", "[list-first-null]") {
+    auto *list = new List<int>();
+    REQUIRE(list->getFirst() == nullptr);
+}
+
+
+TEST_CASE("Should get null as last item", "[list-last-null]") {
+    auto *list = new List<int>();
+    REQUIRE(list->getLast() == nullptr);
+}
+
 TEST_CASE("Should get last item", "[list-last]") {
     auto *list = getPopulatedList();
     int *pInt = list->get(2);

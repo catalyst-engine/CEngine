@@ -1,4 +1,5 @@
 #include "Window.h"
+
 namespace Catalyst::ui {
     void Window::createWindowIO() {
         IMGUI_CHECKVERSION();
@@ -19,7 +20,8 @@ namespace Catalyst::ui {
     }
 
     bool Window::createWindow() {
-        window = glfwCreateWindow(1280, 720, "Dear ImGui GLFW+OpenGL3 example", nullptr, nullptr);
+        CONSOLE_LOG("CREATING WINDOW: {0}", name)
+        window = glfwCreateWindow(1280, 720, name, nullptr, nullptr);
         if (window == nullptr) {
             return false;
         }
@@ -33,8 +35,6 @@ namespace Catalyst::ui {
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
-        bool t = true;
-        ImGui::ShowDemoWindow(&t);
         document.render();
     }
 
@@ -62,6 +62,7 @@ namespace Catalyst::ui {
     }
 
     void Window::onShutdown() {
+        CONSOLE_LOG("SHUTTING DOWN")
         ImGui_ImplOpenGL3_Shutdown();
         ImGui_ImplGlfw_Shutdown();
         ImGui::DestroyContext();
@@ -72,18 +73,18 @@ namespace Catalyst::ui {
 
 
     bool Window::init() {
+        CONSOLE_LOG("INITIALIZING...")
         glfwSetErrorCallback(onError);
         if (!glfwInit()) {
+            CONSOLE_ERROR("ERROR INITIALIZING GLFW")
             return false;
         }
-
-        document = Document();
-
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
         bool isWindowCreated = createWindow();
         if (!isWindowCreated) {
+            CONSOLE_ERROR("ERROR CREATING WINDOW")
             return false;
         }
 
@@ -94,14 +95,15 @@ namespace Catalyst::ui {
 
         ImGui_ImplGlfw_InitForOpenGL(window, true);
         ImGui_ImplOpenGL3_Init(GLSL_VERSION);
+        CONSOLE_LOG("WINDOW CREATED")
         return true;
     }
 
-    Document* Window::getDocument() {
+    Document *Window::getDocument() {
         return &document;
     }
 
-    GLFWwindow* Window::getWindow() {
+    GLFWwindow *Window::getWindow() {
         return window;
     }
 
@@ -114,5 +116,10 @@ namespace Catalyst::ui {
             render();
         }
         onShutdown();
+    }
+
+    DocumentBuilder *Window::getBuilder() {
+        documentBuilder.setDocument(&document);
+        return &documentBuilder;
     }
 }

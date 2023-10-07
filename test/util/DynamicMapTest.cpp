@@ -1,5 +1,3 @@
-#define CATCH_CONFIG_MAIN
-
 #include <catch2/catch_all.hpp>
 #include "../../src/util/structures/List.h"
 #include "../../src/util/structures/DynamicMap.h"

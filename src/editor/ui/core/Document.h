@@ -2,20 +2,25 @@
 #ifndef CATALYST_ENGINE_DOCUMENT_H
 #define CATALYST_ENGINE_DOCUMENT_H
 
-#include "../../util/structures/DynamicMap.h"
+#include "../../../util/structures/DynamicMap.h"
+#include "../../../util/ILoggable.h"
 #include <string>
 
 namespace Catalyst::ui {
     class IView;
-    class Document {
+
+    class Document : public Catalyst::ILoggable {
     private:
         Catalyst::util::List<IView> roots;
 
-        static IView *searchFor(Catalyst::util::ListItem<IView> *item, const std::string &id);
+        IView *searchFor(Catalyst::util::ListItem<IView> *item, const std::string &id);
 
         size_t elementsSize = 0;
+
         void bindElement(IView *component, IView *parent);
+
     public:
+        explicit Document() : Catalyst::ILoggable("Document") {}
 
         void init();
 
@@ -23,7 +28,7 @@ namespace Catalyst::ui {
 
         void render();
 
-        size_t quantityOfElements();
+        size_t quantityOfElements() const;
 
         Catalyst::util::List<IView> getElements();
 
@@ -42,6 +47,6 @@ namespace Catalyst::ui {
         bool addElement(std::string id, IView *component, IView *parent);
     };
 
-} // UI
+}
 
-#endif //CATALYST_ENGINE_DOCUMENT_H
+#endif

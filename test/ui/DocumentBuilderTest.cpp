@@ -1,17 +1,22 @@
 #include <catch2/catch_test_macros.hpp>
-#include "../../src/ui/core/views/IView.h"
-#include "../../src/ui/core/controllers/TextController.cpp"
-#include "../../src/ui/core/Document.h"
-#include "../../src/ui/core/DocumentBuilder.h"
+#include "../editor/ui/core/views/IView.h"
+#include "../editor/ui/core/controllers/TextController.cpp"
+#include "../editor/ui/core/Document.h"
+#include "../editor/ui/core/DocumentBuilder.h"
 
 TEST_CASE("Should parse xml", "[document-parse]") {
-    bool result = Catalyst::ui::DocumentBuilder::loadFromXML("sampleUI.xml", nullptr);
+    auto *doc = new Catalyst::ui::Document;
+    Catalyst::ui::DocumentBuilder builder;
+    builder.setDocument(doc);
+    bool result = builder.loadFromXML("sampleUI.xml");
     REQUIRE(result == true);
 }
 
 TEST_CASE("Should load XML", "[document-parse]") {
     auto *doc = new Catalyst::ui::Document;
-    bool result = Catalyst::ui::DocumentBuilder::loadFromXML("sampleUI.xml", doc);
+    Catalyst::ui::DocumentBuilder builder;
+    builder.setDocument(doc);
+    bool result = builder.loadFromXML("sampleUI.xml");
 
     REQUIRE(result == true);
     REQUIRE(doc->getElements().getLength() == 1);
