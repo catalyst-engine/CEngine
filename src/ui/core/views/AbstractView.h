@@ -7,16 +7,11 @@
 #include "IView.h"
 
 namespace Catalyst::ui {
-    class AbstractController;
     class AbstractView : public IView {
     private:
         Catalyst::util::List<IView> children;
         std::string id;
     public:
-        void setController(AbstractController *ctr);
-
-        AbstractController *getController();
-
         /**
         * Updates component state by executing controller
         */

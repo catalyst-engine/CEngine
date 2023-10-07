@@ -5,7 +5,7 @@ project(catalyst)
 
 
 configure_file(src/ui/definitions/Schema.xsd Schema.xsd COPYONLY)
-configure_file(src/ui/definitions/Footer.xml Footer.xml COPYONLY)
+configure_file(src/ui/definitions/Sample.xml Footer.xml COPYONLY)
 
 find_package(glad REQUIRED)
 find_package(glfw3 REQUIRED)

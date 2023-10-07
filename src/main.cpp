@@ -9,7 +9,7 @@ int main(int, char **) {
     if (!window.init()) {
         return 1;
     }
-    Catalyst::ui::DocumentBuilder::loadFromXML("Footer.xml", window.getDocument());
+    Catalyst::ui::DocumentBuilder::loadFromXML("Sample.xml", window.getDocument());
     window.start();
     return 0;
 }
