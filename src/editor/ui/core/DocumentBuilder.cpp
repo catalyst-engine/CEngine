@@ -6,7 +6,7 @@
 #include "Document.h"
 #include "ViewFactory.h"
 #include "ControllerFactory.h"
-#include "../../DEFINITIONS.h"
+#include "../../../DEFINITIONS.h"
 
 using namespace std;
 namespace Catalyst::ui {

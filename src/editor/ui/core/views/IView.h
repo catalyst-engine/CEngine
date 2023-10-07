@@ -3,7 +3,7 @@
 #define CATALYST_ENGINE_ICOMPONENT_H
 
 #include <string>
-#include "../../../util/structures/List.h"
+#include "../../../../util/structures/List.h"
 #include "pugixml.hpp"
 
 namespace Catalyst::ui {

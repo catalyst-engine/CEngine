@@ -1,4 +1,5 @@
 #include "Window.h"
+
 namespace Catalyst::ui {
     void Window::createWindowIO() {
         IMGUI_CHECKVERSION();
@@ -33,8 +34,6 @@ namespace Catalyst::ui {
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
-        bool t = true;
-        ImGui::ShowDemoWindow(&t);
         document.render();
     }
 
