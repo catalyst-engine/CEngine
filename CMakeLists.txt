@@ -9,6 +9,7 @@ find_package(imgui REQUIRED)
 find_package(Catch2 REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(pugixml CONFIG REQUIRED)
+find_package(spdlog CONFIG REQUIRED)
 
 
 set(CMAKE_TOOLCHAIN_FILE "C:/src/vcpkg/scripts/buildsystems/vcpkg.cmake")

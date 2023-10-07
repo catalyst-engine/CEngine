@@ -56,7 +56,7 @@ namespace Catalyst::ui {
         return roots;
     }
 
-    size_t Document::quantityOfElements() {
+    size_t Document::quantityOfElements() const {
         return elementsSize;
     }
 

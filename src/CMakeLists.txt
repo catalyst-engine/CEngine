@@ -30,6 +30,8 @@ add_executable(catalyst main.cpp
         editor/ui/core/ViewFactory.cpp
         editor/ui/core/views/IView.cpp
         DEFINITIONS.h
+        util/AbstractLogger.cpp
+        util/AbstractLogger.h
 )
 
 target_link_libraries(catalyst PRIVATE
@@ -41,6 +43,7 @@ target_link_libraries(catalyst PRIVATE
         Catch2::Catch2
         pugixml::shared pugixml::pugixml
         imm32
+        spdlog::spdlog_header_only
 )
 
 

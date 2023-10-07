@@ -10,7 +10,7 @@
 
 using namespace std;
 namespace Catalyst::ui {
-    bool DocumentBuilder::loadFromXML(const char *xmlFileName, Catalyst::ui::Document *document) {
+    bool DocumentBuilder::loadFromXML(const char *xmlFileName, Document *document) {
         pugi::xml_document doc;
         pugi::xml_parse_result result = doc.load_file(xmlFileName);
         if (!result)

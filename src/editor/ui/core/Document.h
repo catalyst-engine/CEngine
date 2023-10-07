@@ -23,7 +23,7 @@ namespace Catalyst::ui {
 
         void render();
 
-        size_t quantityOfElements();
+        size_t quantityOfElements() const;
 
         Catalyst::util::List<IView> getElements();
 

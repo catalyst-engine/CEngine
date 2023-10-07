@@ -1,3 +1,16 @@
+set(COMMON_LIBRARIES
+        ${OPENGL_gl_LIBRARY}
+        glad::glad
+        glfw
+        glm::glm
+        imgui::imgui
+        Catch2::Catch2WithMain
+        pugixml::shared pugixml::pugixml
+        imm32
+        spdlog::spdlog_header_only
+)
+
+include_directories(../src/editor)
 add_executable(document_test ui/DocumentTest.cpp
         ../src/editor/ui/core/ControllerFactory.h
         ../src/editor/ui/core/controllers/AbstractController.h
@@ -63,39 +76,8 @@ add_executable(window_test main_test.cpp
         ../src/editor/ui/core/views/IView.cpp
 )
 
-target_link_libraries(document_test
-        PRIVATE
-        ${OPENGL_gl_LIBRARY}
-        glad::glad
-        glfw
-        glm::glm
-        imgui::imgui
-        Catch2::Catch2WithMain
-        pugixml::shared pugixml::pugixml
-        imm32
-)
-
-
-target_link_libraries(window_test PRIVATE
-        ${OPENGL_gl_LIBRARY}
-        glad::glad
-        glfw
-        glm::glm
-        imgui::imgui
-        Catch2::Catch2WithMain
-        pugixml::shared pugixml::pugixml
-        imm32
-)
-
-target_link_libraries(document_builder_test PRIVATE
-        ${OPENGL_gl_LIBRARY}
-        glad::glad
-        glfw
-        glm::glm
-        imgui::imgui
-        Catch2::Catch2WithMain
-        pugixml::shared pugixml::pugixml
-        imm32
-)
-target_link_libraries(dynamic_map_test PRIVATE Catch2::Catch2WithMain)
-target_link_libraries(list_test PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(document_test PRIVATE ${COMMON_LIBRARIES})
+target_link_libraries(window_test PRIVATE ${COMMON_LIBRARIES})
+target_link_libraries(document_builder_test PRIVATE ${COMMON_LIBRARIES})
+target_link_libraries(dynamic_map_test PRIVATE ${COMMON_LIBRARIES})
+target_link_libraries(list_test PRIVATE ${COMMON_LIBRARIES})

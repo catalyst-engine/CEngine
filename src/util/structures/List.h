@@ -16,7 +16,17 @@ namespace Catalyst::util {
 
     template<typename T>
     class List {
+    private:
+        Catalyst::util::ListItem<T> *start{};
+        Catalyst::util::ListItem<T> *end{};
+        Catalyst::util::ListItem<T> *iterator{};
+        size_t length = 0;
     public:
+        List(){
+            start = nullptr;
+            end = nullptr;
+            iterator = nullptr;
+        }
         size_t getLength() {
             return length;
         }
@@ -188,12 +198,6 @@ namespace Catalyst::util {
         Catalyst::util::ListItem<T> *getLast() {
             return end;
         }
-
-    private:
-        Catalyst::util::ListItem<T> *start = nullptr;
-        Catalyst::util::ListItem<T> *end = nullptr;
-        size_t length = 0;
-        Catalyst::util::ListItem<T> *iterator = nullptr;
     };
 }
 
