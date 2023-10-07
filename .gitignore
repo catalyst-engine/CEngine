@@ -6,8 +6,6 @@ CMakeFiles/
 CMakeCache.txt
 CMakeScripts/
 Makefile
-CMakeFiles/
-CMakeScripts/
 CMakeTmp/
 compile_commands.json
 vcpkg_installed/

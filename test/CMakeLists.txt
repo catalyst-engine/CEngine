@@ -12,8 +12,14 @@ set(COMMON_LIBRARIES
 
 set(SOURCES
         ../src/util/structures/List.h
-        ../src/util/structures/DynamicMap.h
+        ../src/util/structures/Map.cpp
+        ../src/util/structures/Map.h
+
+        ../src/util/Timer.cpp
+        ../src/util/Timer.h
+
         ../src/editor/ui/core/views/IView.h
+        ../src/editor/ui/core/views/IView.cpp
         ../src/editor/ui/core/views/AbstractView.cpp
         ../src/editor/ui/core/views/AbstractView.h
         ../src/editor/ui/core/views/SectionView.cpp
@@ -35,7 +41,6 @@ set(SOURCES
         ../src/editor/ui/stores/AbstractStore.h
         ../src/editor/ui/core/ControllerFactory.cpp
         ../src/editor/ui/core/ViewFactory.cpp
-        ../src/editor/ui/core/views/IView.cpp
         ../src/util/ILoggable.cpp
         ../src/util/ILoggable.h
         ../src/DEFINITIONS.h
@@ -43,21 +48,24 @@ set(SOURCES
 )
 
 include_directories(../src/editor)
+include_directories(../src/util)
 
 add_executable(document_test ui/DocumentTest.cpp ${SOURCES})
-add_executable(dynamic_map_test util/DynamicMapTest.cpp ${SOURCES})
+add_executable(map_test util/MapTest.cpp ${SOURCES})
 add_executable(list_test util/ListTest.cpp ${SOURCES})
 add_executable(document_builder_test ui/DocumentBuilderTest.cpp ${SOURCES})
 add_executable(window_test main_test.cpp ${SOURCES})
 add_executable(logger_test util/LoggerTest.cpp ${SOURCES})
+add_executable(timer_test util/TimerTest.cpp ${SOURCES})
 
 configure_file(ui/sampleUI.xml sampleUI.xml COPYONLY)
 configure_file(../src/editor/ui/definitions/Schema.xsd Schema.xsd COPYONLY)
 
 
+target_link_libraries(timer_test PRIVATE ${COMMON_LIBRARIES})
 target_link_libraries(document_test PRIVATE ${COMMON_LIBRARIES})
 target_link_libraries(logger_test PRIVATE ${COMMON_LIBRARIES})
 target_link_libraries(window_test PRIVATE ${COMMON_LIBRARIES})
 target_link_libraries(document_builder_test PRIVATE ${COMMON_LIBRARIES})
-target_link_libraries(dynamic_map_test PRIVATE ${COMMON_LIBRARIES})
+target_link_libraries(map_test PRIVATE ${COMMON_LIBRARIES})
 target_link_libraries(list_test PRIVATE ${COMMON_LIBRARIES})

@@ -3,7 +3,7 @@
 #define CATALYST_ENGINE_UICOMPONENT_H
 
 #include "../../../../util/structures/List.h"
-#include "../../../../util/structures/DynamicMap.h"
+#include "../../../../util/structures/Map.h"
 #include "IView.h"
 
 namespace Catalyst::ui {

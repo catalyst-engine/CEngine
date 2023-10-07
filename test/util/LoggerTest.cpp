@@ -1,5 +1,5 @@
 #include <catch2/catch_all.hpp>
-#include "../../src/util/ILoggable.cpp"
+#include "../../src/util/ILoggable.h"
 
 class Example : public Catalyst::ILoggable {
 public:
@@ -7,19 +7,19 @@ public:
     }
 
     void log() {
-        CONSOLE_LOG("EXAMPLE {0}", "INJECT");
+        CONSOLE_LOG("EXAMPLE {0}", "INJECT")
     }
 
     void warn() {
-        CONSOLE_WARN("EXAMPLE {0}", "INJECT");
+        CONSOLE_WARN("EXAMPLE {0}", "INJECT")
     }
 
     void error() {
-        CONSOLE_ERROR("EXAMPLE {0}", "INJECT");
+        CONSOLE_ERROR("EXAMPLE {0}", "INJECT")
     }
 
     void trace() {
-        CONSOLE_TRACE("EXAMPLE {0}", "INJECT");
+        CONSOLE_TRACE("EXAMPLE {0}", "INJECT")
     }
 
     bool hasLogger() {
