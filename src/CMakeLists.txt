@@ -47,6 +47,8 @@ add_executable(catalyst main.cpp
         engine/components/IComponent.h
         engine/Engine.cpp
         engine/Engine.h
+        util/UUID.h
+        util/UUID.cpp
 )
 
 target_link_libraries(catalyst PRIVATE

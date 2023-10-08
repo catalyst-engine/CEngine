@@ -12,6 +12,8 @@ set(COMMON_LIBRARIES
 )
 
 set(SOURCES
+        ../src/util/UUID.cpp
+        ../src/util/UUID.h
         ../src/util/structures/List.h
         ../src/util/structures/Map.cpp
         ../src/util/structures/Map.h
@@ -60,6 +62,8 @@ set(SOURCES
         ../src/util/debug/ILoggable.h
         ../src/editor/ui/DEFINITIONS.h
         imgui_demo.cpp
+
+
 )
 
 include_directories(../src/editor)

@@ -6,6 +6,7 @@
 #include "WorldRegistry.h"
 
 namespace Catalyst::engine {
+    class WorldRegistry;
     /**
      * For manipulating data
      * */
