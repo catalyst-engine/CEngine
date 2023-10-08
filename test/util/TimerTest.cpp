@@ -1,6 +1,6 @@
 #include <catch2/catch_all.hpp>
 #include "../../src/util/structures/Map.cpp"
-#include "../../src/util/Timer.h"
+#include "debug/Timer.h"
 
 using namespace Catalyst;
 

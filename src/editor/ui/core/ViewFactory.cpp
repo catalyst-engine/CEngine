@@ -3,7 +3,7 @@
 #include "views/IView.h"
 #include "views/TextView.h"
 #include "views/SectionView.h"
-#include "../../../DEFINITIONS.h"
+#include "ui/DEFINITIONS.h"
 
 namespace Catalyst::ui {
     IView *ui::ViewFactory::getViewByTag(const char *tag) {

@@ -1,5 +1,5 @@
 #include <catch2/catch_all.hpp>
-#include "../../src/util/ILoggable.h"
+#include "debug/ILoggable.h"
 
 class Example : public Catalyst::ILoggable {
 public:

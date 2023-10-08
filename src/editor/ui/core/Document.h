@@ -3,7 +3,7 @@
 #define CATALYST_ENGINE_DOCUMENT_H
 
 #include "../../../util/structures/List.h"
-#include "../../../util/ILoggable.h"
+#include "debug/ILoggable.h"
 #include <string>
 
 namespace Catalyst::ui {

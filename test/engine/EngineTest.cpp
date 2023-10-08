@@ -1,0 +1,30 @@
+#include <catch2/catch_test_macros.hpp>
+#include "entt/entt.hpp"
+#include "../../src/engine/components/CMetadata.h"
+#include "../../src/engine/world/World.h"
+#include "../../src/engine/Engine.h"
+
+using namespace Catalyst;
+
+TEST_CASE("Should add entity", "[add-entity]") {
+    engine::World *world = Engine::getWorld();
+    engine::WorldRegistry *reg = Engine::getRegistry();
+    entt::entity entity = world->addEntity();
+    bool found = false;
+    auto v = reg->getRegistry()->view<engine::CMetadata>();
+    for(auto ent : v){
+        if(ent == entity){
+            found = true;
+        }
+    }
+    REQUIRE(found == true);
+}
+
+//TEST_CASE("Should have component", "[has-component]") {
+//    REQUIRE(result == true);
+//}
+//
+//TEST_CASE("Should remove entity", "[remove-entity]") {
+//
+//    REQUIRE(result == true);
+//}
