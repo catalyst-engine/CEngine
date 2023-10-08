@@ -2,6 +2,7 @@
 #define CATALYST_WORLDREGISTRY_H
 
 #include "entt/entt.hpp"
+#include "debug/ILoggable.h"
 
 namespace Catalyst::engine {
     class CMetadata;
@@ -9,19 +10,26 @@ namespace Catalyst::engine {
     /**
      * For querying data and storing registry
      * */
-    class WorldRegistry {
+    class WorldRegistry : public ILoggable {
     private:
         entt::registry worldReg;
     public:
+
+        explicit WorldRegistry() : ILoggable("WorldRegistry") {}
+
         entt::registry *getRegistry();
 
-        template<class T>
-        T *getComponent(entt::entity ent);
-
-        template<class T>
-        bool hasComponent(entt::entity ent);
-
         CMetadata *getEntityMetadata(entt::entity ent);
+
+        template<class T>
+        T *getComponent(entt::entity ent) {
+            return worldReg.get<T>(ent);
+        }
+
+        template<class T>
+        bool hasComponent(entt::entity ent) {
+            return worldReg.all_of<T>(ent);
+        }
     };
 
 }
