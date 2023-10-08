@@ -8,15 +8,32 @@ set(COMMON_LIBRARIES
         imm32
         spdlog::spdlog
         Catch2::Catch2WithMain
+        EnTT::EnTT
 )
 
 set(SOURCES
+        ../src/util/UUID.cpp
+        ../src/util/UUID.h
         ../src/util/structures/List.h
         ../src/util/structures/Map.cpp
         ../src/util/structures/Map.h
 
-        ../src/util/Timer.cpp
-        ../src/util/Timer.h
+        ../src/util/debug/Timer.cpp
+        ../src/util/debug/Timer.h
+
+        ../src/engine/Engine.cpp
+        ../src/engine/Engine.h
+
+        ../src/engine/world/World.cpp
+        ../src/engine/world/World.h
+
+        ../src/engine/world/WorldRegistry.cpp
+        ../src/engine/world/WorldRegistry.h
+
+        ../src/engine/components/IComponent.h
+
+        ../src/engine/components/CMetadata.cpp
+        ../src/engine/components/CMetadata.h
 
         ../src/editor/ui/core/views/IView.h
         ../src/editor/ui/core/views/IView.cpp
@@ -41,16 +58,19 @@ set(SOURCES
         ../src/editor/ui/stores/AbstractStore.h
         ../src/editor/ui/core/ControllerFactory.cpp
         ../src/editor/ui/core/ViewFactory.cpp
-        ../src/util/ILoggable.cpp
-        ../src/util/ILoggable.h
-        ../src/DEFINITIONS.h
+        ../src/util/debug/ILoggable.cpp
+        ../src/util/debug/ILoggable.h
+        ../src/editor/ui/DEFINITIONS.h
         imgui_demo.cpp
+
+
 )
 
 include_directories(../src/editor)
 include_directories(../src/util)
 
 add_executable(document_test ui/DocumentTest.cpp ${SOURCES})
+add_executable(engine_test engine/EngineTest.cpp ${SOURCES})
 add_executable(map_test util/MapTest.cpp ${SOURCES})
 add_executable(list_test util/ListTest.cpp ${SOURCES})
 add_executable(document_builder_test ui/DocumentBuilderTest.cpp ${SOURCES})
@@ -62,6 +82,7 @@ configure_file(ui/sampleUI.xml sampleUI.xml COPYONLY)
 configure_file(../src/editor/ui/definitions/Schema.xsd Schema.xsd COPYONLY)
 
 
+target_link_libraries(engine_test PRIVATE ${COMMON_LIBRARIES})
 target_link_libraries(timer_test PRIVATE ${COMMON_LIBRARIES})
 target_link_libraries(document_test PRIVATE ${COMMON_LIBRARIES})
 target_link_libraries(logger_test PRIVATE ${COMMON_LIBRARIES})

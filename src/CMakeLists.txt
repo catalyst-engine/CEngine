@@ -30,11 +30,25 @@ add_executable(catalyst main.cpp
         editor/ui/core/ControllerFactory.cpp
         editor/ui/core/ViewFactory.cpp
         editor/ui/core/views/IView.cpp
-        DEFINITIONS.h
-        util/ILoggable.cpp
-        util/ILoggable.h
-        util/Timer.cpp
-        util/Timer.h
+        editor/ui/DEFINITIONS.h
+        util/debug/ILoggable.cpp
+        util/debug/ILoggable.h
+        util/debug/Timer.cpp
+        util/debug/Timer.h
+
+        engine/world/World.cpp
+        engine/world/World.h
+
+        engine/world/WorldRegistry.cpp
+        engine/world/WorldRegistry.h
+
+        engine/components/CMetadata.cpp
+        engine/components/CMetadata.h
+        engine/components/IComponent.h
+        engine/Engine.cpp
+        engine/Engine.h
+        util/UUID.h
+        util/UUID.cpp
 )
 
 target_link_libraries(catalyst PRIVATE
@@ -43,10 +57,10 @@ target_link_libraries(catalyst PRIVATE
         glfw
         glm::glm
         imgui::imgui
-        Catch2::Catch2
         pugixml::shared pugixml::pugixml
         imm32
         spdlog::spdlog_header_only
+        EnTT::EnTT
 )
 
 
