@@ -1,5 +1,5 @@
 #include "Timer.h"
-#include "structures/Map.cpp"
+#include "../structures/Map.cpp"
 
 namespace Catalyst {
     util::Map<const char *, long long> Timer::state;

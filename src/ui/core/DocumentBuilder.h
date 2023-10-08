@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include "pugixml.hpp"
-#include "debug/ILoggable.h"
+#include "../../util/debug/ILoggable.h"
 
 namespace Catalyst::ui {
     class Document;

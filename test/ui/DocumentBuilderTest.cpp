@@ -1,9 +1,20 @@
 #include <catch2/catch_test_macros.hpp>
-#include "../editor/ui/core/views/IView.h"
-#include "../editor/ui/core/Document.h"
-#include "../editor/ui/core/DocumentBuilder.h"
+#include <string>
+#include "../util/structures/Map.h"
+#include "../ui/core/views/IView.h"
+#include "../ui/core/controllers/AbstractController.h"
+#include "../ui/core/ViewFactory.h"
+#include "../ui/core/ControllerFactory.h"
+#include "../ui/core/Document.h"
+#include "../ui/core/DocumentBuilder.h"
+
+void init() {
+    Catalyst::ui::ViewFactory::init();
+    Catalyst::ui::ControllerFactory::init();
+}
 
 TEST_CASE("Should parse xml", "[document-parse]") {
+    init();
     auto *doc = new Catalyst::ui::Document;
     Catalyst::ui::DocumentBuilder builder;
     builder.setDocument(doc);
@@ -12,6 +23,7 @@ TEST_CASE("Should parse xml", "[document-parse]") {
 }
 
 TEST_CASE("Should load XML", "[document-parse]") {
+    init();
     auto *doc = new Catalyst::ui::Document;
     Catalyst::ui::DocumentBuilder builder;
     builder.setDocument(doc);

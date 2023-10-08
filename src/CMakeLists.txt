@@ -1,36 +1,32 @@
-include_directories(editor)
+include_directories(windows/editor)
 
-configure_file(editor/ui/definitions/Schema.xsd Schema.xsd COPYONLY)
-configure_file(editor/ui/definitions/Sample.xml Sample.xml COPYONLY)
+configure_file(ui/Schema.xsd Schema.xsd COPYONLY)
+configure_file(windows/editor/views/EditorView.xml EditorView.xml COPYONLY)
 
 add_executable(catalyst main.cpp
         util/structures/List.h
         util/structures/Map.cpp
         util/structures/Map.h
-        editor/ui/core/views/IView.h
-        editor/ui/core/views/AbstractView.cpp
-        editor/ui/core/views/AbstractView.h
-        editor/ui/core/views/SectionView.cpp
-        editor/ui/core/views/SectionView.h
-        editor/ui/core/views/TextView.cpp
-        editor/ui/core/views/TextView.h
-        editor/ui/core/Document.cpp
-        editor/ui/core/Document.h
-        editor/ui/core/Window.cpp
-        editor/ui/core/Window.h
-        editor/ui/core/DocumentBuilder.cpp
-        editor/ui/core/DocumentBuilder.h
-        editor/ui/core/ViewFactory.h
-        editor/ui/core/ControllerFactory.h
-        editor/ui/core/controllers/TextController.cpp
-        editor/ui/core/controllers/TextController.h
-        editor/ui/core/controllers/AbstractController.cpp
-        editor/ui/core/controllers/AbstractController.h
-        editor/ui/stores/AbstractStore.h
-        editor/ui/core/ControllerFactory.cpp
-        editor/ui/core/ViewFactory.cpp
-        editor/ui/core/views/IView.cpp
-        editor/ui/DEFINITIONS.h
+        ui/core/views/IView.h
+        ui/core/views/AbstractView.cpp
+        ui/core/views/AbstractView.h
+        ui/core/views/SectionView.cpp
+        ui/core/views/SectionView.h
+        ui/core/views/TextView.cpp
+        ui/core/views/TextView.h
+        ui/core/Document.cpp
+        ui/core/Document.h
+        ui/core/Window.cpp
+        ui/core/Window.h
+        ui/core/DocumentBuilder.cpp
+        ui/core/DocumentBuilder.h
+        ui/core/ViewFactory.h
+        ui/core/ControllerFactory.h
+        ui/core/controllers/AbstractController.cpp
+        ui/core/controllers/AbstractController.h
+        ui/core/ControllerFactory.cpp
+        ui/core/ViewFactory.cpp
+        ui/core/views/IView.cpp
         util/debug/ILoggable.cpp
         util/debug/ILoggable.h
         util/debug/Timer.cpp
@@ -49,6 +45,12 @@ add_executable(catalyst main.cpp
         engine/Engine.h
         util/UUID.h
         util/UUID.cpp
+        windows/editor/controllers/EditorController.cpp
+        windows/editor/controllers/EditorController.h
+        windows/editor/Editor.cpp
+        windows/editor/Editor.h
+        windows/editor/stores/SelectionStore.cpp
+        windows/editor/stores/SelectionStore.h
 )
 
 target_link_libraries(catalyst PRIVATE

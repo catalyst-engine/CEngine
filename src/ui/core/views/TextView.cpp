@@ -16,4 +16,8 @@ namespace Catalyst::ui {
     void TextView::load(pugi::xml_node node) {
         setText(node.text().as_string());
     }
+
+    IView *TextView::copy() {
+        return new TextView;
+    }
 }

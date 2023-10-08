@@ -2,8 +2,8 @@
 #ifndef CATALYST_ENGINE_DOCUMENT_H
 #define CATALYST_ENGINE_DOCUMENT_H
 
-#include "../../../util/structures/List.h"
-#include "debug/ILoggable.h"
+#include "../../util/structures/List.h"
+#include "../../util/debug/ILoggable.h"
 #include <string>
 
 namespace Catalyst::ui {

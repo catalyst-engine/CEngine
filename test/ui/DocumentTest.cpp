@@ -1,7 +1,7 @@
 #include <catch2/catch_test_macros.hpp>
-#include "../editor/ui/core/views/IView.h"
-#include "../editor/ui/core/views/AbstractView.h"
-#include "../editor/ui/core/Document.h"
+#include "../ui/core/views/IView.h"
+#include "../ui/core/views/AbstractView.h"
+#include "../ui/core/Document.h"
 
 class Test : public Catalyst::ui::AbstractView {
 public:

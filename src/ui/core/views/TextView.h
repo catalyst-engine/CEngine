@@ -12,7 +12,7 @@ namespace Catalyst::ui {
         void setText(std::string textV);
         void render() override;
         void load(pugi::xml_node node) override;
-
+        IView * copy() override;
     };
 }
 

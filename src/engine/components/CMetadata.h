@@ -1,9 +1,9 @@
 #ifndef CATALYST_CMETADATA_H
 #define CATALYST_CMETADATA_H
 
-#include "UUID.h"
 #include "IComponent.h"
 #include "imgui.h"
+#include "../../util/UUID.h"
 
 namespace Catalyst::engine {
 

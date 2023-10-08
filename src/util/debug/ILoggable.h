@@ -15,6 +15,10 @@ namespace Catalyst {
     private:
         std::shared_ptr<spdlog::logger> logger;
     public:
+        static std::shared_ptr<spdlog::logger> getNewLogger(const char *name) {
+            return spdlog::stdout_color_mt(name);
+        }
+
         explicit ILoggable(const char *name);
 
         spdlog::level::level_enum getLoggingLevel();

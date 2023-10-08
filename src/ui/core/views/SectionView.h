@@ -20,6 +20,7 @@ namespace Catalyst::ui {
         void render() override;
 
         void load(pugi::xml_node node) override;
+        IView * copy() override;
     };
 }
 

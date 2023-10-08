@@ -8,7 +8,6 @@
 #include "imgui_impl_opengl3.h"
 #include "Document.h"
 #include "DocumentBuilder.h"
-#include "debug/ILoggable.h"
 
 #define BACKGROUND_R .5
 #define BACKGROUND_G .5

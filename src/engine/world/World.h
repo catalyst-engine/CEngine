@@ -4,7 +4,6 @@
 
 #include "entt/entt.hpp"
 #include "WorldRegistry.h"
-#include "debug/ILoggable.h"
 
 namespace Catalyst::engine {
     /**

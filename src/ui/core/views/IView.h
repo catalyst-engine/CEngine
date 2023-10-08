@@ -3,11 +3,12 @@
 #define CATALYST_ENGINE_ICOMPONENT_H
 
 #include <string>
-#include "../../../../util/structures/List.h"
 #include "pugixml.hpp"
+#include "../../../util/structures/List.h"
 
 namespace Catalyst::ui {
     class AbstractController;
+
     class IView {
     protected:
         AbstractController *controller = nullptr;
@@ -32,11 +33,13 @@ namespace Catalyst::ui {
             return nullptr;
         }
 
-        virtual void load(pugi::xml_node node){}
+        virtual void load(pugi::xml_node node) {}
 
         void setController(AbstractController *ctr);
 
         AbstractController *getController();
+
+        virtual IView *copy() { return nullptr; }
     };
 }
 #endif

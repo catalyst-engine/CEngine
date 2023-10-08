@@ -5,6 +5,7 @@
 
 namespace Catalyst::ui {
     class IView;
+
     class AbstractController {
     protected:
         IView *view = nullptr;
@@ -21,6 +22,8 @@ namespace Catalyst::ui {
         virtual void update() {
 
         }
+
+        virtual AbstractController *copy() { return nullptr; }
     };
 }
 #endif
