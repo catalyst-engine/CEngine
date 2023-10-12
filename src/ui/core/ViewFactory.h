@@ -10,16 +10,16 @@ namespace Catalyst::util {
 }
 
 namespace Catalyst::ui {
-    class IView;
+    class IElement;
 
-    class TextView;
+    class EText;
 
-    class SectionView;
+    class ESection;
 
     class ViewFactory {
     private:
-        static Catalyst::util::Map<std::string, IView*> registered;
-        static void registerViewInternal(const char *name, IView* view);
+        static Catalyst::util::Map<std::string, IElement*> registered;
+        static void registerViewInternal(const char *name, IElement* view);
     public:
         template<class T>
         static void registerView(const char *name) {
@@ -28,7 +28,7 @@ namespace Catalyst::ui {
 
         static void init();
 
-        static IView *getViewByTag(const char *tag);
+        static IElement *getViewByTag(const char *tag);
     };
 }
 #endif

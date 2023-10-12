@@ -1,8 +1,8 @@
 #include <catch2/catch_test_macros.hpp>
-#include "../ui/elements/IView.h"
+#include "../ui/elements/IElement.h"
 #include "../ui/core/Document.h"
 
-class Test : public Catalyst::ui::IView {
+class Test : public Catalyst::ui::IElement {
 public:
     void render() override {
 
@@ -19,7 +19,7 @@ TEST_CASE("Should add child", "[document-add-child]") {
     Catalyst::ui::Document document;
     Test *created = document.addElement<Test>("c", nullptr);
     document.addElement<Test>("2", created);
-    Catalyst::ui::IView *found = document.getElementById("c");
+    Catalyst::ui::IElement *found = document.getElementById("c");
     REQUIRE(created->getChildren()->getLength() == 1);
     REQUIRE(document.quantityOfElements() == 2);
     REQUIRE(found == created);
@@ -33,11 +33,11 @@ TEST_CASE("Should find deep child", "[document-getbyid]") {
     Test *created4 = document.addElement<Test>("4", created3);
     Test *created5 = document.addElement<Test>("5", created4);
 
-    Catalyst::ui::IView *found5 = document.getElementById("5");
-    Catalyst::ui::IView *found4 = document.getElementById("4");
-    Catalyst::ui::IView *found3 = document.getElementById("3");
-    Catalyst::ui::IView *found2 = document.getElementById("2");
-    Catalyst::ui::IView *found1 = document.getElementById("1");
+    Catalyst::ui::IElement *found5 = document.getElementById("5");
+    Catalyst::ui::IElement *found4 = document.getElementById("4");
+    Catalyst::ui::IElement *found3 = document.getElementById("3");
+    Catalyst::ui::IElement *found2 = document.getElementById("2");
+    Catalyst::ui::IElement *found1 = document.getElementById("1");
 
     REQUIRE(found5 == created5);
     REQUIRE(found4 == created4);

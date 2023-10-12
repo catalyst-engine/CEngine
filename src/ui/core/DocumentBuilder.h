@@ -11,19 +11,17 @@ namespace Catalyst::ui {
 
     class ViewFactory;
 
-    class ControllerFactory;
-
-    class IView;
+    class IElement;
 
     class DocumentBuilder : public Catalyst::ILoggable {
     private:
         Document *document;
 
         void
-        loadIntoDocument(pugi::xml_node root, IView *parent);
+        loadIntoDocument(pugi::xml_node root, IElement *parent);
 
         void
-        processNode(pugi::xml_node node, IView *parent);
+        processNode(pugi::xml_node node, IElement *parent);
 
     public:
         bool loadFromXML(const char *xmlFileName);

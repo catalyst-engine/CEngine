@@ -6,8 +6,8 @@
 #include "GLFW/glfw3.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
-#include "Document.h"
-#include "DocumentBuilder.h"
+#include "../../ui/core/Document.h"
+#include "../../ui/core/DocumentBuilder.h"
 
 #define BACKGROUND_R .5
 #define BACKGROUND_G .5

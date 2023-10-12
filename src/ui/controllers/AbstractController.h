@@ -4,15 +4,15 @@
 
 
 namespace Catalyst::ui {
-    class IView;
+    class IElement;
 
     class AbstractController {
     protected:
-        IView *view = nullptr;
+        IElement *view = nullptr;
     public:
-        void bindView(IView *pView);
+        void bindView(IElement *pView);
 
-        IView *getBoundView();
+        IElement *getBoundView();
 
         bool isValid();
 

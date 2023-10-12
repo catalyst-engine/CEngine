@@ -1,13 +1,13 @@
 #pragma once
-#ifndef CATALYST_SECTIONVIEW_H
-#define CATALYST_SECTIONVIEW_H
+#ifndef CATALYST_ESECTION_H
+#define CATALYST_ESECTION_H
 
 
 #include "imgui.h"
-#include "IView.h"
+#include "IElement.h"
 
 namespace Catalyst::ui {
-    class SectionView : public IView {
+    class ESection : public IElement {
     private:
         std::string title;
         ImVec2 size = ImVec2(10, 10);
@@ -20,8 +20,8 @@ namespace Catalyst::ui {
         void render() override;
 
         void collectAttributes(pugi::xml_node node) override;
-        IView * copy() override;
+        IElement * copy() override;
     };
 }
 
-#endif //CATALYST_SECTIONVIEW_H
+#endif //CATALYST_ESECTION_H

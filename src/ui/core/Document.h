@@ -7,25 +7,25 @@
 #include <string>
 
 namespace Catalyst::ui {
-    class IView;
+    class IElement;
 
     class AbstractController;
 
     class Document : public Catalyst::ILoggable {
     private:
-        Catalyst::util::List<IView> views;
+        Catalyst::util::List<IElement> views;
         Catalyst::util::List<AbstractController> controllers;
 
-        IView *searchFor(Catalyst::util::ListItem<IView> *item, const std::string &id);
+        IElement *searchFor(Catalyst::util::ListItem<IElement> *item, const std::string &id);
 
         size_t elementsSize = 0;
 
-        void bindElement(IView *component, IView *parent);
+        void bindElement(IElement *component, IElement *parent);
 
     public:
         explicit Document() : Catalyst::ILoggable("Document") {}
 
-        IView *getElementById(std::string id);
+        IElement *getElementById(std::string id);
 
         void render();
 
@@ -33,11 +33,11 @@ namespace Catalyst::ui {
 
         size_t quantityOfElements() const;
 
-        Catalyst::util::List<IView> getElements();
+        Catalyst::util::List<IElement> getElements();
 
         template<class T>
-        T *addElement(std::string id, IView *parent) {
-            IView *found = getElementById(id);
+        T *addElement(std::string id, IElement *parent) {
+            IElement *found = getElementById(id);
             if (found != nullptr) {
                 return (T *) found;
             }
@@ -47,7 +47,7 @@ namespace Catalyst::ui {
             return component;
         }
 
-        bool addElement(std::string id, IView *component, IView *parent);
+        bool addElement(std::string id, IElement *component, IElement *parent);
 
     };
 

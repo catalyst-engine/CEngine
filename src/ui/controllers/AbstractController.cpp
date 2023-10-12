@@ -1,12 +1,12 @@
 #include "AbstractController.h"
-#include "../elements//IView.h"
+#include "../elements//IElement.h"
 
 namespace Catalyst::ui {
-    void AbstractController::bindView(IView *pView) {
+    void AbstractController::bindView(IElement *pView) {
         this->view = pView;
     }
 
-    IView *AbstractController::getBoundView() {
+    IElement *AbstractController::getBoundView() {
         return view;
     }
 

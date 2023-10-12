@@ -1,16 +1,12 @@
 #include <catch2/catch_test_macros.hpp>
 #include <string>
 #include "../util/structures/Map.h"
-#include "../ui/elements/IView.h"
-#include "../ui/controllers/AbstractController.h"
 #include "../ui/core/ViewFactory.h"
-#include "../ui/core/ControllerFactory.h"
 #include "../ui/core/Document.h"
 #include "../ui/core/DocumentBuilder.h"
 
 void init() {
     Catalyst::ui::ViewFactory::init();
-    Catalyst::ui::ControllerFactory::init();
 }
 
 TEST_CASE("Should parse xml", "[document-parse]") {

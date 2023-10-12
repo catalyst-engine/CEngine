@@ -1,27 +1,27 @@
 #include "ViewFactory.h"
 #include <string>
-#include "../elements/IView.h"
-#include "../elements/TextView.h"
-#include "../elements/SectionView.h"
+#include "../elements/IElement.h"
+#include "../elements/EText.h"
+#include "../elements/ESection.h"
 #include "../../util/structures/Map.cpp"
 
 namespace Catalyst::ui {
-    Catalyst::util::Map<std::string, IView *> ViewFactory::registered;
+    Catalyst::util::Map<std::string, IElement *> ViewFactory::registered;
 
-    IView *ViewFactory::getViewByTag(const char *tag) {
+    IElement *ViewFactory::getViewByTag(const char *tag) {
         if (!registered.has(tag)) {
             return nullptr;
         }
-        IView *existing = registered.get(tag);
+        IElement *existing = registered.get(tag);
         return existing->copy();
     }
 
     void ViewFactory::init() {
-        registerView<SectionView>("SectionView");
-        registerView<TextView>("TextView");
+        registerView<ESection>("ESection");
+        registerView<EText>("EText");
     }
 
-    void ViewFactory::registerViewInternal(const char *name, IView *view) {
+    void ViewFactory::registerViewInternal(const char *name, IElement *view) {
         registered.set(name, view);
     }
 }

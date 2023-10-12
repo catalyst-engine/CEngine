@@ -1,5 +1,5 @@
-#include "ui/core/Window.h"
-#include "ui/elements/IView.h"
+#include "windows/core/Window.h"
+#include "ui/elements/IElement.h"
 #include "Editor.h"
 
 int main(int, char **) {

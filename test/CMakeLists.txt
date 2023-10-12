@@ -35,25 +35,23 @@ set(SOURCES
         ../src/engine/components/CMetadata.cpp
         ../src/engine/components/CMetadata.h
 
-        ../src/ui/elements/IView.h
-        ../src/ui/elements/IView.cpp
-        ../src/ui/elements/SectionView.cpp
-        ../src/ui/elements/SectionView.h
-        ../src/ui/elements/TextView.cpp
-        ../src/ui/elements/TextView.h
+        ../src/ui/elements/IElement.h
+        ../src/ui/elements/IElement.cpp
+        ../src/ui/elements/ESection.cpp
+        ../src/ui/elements/ESection.h
+        ../src/ui/elements/EText.cpp
+        ../src/ui/elements/EText.h
         ../src/ui/core/Document.cpp
         ../src/ui/core/Document.h
-        ../src/ui/core/Window.cpp
-        ../src/ui/core/Window.h
+        ../src/windows/core/Window.cpp
+        ../src/windows/core/Window.h
         ../src/ui/core/DocumentBuilder.cpp
         ../src/ui/core/DocumentBuilder.h
         ../src/ui/core/ViewFactory.h
-        ../src/ui/core/ControllerFactory.h
 
         ../src/ui/controllers/AbstractController.cpp
         ../src/ui/controllers/AbstractController.h
 
-        ../src/ui/core/ControllerFactory.cpp
         ../src/ui/core/ViewFactory.cpp
         ../src/util/debug/ILoggable.cpp
         ../src/util/debug/ILoggable.h

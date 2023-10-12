@@ -1,10 +1,9 @@
 #include "DocumentBuilder.h"
 
-#include "../elements/IView.h"
+#include "../elements/IElement.h"
 #include "../controllers/AbstractController.h"
 #include "Document.h"
 #include "ViewFactory.h"
-#include "ControllerFactory.h"
 #include "../../util/UUID.h"
 
 using namespace std;
@@ -26,7 +25,7 @@ namespace Catalyst::ui {
         return true;
     }
 
-    void DocumentBuilder::loadIntoDocument(pugi::xml_node root, IView *parent) {
+    void DocumentBuilder::loadIntoDocument(pugi::xml_node root, IElement *parent) {
         CONSOLE_LOG("LOADING ROOT {0}", root.name())
 
         for (pugi::xml_node node: root.children()) {
@@ -34,11 +33,11 @@ namespace Catalyst::ui {
         }
     }
 
-    void DocumentBuilder::processNode(pugi::xml_node node, IView *parent) {
+    void DocumentBuilder::processNode(pugi::xml_node node, IElement *parent) {
         const char *tagName = node.name();
         CONSOLE_LOG("PROCESSING NODE {0}", tagName)
         const char *idAttr = node.attribute("id").as_string();
-        IView *pView = Catalyst::ui::ViewFactory::getViewByTag(tagName);
+        IElement *pView = Catalyst::ui::ViewFactory::getViewByTag(tagName);
         if (pView != nullptr) {
             if (strlen(idAttr) == 0) {
                  document->addElement(Catalyst::UUID::v4(), pView, parent);

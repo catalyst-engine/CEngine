@@ -7,9 +7,9 @@
 #include "../../util/structures/List.h"
 
 namespace Catalyst::ui {
-    class IView {
+    class IElement {
     private:
-        Catalyst::util::List<IView> children;
+        Catalyst::util::List<IElement> children;
         std::string id;
     public:
         virtual void render();
@@ -18,11 +18,11 @@ namespace Catalyst::ui {
 
         virtual std::string getId();
 
-        virtual Catalyst::util::List<IView> *getChildren();
+        virtual Catalyst::util::List<IElement> *getChildren();
 
         virtual void collectAttributes(pugi::xml_node node) {}
 
-        virtual IView *copy() { return nullptr; }
+        virtual IElement *copy() { return nullptr; }
 
         void renderChildren();
     };

@@ -1,19 +1,19 @@
 #pragma once
-#ifndef CATALYST_TEXTVIEW_H
-#define CATALYST_TEXTVIEW_H
+#ifndef CATALYST_ETEXT_H
+#define CATALYST_ETEXT_H
 
 #include <string>
-#include "IView.h"
+#include "IElement.h"
 
 namespace Catalyst::ui {
-    class TextView : public IView {
+    class EText : public IElement {
         std::string text;
     public:
         void setText(std::string textV);
         void render() override;
         void collectAttributes(pugi::xml_node node) override;
-        IView * copy() override;
+        IElement * copy() override;
     };
 }
 
-#endif //CATALYST_TEXTVIEW_H
+#endif //CATALYST_ETEXT_H

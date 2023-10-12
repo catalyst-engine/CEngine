@@ -1,17 +1,17 @@
 #include "Document.h"
-#include "../elements/IView.h"
+#include "../elements/IElement.h"
 
 namespace Catalyst::ui {
     /**
      * This operation is not cheap, try to cache the entity instead of querying every frame
      * @param id
-     * @return nullptr if not found or else IView*
+     * @return nullptr if not found or else IElement*
      */
-    IView *Document::getElementById(std::string id) {
+    IElement *Document::getElementById(std::string id) {
         CONSOLE_LOG("GETTING ELEMENT: {0}", id)
-        Catalyst::util::ListItem<IView> *current = views.getFirst();
+        Catalyst::util::ListItem<IElement> *current = views.getFirst();
         while (current != nullptr) {
-            IView *found = searchFor(current, id);
+            IElement *found = searchFor(current, id);
             if (found != nullptr) {
                 return found;
             }
@@ -20,19 +20,19 @@ namespace Catalyst::ui {
         return nullptr;
     }
 
-    IView *Document::searchFor(Catalyst::util::ListItem<IView> *item, const std::string &id) {
+    IElement *Document::searchFor(Catalyst::util::ListItem<IElement> *item, const std::string &id) {
         CONSOLE_LOG("SEARCHING: {0}", id)
         if (item->value->getId() == id) {
             return item->value;
         }
 
-        Catalyst::util::List<IView> *children = item->value->getChildren();
-        Catalyst::util::ListItem<IView> *child = children->getFirst();
+        Catalyst::util::List<IElement> *children = item->value->getChildren();
+        Catalyst::util::ListItem<IElement> *child = children->getFirst();
         while (child != nullptr) {
             if (child->value->getId() == id) {
                 return child->value;
             }
-            IView *found = searchFor(child, id);
+            IElement *found = searchFor(child, id);
             if (found != nullptr) {
                 return found;
             }
@@ -44,7 +44,7 @@ namespace Catalyst::ui {
     void Document::render() {
         views.iterate();
         while (views.hasNext()) {
-            IView *next = views.next();
+            IElement *next = views.next();
             next->render();
         }
     }
@@ -53,7 +53,7 @@ namespace Catalyst::ui {
         // TODO
     }
 
-    Catalyst::util::List<IView> Document::getElements() {
+    Catalyst::util::List<IElement> Document::getElements() {
         return views;
     }
 
@@ -61,9 +61,9 @@ namespace Catalyst::ui {
         return elementsSize;
     }
 
-    bool Document::addElement(std::string id, IView *component, IView *parent) {
+    bool Document::addElement(std::string id, IElement *component, IElement *parent) {
         CONSOLE_LOG("ADDING ELEMENT: {0}", id)
-        IView *found = getElementById(id);
+        IElement *found = getElementById(id);
         if (found != nullptr) {
             CONSOLE_LOG("ELEMENT FOUND WITH SAME ID: {0}", id)
             return false;
@@ -74,10 +74,10 @@ namespace Catalyst::ui {
         return true;
     }
 
-    void Document::bindElement(IView *component, IView *parent) {
+    void Document::bindElement(IElement *component, IElement *parent) {
         if (parent != nullptr) {
             CONSOLE_LOG("BINDING {0} TO {1}", component->getId(), parent->getId())
-            Catalyst::util::List<IView> *children = parent->getChildren();
+            Catalyst::util::List<IElement> *children = parent->getChildren();
             children->push(component);
         } else {
             CONSOLE_LOG("BINDING {0} TO ROOT", component->getId())
