@@ -1,9 +1,8 @@
 #include <catch2/catch_test_macros.hpp>
-#include "../ui/core/views/IView.h"
-#include "../ui/core/views/AbstractView.h"
+#include "../ui/elements/IView.h"
 #include "../ui/core/Document.h"
 
-class Test : public Catalyst::ui::AbstractView {
+class Test : public Catalyst::ui::IView {
 public:
     void render() override {
 

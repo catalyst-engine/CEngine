@@ -1,5 +1,5 @@
 #include "AbstractController.h"
-#include "../views/IView.h"
+#include "../elements//IView.h"
 
 namespace Catalyst::ui {
     void AbstractController::bindView(IView *pView) {

@@ -13,7 +13,7 @@ namespace Catalyst::ui {
         text = std::move(textV);
     }
 
-    void TextView::load(pugi::xml_node node) {
+    void TextView::collectAttributes(pugi::xml_node node) {
         setText(node.text().as_string());
     }
 

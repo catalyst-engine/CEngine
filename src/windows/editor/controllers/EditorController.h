@@ -1,7 +1,7 @@
 #ifndef CATALYST_EDITORCONTROLLER_H
 #define CATALYST_EDITORCONTROLLER_H
 
-#include "../../../ui/core/controllers/AbstractController.h"
+#include "../../../ui/controllers/AbstractController.h"
 #include "spdlog/logger.h"
 
 namespace Catalyst::editor {

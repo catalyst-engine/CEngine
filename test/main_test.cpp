@@ -1,7 +1,6 @@
-#include "../src/editor/ui/core/Window.h"
-#include "../src/editor/ui/core/views/TextView.cpp"
-#include "../src/editor/ui/core/controllers/TextController.cpp"
-#include "../src/editor/ui/core/views/SectionView.h"
+#include "../src/ui/core/Window.h"
+#include "../src/ui/elements/TextView.cpp"
+#include "../src/ui/elements/SectionView.h"
 
 int main(int, char **) {
     Catalyst::ui::Window window("MAIN");

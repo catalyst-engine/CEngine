@@ -1,8 +1,8 @@
 #include <catch2/catch_test_macros.hpp>
 #include <string>
 #include "../util/structures/Map.h"
-#include "../ui/core/views/IView.h"
-#include "../ui/core/controllers/AbstractController.h"
+#include "../ui/elements/IView.h"
+#include "../ui/controllers/AbstractController.h"
 #include "../ui/core/ViewFactory.h"
 #include "../ui/core/ControllerFactory.h"
 #include "../ui/core/Document.h"
@@ -22,7 +22,7 @@ TEST_CASE("Should parse xml", "[document-parse]") {
     REQUIRE(result == true);
 }
 
-TEST_CASE("Should load XML", "[document-parse]") {
+TEST_CASE("Should collectAttributes XML", "[document-parse]") {
     init();
     auto *doc = new Catalyst::ui::Document;
     Catalyst::ui::DocumentBuilder builder;

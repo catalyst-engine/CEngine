@@ -3,15 +3,15 @@
 #define CATALYST_TEXTVIEW_H
 
 #include <string>
-#include "AbstractView.h"
+#include "IView.h"
 
 namespace Catalyst::ui {
-    class TextView : public AbstractView {
+    class TextView : public IView {
         std::string text;
     public:
         void setText(std::string textV);
         void render() override;
-        void load(pugi::xml_node node) override;
+        void collectAttributes(pugi::xml_node node) override;
         IView * copy() override;
     };
 }

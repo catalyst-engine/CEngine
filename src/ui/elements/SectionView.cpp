@@ -7,7 +7,7 @@ namespace Catalyst::ui {
         ImGui::End();
     }
 
-    void SectionView::load(pugi::xml_node node) {
+    void SectionView::collectAttributes(pugi::xml_node node) {
         title = node.attribute("title").as_string();
     }
 

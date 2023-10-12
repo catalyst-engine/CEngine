@@ -4,10 +4,10 @@
 
 
 #include "imgui.h"
-#include "AbstractView.h"
+#include "IView.h"
 
 namespace Catalyst::ui {
-    class SectionView : public AbstractView {
+    class SectionView : public IView {
     private:
         std::string title;
         ImVec2 size = ImVec2(10, 10);
@@ -19,7 +19,7 @@ namespace Catalyst::ui {
 
         void render() override;
 
-        void load(pugi::xml_node node) override;
+        void collectAttributes(pugi::xml_node node) override;
         IView * copy() override;
     };
 }

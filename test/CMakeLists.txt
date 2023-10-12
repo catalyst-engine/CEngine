@@ -35,14 +35,12 @@ set(SOURCES
         ../src/engine/components/CMetadata.cpp
         ../src/engine/components/CMetadata.h
 
-        ../src/ui/views/IView.h
-        ../src/ui/views/IView.cpp
-        ../src/ui/views/AbstractView.cpp
-        ../src/ui/views/AbstractView.h
-        ../src/ui/views/SectionView.cpp
-        ../src/ui/views/SectionView.h
-        ../src/ui/views/TextView.cpp
-        ../src/ui/views/TextView.h
+        ../src/ui/elements/IView.h
+        ../src/ui/elements/IView.cpp
+        ../src/ui/elements/SectionView.cpp
+        ../src/ui/elements/SectionView.h
+        ../src/ui/elements/TextView.cpp
+        ../src/ui/elements/TextView.h
         ../src/ui/core/Document.cpp
         ../src/ui/core/Document.h
         ../src/ui/core/Window.cpp

@@ -1,5 +1,5 @@
 #include "Document.h"
-#include "../views/IView.h"
+#include "../elements/IView.h"
 
 namespace Catalyst::ui {
     /**
@@ -50,11 +50,7 @@ namespace Catalyst::ui {
     }
 
     void Document::update() {
-        views.iterate();
-        while (views.hasNext()) {
-            IView *next = views.next();
-            next->update();
-        }
+        // TODO
     }
 
     Catalyst::util::List<IView> Document::getElements() {

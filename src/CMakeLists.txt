@@ -7,13 +7,11 @@ add_executable(catalyst main.cpp
         util/structures/List.h
         util/structures/Map.cpp
         util/structures/Map.h
-        ui/views/IView.h
-        ui/views/AbstractView.cpp
-        ui/views/AbstractView.h
-        ui/views/SectionView.cpp
-        ui/views/SectionView.h
-        ui/views/TextView.cpp
-        ui/views/TextView.h
+        ui/elements/IView.h
+        ui/elements/SectionView.cpp
+        ui/elements/SectionView.h
+        ui/elements/TextView.cpp
+        ui/elements/TextView.h
         ui/core/Document.cpp
         ui/core/Document.h
         ui/core/Window.cpp
@@ -26,7 +24,7 @@ add_executable(catalyst main.cpp
         ui/controllers/AbstractController.h
         ui/core/ControllerFactory.cpp
         ui/core/ViewFactory.cpp
-        ui/views/IView.cpp
+        ui/elements/IView.cpp
         util/debug/ILoggable.cpp
         util/debug/ILoggable.h
         util/debug/Timer.cpp

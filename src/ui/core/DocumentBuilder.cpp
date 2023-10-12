@@ -1,10 +1,11 @@
 #include "DocumentBuilder.h"
 
-#include "../views/IView.h"
-#include "controllers/AbstractController.h"
+#include "../elements/IView.h"
+#include "../controllers/AbstractController.h"
 #include "Document.h"
 #include "ViewFactory.h"
 #include "ControllerFactory.h"
+#include "../../util/UUID.h"
 
 using namespace std;
 namespace Catalyst::ui {
@@ -36,23 +37,18 @@ namespace Catalyst::ui {
     void DocumentBuilder::processNode(pugi::xml_node node, IView *parent) {
         const char *tagName = node.name();
         CONSOLE_LOG("PROCESSING NODE {0}", tagName)
-
         const char *idAttr = node.attribute("id").as_string();
-        const char *controllerAttr = node.attribute("controller").as_string();
         IView *pView = Catalyst::ui::ViewFactory::getViewByTag(tagName);
-        AbstractController *pController = nullptr;
-        if (controllerAttr != nullptr) {
-            pController = Catalyst::ui::ControllerFactory::getControllerByAttr(controllerAttr);
-        }
         if (pView != nullptr) {
-            bool success = document->addElement(idAttr, pView, parent);
-            if (pController != nullptr) {
-                pView->setController(pController);
+            if (strlen(idAttr) == 0) {
+                 document->addElement(Catalyst::UUID::v4(), pView, parent);
+            } else {
+                bool success = document->addElement(idAttr, pView, parent);
+                if (!success) {
+                    CONSOLE_ERROR("View with same ID already declared", idAttr)
+                }
             }
-            if (!success) {
-                CONSOLE_ERROR("View with same ID already declared", idAttr)
-            }
-            pView->load(node);
+            pView->collectAttributes(node);
             loadIntoDocument(node, pView);
         }
     }
