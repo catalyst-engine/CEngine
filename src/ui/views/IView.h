@@ -4,7 +4,7 @@
 
 #include <string>
 #include "pugixml.hpp"
-#include "../../../util/structures/List.h"
+#include "../../util/structures/List.h"
 
 namespace Catalyst::ui {
     class AbstractController;

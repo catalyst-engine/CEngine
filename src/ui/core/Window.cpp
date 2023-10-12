@@ -30,12 +30,9 @@ namespace Catalyst::ui {
 
     void Window::startNewFrame() {
         glfwPollEvents();
-
-        // Start the Dear ImGui frame
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
-        document.render();
     }
 
     void Window::drawNewFrame() {
@@ -53,14 +50,6 @@ namespace Catalyst::ui {
         }
     }
 
-    void Window::render() {
-        startNewFrame();
-        drawNewFrame();
-        clearWindow();
-        updateViewports();
-        glfwSwapBuffers(window);
-    }
-
     void Window::onShutdown() {
         CONSOLE_LOG("SHUTTING DOWN")
         ImGui_ImplOpenGL3_Shutdown();
@@ -70,7 +59,6 @@ namespace Catalyst::ui {
         glfwDestroyWindow(window);
         glfwTerminate();
     }
-
 
     bool Window::init() {
         CONSOLE_LOG("INITIALIZING...")
@@ -113,7 +101,14 @@ namespace Catalyst::ui {
         }
         isRunning = true;
         while (!glfwWindowShouldClose(window)) {
-            render();
+            document.update();
+
+            startNewFrame();
+            document.render();
+            drawNewFrame();
+            clearWindow();
+            updateViewports();
+            glfwSwapBuffers(window);
         }
         onShutdown();
     }

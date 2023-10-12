@@ -35,14 +35,14 @@ set(SOURCES
         ../src/engine/components/CMetadata.cpp
         ../src/engine/components/CMetadata.h
 
-        ../src/ui/core/views/IView.h
-        ../src/ui/core/views/IView.cpp
-        ../src/ui/core/views/AbstractView.cpp
-        ../src/ui/core/views/AbstractView.h
-        ../src/ui/core/views/SectionView.cpp
-        ../src/ui/core/views/SectionView.h
-        ../src/ui/core/views/TextView.cpp
-        ../src/ui/core/views/TextView.h
+        ../src/ui/views/IView.h
+        ../src/ui/views/IView.cpp
+        ../src/ui/views/AbstractView.cpp
+        ../src/ui/views/AbstractView.h
+        ../src/ui/views/SectionView.cpp
+        ../src/ui/views/SectionView.h
+        ../src/ui/views/TextView.cpp
+        ../src/ui/views/TextView.h
         ../src/ui/core/Document.cpp
         ../src/ui/core/Document.h
         ../src/ui/core/Window.cpp
@@ -52,8 +52,8 @@ set(SOURCES
         ../src/ui/core/ViewFactory.h
         ../src/ui/core/ControllerFactory.h
 
-        ../src/ui/core/controllers/AbstractController.cpp
-        ../src/ui/core/controllers/AbstractController.h
+        ../src/ui/controllers/AbstractController.cpp
+        ../src/ui/controllers/AbstractController.h
 
         ../src/ui/core/ControllerFactory.cpp
         ../src/ui/core/ViewFactory.cpp

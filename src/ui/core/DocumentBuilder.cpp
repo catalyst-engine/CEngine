@@ -1,6 +1,6 @@
 #include "DocumentBuilder.h"
 
-#include "views/IView.h"
+#include "../views/IView.h"
 #include "controllers/AbstractController.h"
 #include "Document.h"
 #include "ViewFactory.h"

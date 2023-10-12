@@ -9,9 +9,12 @@
 namespace Catalyst::ui {
     class IView;
 
+    class AbstractController;
+
     class Document : public Catalyst::ILoggable {
     private:
-        Catalyst::util::List<IView> roots;
+        Catalyst::util::List<IView> views;
+        Catalyst::util::List<AbstractController> controllers;
 
         IView *searchFor(Catalyst::util::ListItem<IView> *item, const std::string &id);
 
@@ -22,11 +25,11 @@ namespace Catalyst::ui {
     public:
         explicit Document() : Catalyst::ILoggable("Document") {}
 
-        void init();
-
         IView *getElementById(std::string id);
 
         void render();
+
+        void update();
 
         size_t quantityOfElements() const;
 
@@ -45,6 +48,7 @@ namespace Catalyst::ui {
         }
 
         bool addElement(std::string id, IView *component, IView *parent);
+
     };
 
 }

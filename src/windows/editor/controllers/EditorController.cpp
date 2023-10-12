@@ -10,5 +10,4 @@ namespace Catalyst::editor {
     void EditorController::update() {
         logger->info("HERE");
     }
-
 }

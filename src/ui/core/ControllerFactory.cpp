@@ -1,5 +1,5 @@
 #include "ControllerFactory.h"
-#include "controllers/AbstractController.h"
+#include "../controllers/AbstractController.h"
 #include "../../util/structures/Map.cpp"
 
 namespace Catalyst::ui {

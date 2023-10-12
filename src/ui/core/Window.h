@@ -48,8 +48,6 @@ namespace Catalyst::ui {
 
         void updateViewports() const;
 
-        void render();
-
         void onShutdown();
 
     public:

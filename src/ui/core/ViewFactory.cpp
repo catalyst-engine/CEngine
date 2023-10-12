@@ -1,8 +1,8 @@
 #include "ViewFactory.h"
 #include <string>
-#include "views/IView.h"
-#include "views/TextView.h"
-#include "views/SectionView.h"
+#include "../views/IView.h"
+#include "../views/TextView.h"
+#include "../views/SectionView.h"
 #include "../../util/structures/Map.cpp"
 
 namespace Catalyst::ui {

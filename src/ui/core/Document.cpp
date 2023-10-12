@@ -1,5 +1,5 @@
 #include "Document.h"
-#include "views/IView.h"
+#include "../views/IView.h"
 
 namespace Catalyst::ui {
     /**
@@ -9,7 +9,7 @@ namespace Catalyst::ui {
      */
     IView *Document::getElementById(std::string id) {
         CONSOLE_LOG("GETTING ELEMENT: {0}", id)
-        Catalyst::util::ListItem<IView> *current = roots.getFirst();
+        Catalyst::util::ListItem<IView> *current = views.getFirst();
         while (current != nullptr) {
             IView *found = searchFor(current, id);
             if (found != nullptr) {
@@ -42,19 +42,23 @@ namespace Catalyst::ui {
     }
 
     void Document::render() {
-        roots.iterate();
-        while (roots.hasNext()) {
-            IView *next = roots.next();
+        views.iterate();
+        while (views.hasNext()) {
+            IView *next = views.next();
             next->render();
         }
     }
 
-    void Document::init() {
-        // TODO - INITIALIZE STRUCTURE
+    void Document::update() {
+        views.iterate();
+        while (views.hasNext()) {
+            IView *next = views.next();
+            next->update();
+        }
     }
 
     Catalyst::util::List<IView> Document::getElements() {
-        return roots;
+        return views;
     }
 
     size_t Document::quantityOfElements() const {
@@ -81,7 +85,7 @@ namespace Catalyst::ui {
             children->push(component);
         } else {
             CONSOLE_LOG("BINDING {0} TO ROOT", component->getId())
-            roots.push(component);
+            views.push(component);
         }
         elementsSize++;
     }
