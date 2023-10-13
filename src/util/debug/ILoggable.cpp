@@ -2,8 +2,7 @@
 
 namespace Catalyst {
     ILoggable::ILoggable(const char *name) {
-        logger = spdlog::stdout_color_mt(name);
-        spdlog::set_pattern("%^[%T - %n] %v%$");
+        init(name);
     }
 
     std::shared_ptr<spdlog::logger> ILoggable::getLogger() {
@@ -16,5 +15,14 @@ namespace Catalyst {
 
     spdlog::level::level_enum ILoggable::getLoggingLevel() {
         return logger->level();
+    }
+
+    ILoggable::ILoggable() {
+        init(typeid(this).name());
+    }
+
+    void ILoggable::init(const char *name) {
+        logger = spdlog::stdout_color_mt(name);
+        spdlog::set_pattern("%^[%T - %n] %v%$");
     }
 }

@@ -6,7 +6,7 @@
 #include "imgui.h"
 #include "IElement.h"
 
-namespace Catalyst::ui {
+namespace Catalyst {
     class ESection : public IElement {
     private:
         std::string title;

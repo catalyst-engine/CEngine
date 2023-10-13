@@ -1,8 +1,7 @@
 #include "IElement.h"
-#include "../controllers/AbstractController.h"
 
-namespace Catalyst::ui {
-    Catalyst::util::List<IElement> *IElement::getChildren() {
+namespace Catalyst {
+    Catalyst::List<IElement> *IElement::getChildren() {
         return &children;
     }
 
@@ -23,6 +22,16 @@ namespace Catalyst::ui {
         while (children.hasNext()) {
             IElement *next = children.next();
             next->render();
+        }
+    }
+
+    Document *IElement::getDocument() {
+        return document;
+    }
+
+    void IElement::setDocument(Document *doc) {
+        if (IElement::document == nullptr) {
+            IElement::document = doc;
         }
     }
 }

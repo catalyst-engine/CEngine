@@ -3,7 +3,7 @@
 
 #include <utility>
 
-namespace Catalyst::ui {
+namespace Catalyst {
 
     void EText::render() {
         ImGui::Text("%s", text.c_str());

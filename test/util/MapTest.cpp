@@ -1,7 +1,7 @@
 #include <catch2/catch_all.hpp>
 #include "../../src/util/structures/Map.cpp"
 
-using namespace Catalyst::util;
+using namespace Catalyst;
 
 TEST_CASE("Should add elements", "[map-add]") {
     Map<std::string, int> map;

@@ -1,7 +1,7 @@
 #include <catch2/catch_test_macros.hpp>
 #include "../../src/util/structures/List.h"
 
-using namespace Catalyst::util;
+using namespace Catalyst;
 
 List<int> *getPopulatedList() {
     auto *list = new List<int>();

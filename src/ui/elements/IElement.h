@@ -6,11 +6,14 @@
 #include "pugixml.hpp"
 #include "../../util/structures/List.h"
 
-namespace Catalyst::ui {
+namespace Catalyst {
+    class Document;
+
     class IElement {
     private:
-        Catalyst::util::List<IElement> children;
+        Catalyst::List<IElement> children;
         std::string id;
+        Document *document = nullptr;
     public:
         virtual void render();
 
@@ -18,13 +21,17 @@ namespace Catalyst::ui {
 
         virtual std::string getId();
 
-        virtual Catalyst::util::List<IElement> *getChildren();
+        virtual Catalyst::List<IElement> *getChildren();
 
         virtual void collectAttributes(pugi::xml_node node) {}
 
         virtual IElement *copy() { return nullptr; }
 
         void renderChildren();
+
+        Document *getDocument();
+
+        void setDocument(Document *document);
     };
 }
 #endif

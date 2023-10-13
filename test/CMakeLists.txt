@@ -43,16 +43,14 @@ set(SOURCES
         ../src/ui/elements/EText.h
         ../src/ui/core/Document.cpp
         ../src/ui/core/Document.h
-        ../src/windows/core/Window.cpp
-        ../src/windows/core/Window.h
-        ../src/ui/core/DocumentBuilder.cpp
-        ../src/ui/core/DocumentBuilder.h
-        ../src/ui/core/ViewFactory.h
+        ../src/window/core/AbstractWindow.cpp
+        ../src/window/core/AbstractWindow.h
+        ../src/ui/core/ElementFactory.h
 
-        ../src/ui/controllers/AbstractController.cpp
-        ../src/ui/controllers/AbstractController.h
+        ../src/ui/views/IView.cpp
+        ../src/ui/views/IView.h
 
-        ../src/ui/core/ViewFactory.cpp
+        ../src/ui/core/ElementFactory.cpp
         ../src/util/debug/ILoggable.cpp
         ../src/util/debug/ILoggable.h
         imgui_demo.cpp
@@ -60,7 +58,7 @@ set(SOURCES
 
 )
 
-include_directories(../src/windows/editor)
+include_directories(../src/window/editor)
 include_directories(../src/util)
 
 add_executable(document_test ui/DocumentTest.cpp ${SOURCES})

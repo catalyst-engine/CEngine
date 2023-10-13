@@ -1,6 +1,6 @@
 #include "ESection.h"
 
-namespace Catalyst::ui {
+namespace Catalyst {
     void ESection::render() {
         ImGui::Begin(title.c_str());
         renderChildren();

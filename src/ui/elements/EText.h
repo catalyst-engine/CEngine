@@ -5,7 +5,7 @@
 #include <string>
 #include "IElement.h"
 
-namespace Catalyst::ui {
+namespace Catalyst {
     class EText : public IElement {
         std::string text;
     public:

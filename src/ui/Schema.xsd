@@ -4,7 +4,6 @@
     <xs:complexType name="TextView">
         <xs:simpleContent>
             <xs:extension base="xs:string">
-                <xs:attribute name="controller" type="xs:string"/>
                 <xs:attribute name="id" type="xs:string"/>
             </xs:extension>
         </xs:simpleContent>
@@ -14,7 +13,6 @@
         <xs:sequence>
             <xs:element name="TextView" type="TextView" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="controller" type="xs:string"/>
         <xs:attribute name="id" type="xs:string"/>
     </xs:complexType>
 
@@ -23,7 +21,6 @@
             <xs:element type="BlockView" name="BlockView" minOccurs="0"/>
             <xs:element name="TextView" type="TextView" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="controller" type="xs:string"/>
         <xs:attribute name="id" type="xs:string"/>
         <xs:attribute name="title" type="xs:string"/>
     </xs:complexType>
@@ -32,7 +29,6 @@
         <xs:sequence>
             <xs:element type="SectionView" name="SectionView" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="controller" type="xs:string"/>
     </xs:complexType>
 
 

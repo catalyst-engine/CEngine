@@ -3,54 +3,38 @@
 #define CATALYST_ENGINE_DOCUMENT_H
 
 #include "../../util/structures/List.h"
-#include "../../util/debug/ILoggable.h"
+#include "ElementFactory.h"
 #include <string>
 
-namespace Catalyst::ui {
+namespace Catalyst {
     class IElement;
 
-    class AbstractController;
-
-    class Document : public Catalyst::ILoggable {
+    class Document : public ElementFactory {
     private:
-        Catalyst::util::List<IElement> views;
-        Catalyst::util::List<AbstractController> controllers;
-
-        IElement *searchFor(Catalyst::util::ListItem<IElement> *item, const std::string &id);
+        Catalyst::List<IElement> elements;
 
         size_t elementsSize = 0;
 
+        IElement *searchFor(Catalyst::ListItem<IElement> *item, const std::string &id);
+
         void bindElement(IElement *component, IElement *parent);
 
+        IElement *addElementInternal(const char *tag, IElement *parent);
+
     public:
-        explicit Document() : Catalyst::ILoggable("Document") {}
 
         IElement *getElementById(std::string id);
 
-        void render();
-
-        void update();
-
         size_t quantityOfElements() const;
 
-        Catalyst::util::List<IElement> getElements();
+        Catalyst::List<IElement> *getElements();
 
-        template<class T>
-        T *addElement(std::string id, IElement *parent) {
-            IElement *found = getElementById(id);
-            if (found != nullptr) {
-                return (T *) found;
-            }
-            T *component = new T;
-            component->setId(id);
-            bindElement(component, parent);
-            return component;
-        }
+        IElement *addElement(const char *tag, std::string id, IElement *parent) override;
 
-        bool addElement(std::string id, IElement *component, IElement *parent);
+        IElement *addElement(const char *tag, IElement *parent) override;
 
+        IElement *addElement(const char *tag);
     };
-
 }
 
 #endif

@@ -14,8 +14,6 @@ namespace Catalyst::engine {
         WorldRegistry worldReg;
     public:
 
-        explicit World() : ILoggable("World") {}
-
         WorldRegistry *getRegistry() {
             return &worldReg;
         }

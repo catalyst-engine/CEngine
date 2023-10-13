@@ -15,8 +15,6 @@ namespace Catalyst::engine {
         entt::registry worldReg;
     public:
 
-        explicit WorldRegistry() : ILoggable("WorldRegistry") {}
-
         entt::registry *getRegistry();
 
         CMetadata *getEntityMetadata(entt::entity ent);

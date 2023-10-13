@@ -1,7 +1,7 @@
-include_directories(windows/editor)
+include_directories(window/editor)
 
 configure_file(ui/Schema.xsd Schema.xsd COPYONLY)
-configure_file(windows/editor/views/EditorView.xml EditorView.xml COPYONLY)
+configure_file(window/editor/views/EditorView.xml EditorView.xml COPYONLY)
 
 add_executable(catalyst main.cpp
         util/structures/List.h
@@ -14,14 +14,12 @@ add_executable(catalyst main.cpp
         ui/elements/EText.h
         ui/core/Document.cpp
         ui/core/Document.h
-        windows/core/Window.cpp
-        windows/core/Window.h
-        ui/core/DocumentBuilder.cpp
-        ui/core/DocumentBuilder.h
-        ui/core/ViewFactory.h
-        ui/controllers/AbstractController.cpp
-        ui/controllers/AbstractController.h
-        ui/core/ViewFactory.cpp
+        window/core/AbstractWindow.cpp
+        window/core/AbstractWindow.h
+        ui/core/ElementFactory.h
+        ui/views/IView.cpp
+        ui/views/IView.h
+        ui/core/ElementFactory.cpp
         ui/elements/IElement.cpp
         util/debug/ILoggable.cpp
         util/debug/ILoggable.h
@@ -41,12 +39,14 @@ add_executable(catalyst main.cpp
         engine/Engine.h
         util/UUID.h
         util/UUID.cpp
-        windows/editor/controllers/EditorController.cpp
-        windows/editor/controllers/EditorController.h
-        windows/editor/Editor.cpp
-        windows/editor/Editor.h
-        windows/editor/stores/SelectionStore.cpp
-        windows/editor/stores/SelectionStore.h
+        window/editor/EditorWindow.cpp
+        window/editor/EditorWindow.h
+        window/editor/stores/SelectionStore.cpp
+        window/editor/stores/SelectionStore.h
+        window/editor/views/EditorView.cpp
+        window/editor/views/EditorView.h
+        window/core/Runner.cpp
+        window/core/Runner.h
 )
 
 target_link_libraries(catalyst PRIVATE

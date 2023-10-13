@@ -2,7 +2,7 @@
 #include "../structures/Map.cpp"
 
 namespace Catalyst {
-    util::Map<const char *, long long> Timer::state;
+    Map<const char *, long long> Timer::state;
 
     void Timer::finish() {
         auto end = std::chrono::high_resolution_clock::now();
@@ -11,7 +11,7 @@ namespace Catalyst {
         state.set(name, endC - startC);
     }
 
-    util::Map<const char *, long long> *Timer::getState() {
+    Map<const char *, long long> *Timer::getState() {
         return &state;
     }
 

@@ -6,7 +6,7 @@
 #include <vector>
 #include "unordered_map"
 
-namespace Catalyst::util {
+namespace Catalyst {
     template<typename K, typename V>
     class Map {
     private:
