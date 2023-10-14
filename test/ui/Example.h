@@ -4,9 +4,11 @@
 
 #include "../../src/ui/views/IView.h"
 
-class Example : public Catalyst::IView{
+namespace Catalyst{
+    class Example : public IView{
 
-};
+    };
+}
 
 
 #endif

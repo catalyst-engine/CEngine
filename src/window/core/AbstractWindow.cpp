@@ -76,4 +76,8 @@ namespace Catalyst {
         glfwSwapInterval(v ? 1 : 0);
         AbstractWindow::vsyncEnabled = v;
     }
+
+    void AbstractWindow::init() {
+
+    }
 }

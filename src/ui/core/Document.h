@@ -30,11 +30,13 @@ namespace Catalyst {
 
         static void init();
 
-        void loadView(const char *src);
+        void loadView(std::string &src);
 
         void addViewInternal(IView *view);
 
+        void replace(std::string &str, const std::string &from, const std::string &to);
     public:
+
         explicit Document(){
             init();
         }
@@ -51,6 +53,10 @@ namespace Catalyst {
 
         IElement *addElement(const char *tag);
 
+        /**
+         * Class needs to be in the "Catalyst" namespace
+         * @tparam T extends IView
+         */
         template<class T>
         void addView() {
             addViewInternal(new T);

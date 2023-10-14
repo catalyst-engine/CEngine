@@ -7,6 +7,14 @@
 #include "imgui_impl_opengl3.h"
 
 namespace Catalyst {
+    void Runner::updateUI() {
+        auto list = *document->getViewsState()->getViews();
+        list.iterate();
+        while (list.hasNext()) {
+            auto *next = list.next();
+            next->update();
+        }
+    }
     void Runner::renderUI() {
         auto list = *document->getElementsState()->getElements();
         list.iterate();
@@ -56,7 +64,7 @@ namespace Catalyst {
         }
         isRunning = true;
         while (!glfwWindowShouldClose(window)) {
-            // TODO UPDATE VIEWS
+            updateUI();
             startNewFrame();
             renderUI();
             drawNewFrame();

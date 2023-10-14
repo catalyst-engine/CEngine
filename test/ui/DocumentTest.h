@@ -2,7 +2,7 @@
 #define CATALYST_DOCUMENTTEST_H
 
 class Tester;
-namespace Catalyst::EngineTest {
+namespace Catalyst::DocumentTest {
     Tester *createTester();
 };
 #endif

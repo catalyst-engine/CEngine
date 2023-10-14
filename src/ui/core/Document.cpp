@@ -33,7 +33,9 @@ namespace Catalyst {
 
     IElement *Document::addElement(const char *tag, std::string id, IElement *parent) {
         IElement *pElement = addElementInternal(tag, parent);
-        pElement->setId(id);
+        if(pElement != nullptr) {
+            pElement->setId(id);
+        }
         return pElement;
     }
 
@@ -53,11 +55,10 @@ namespace Catalyst {
         return existing->copy();
     }
 
-    void Document::loadView(const char *src) {
-        init();
+    void Document::loadView(std::string &src) {
         CONSOLE_LOG("LOADING XML {0}", src)
         pugi::xml_document doc;
-        pugi::xml_parse_result result = doc.load_file(src);
+        pugi::xml_parse_result result = doc.load_file(src.c_str());
         if (!result) {
             CONSOLE_ERROR("XML NOT FOUND")
             return;
@@ -91,9 +92,20 @@ namespace Catalyst {
         return &viewsState;
     }
 
+    void Document::replace(std::string &str, const std::string &from, const std::string &to) {
+        size_t start_pos = str.find(from);
+        if (start_pos == std::string::npos) {
+            return;
+        }
+        str.replace(start_pos, from.length(), to);
+    }
+
     void Document::addViewInternal(IView *view) {
         viewsState.getViews()->push(view);
-        const char *name = typeid(this).name();
+        std::string name = typeid(*view).name();
+        name = name + ".xml";
+        replace(name, "class ", "");
+        replace(name, "Catalyst::", "");
         loadView(name);
     }
 }

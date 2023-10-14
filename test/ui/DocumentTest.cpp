@@ -1,10 +1,8 @@
 #include "DocumentTest.h"
-#include <catch2/catch_test_macros.hpp>
-#include "entt/entt.hpp"
-#include "../../src/engine/components/CMetadata.h"
-#include "../../src/engine/world/World.h"
-#include "../../src/engine/Engine.h"
+#include <catch2/catch_all.hpp>
 #include "../Tester.h"
+#include "../../src/ui/core/Document.h"
+#include "Example.h"
 
 //TEST_CASE("Should add element", "[document-add]") {
 //    Catalyst::Document document;
@@ -45,17 +43,20 @@
 
 
 
-namespace Catalyst::EngineTest {
+namespace Catalyst::DocumentTest {
+    Document d;
     void loadView() {
+        d.addView<Example>();
 
+        REQUIRE(d.getElementsState()->getElements()->getLength() == 3);
     }
 
     Tester *createTester() {
         auto tester = new Tester("EngineTest");
         tester->registerTest("Should load view", loadView);
-        tester->registerTest("Should find deep child",);
-        tester->registerTest("Should add child",);
-        tester->registerTest("Should add element",);
+//        tester->registerTest("Should find deep child",);
+//        tester->registerTest("Should add child",);
+//        tester->registerTest("Should add element",);
         return tester;
     }
 }

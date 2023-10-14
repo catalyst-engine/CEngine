@@ -1,5 +1,5 @@
 #include "ILoggable.h"
-#include "UUID.h"
+#include "../UUID.h"
 
 namespace Catalyst {
     List<std::shared_ptr<spdlog::logger>> ILoggable::loggers;
@@ -27,7 +27,7 @@ namespace Catalyst {
     }
 
     void ILoggable::init(const std::string &name) {
-        logger = spdlog::stdout_color_mt(name + " " + UUID::v4().substr(0, 8));
+        logger = spdlog::stdout_color_mt(name + " (" + UUID::v4().substr(0, 8) + ")");
         spdlog::set_pattern("%^[%T - %n] %v%$");
     }
 

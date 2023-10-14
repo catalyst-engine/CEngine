@@ -31,6 +31,8 @@ namespace Catalyst {
 
         static void clearWindow();
 
+        void updateUI();
+
     public:
         explicit Runner(GLFWwindow *window, ImGuiIO *io, Document *document);
 
@@ -43,6 +45,8 @@ namespace Catalyst {
         void setWindowHeight(int wh);
 
         void run();
+
+
     };
 
 }

@@ -1,7 +1,9 @@
 #include "EditorWindow.h"
+#include "views/EditorView.h"
+#include "../../ui/core/Document.h"
 
 namespace Catalyst {
-    EditorWindow::EditorWindow() {
-
+    void EditorWindow::init() {
+        document->addView<EditorView>();
     }
 }

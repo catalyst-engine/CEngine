@@ -58,12 +58,12 @@ set(SOURCES
         ui/Example.cpp
         ui/Example.h
         ui/DocumentTest.h
+        ui/DocumentTest.cpp
 )
 
 include_directories(../src/window/editor)
 include_directories(../src/util)
 
-configure_file(../src/ui/Schema.xsd Schema.xsd COPYONLY)
 file(GLOB XML_FILES
         "ui/*.xml"
 )

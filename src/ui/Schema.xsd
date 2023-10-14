@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <xs:complexType name="TextView">
+    <xs:complexType name="EText">
         <xs:simpleContent>
             <xs:extension base="xs:string">
                 <xs:attribute name="id" type="xs:string"/>
@@ -11,15 +11,15 @@
 
     <xs:complexType name="BlockView">
         <xs:sequence>
-            <xs:element name="TextView" type="TextView" maxOccurs="unbounded"/>
+            <xs:element name="EText" type="EText" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:attribute name="id" type="xs:string"/>
     </xs:complexType>
 
-    <xs:complexType name="SectionView">
+    <xs:complexType name="ESection">
         <xs:sequence>
             <xs:element type="BlockView" name="BlockView" minOccurs="0"/>
-            <xs:element name="TextView" type="TextView" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="EText" type="EText" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:attribute name="id" type="xs:string"/>
         <xs:attribute name="title" type="xs:string"/>
@@ -27,7 +27,7 @@
 
     <xs:complexType name="Body">
         <xs:sequence>
-            <xs:element type="SectionView" name="SectionView" maxOccurs="unbounded"/>
+            <xs:element type="ESection" name="ESection" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 

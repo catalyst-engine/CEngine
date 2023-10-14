@@ -16,7 +16,7 @@ namespace Catalyst {
     class Document;
 
     class AbstractWindow : public ILoggable {
-    private:
+    protected:
         GLFWwindow *window = nullptr;
         Runner *runner = nullptr;
         Document *document = nullptr;
@@ -31,6 +31,8 @@ namespace Catalyst {
         void createWindowIO();
 
     public:
+        virtual void init();
+
         bool isVsyncEnabled() const;
 
         void setVsyncEnabled(bool vsyncEnabled);

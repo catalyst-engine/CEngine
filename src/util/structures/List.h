@@ -1,8 +1,5 @@
-#ifndef CATALYST_ENGINE_DOUBLE_LINKED_LIST_H
-#define CATALYST_ENGINE_DOUBLE_LINKED_LIST_H
-#pragma once
-
-#include <cstddef>
+#ifndef CATALYST_ENGINE_LIST_H
+#define CATALYST_ENGINE_LIST_H
 
 namespace Catalyst {
     template<typename T>

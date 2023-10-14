@@ -4,6 +4,7 @@
 #include "util/LoggerTest.h"
 #include "util/ListTest.h"
 #include "util/MapTest.h"
+#include "ui/DocumentTest.h"
 
 TEST_CASE("Engine test", "[engine-test]") {
     Tester *tester = Catalyst::EngineTest::createTester();
@@ -22,5 +23,10 @@ TEST_CASE("List test", "[list-test]") {
 
 TEST_CASE("Map test", "[map-test]") {
     Tester *tester = Catalyst::MapTest::createTester();
+    tester->run();
+}
+
+TEST_CASE("Document test", "[document-test]") {
+    Tester *tester = Catalyst::DocumentTest::createTester();
     tester->run();
 }

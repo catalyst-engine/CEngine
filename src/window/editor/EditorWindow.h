@@ -6,7 +6,7 @@
 namespace Catalyst {
     class EditorWindow : public AbstractWindow {
     public:
-        explicit EditorWindow();
+        void init() override;
     };
 }
 
