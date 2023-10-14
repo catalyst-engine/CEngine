@@ -1,12 +1,9 @@
-#include "ui/core/Window.h"
-#include "ui/core/views/IView.h"
+#include "ui/elements/IElement.h"
+#include "EditorWindow.h"
 
 int main(int, char **) {
-    Catalyst::ui::Window window("MAIN");
-    if (!window.init()) {
-        return 1;
-    }
-    window.getBuilder()->loadFromXML("Sample.xml");
+    Catalyst::EditorWindow window;
+    window.init();
     window.start();
     return 0;
 }

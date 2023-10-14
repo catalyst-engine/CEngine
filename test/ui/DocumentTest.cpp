@@ -1,48 +1,42 @@
-#include <catch2/catch_test_macros.hpp>
-#include "../editor/ui/core/views/IView.h"
-#include "../editor/ui/core/views/AbstractView.h"
-#include "../editor/ui/core/Document.h"
+#include "DocumentTest.h"
+#include <catch2/catch_all.hpp>
+#include "../Tester.h"
+#include "../../src/ui/core/Document.h"
+#include "Example.h"
 
-class Test : public Catalyst::ui::AbstractView {
-public:
-    void render() override {
+namespace Catalyst::DocumentTest {
+    Document d;
 
+    void loadView() {
+        d.addView<Example>();
+        List<IElement> *elements = d.getElementsState()->getElements();
+
+        IElement *first = elements->getFirstValue();
+        IElement *second = first->getChildren()->getFirstValue();
+        IElement *third = second->getChildren()->getFirstValue();
+
+        REQUIRE(elements->getLength() == 1);
+        REQUIRE(first->getChildren()->getLength() == 1);
+        REQUIRE(second->getChildren()->getLength() == 1);
+        REQUIRE(second->getId() == "SECTION");
+        REQUIRE(third->getChildren()->getLength() == 0);
+        REQUIRE(third->getId() == "TEXT");
     }
-};
 
-TEST_CASE("Should add element", "[document-add]") {
-    Catalyst::ui::Document document;
-    document.addElement<Test>("c", nullptr);
-    REQUIRE(document.getElements().getLength() == 1);
-}
+    void findDeepChild() {
+        ElementsState *state = d.getElementsState();
+        List<IElement> *elements = state->getElements();
+        IElement *first = elements->getFirstValue();
+        IElement *second = first->getChildren()->getFirstValue();
+        IElement *third = second->getChildren()->getFirstValue();
+        REQUIRE(state->getElementById("SECTION") == second);
+        REQUIRE(state->getElementById("TEXT") == third);
+    }
 
-TEST_CASE("Should add child", "[document-add-child]") {
-    Catalyst::ui::Document document;
-    Test *created = document.addElement<Test>("c", nullptr);
-    document.addElement<Test>("2", created);
-    Catalyst::ui::IView *found = document.getElementById("c");
-    REQUIRE(created->getChildren()->getLength() == 1);
-    REQUIRE(document.quantityOfElements() == 2);
-    REQUIRE(found == created);
-}
-
-TEST_CASE("Should find deep child", "[document-getbyid]") {
-    Catalyst::ui::Document document;
-    Test *created1 = document.addElement<Test>("1", nullptr);
-    Test *created2 = document.addElement<Test>("2", created1);
-    Test *created3 = document.addElement<Test>("3", created2);
-    Test *created4 = document.addElement<Test>("4", created3);
-    Test *created5 = document.addElement<Test>("5", created4);
-
-    Catalyst::ui::IView *found5 = document.getElementById("5");
-    Catalyst::ui::IView *found4 = document.getElementById("4");
-    Catalyst::ui::IView *found3 = document.getElementById("3");
-    Catalyst::ui::IView *found2 = document.getElementById("2");
-    Catalyst::ui::IView *found1 = document.getElementById("1");
-
-    REQUIRE(found5 == created5);
-    REQUIRE(found4 == created4);
-    REQUIRE(found3 == created3);
-    REQUIRE(found2 == created2);
-    REQUIRE(found1 == created1);
+    Tester *createTester() {
+        auto tester = new Tester("EngineTest");
+        tester->registerTest("Should load view", loadView);
+        tester->registerTest("Should find deep child", findDeepChild);
+        return tester;
+    }
 }

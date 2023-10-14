@@ -1,10 +1,7 @@
-#ifndef CATALYST_ENGINE_DOUBLE_LINKED_LIST_H
-#define CATALYST_ENGINE_DOUBLE_LINKED_LIST_H
-#pragma once
+#ifndef CATALYST_ENGINE_LIST_H
+#define CATALYST_ENGINE_LIST_H
 
-#include <cstddef>
-
-namespace Catalyst::util {
+namespace Catalyst {
     template<typename T>
     struct ListItem {
         T *value;
@@ -17,23 +14,24 @@ namespace Catalyst::util {
     template<typename T>
     class List {
     private:
-        Catalyst::util::ListItem<T> *start{};
-        Catalyst::util::ListItem<T> *end{};
-        Catalyst::util::ListItem<T> *iterator{};
+        ListItem<T> *head{};
+        ListItem<T> *tail{};
+        ListItem<T> *iterator{};
         size_t length = 0;
     public:
-        List(){
-            start = nullptr;
-            end = nullptr;
+        List() {
+            head = nullptr;
+            tail = nullptr;
             iterator = nullptr;
         }
+
         size_t getLength() {
             return length;
         }
 
         void clear() {
-            start = nullptr;
-            end = nullptr;
+            head = nullptr;
+            tail = nullptr;
             iterator = nullptr;
             length = 0;
         }
@@ -49,9 +47,9 @@ namespace Catalyst::util {
             return nullptr;
         }
 
-        Catalyst::util::ListItem<T> *getItem(size_t index) {
+        ListItem<T> *getItem(size_t index) {
             int i = 0;
-            ListItem<T> *current = start;
+            ListItem<T> *current = head;
             while (i < index && current != nullptr) {
                 i++;
                 current = current->next;
@@ -59,36 +57,29 @@ namespace Catalyst::util {
             return current;
         }
 
-        void add(size_t index, T *item) {
-            if (index > length) {
-                return;
-            }
-            if (length == 0) {
-                Push(item);
-                return;
-            }
-            auto *newItem = new ListItem<T>(*item);
-
-            if (index == 0) {
-                start->previous = newItem;
-                newItem->next = start;
-                start = newItem;
-                return;
-            }
-            ListItem<T> *atIndex = getItem(index);
-            atIndex->previous->next = newItem;
-            newItem->previous = atIndex->previous;
-            newItem->next = atIndex;
-            atIndex->previous = newItem;
-            length++;
-        }
-
         void remove(T *item) {
-            int index = indexOf(item);
-            if (index < 0) {
-                return;
+            ListItem<T> *current = head;
+
+            while (current) {
+                if (current->value == item) {
+                    if (current->previous) {
+                        current->previous->next = current->next;
+                    } else {
+                        head = current->next;
+                    }
+
+                    if (current->next) {
+                        current->next->previous = current->previous;
+                    } else {
+                        tail = current->previous;
+                    }
+
+                    delete current;
+                    length--;
+                    return;
+                }
+                current = current->next;
             }
-            removeAt(index);
         }
 
         void replaceAt(size_t index, T *value) {
@@ -99,40 +90,34 @@ namespace Catalyst::util {
         }
 
         void removeAt(size_t index) {
-            if (length == 0 || index > length) {
-                return;
-            }
-            if (index == 0) {
-                start = start->next;
-                return;
-            }
-            if (index == length) {
-                pop();
-                return;
-            }
-            ListItem<T> atIndex = *getItem(index);
-            atIndex.previous->next = atIndex.next;
-            length--;
-        }
+            ListItem<T> *current = head;
+            int currentIndex = 0;
 
-        void push(T *item) {
-            auto *newItem = new ListItem<T>(item);
-            newItem->value = item;
-            newItem->previous = nullptr;
-            newItem->next = nullptr;
-
-            if (length > 0) {
-                newItem->previous = end;
-                end->next = newItem;
-                end = newItem;
-            } else {
-                end = start = newItem;
+            while (current && currentIndex < index) {
+                current = current->next;
+                currentIndex++;
             }
-            length++;
+
+            if (current) {
+                if (current->previous) {
+                    current->previous->next = current->next;
+                } else {
+                    head = current->next;
+                }
+
+                if (current->next) {
+                    current->next->previous = current->previous;
+                } else {
+                    tail = current->previous;
+                }
+
+                delete current;
+                length--;
+            }
         }
 
         bool includes(T *item) {
-            ListItem<T> *current = start;
+            ListItem<T> *current = head;
             while (current != nullptr) {
                 if (current->value == item) {
                     return true;
@@ -145,7 +130,7 @@ namespace Catalyst::util {
 
         int indexOf(T *item) {
             int i = 0;
-            ListItem<T> *current = start;
+            ListItem<T> *current = head;
 
             while (current != nullptr) {
                 if (current->value == item) {
@@ -158,24 +143,38 @@ namespace Catalyst::util {
             return -1;
         }
 
-        T *pop() {
-            T *removed = nullptr;
-            if (end->previous != nullptr && length > 1) {
-                removed = end->value;
-                ListItem<T> *newEnd = end->previous;
-                end->previous->next = nullptr;
-                end = newEnd;
-            } else if (length == 1) {
-                removed = end->value;
-                start = nullptr;
-                end = nullptr;
+        void push(T *item) {
+            ListItem<T> *newNode = new ListItem(item);
+
+            if (!head) {
+                head = newNode;
+                tail = newNode;
+            } else {
+                newNode->previous = tail;
+                tail->next = newNode;
+                tail = newNode;
+            }
+            length++;
+        }
+
+        void pop() {
+            if (tail) {
+                ListItem<T> *prevTail = tail->previous;
+                if (prevTail) {
+                    prevTail->next = nullptr;
+                    delete tail;
+                    tail = prevTail;
+                } else {
+                    delete tail;
+                    head = nullptr;
+                    tail = nullptr;
+                }
             }
             length--;
-            return removed;
         }
 
         void iterate() {
-            iterator = start;
+            iterator = head;
         }
 
         bool hasNext() {
@@ -191,12 +190,24 @@ namespace Catalyst::util {
             return value;
         }
 
-        Catalyst::util::ListItem<T> *getFirst() {
-            return start;
+        ListItem<T> *getFirst() {
+            return head;
         }
 
-        Catalyst::util::ListItem<T> *getLast() {
-            return end;
+        ListItem<T> *getLast() {
+            return tail;
+        }
+
+        T *getFirstValue() {
+            if (head == nullptr)
+                return nullptr;
+            return head->value;
+        }
+
+        T *getLastValue() {
+            if (tail == nullptr)
+                return nullptr;
+            return tail->value;
         }
     };
 }

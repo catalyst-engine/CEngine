@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="../../src/editor/ui/definitions/Schema.xsd">
-    <SectionView id="SECTION" title="section">
-        <TextView id="TEXT">Footer</TextView>
-    </SectionView>
-</Body>

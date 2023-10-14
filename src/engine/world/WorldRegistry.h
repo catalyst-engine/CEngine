@@ -2,7 +2,7 @@
 #define CATALYST_WORLDREGISTRY_H
 
 #include "entt/entt.hpp"
-#include "debug/ILoggable.h"
+#include "../../util/debug/ILoggable.h"
 
 namespace Catalyst::engine {
     class CMetadata;
@@ -14,8 +14,6 @@ namespace Catalyst::engine {
     private:
         entt::registry worldReg;
     public:
-
-        explicit WorldRegistry() : ILoggable("WorldRegistry") {}
 
         entt::registry *getRegistry();
 

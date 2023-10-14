@@ -1,15 +1,32 @@
-#include "../src/editor/ui/core/Window.h"
-#include "../src/editor/ui/core/views/TextView.cpp"
-#include "../src/editor/ui/core/controllers/TextController.cpp"
-#include "../src/editor/ui/core/views/SectionView.h"
+#include "catch2/catch_all.hpp"
+#include "engine/EngineTest.h"
+#include "Tester.h"
+#include "util/LoggerTest.h"
+#include "util/ListTest.h"
+#include "util/MapTest.h"
+#include "ui/DocumentTest.h"
 
-int main(int, char **) {
-    Catalyst::ui::Window window("MAIN");
+TEST_CASE("Engine test", "[engine-test]") {
+    Tester *tester = Catalyst::EngineTest::createTester();
+    tester->run();
+}
 
-    if (!window.init()) {
-        return 1;
-    }
-    window.getDocument()->addElement<Catalyst::ui::SectionView>("SEC", nullptr);
-    window.start();
-    return 0;
+TEST_CASE("Logger test", "[logger-test]") {
+    Tester *tester = Catalyst::LoggerTest::createTester();
+    tester->run();
+}
+
+TEST_CASE("List test", "[list-test]") {
+    Tester *tester = Catalyst::ListTest::createTester();
+    tester->run();
+}
+
+TEST_CASE("Map test", "[map-test]") {
+    Tester *tester = Catalyst::MapTest::createTester();
+    tester->run();
+}
+
+TEST_CASE("Document test", "[document-test]") {
+    Tester *tester = Catalyst::DocumentTest::createTester();
+    tester->run();
 }

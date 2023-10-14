@@ -12,6 +12,19 @@ find_package(pugixml CONFIG REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
 find_package(EnTT CONFIG REQUIRED)
 
+set(COMMON_LIBRARIES
+        ${OPENGL_gl_LIBRARY}
+        glad::glad
+        glfw
+        glm::glm
+        imgui::imgui
+        pugixml::shared pugixml::pugixml
+        imm32
+        spdlog::spdlog
+        Catch2::Catch2WithMain
+        EnTT::EnTT
+)
+
 set(CMAKE_TOOLCHAIN_FILE "C:/src/vcpkg/scripts/buildsystems/vcpkg.cmake")
 set(VCPKG_JSON_PATH "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg.json")
 

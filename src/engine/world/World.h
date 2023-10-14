@@ -4,7 +4,6 @@
 
 #include "entt/entt.hpp"
 #include "WorldRegistry.h"
-#include "debug/ILoggable.h"
 
 namespace Catalyst::engine {
     /**
@@ -14,8 +13,6 @@ namespace Catalyst::engine {
     private:
         WorldRegistry worldReg;
     public:
-
-        explicit World() : ILoggable("World") {}
 
         WorldRegistry *getRegistry() {
             return &worldReg;
