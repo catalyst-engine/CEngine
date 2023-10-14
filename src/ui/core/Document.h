@@ -30,9 +30,9 @@ namespace Catalyst {
 
         static void init();
 
-        void loadView(std::string &src);
+        void loadView(std::string &src, IView *parent);
 
-        void addViewInternal(IView *view);
+        void addViewInternal(IView *view, IView *parent);
 
         void replace(std::string &str, const std::string &from, const std::string &to);
     public:
@@ -59,7 +59,17 @@ namespace Catalyst {
          */
         template<class T>
         void addView() {
-            addViewInternal(new T);
+            addViewInternal(new T, nullptr);
+        }
+
+
+        /**
+         * Class needs to be in the "Catalyst" namespace
+         * @tparam T extends IView
+         */
+        template<class T>
+        void addView(IView *parent) {
+            addViewInternal(new T, parent);
         }
     };
 }

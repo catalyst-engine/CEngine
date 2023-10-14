@@ -6,16 +6,13 @@ namespace Catalyst {
     }
 
     std::string IElement::getId() {
-        return "";
+        return id;
     }
 
     void IElement::setId(std::string &newId) {
-
+        id = newId;
     }
 
-    void IElement::render() {
-
-    }
 
     void IElement::renderChildren() {
         children.iterate();
@@ -23,6 +20,10 @@ namespace Catalyst {
             IElement *next = children.next();
             next->render();
         }
+    }
+
+    void IElement::render() {
+        renderChildren();
     }
 
     Document *IElement::getDocument() {
@@ -33,5 +34,13 @@ namespace Catalyst {
         if (IElement::document == nullptr) {
             IElement::document = doc;
         }
+    }
+
+    IElement *IElement::copy() {
+        return nullptr;
+    }
+
+    void IElement::collectAttributes(pugi::xml_node node) {
+
     }
 }

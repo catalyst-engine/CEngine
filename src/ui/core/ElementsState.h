@@ -14,8 +14,6 @@ namespace Catalyst {
 
         IElement *searchFor(Catalyst::ListItem<IElement> *item, const std::string &id);
 
-        void bindElement(IElement *component, IElement *parent);
-
     public:
         IElement *add(IElement *element, IElement *parent);
 

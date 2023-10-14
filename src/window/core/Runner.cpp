@@ -15,6 +15,7 @@ namespace Catalyst {
             next->update();
         }
     }
+
     void Runner::renderUI() {
         auto list = *document->getElementsState()->getElements();
         list.iterate();

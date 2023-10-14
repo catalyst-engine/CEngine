@@ -160,7 +160,7 @@ namespace Catalyst::ListTest {
         tester->registerTest("Should get null as last item", listLast);
         tester->registerTest("Should get last item", listLastNull);
         tester->registerTest("Should first equal last", listFirstIsLast);
-        tester->registerTest("Should last be end", listEndEqualStartNext);
+        tester->registerTest("Should last be tail", listEndEqualStartNext);
         return tester;
     }
 }

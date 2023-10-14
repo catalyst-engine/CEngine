@@ -46,22 +46,20 @@ namespace Catalyst {
     }
 
 
-    void ElementsState::bindElement(IElement *component, IElement *parent) {
-        if (parent != nullptr) {
-            CONSOLE_LOG("BINDING {0} TO {1}", component->getId(), parent->getId())
-            Catalyst::List<IElement> *children = parent->getChildren();
-            children->push(component);
-        } else {
-            CONSOLE_LOG("BINDING {0} TO ROOT", component->getId())
-            elements.push(component);
-        }
-    }
-
     IElement *ElementsState::add(IElement *element, IElement *parent) {
         if (element == nullptr) {
             return nullptr;
         }
-        bindElement(element, parent);
+        if (parent != nullptr) {
+            CONSOLE_LOG("BINDING [{0}] ({1}) TO [{2}] ({3})", typeid(*element).name(), element->getId(), typeid(*parent).name(),
+                        parent->getId())
+            Catalyst::List<IElement> *children = parent->getChildren();
+            children->push(element);
+        } else {
+
+            CONSOLE_LOG("BINDING [{0}] ({1}) TO ROOT", typeid(*element).name(), element->getId())
+            elements.push(element);
+        }
         return element;
     }
 

@@ -5,5 +5,14 @@ namespace Catalyst {
     void IView::update() {
 
     }
+
+    void IView::onInitialize() {
+
+    }
+
+    void IView::onDestroy() {
+
+    }
+
 }
 

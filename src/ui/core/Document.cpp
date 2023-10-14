@@ -1,5 +1,4 @@
 #include "Document.h"
-#include "../elements/IElement.h"
 #include "../elements/EText.h"
 #include "../elements/ESection.h"
 #include "../../util/structures/Map.cpp"
@@ -55,7 +54,7 @@ namespace Catalyst {
         return existing->copy();
     }
 
-    void Document::loadView(std::string &src) {
+    void Document::loadView(std::string &src, IView *parent) {
         CONSOLE_LOG("LOADING XML {0}", src)
         pugi::xml_document doc;
         pugi::xml_parse_result result = doc.load_file(src.c_str());
@@ -65,7 +64,7 @@ namespace Catalyst {
         }
         pugi::xml_node root = doc.root();
         for (pugi::xml_node node: root.children()) {
-            loadElements(node, nullptr);
+            loadElements(node, parent);
         }
     }
 
@@ -100,12 +99,17 @@ namespace Catalyst {
         str.replace(start_pos, from.length(), to);
     }
 
-    void Document::addViewInternal(IView *view) {
+    void Document::addViewInternal(IView *view, IView *parent) {
         viewsState.getViews()->push(view);
         std::string name = typeid(*view).name();
         name = name + ".xml";
         replace(name, "class ", "");
         replace(name, "Catalyst::", "");
-        loadView(name);
+        loadView(name, view);
+
+        elementsState.add(view, parent);
+        view->setDocument(this);
+
+        view->onInitialize();
     }
 }

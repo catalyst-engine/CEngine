@@ -17,15 +17,15 @@ namespace Catalyst {
     public:
         virtual void render();
 
-        virtual void setId(std::string &newId);
+        virtual void collectAttributes(pugi::xml_node node);
 
-        virtual std::string getId();
+        virtual IElement *copy();
 
-        virtual Catalyst::List<IElement> *getChildren();
+        void setId(std::string &newId);
 
-        virtual void collectAttributes(pugi::xml_node node) {}
+        std::string getId();
 
-        virtual IElement *copy() { return nullptr; }
+        Catalyst::List<IElement> *getChildren();
 
         void renderChildren();
 
