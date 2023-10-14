@@ -3,37 +3,58 @@
 #define CATALYST_ENGINE_DOCUMENT_H
 
 #include "../../util/structures/List.h"
-#include "ElementFactory.h"
+#include "ElementsState.h"
+#include "pugixml.hpp"
+#include "ViewsState.h"
 #include <string>
 
 namespace Catalyst {
+    template<typename K, typename V>
+    class Map;
+
     class IElement;
 
-    class Document : public ElementFactory {
+    class IView;
+
+    class Document : public ILoggable {
     private:
-        Catalyst::List<IElement> elements;
+        static bool isReady;
+        static Map<std::string, IElement *> registeredElements;
+        ElementsState elementsState;
+        ViewsState viewsState;
 
-        size_t elementsSize = 0;
-
-        IElement *searchFor(Catalyst::ListItem<IElement> *item, const std::string &id);
-
-        void bindElement(IElement *component, IElement *parent);
 
         IElement *addElementInternal(const char *tag, IElement *parent);
 
+        void loadElements(pugi::xml_node root, IElement *parent);
+
+        static void init();
+
+        void loadView(const char *src);
+
+        void addViewInternal(IView *view);
+
     public:
+        explicit Document(){
+            init();
+        }
 
-        IElement *getElementById(std::string id);
+        static IElement *createElement(const char *tag);
 
-        size_t quantityOfElements() const;
+        ElementsState *getElementsState();
 
-        Catalyst::List<IElement> *getElements();
+        ViewsState *getViewsState();
 
-        IElement *addElement(const char *tag, std::string id, IElement *parent) override;
+        IElement *addElement(const char *tag, std::string id, IElement *parent);
 
-        IElement *addElement(const char *tag, IElement *parent) override;
+        IElement *addElement(const char *tag, IElement *parent);
 
         IElement *addElement(const char *tag);
+
+        template<class T>
+        void addView() {
+            addViewInternal(new T);
+        }
     };
 }
 

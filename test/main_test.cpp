@@ -1,14 +1,26 @@
-#include "../src/window/core/AbstractWindow.h"
-#include "../src/ui/elements/EText.cpp"
-#include "../src/ui/elements/ESection.h"
+#include "catch2/catch_all.hpp"
+#include "engine/EngineTest.h"
+#include "Tester.h"
+#include "util/LoggerTest.h"
+#include "util/ListTest.h"
+#include "util/MapTest.h"
 
-int main(int, char **) {
-    Catalyst::AbstractWindow window("MAIN");
+TEST_CASE("Engine test", "[engine-test]") {
+    Tester *tester = Catalyst::EngineTest::createTester();
+    tester->run();
+}
 
-    if (!window.init()) {
-        return 1;
-    }
-    window.getDocument()->addElement<Catalyst::ESection>("SEC", nullptr);
-    window.start();
-    return 0;
+TEST_CASE("Logger test", "[logger-test]") {
+    Tester *tester = Catalyst::LoggerTest::createTester();
+    tester->run();
+}
+
+TEST_CASE("List test", "[list-test]") {
+    Tester *tester = Catalyst::ListTest::createTester();
+    tester->run();
+}
+
+TEST_CASE("Map test", "[map-test]") {
+    Tester *tester = Catalyst::MapTest::createTester();
+    tester->run();
 }

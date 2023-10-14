@@ -1,7 +1,6 @@
 #include "AbstractWindow.h"
 #include "../../ui/core/Document.h"
 #include "Runner.h"
-#include "../../ui/core/ElementFactory.h"
 
 namespace Catalyst {
     void AbstractWindow::createWindowIO() {

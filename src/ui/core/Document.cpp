@@ -1,69 +1,28 @@
 #include "Document.h"
 #include "../elements/IElement.h"
+#include "../elements/EText.h"
+#include "../elements/ESection.h"
+#include "../../util/structures/Map.cpp"
 
 namespace Catalyst {
-    /**
-     * This operation is not cheap, try to cache the entity instead of querying every frame
-     * @param id
-     * @return nullptr if not found or else IElement*
-     */
-    IElement *Document::getElementById(std::string id) {
-        CONSOLE_LOG("GETTING ELEMENT: {0}", id)
-        Catalyst::ListItem<IElement> *current = elements.getFirst();
-        while (current != nullptr) {
-            IElement *found = searchFor(current, id);
-            if (found != nullptr) {
-                return found;
-            }
-            current = current->next;
+    bool Document::isReady = false;
+    Catalyst::Map<std::string, IElement *> Document::registeredElements;
+
+    void Document::init() {
+        if (isReady) {
+            return;
         }
-        return nullptr;
+        isReady = true;
+        registeredElements.set("EText", new EText);
+        registeredElements.set("ESection", new ESection);
     }
 
-    IElement *Document::searchFor(Catalyst::ListItem<IElement> *item, const std::string &id) {
-        CONSOLE_LOG("SEARCHING: {0}", id)
-        if (item->value->getId() == id) {
-            return item->value;
-        }
-
-        Catalyst::List<IElement> *children = item->value->getChildren();
-        Catalyst::ListItem<IElement> *child = children->getFirst();
-        while (child != nullptr) {
-            if (child->value->getId() == id) {
-                return child->value;
-            }
-            IElement *found = searchFor(child, id);
-            if (found != nullptr) {
-                return found;
-            }
-            child = child->next;
-        }
-        return nullptr;
-    }
-
-    Catalyst::List<IElement> *Document::getElements() {
-        return &elements;
-    }
-
-    size_t Document::quantityOfElements() const {
-        return elementsSize;
-    }
-
-    void Document::bindElement(IElement *component, IElement *parent) {
-        if (parent != nullptr) {
-            CONSOLE_LOG("BINDING {0} TO {1}", component->getId(), parent->getId())
-            Catalyst::List<IElement> *children = parent->getChildren();
-            children->push(component);
-        } else {
-            CONSOLE_LOG("BINDING {0} TO ROOT", component->getId())
-            elements.push(component);
-        }
-        elementsSize++;
-    }
 
     IElement *Document::addElementInternal(const char *tag, IElement *parent) {
-        IElement *element = createElement(tag);
-        bindElement(element, parent);
+        auto element = elementsState.add(createElement(tag), parent);
+        if (element == nullptr) {
+            return nullptr;
+        }
         element->setDocument(this);
         return element;
     }
@@ -80,5 +39,61 @@ namespace Catalyst {
 
     IElement *Document::addElement(const char *tag, IElement *parent) {
         return addElementInternal(tag, parent);
+    }
+
+    ElementsState *Document::getElementsState() {
+        return &elementsState;
+    }
+
+    IElement *Document::createElement(const char *tag) {
+        if (!registeredElements.has(tag)) {
+            return nullptr;
+        }
+        IElement *existing = registeredElements.get(tag);
+        return existing->copy();
+    }
+
+    void Document::loadView(const char *src) {
+        init();
+        CONSOLE_LOG("LOADING XML {0}", src)
+        pugi::xml_document doc;
+        pugi::xml_parse_result result = doc.load_file(src);
+        if (!result) {
+            CONSOLE_ERROR("XML NOT FOUND")
+            return;
+        }
+        pugi::xml_node root = doc.root();
+        for (pugi::xml_node node: root.children()) {
+            loadElements(node, nullptr);
+        }
+    }
+
+    void Document::loadElements(pugi::xml_node root, IElement *parent) {
+        CONSOLE_LOG("LOADING ROOT {0}", root.name())
+        for (pugi::xml_node node: root.children()) {
+            const char *tagName = node.name();
+            CONSOLE_LOG("PROCESSING NODE {0}", tagName)
+            const char *idAttr = node.attribute("id").as_string();
+            IElement *pView;
+            if (strlen(idAttr) == 0) {
+                pView = addElement(tagName, parent);
+            } else {
+                pView = addElement(tagName, idAttr, parent);
+            }
+            if (pView != nullptr) {
+                pView->collectAttributes(node);
+                loadElements(node, pView);
+            }
+        }
+    }
+
+    ViewsState *Document::getViewsState() {
+        return &viewsState;
+    }
+
+    void Document::addViewInternal(IView *view) {
+        viewsState.getViews()->push(view);
+        const char *name = typeid(this).name();
+        loadView(name);
     }
 }

@@ -3,11 +3,11 @@
 #define CATALYST_IVIEW_H
 
 #include <string>
+#include "../elements/IElement.h"
 
 namespace Catalyst {
-    class IElement;
 
-    class IView {
+    class IView : public IElement{
     public:
         virtual void update();
     };

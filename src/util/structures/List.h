@@ -22,11 +22,12 @@ namespace Catalyst {
         Catalyst::ListItem<T> *iterator{};
         size_t length = 0;
     public:
-        List(){
+        List() {
             start = nullptr;
             end = nullptr;
             iterator = nullptr;
         }
+
         size_t getLength() {
             return length;
         }
@@ -59,36 +60,29 @@ namespace Catalyst {
             return current;
         }
 
-        void add(size_t index, T *item) {
-            if (index > length) {
-                return;
-            }
-            if (length == 0) {
-                Push(item);
-                return;
-            }
-            auto *newItem = new ListItem<T>(*item);
-
-            if (index == 0) {
-                start->previous = newItem;
-                newItem->next = start;
-                start = newItem;
-                return;
-            }
-            ListItem<T> *atIndex = getItem(index);
-            atIndex->previous->next = newItem;
-            newItem->previous = atIndex->previous;
-            newItem->next = atIndex;
-            atIndex->previous = newItem;
-            length++;
-        }
-
         void remove(T *item) {
-            int index = indexOf(item);
-            if (index < 0) {
-                return;
+            ListItem<T> *current = start;
+
+            while (current) {
+                if (current->value == item) {
+                    if (current->previous) {
+                        current->previous->next = current->next;
+                    } else {
+                        start = current->next;
+                    }
+
+                    if (current->next) {
+                        current->next->previous = current->previous;
+                    } else {
+                        end = current->previous;
+                    }
+
+                    delete current;
+                    length--;
+                    return;
+                }
+                current = current->next;
             }
-            removeAt(index);
         }
 
         void replaceAt(size_t index, T *value) {
@@ -99,36 +93,30 @@ namespace Catalyst {
         }
 
         void removeAt(size_t index) {
-            if (length == 0 || index > length) {
-                return;
-            }
-            if (index == 0) {
-                start = start->next;
-                return;
-            }
-            if (index == length) {
-                pop();
-                return;
-            }
-            ListItem<T> atIndex = *getItem(index);
-            atIndex.previous->next = atIndex.next;
-            length--;
-        }
+            ListItem<T> *current = start;
+            int currentIndex = 0;
 
-        void push(T *item) {
-            auto *newItem = new ListItem<T>(item);
-            newItem->value = item;
-            newItem->previous = nullptr;
-            newItem->next = nullptr;
-
-            if (length > 0) {
-                newItem->previous = end;
-                end->next = newItem;
-                end = newItem;
-            } else {
-                end = start = newItem;
+            while (current && currentIndex < index) {
+                current = current->next;
+                currentIndex++;
             }
-            length++;
+
+            if (current) {
+                if (current->previous) {
+                    current->previous->next = current->next;
+                } else {
+                    start = current->next;
+                }
+
+                if (current->next) {
+                    current->next->previous = current->previous;
+                } else {
+                    end = current->previous;
+                }
+
+                delete current;
+                length--;
+            }
         }
 
         bool includes(T *item) {
@@ -158,20 +146,34 @@ namespace Catalyst {
             return -1;
         }
 
-        T *pop() {
-            T *removed = nullptr;
-            if (end->previous != nullptr && length > 1) {
-                removed = end->value;
-                ListItem<T> *newEnd = end->previous;
-                end->previous->next = nullptr;
-                end = newEnd;
-            } else if (length == 1) {
-                removed = end->value;
-                start = nullptr;
-                end = nullptr;
+        void push(T *item) {
+            ListItem<T> *newNode = new ListItem(item);
+
+            if (!start) {
+                start = newNode;
+                end = newNode;
+            } else {
+                newNode->previous = end;
+                end->next = newNode;
+                end = newNode;
+            }
+            length++;
+        }
+
+        void pop() {
+            if (end) {
+                ListItem<T> *prevTail = end->previous;
+                if (prevTail) {
+                    prevTail->next = nullptr;
+                    delete end;
+                    end = prevTail;
+                } else {
+                    delete end;
+                    start = nullptr;
+                    end = nullptr;
+                }
             }
             length--;
-            return removed;
         }
 
         void iterate() {

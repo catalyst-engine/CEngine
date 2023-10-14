@@ -16,22 +16,17 @@ add_executable(catalyst main.cpp
         ui/core/Document.h
         window/core/AbstractWindow.cpp
         window/core/AbstractWindow.h
-        ui/core/ElementFactory.h
         ui/views/IView.cpp
         ui/views/IView.h
-        ui/core/ElementFactory.cpp
         ui/elements/IElement.cpp
         util/debug/ILoggable.cpp
         util/debug/ILoggable.h
         util/debug/Timer.cpp
         util/debug/Timer.h
-
         engine/world/World.cpp
         engine/world/World.h
-
         engine/world/WorldRegistry.cpp
         engine/world/WorldRegistry.h
-
         engine/components/CMetadata.cpp
         engine/components/CMetadata.h
         engine/components/IComponent.h
@@ -47,18 +42,15 @@ add_executable(catalyst main.cpp
         window/editor/views/EditorView.h
         window/core/Runner.cpp
         window/core/Runner.h
+        ui/core/ElementsState.cpp
+        ui/core/ElementsState.h
+        ui/core/ElementsState.h
+        ui/core/ViewsState.cpp
+        ui/core/ViewsState.h
 )
 
 target_link_libraries(catalyst PRIVATE
-        ${OPENGL_gl_LIBRARY}
-        glad::glad
-        glfw
-        glm::glm
-        imgui::imgui
-        pugixml::shared pugixml::pugixml
-        imm32
-        spdlog::spdlog_header_only
-        EnTT::EnTT
+        ${COMMON_LIBRARIES}
 )
 
 
