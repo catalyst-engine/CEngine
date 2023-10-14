@@ -68,7 +68,7 @@ file(GLOB XML_FILES
         "ui/*.xml"
 )
 foreach (XML_FILE ${XML_FILES})
-    file(COPY ${XML_FILE} DESTINATION "${CMAKE_BINARY_DIR}")
+    file(COPY ${XML_FILE} DESTINATION "${CMAKE_BINARY_DIR}/test")
 endforeach ()
 
 add_executable(main_test main_test.cpp ${SOURCES})
