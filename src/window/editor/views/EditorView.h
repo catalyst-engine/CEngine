@@ -16,6 +16,8 @@ namespace Catalyst {
         void update() override;
 
         void onInitialize() override;
+
+        void render() override;
     };
 }
 #endif

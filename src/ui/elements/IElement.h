@@ -10,10 +10,11 @@ namespace Catalyst {
     class Document;
 
     class IElement {
-    private:
+    protected:
         Catalyst::List<IElement> children;
         std::string id;
         Document *document = nullptr;
+        IElement * getElementById(const char* id);
     public:
         virtual void render();
 
@@ -32,6 +33,7 @@ namespace Catalyst {
         Document *getDocument();
 
         void setDocument(Document *document);
+
     };
 }
 #endif

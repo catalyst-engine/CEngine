@@ -1,4 +1,5 @@
 #include "IElement.h"
+#include "../core/Document.h"
 
 namespace Catalyst {
     Catalyst::List<IElement> *IElement::getChildren() {
@@ -31,8 +32,8 @@ namespace Catalyst {
     }
 
     void IElement::setDocument(Document *doc) {
-        if (IElement::document == nullptr) {
-            IElement::document = doc;
+        if (document == nullptr) {
+            document = doc;
         }
     }
 
@@ -42,5 +43,9 @@ namespace Catalyst {
 
     void IElement::collectAttributes(pugi::xml_node node) {
 
+    }
+
+    IElement *IElement::getElementById(const char* id) {
+        return document->getElementsState()->getElementById(id, this);
     }
 }

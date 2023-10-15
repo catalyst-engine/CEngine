@@ -1,7 +1,11 @@
 include_directories(window/editor)
 
-configure_file(ui/Schema.xsd Schema.xsd COPYONLY)
-configure_file(window/editor/views/EditorView.xml EditorView.xml COPYONLY)
+file(GLOB XML_FILES
+        "${CMAKE_SOURCE_DIR}/src/**/*.xml"
+)
+foreach (XML_FILE ${XML_FILES})
+    file(COPY ${XML_FILE} DESTINATION "${CMAKE_BINARY_DIR}/src")
+endforeach ()
 
 add_executable(catalyst main.cpp
         util/structures/List.h
@@ -47,6 +51,19 @@ add_executable(catalyst main.cpp
         ui/core/ElementsState.h
         ui/core/ViewsState.cpp
         ui/core/ViewsState.h
+        window/editor/views/imgui_demo.cpp
+        window/editor/views/HierarchyView.cpp
+        window/editor/views/HierarchyView.h
+        ui/elements/ETree.cpp
+        ui/elements/ETree.h
+        ui/elements/EButton.cpp
+        ui/elements/EButton.h
+        ui/elements/EMenuItem.cpp
+        ui/elements/EMenuItem.h
+        ui/elements/EMenu.cpp
+        ui/elements/EMenu.h
+        ui/elements/EMenuBar.cpp
+        ui/elements/EMenuBar.h
 )
 
 target_link_libraries(catalyst PRIVATE

@@ -6,23 +6,6 @@ namespace Catalyst {
         return &elements;
     }
 
-    /**
-   * This operation is not cheap, try to cache the entity instead of querying every frame
-   * @param id
-   * @return nullptr if not found or else IElement*
-   */
-    IElement *ElementsState::getElementById(std::string id) {
-        CONSOLE_LOG("GETTING ELEMENT: {0}", id)
-        Catalyst::ListItem<IElement> *current = elements.getFirst();
-        while (current != nullptr) {
-            IElement *found = searchFor(current, id);
-            if (found != nullptr) {
-                return found;
-            }
-            current = current->next;
-        }
-        return nullptr;
-    }
 
     IElement *ElementsState::searchFor(Catalyst::ListItem<IElement> *item, const std::string &id) {
         CONSOLE_LOG("SEARCHING: {0}", id)
@@ -61,6 +44,33 @@ namespace Catalyst {
             elements.push(element);
         }
         return element;
+    }
+
+
+    /**
+   * This operation is not cheap, try to cache the entity instead of querying every frame
+   * @param id
+   * @return nullptr if not found or else IElement*
+   */
+    IElement *ElementsState::getElementById(std::string id) {
+        return getElementByIdInternal(id, elements.getFirst());
+    }
+
+    IElement *ElementsState::getElementById(std::string id, IElement *root) {
+        return getElementByIdInternal(id, root->getChildren()->getFirst());
+    }
+
+    IElement *ElementsState::getElementByIdInternal(std::string &id, ListItem<IElement> *root) {
+        CONSOLE_LOG("GETTING ELEMENT: {0}", id)
+        Catalyst::ListItem<IElement> *current = root;
+        while (current != nullptr) {
+            IElement *found = searchFor(current, id);
+            if (found != nullptr) {
+                return found;
+            }
+            current = current->next;
+        }
+        return nullptr;
     }
 
 
