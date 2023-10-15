@@ -91,6 +91,10 @@ namespace Catalyst {
                 pView = addElement(tagName, idAttr, parent);
             }
             if (pView != nullptr) {
+                CONSOLE_LOG("\tAttributes found for {0}:", tagName)
+                for(auto e : node.attributes()){
+                    CONSOLE_LOG("\t\t{0}:{1}", e.name(), e.as_string())
+                }
                 pView->collectAttributes(node);
                 loadElements(node, pView);
             }

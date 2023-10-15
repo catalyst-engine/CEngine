@@ -23,10 +23,14 @@ namespace Catalyst {
 
     void EMenuItem::collectAttributes(pugi::xml_node node) {
         AbstractTitledElement::collectAttributes(node);
-        shortcut = node.attribute("shortcut").as_string();
-        enabled = node.attribute("enabled").as_bool();
-        clicked = node.attribute("selected").as_bool();
-        addSeparator = node.attribute("addSeparator").as_bool();
+        if (!node.attribute("shortcut").empty())
+            shortcut = node.attribute("shortcut").as_string();
+        if (!node.attribute("enabled").empty())
+            enabled = node.attribute("enabled").as_bool();
+        if (!node.attribute("selected").empty())
+            clicked = node.attribute("selected").as_bool();
+        if (!node.attribute("addSeparator").empty())
+            addSeparator = node.attribute("addSeparator").as_bool();
     }
 
     IElement *EMenuItem::copy() {

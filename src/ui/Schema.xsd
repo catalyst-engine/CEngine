@@ -52,6 +52,18 @@
         </xs:sequence>
         <xs:attribute name="id" type="xs:string"/>
         <xs:attribute name="title" type="xs:string" use="required"/>
+
+        <xs:attribute name="noTitleBar" type="xs:boolean"/>
+        <xs:attribute name="noScrollbar" type="xs:boolean"/>
+        <xs:attribute name="menuBar" type="xs:boolean"/>
+        <xs:attribute name="noMove" type="xs:boolean"/>
+        <xs:attribute name="noResize" type="xs:boolean"/>
+        <xs:attribute name="noCollapse" type="xs:boolean"/>
+        <xs:attribute name="noNav" type="xs:boolean"/>
+        <xs:attribute name="noBackground" type="xs:boolean"/>
+        <xs:attribute name="noBringToFrontOnFocus" type="xs:boolean"/>
+        <xs:attribute name="noDocking" type="xs:boolean"/>
+        <xs:attribute name="unsavedDocument" type="xs:boolean"/>
     </xs:complexType>
 
     <xs:complexType name="EMenu">

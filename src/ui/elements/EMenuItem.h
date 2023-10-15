@@ -11,7 +11,7 @@ namespace Catalyst {
         bool clicked = false;
         std::string shortcut;
         bool addSeparator = false;
-        bool enabled = false;
+        bool enabled = true;
     public:
 
         bool isClicked() const;

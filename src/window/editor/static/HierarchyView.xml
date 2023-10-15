@@ -2,7 +2,7 @@
 <Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="../../../ui/Schema.xsd"
 >
-    <ESection id="hierarchyContainer" title="Hierarchy">
+    <ESection id="hierarchyContainer" title="Hierarchy" noMove="true">
         <EMenuBar isMainMenu="false">
             <EMenu title="Add">
                 <EMenuItem id="hierarchyAddEmpty" title="Empty entity"/>
