@@ -5,11 +5,11 @@
 
 #include "imgui.h"
 #include "IElement.h"
+#include "AbstractTitledElement.h"
 
 namespace Catalyst {
-    class ESection : public IElement {
+    class ESection : public AbstractTitledElement {
     private:
-        std::string title;
         ImVec2 size = ImVec2(10, 10);
     public:
         void setSize(float x, float y) {
@@ -19,7 +19,6 @@ namespace Catalyst {
 
         void render() override;
 
-        void collectAttributes(pugi::xml_node node) override;
         IElement * copy() override;
     };
 }

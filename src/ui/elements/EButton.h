@@ -2,22 +2,20 @@
 #define CATALYST_EBUTTON_H
 
 #include "IElement.h"
+#include "AbstractTitledElement.h"
 
 namespace Catalyst {
 
-    class EButton : public IElement {
+    class EButton : public AbstractTitledElement {
     private:
         bool clicked = false;
-        std::string title;
     public:
-        const std::string &getTitle() const;
 
-        void setTitle(std::string t);
-
-    public:
         bool isClicked() const;
 
         void render() override;
+
+        IElement *copy() override;
     };
 
 }

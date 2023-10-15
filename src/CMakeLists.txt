@@ -1,7 +1,7 @@
 include_directories(window/editor)
 
 file(GLOB XML_FILES
-        "${CMAKE_SOURCE_DIR}/src/**/*.xml"
+        "window/editor/static/*.xml"
 )
 foreach (XML_FILE ${XML_FILES})
     file(COPY ${XML_FILE} DESTINATION "${CMAKE_BINARY_DIR}/src")
@@ -64,6 +64,8 @@ add_executable(catalyst main.cpp
         ui/elements/EMenu.h
         ui/elements/EMenuBar.cpp
         ui/elements/EMenuBar.h
+        ui/elements/AbstractTitledElement.cpp
+        ui/elements/AbstractTitledElement.h
 )
 
 target_link_libraries(catalyst PRIVATE

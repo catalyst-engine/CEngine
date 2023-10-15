@@ -7,10 +7,6 @@ namespace Catalyst {
         ImGui::End();
     }
 
-    void ESection::collectAttributes(pugi::xml_node node) {
-        title = node.attribute("title").as_string();
-    }
-
     IElement *ESection::copy() {
         return new ESection;
     }

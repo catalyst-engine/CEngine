@@ -17,11 +17,14 @@
     </xs:complexType>
 
     <xs:complexType name="EMenuItem">
-        <xs:simpleContent>
-            <xs:extension base="xs:string">
-                <xs:attribute name="id" type="xs:string" />
-            </xs:extension>
-        </xs:simpleContent>
+        <xs:sequence>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string"/>
+        <xs:attribute name="title" type="xs:string" use="required"/>
+        <xs:attribute name="shortcut" type="xs:string"/>
+        <xs:attribute name="enabled" type="xs:boolean"/>
+        <xs:attribute name="selected" type="xs:boolean"/>
+        <xs:attribute name="addSeparator" type="xs:boolean"/>
     </xs:complexType>
 
     <xs:complexType name="ETree">
@@ -54,17 +57,17 @@
     <xs:complexType name="EMenu">
         <xs:sequence>
             <xs:element type="EMenuItem" name="EMenuItem" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="EMenu" name="EMenu" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:attribute name="id" type="xs:string"/>
         <xs:attribute name="title" type="xs:string" use="required"/>
     </xs:complexType>
 
     <xs:complexType name="EButton">
-        <xs:simpleContent>
-            <xs:extension base="xs:string">
-                <xs:attribute name="id" type="xs:string"/>
-            </xs:extension>
-        </xs:simpleContent>
+        <xs:sequence>
+        </xs:sequence>
+        <xs:attribute name="title" type="xs:string" use="required"/>
+        <xs:attribute name="id" type="xs:string"/>
     </xs:complexType>
 
     <xs:complexType name="EMenuBar">
@@ -73,6 +76,7 @@
             <xs:element name="EButton" type="EButton" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:attribute name="id" type="xs:string"/>
+        <xs:attribute name="isMainMenu" type="xs:boolean"/>
     </xs:complexType>
 
     <xs:complexType name="Body">

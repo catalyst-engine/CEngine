@@ -12,11 +12,7 @@ namespace Catalyst {
         clicked = ImGui::Button(title.c_str());
     }
 
-    const std::string &EButton::getTitle() const {
-        return title;
-    }
-
-    void EButton::setTitle(std::string t) {
-        EButton::title = std::move(t);
+    IElement *EButton::copy() {
+        return new EButton;
     }
 }

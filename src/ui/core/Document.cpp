@@ -1,4 +1,9 @@
 #include "Document.h"
+#include "../elements/ETree.h"
+#include "../elements/EButton.h"
+#include "../elements/EMenu.h"
+#include "../elements/EMenuBar.h"
+#include "../elements/EMenuItem.h"
 #include "../elements/EText.h"
 #include "../elements/ESection.h"
 #include "../../util/structures/Map.cpp"
@@ -14,6 +19,11 @@ namespace Catalyst {
         isReady = true;
         registeredElements.set("EText", new EText);
         registeredElements.set("ESection", new ESection);
+        registeredElements.set("ETree", new ETree);
+        registeredElements.set("EButton", new EButton);
+        registeredElements.set("EMenu", new EMenu);
+        registeredElements.set("EMenuBar", new EMenuBar);
+        registeredElements.set("EMenuItem", new EMenuItem);
     }
 
 
