@@ -19,7 +19,9 @@ namespace Catalyst {
         children.iterate();
         while (children.hasNext()) {
             IElement *next = children.next();
-            next->render();
+            if (next->isActive()) {
+                next->render();
+            }
         }
     }
 
@@ -45,7 +47,16 @@ namespace Catalyst {
 
     }
 
-    IElement *IElement::getElementById(const char* id) {
+    IElement *IElement::getElementById(const char *id) {
         return document->getElementsState()->getElementById(id, this);
     }
+
+    bool IElement::isActive() const {
+        return active;
+    }
+
+    void IElement::setActive(bool active) {
+        IElement::active = active;
+    }
+
 }

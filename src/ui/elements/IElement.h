@@ -15,7 +15,13 @@ namespace Catalyst {
         std::string id;
         Document *document = nullptr;
         IElement * getElementById(const char* id);
+        bool active = true;
     public:
+
+        bool isActive() const;
+
+        void setActive(bool active);
+
         virtual void render();
 
         virtual void collectAttributes(pugi::xml_node node);

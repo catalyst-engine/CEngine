@@ -10,16 +10,24 @@ namespace Catalyst {
 
     class ETree;
 
+    class EText;
+
+    class ESection;
+
     class HierarchyView : public IView {
-    private:
+    protected:
         EMenuItem *selectInvert = nullptr;
         EMenuItem *selectHierarchy = nullptr;
         EMenuItem *selectAll = nullptr;
         EButton *deleteButton = nullptr;
-        ETree *tree = nullptr;
+        EText *entityName;
         EMenuItem *addEmpty = nullptr;
     public:
         void onInitialize() override;
+
+        void render() override;
+
+        void drawElements();
     };
 
 }

@@ -21,7 +21,9 @@ namespace Catalyst {
         list.iterate();
         while (list.hasNext()) {
             auto *next = list.next();
-            next->render();
+            if(next->isActive()) {
+                next->render();
+            }
         }
     }
 

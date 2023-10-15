@@ -14,7 +14,7 @@ namespace Catalyst {
         ImGuiWindowFlags flags = 0;
         bool noTitleBar = false;
         bool noScrollbar = false;
-        bool menuBar = false;
+        bool menuBar = true;
         bool noMove = false;
         bool noResize = false;
         bool noCollapse = false;

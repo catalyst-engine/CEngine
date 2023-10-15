@@ -45,7 +45,6 @@
 
     <xs:complexType name="ESection">
         <xs:sequence>
-            <xs:element type="BlockView" name="BlockView" minOccurs="0"/>
             <xs:element name="EText" type="EText" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="EMenuBar" type="EMenuBar" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="ETree" type="ETree" minOccurs="0" maxOccurs="unbounded"/>

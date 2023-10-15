@@ -66,6 +66,10 @@ add_executable(catalyst main.cpp
         ui/elements/EMenuBar.h
         ui/elements/AbstractTitledElement.cpp
         ui/elements/AbstractTitledElement.h
+        util/StringUtils.cpp
+        util/StringUtils.h
+        ui/elements/DynamicElement.cpp
+        ui/elements/DynamicElement.h
 )
 
 target_link_libraries(catalyst PRIVATE

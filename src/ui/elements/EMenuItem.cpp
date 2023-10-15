@@ -37,4 +37,8 @@ namespace Catalyst {
         return new EMenuItem;
     }
 
+    void EMenuItem::setClicked(bool c) {
+        EMenuItem::clicked = c;
+    }
+
 }

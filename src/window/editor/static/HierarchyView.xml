@@ -17,5 +17,7 @@
 <!--        <ETree id="hierarchyTree">-->
 <!--            <ETableColumn title="Name"/>-->
 <!--        </ETree>-->
+        <EText id="EntityName">
+        </EText>
     </ESection>
 </Body>

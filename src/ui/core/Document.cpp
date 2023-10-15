@@ -7,6 +7,7 @@
 #include "../elements/EText.h"
 #include "../elements/ESection.h"
 #include "../../util/structures/Map.cpp"
+#include "../../util/StringUtils.h"
 
 namespace Catalyst {
     bool Document::isReady = false;
@@ -27,29 +28,29 @@ namespace Catalyst {
     }
 
 
-    IElement *Document::addElementInternal(const char *tag, IElement *parent) {
-        auto element = elementsState.add(createElement(tag), parent);
-        if (element == nullptr) {
+    IElement *Document::addElementInternal(IElement *element, IElement *parent) {
+        auto pElement = elementsState.add(element, parent);
+        if (pElement == nullptr) {
             return nullptr;
         }
-        element->setDocument(this);
-        return element;
+        pElement->setDocument(this);
+        return pElement;
     }
 
     IElement *Document::addElement(const char *tag) {
-        return addElementInternal(tag, nullptr);
+        return addElementInternal(createElement(tag), nullptr);
     }
 
     IElement *Document::addElement(const char *tag, std::string id, IElement *parent) {
-        IElement *pElement = addElementInternal(tag, parent);
-        if(pElement != nullptr) {
+        IElement *pElement = addElementInternal(createElement(tag), parent);
+        if (pElement != nullptr) {
             pElement->setId(id);
         }
         return pElement;
     }
 
     IElement *Document::addElement(const char *tag, IElement *parent) {
-        return addElementInternal(tag, parent);
+        return addElementInternal(createElement(tag), parent);
     }
 
     ElementsState *Document::getElementsState() {
@@ -92,7 +93,7 @@ namespace Catalyst {
             }
             if (pView != nullptr) {
                 CONSOLE_LOG("\tAttributes found for {0}:", tagName)
-                for(auto e : node.attributes()){
+                for (auto e: node.attributes()) {
                     CONSOLE_LOG("\t\t{0}:{1}", e.name(), e.as_string())
                 }
                 pView->collectAttributes(node);
@@ -105,25 +106,22 @@ namespace Catalyst {
         return &viewsState;
     }
 
-    void Document::replace(std::string &str, const std::string &from, const std::string &to) {
-        size_t start_pos = str.find(from);
-        if (start_pos == std::string::npos) {
-            return;
-        }
-        str.replace(start_pos, from.length(), to);
-    }
 
     void Document::addViewInternal(IView *view, IView *parent) {
         viewsState.getViews()->push(view);
         std::string name = typeid(*view).name();
         name = name + ".xml";
-        replace(name, "class ", "");
-        replace(name, "Catalyst::", "");
+        StringUtils::replace(name, "class ", "");
+        StringUtils::replace(name, "Catalyst::", "");
         loadView(name, view);
 
         elementsState.add(view, parent);
         view->setDocument(this);
 
         view->onInitialize();
+    }
+
+    IElement *Document::addElement(IElement *element, IElement *parent) {
+        return addElementInternal(element, parent);
     }
 }

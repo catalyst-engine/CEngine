@@ -16,6 +16,8 @@ namespace Catalyst {
 
         bool isClicked() const;
 
+        void setClicked(bool clicked);
+
         std::string getShortcut();
 
         void setShortcut(std::string t);

@@ -24,7 +24,7 @@ namespace Catalyst {
         ViewsState viewsState;
 
 
-        IElement *addElementInternal(const char *tag, IElement *parent);
+        IElement *addElementInternal(IElement *element, IElement *parent);
 
         void loadElements(pugi::xml_node root, IElement *parent);
 
@@ -34,10 +34,9 @@ namespace Catalyst {
 
         void addViewInternal(IView *view, IView *parent);
 
-        void replace(std::string &str, const std::string &from, const std::string &to);
     public:
 
-        explicit Document(){
+        explicit Document() {
             init();
         }
 
@@ -50,6 +49,8 @@ namespace Catalyst {
         IElement *addElement(const char *tag, std::string id, IElement *parent);
 
         IElement *addElement(const char *tag, IElement *parent);
+
+        IElement *addElement(IElement *element, IElement *parent);
 
         IElement *addElement(const char *tag);
 
