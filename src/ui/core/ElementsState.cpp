@@ -6,7 +6,6 @@ namespace Catalyst {
         return &elements;
     }
 
-
     IElement *ElementsState::searchFor(Catalyst::ListItem<IElement> *item, const std::string &id) {
         CONSOLE_LOG("SEARCHING: {0}", id)
         if (item->value->getId() == id) {

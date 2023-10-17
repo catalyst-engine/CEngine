@@ -8,7 +8,7 @@
 
 namespace Catalyst {
     void Runner::updateUI() {
-        auto list = *document->getViewsState()->getViews();
+        auto list = *document->getViews();
         list.iterate();
         while (list.hasNext()) {
             auto *next = list.next();
@@ -17,7 +17,7 @@ namespace Catalyst {
     }
 
     void Runner::renderUI() {
-        auto list = *document->getElementsState()->getElements();
+        auto list = *document->getElements();
         list.iterate();
         while (list.hasNext()) {
             auto *next = list.next();

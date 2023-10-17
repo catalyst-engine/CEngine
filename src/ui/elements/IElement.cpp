@@ -1,4 +1,6 @@
 #include "IElement.h"
+
+#include <utility>
 #include "../core/Document.h"
 
 namespace Catalyst {
@@ -47,16 +49,16 @@ namespace Catalyst {
 
     }
 
-    IElement *IElement::getElementById(const char *id) {
-        return document->getElementsState()->getElementById(id, this);
+    IElement *IElement::getElementById(std::string id) {
+        return document->getElementById(std::move(id), this);
     }
 
     bool IElement::isActive() const {
         return active;
     }
 
-    void IElement::setActive(bool active) {
-        IElement::active = active;
+    void IElement::setActive(bool a) {
+        IElement::active = a;
     }
 
 }

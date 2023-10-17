@@ -19,6 +19,7 @@ namespace Catalyst {
     class Document : public ILoggable {
     private:
         static bool isReady;
+        static Map<std::string, IView *> registeredViews;
         static Map<std::string, IElement *> registeredElements;
         ElementsState elementsState;
         ViewsState viewsState;
@@ -32,7 +33,7 @@ namespace Catalyst {
 
         void loadView(std::string &src, IView *parent);
 
-        void addViewInternal(IView *view, IView *parent);
+        void addViewInternal(IView *view, IElement *parent);
 
     public:
 
@@ -42,10 +43,6 @@ namespace Catalyst {
 
         static IElement *createElement(const char *tag);
 
-        ElementsState *getElementsState();
-
-        ViewsState *getViewsState();
-
         IElement *addElement(const char *tag, std::string id, IElement *parent);
 
         IElement *addElement(const char *tag, IElement *parent);
@@ -53,6 +50,14 @@ namespace Catalyst {
         IElement *addElement(IElement *element, IElement *parent);
 
         IElement *addElement(const char *tag);
+
+        IElement *getElementById(std::string id, IElement *root);
+
+        IElement *getElementById(std::string id);
+
+        List<IView> *getViews();
+
+        List<IElement> *getElements();
 
         /**
          * Class needs to be in the "Catalyst" namespace
@@ -72,6 +77,20 @@ namespace Catalyst {
         void addView(IView *parent) {
             addViewInternal(new T, parent);
         }
+
+        /**
+         * Register element instance
+         * @param tag
+         * @param instance
+         */
+        static void registerElement(const char *tag, IElement *instance);
+
+        /**
+         * Register view instance
+         * @param tag
+         * @param instance
+         */
+        static void registerView(const char *tag, IView *instance);
     };
 }
 

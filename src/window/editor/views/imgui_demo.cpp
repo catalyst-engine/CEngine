@@ -73,7 +73,7 @@ Index of this file:
 // [SECTION] About AbstractWindow / ShowAboutWindow()
 // [SECTION] Style EditorWindow / ShowStyleEditor()
 // [SECTION] User Guide / ShowUserGuide()
-// [SECTION] Example App: Main Menu Bar / ShowExampleAppMainMenuBar()
+// [SECTION] Example App: MainView Menu Bar / ShowExampleAppMainMenuBar()
 // [SECTION] Example App: Debug ILoggable / ShowExampleAppConsole()
 // [SECTION] Example App: Debug Log / ShowExampleAppLog()
 // [SECTION] Example App: Simple Layout / ShowExampleAppLayout()
@@ -357,7 +357,7 @@ void ImGui::ShowDemoWindow(bool* p_open)
     ImGui::SetNextWindowPos(ImVec2(main_viewport->WorkPos.x + 650, main_viewport->WorkPos.y + 20), ImGuiCond_FirstUseEver);
     ImGui::SetNextWindowSize(ImVec2(550, 680), ImGuiCond_FirstUseEver);
 
-    // Main body of the Demo window starts here.
+    // MainView body of the Demo window starts here.
     if (!ImGui::Begin("Dear ImGui Demo", p_open, window_flags))
     {
         // Early out if the window is collapsed, as an optimization.
@@ -383,7 +383,7 @@ void ImGui::ShowDemoWindow(bool* p_open)
         if (ImGui::BeginMenu("Examples"))
         {
             IMGUI_DEMO_MARKER("Menu/Examples");
-            ImGui::MenuItem("Main menu bar", NULL, &show_app_main_menu_bar);
+            ImGui::MenuItem("MainView menu bar", NULL, &show_app_main_menu_bar);
 
             ImGui::SeparatorText("Mini apps");
             ImGui::MenuItem("ILoggable", NULL, &show_app_console);
@@ -6448,7 +6448,7 @@ void ImGui::ShowStyleEditor(ImGuiStyle* ref)
     {
         if (ImGui::BeginTabItem("Sizes"))
         {
-            ImGui::SeparatorText("Main");
+            ImGui::SeparatorText("MainView");
             ImGui::SliderFloat2("WindowPadding", (float*)&style.WindowPadding, 0.0f, 20.0f, "%.0f");
             ImGui::SliderFloat2("FramePadding", (float*)&style.FramePadding, 0.0f, 20.0f, "%.0f");
             ImGui::SliderFloat2("CellPadding", (float*)&style.CellPadding, 0.0f, 20.0f, "%.0f");
@@ -6708,7 +6708,7 @@ void ImGui::ShowUserGuide()
 }
 
 //-----------------------------------------------------------------------------
-// [SECTION] Example App: Main Menu Bar / ShowExampleAppMainMenuBar()
+// [SECTION] Example App: MainView Menu Bar / ShowExampleAppMainMenuBar()
 //-----------------------------------------------------------------------------
 // - ShowExampleAppMainMenuBar()
 // - ShowExampleMenuFile()
@@ -7241,7 +7241,7 @@ struct ExampleAppLog
             ImGui::EndPopup();
         }
 
-        // Main window
+        // MainView window
         if (ImGui::Button("Options"))
             ImGui::OpenPopup("Options");
         ImGui::SameLine();
@@ -7752,7 +7752,7 @@ static void ShowExampleAppFullscreen(bool* p_open)
     {
         ImGui::Checkbox("Use work area instead of main area", &use_work_area);
         ImGui::SameLine();
-        HelpMarker("Main Area = entire viewport,\nWork Area = entire viewport minus sections used by the main menu bars, task bars etc.\n\nEnable the main-menu bar in Examples menu to see the difference.");
+        HelpMarker("MainView Area = entire viewport,\nWork Area = entire viewport minus sections used by the main menu bars, task bars etc.\n\nEnable the main-menu bar in Examples menu to see the difference.");
 
         ImGui::CheckboxFlags("ImGuiWindowFlags_NoBackground", &flags, ImGuiWindowFlags_NoBackground);
         ImGui::CheckboxFlags("ImGuiWindowFlags_NoDecoration", &flags, ImGuiWindowFlags_NoDecoration);

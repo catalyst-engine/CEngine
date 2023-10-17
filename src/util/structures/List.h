@@ -25,15 +25,25 @@ namespace Catalyst {
             iterator = nullptr;
         }
 
-        size_t getLength() {
-            return length;
+        ~List() {
+            clear();
         }
 
+
         void clear() {
-            head = nullptr;
-            tail = nullptr;
+            iterate();
+            tail = head = nullptr;
+            while (iterator != nullptr) {
+                ListItem<T> *next = iterator->next;
+                delete iterator;
+                iterator = next;
+            }
             iterator = nullptr;
             length = 0;
+        }
+
+        size_t getLength() {
+            return length;
         }
 
         T *get(size_t index) {

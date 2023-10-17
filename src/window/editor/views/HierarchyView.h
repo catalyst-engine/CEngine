@@ -27,7 +27,7 @@ namespace Catalyst {
 
         void render() override;
 
-        void drawElements();
+        IElement * copy() override;
     };
 
 }

@@ -9,7 +9,7 @@ namespace Catalyst::DocumentTest {
 
     void loadView() {
         d.addView<Example>();
-        List<IElement> *elements = d.getElementsState()->getElements();
+        List<IElement> *elements = d.getElements();
 
         IElement *first = elements->getFirstValue();
         IElement *second = first->getChildren()->getFirstValue();
@@ -24,13 +24,12 @@ namespace Catalyst::DocumentTest {
     }
 
     void findDeepChild() {
-        ElementsState *state = d.getElementsState();
-        List<IElement> *elements = state->getElements();
+        List<IElement> *elements = d.getElements();
         IElement *first = elements->getFirstValue();
         IElement *second = first->getChildren()->getFirstValue();
         IElement *third = second->getChildren()->getFirstValue();
-        REQUIRE(state->getElementById("SECTION") == second);
-        REQUIRE(state->getElementById("TEXT") == third);
+        REQUIRE(d.getElementById("SECTION") == second);
+        REQUIRE(d.getElementById("TEXT") == third);
     }
 
     Tester *createTester() {

@@ -2,7 +2,5 @@
 <Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="../../../ui/Schema.xsd"
 >
-    <ESection id="SECTION" title="section">
-        <EText id="TEXT">Footer</EText>
-    </ESection>
+    <HierarchyView/>
 </Body>

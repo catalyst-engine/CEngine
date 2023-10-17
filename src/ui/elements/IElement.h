@@ -14,8 +14,10 @@ namespace Catalyst {
         Catalyst::List<IElement> children;
         std::string id;
         Document *document = nullptr;
-        IElement * getElementById(const char* id);
         bool active = true;
+
+        IElement *getElementById(std::string id);
+
     public:
 
         bool isActive() const;

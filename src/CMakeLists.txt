@@ -42,8 +42,6 @@ add_executable(catalyst main.cpp
         window/editor/EditorWindow.h
         window/editor/stores/SelectionStore.cpp
         window/editor/stores/SelectionStore.h
-        window/editor/views/EditorView.cpp
-        window/editor/views/EditorView.h
         window/core/Runner.cpp
         window/core/Runner.h
         ui/core/ElementsState.cpp
@@ -70,6 +68,8 @@ add_executable(catalyst main.cpp
         util/StringUtils.h
         ui/elements/DynamicElement.cpp
         ui/elements/DynamicElement.h
+        window/editor/views/MainView.cpp
+        window/editor/views/MainView.h
 )
 
 target_link_libraries(catalyst PRIVATE

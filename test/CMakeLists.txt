@@ -33,8 +33,6 @@ set(SOURCES
         ../src/window/editor/EditorWindow.h
         ../src/window/editor/stores/SelectionStore.cpp
         ../src/window/editor/stores/SelectionStore.h
-        ../src/window/editor/views/EditorView.cpp
-        ../src/window/editor/views/EditorView.h
         ../src/window/core/Runner.cpp
         ../src/window/core/Runner.h
         ../src/ui/core/ElementsState.cpp

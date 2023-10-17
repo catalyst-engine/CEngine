@@ -42,4 +42,8 @@ namespace Catalyst {
     void HierarchyView::render() {
         renderChildren();
     }
+
+    IElement *HierarchyView::copy() {
+        return new HierarchyView;
+    }
 }
