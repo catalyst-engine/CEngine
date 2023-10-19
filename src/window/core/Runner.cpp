@@ -1,5 +1,6 @@
 #include "Runner.h"
 #include "../../ui/elements/IElement.h"
+#include "../../ui/views/IView.h"
 #include "../../ui/core/Document.h"
 #include "imgui.h"
 #include "GLFW/glfw3.h"
@@ -8,20 +9,20 @@
 
 namespace Catalyst {
     void Runner::updateUI() {
-        auto list = *document->getViews();
-        list.iterate();
-        while (list.hasNext()) {
-            auto *next = list.next();
+        auto *list = document->getViews();
+        list->iterate();
+        while (list->hasNext()) {
+            auto *next = list->next();
             next->update();
         }
     }
 
     void Runner::renderUI() {
-        auto list = *document->getElements();
-        list.iterate();
-        while (list.hasNext()) {
-            auto *next = list.next();
-            if(next->isActive()) {
+        auto *list = document->getElements();
+        list->iterate();
+        while (list->hasNext()) {
+            auto *next = list->next();
+            if (next->isActive()) {
                 next->render();
             }
         }

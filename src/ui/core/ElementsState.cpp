@@ -1,7 +1,17 @@
 #include "ElementsState.h"
+#include "../../util/structures/Map.cpp"
 #include "../elements/IElement.h"
+#include "../elements/ETree.h"
+#include "../elements/EButton.h"
+#include "../elements/EMenu.h"
+#include "../elements/EMenuBar.h"
+#include "../elements/EMenuItem.h"
+#include "../elements/EText.h"
+#include "../elements/ESection.h"
 
 namespace Catalyst {
+    Catalyst::Map<std::string, IElement *> ElementsState::registeredElements;
+
     Catalyst::List<IElement> *ElementsState::getElements() {
         return &elements;
     }
@@ -29,18 +39,15 @@ namespace Catalyst {
 
 
     IElement *ElementsState::add(IElement *element, IElement *parent) {
-        if (element == nullptr) {
-            return nullptr;
-        }
-        if (parent != nullptr) {
-            CONSOLE_LOG("BINDING [{0}] ({1}) TO [{2}] ({3})", typeid(*element).name(), element->getId(), typeid(*parent).name(),
-                        parent->getId())
-            Catalyst::List<IElement> *children = parent->getChildren();
-            children->push(element);
-        } else {
-
-            CONSOLE_LOG("BINDING [{0}] ({1}) TO ROOT", typeid(*element).name(), element->getId())
-            elements.push(element);
+        if (element != nullptr) {
+            if (parent != nullptr) {
+                CONSOLE_LOG("{0} -> {1}", typeid(*element).name(), typeid(*parent).name())
+                Catalyst::List<IElement> *children = parent->getChildren();
+                children->push(element);
+            } else {
+                CONSOLE_LOG("{0} -> ROOT", typeid(*element).name())
+                elements.push(element);
+            }
         }
         return element;
     }
@@ -72,5 +79,55 @@ namespace Catalyst {
         return nullptr;
     }
 
+    IElement *ElementsState::createElement(const char *tag) {
+        if (!ElementsState::registeredElements.has(tag)) {
+            CONSOLE_ERROR("element with tag {0} was not found", tag)
+            return nullptr;
+        }
+        IElement *element = ElementsState::registeredElements.get(tag);
+        if(element == nullptr){
+            CONSOLE_ERROR("element {0} doesn't implement method 'copy'", tag)
+            return nullptr;
+        }
+        return element->copy();
+    }
 
+    ElementsState::ElementsState() {
+        ElementsState::registeredElements.set("EText", new EText);
+        ElementsState::registeredElements.set("ESection", new ESection);
+        ElementsState::registeredElements.set("ETree", new ETree);
+        ElementsState::registeredElements.set("EButton", new EButton);
+        ElementsState::registeredElements.set("EMenu", new EMenu);
+        ElementsState::registeredElements.set("EMenuBar", new EMenuBar);
+        ElementsState::registeredElements.set("EMenuItem", new EMenuItem);
+    }
+
+
+    IElement *ElementsState::addElementInternal(IElement *element, IElement *parent) {
+        auto pElement = add(element, parent);
+        if (pElement == nullptr) {
+            return nullptr;
+        }
+        return pElement;
+    }
+
+    IElement *ElementsState::addElement(const char *tag) {
+        return addElementInternal(createElement(tag), nullptr);
+    }
+
+    IElement *ElementsState::addElement(const char *tag, std::string id, IElement *parent) {
+        IElement *pElement = addElementInternal(createElement(tag), parent);
+        if (pElement != nullptr) {
+            pElement->setId(id);
+        }
+        return pElement;
+    }
+
+    IElement *ElementsState::addElement(IElement *element, IElement *parent) {
+        return addElementInternal(element, parent);
+    }
+
+    IElement *ElementsState::addElement(const char *tag, IElement *parent) {
+        return addElementInternal(createElement(tag), parent);
+    }
 }

@@ -29,17 +29,13 @@ namespace Catalyst {
             clear();
         }
 
-
         void clear() {
-            iterate();
-            tail = head = nullptr;
-            while (iterator != nullptr) {
-                ListItem<T> *next = iterator->next;
-                delete iterator;
-                iterator = next;
+            ListItem<T> *current = head;
+            while (current != nullptr) {
+                ListItem<T> *temp = current;
+                current = current->next;
+                delete temp;
             }
-            iterator = nullptr;
-            length = 0;
         }
 
         size_t getLength() {

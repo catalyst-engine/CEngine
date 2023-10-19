@@ -5,7 +5,8 @@
 
 namespace Catalyst {
     void EditorWindow::init() {
+        Document::registerView("MainView", new MainView);
         Document::registerView("HierarchyView", new HierarchyView);
-        document->addView<MainView>();
+        document->addView("MainView");
     }
 }

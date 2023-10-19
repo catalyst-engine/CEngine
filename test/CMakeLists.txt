@@ -40,6 +40,28 @@ set(SOURCES
         ../src/ui/core/ElementsState.h
         ../src/ui/core/ViewsState.cpp
         ../src/ui/core/ViewsState.h
+        ../src/window/editor/views/imgui_demo.cpp
+        ../src/window/editor/views/HierarchyView.cpp
+        ../src/window/editor/views/HierarchyView.h
+        ../src/ui/elements/ETree.cpp
+        ../src/ui/elements/ETree.h
+        ../src/ui/elements/EButton.cpp
+        ../src/ui/elements/EButton.h
+        ../src/ui/elements/EMenuItem.cpp
+        ../src/ui/elements/EMenuItem.h
+        ../src/ui/elements/EMenu.cpp
+        ../src/ui/elements/EMenu.h
+        ../src/ui/elements/EMenuBar.cpp
+        ../src/ui/elements/EMenuBar.h
+        ../src/ui/elements/AbstractTitledElement.cpp
+        ../src/ui/elements/AbstractTitledElement.h
+        ../src/util/StringUtils.cpp
+        ../src/util/StringUtils.h
+        ../src/ui/elements/DynamicElement.cpp
+        ../src/ui/elements/DynamicElement.h
+        ../src/window/editor/views/MainView.cpp
+        ../src/window/editor/views/MainView.h
+
 
         engine/EngineTest.cpp
         engine/EngineTest.h
