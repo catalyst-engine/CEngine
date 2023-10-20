@@ -1,9 +1,9 @@
 #ifndef CATALYST_ILOGGABLE_H
 #define CATALYST_ILOGGABLE_H
-#define CONSOLE_ERROR(...) if(this->hasLogger()) this->getLogger()->error(__VA_ARGS__); else this->getLogger(typeid(*this).name())->error(__VA_ARGS__);
-#define CONSOLE_WARN(...) if(this->hasLogger()) this->getLogger()->warn(__VA_ARGS__); else this->getLogger(typeid(*this).name())->warn(__VA_ARGS__);
-#define CONSOLE_LOG(...) if(this->hasLogger()) this->getLogger()->info(__VA_ARGS__); else this->getLogger(typeid(*this).name())->info(__VA_ARGS__);
-#define CONSOLE_TRACE(...) if(this->hasLogger()) this->getLogger()->trace(__VA_ARGS__); else this->getLogger(typeid(*this).name())->trace(__VA_ARGS__);
+#define CONSOLE_ERROR(...) if(this->hasLogger()) this->getLogger()->error("{0}#{1}] {2}", __FUNCTION__, __LINE__, fmt::format(__VA_ARGS__)); else this->getLogger(typeid(*this).name())->error("{0}#{1}] {2}", __FUNCTION__, __LINE__, fmt::format(__VA_ARGS__));
+#define CONSOLE_WARN(...) if(this->hasLogger()) this->getLogger()->warn("{0}#{1}] {2}", __FUNCTION__, __LINE__, fmt::format(__VA_ARGS__)); else this->getLogger(typeid(*this).name())->warn("{0}#{1}] {2}", __FUNCTION__, __LINE__, fmt::format(__VA_ARGS__));
+#define CONSOLE_LOG(...) if(this->hasLogger()) this->getLogger()->info("{0}#{1}] {2}", __FUNCTION__, __LINE__, fmt::format(__VA_ARGS__)); else this->getLogger(typeid(*this).name())->info("{0}#{1}] {2}", __FUNCTION__, __LINE__, fmt::format(__VA_ARGS__));
+#define CONSOLE_TRACE(...) if(this->hasLogger()) this->getLogger()->trace("{0}#{1}] {2}", __FUNCTION__, __LINE__, fmt::format(__VA_ARGS__)); else this->getLogger(typeid(*this).name())->trace("{0}#{1}] {2}", __FUNCTION__, __LINE__, fmt::format(__VA_ARGS__));
 
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"

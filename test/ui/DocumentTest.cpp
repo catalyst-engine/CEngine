@@ -8,7 +8,8 @@ namespace Catalyst::DocumentTest {
     Document d;
 
     void loadView() {
-        d.addView<Example>();
+        Catalyst::Document::registerView("Example", new Example);
+        d.addView("Example");
         List<IElement> *elements = d.getElements();
 
         IElement *first = elements->getFirstValue();

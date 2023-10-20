@@ -6,7 +6,8 @@
 
 namespace Catalyst{
     class Example : public IView{
-
+    public:
+        IElement * copy() override;
     };
 }
 
