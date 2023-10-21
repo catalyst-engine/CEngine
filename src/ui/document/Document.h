@@ -3,9 +3,11 @@
 #define CATALYST_ENGINE_DOCUMENT_H
 
 #include "../../util/structures/List.h"
-#include "ElementsState.h"
+#include "ElementController.h"
 #include "pugixml.hpp"
-#include "ViewsState.h"
+#include "ViewController.h"
+#include "imgui.h"
+#include "IOController.h"
 #include <string>
 
 namespace Catalyst {
@@ -18,8 +20,9 @@ namespace Catalyst {
 
     class Document : public ILoggable {
     private:
-        ElementsState elementsState;
-        ViewsState viewsState;
+        ElementController elementController;
+        ViewController viewController;
+        IOController ioController;
 
         IElement *addElementInternal(IElement *element);
 
@@ -30,7 +33,7 @@ namespace Catalyst {
         IView *addViewInternal(const char *tag, IElement *parent);
 
     public:
-
+        explicit Document(ImGuiIO *pIo);
 
         IElement *addElement(const char *tag, const char *id, IElement *parent);
 
@@ -58,6 +61,7 @@ namespace Catalyst {
         IView *addView(const char *tag, IElement *parent);
 
         IView *addView(const char *tag);
+
     };
 }
 

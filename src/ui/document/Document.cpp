@@ -11,7 +11,7 @@
 namespace Catalyst {
 
     void Document::registerView(const char *tag, IView *instance) {
-        ViewsState::registeredViews.set(tag, instance);
+        ViewController::registeredViews.set(tag, instance);
     }
 
     IElement *Document::addElementInternal(IElement *element) {
@@ -20,19 +20,19 @@ namespace Catalyst {
     }
 
     IElement *Document::addElement(const char *tag) {
-        return addElementInternal(elementsState.addElement(tag));
+        return addElementInternal(elementController.addElement(tag));
     }
 
     IElement *Document::addElement(const char *tag, const char *id, IElement *parent) {
-        return addElementInternal(elementsState.addElement(tag, id, parent));
+        return addElementInternal(elementController.addElement(tag, id, parent));
     }
 
     IElement *Document::addElement(IElement *element, IElement *parent) {
-        return addElementInternal(elementsState.addElement(element, parent));
+        return addElementInternal(elementController.addElement(element, parent));
     }
 
     IElement *Document::addElement(const char *tag, IElement *parent) {
-        return addElementInternal(elementsState.addElement(tag, parent));
+        return addElementInternal(elementController.addElement(tag, parent));
     }
 
 
@@ -56,7 +56,7 @@ namespace Catalyst {
             CONSOLE_WARN("Parsing {0}", tagName)
             const char *idAttr = node.attribute("id").as_string();
             IElement *element;
-            if (ViewsState::registeredViews.has(tagName)) {
+            if (ViewController::registeredViews.has(tagName)) {
                 addViewInternal(tagName, parent);
                 continue;
             }
@@ -74,23 +74,23 @@ namespace Catalyst {
     }
 
     IElement *Document::getElementById(std::string id, IElement *root) {
-        return elementsState.getElementById(std::move(id), root);
+        return elementController.getElementById(std::move(id), root);
     }
 
     IElement *Document::getElementById(std::string id) {
-        return elementsState.getElementById(std::move(id));
+        return elementController.getElementById(std::move(id));
     }
 
     List<IView> *Document::getViews() {
-        return viewsState.getViews();
+        return viewController.getViews();
     }
 
     List<IElement> *Document::getElements() {
-        return elementsState.getElements();
+        return elementController.getElements();
     }
 
     IView *Document::addViewInternal(const char *tag, IElement *parent) {
-        IView *view = viewsState.addView(tag);
+        IView *view = viewController.addView(tag);
         if (view) {
             std::string name = typeid(*view).name();
             name = name + ".xml";
@@ -108,5 +108,9 @@ namespace Catalyst {
 
     IView *Document::addView(const char *tag) {
         return addViewInternal(tag, nullptr);
+    }
+
+    Document::Document(ImGuiIO *pIo) {
+        ioController.setIo(pIo);
     }
 }

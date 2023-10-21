@@ -1,4 +1,4 @@
-#include "ElementsState.h"
+#include "ElementController.h"
 #include "../../util/structures/Map.cpp"
 #include "../elements/IElement.h"
 #include "../elements/ETree.h"
@@ -10,13 +10,13 @@
 #include "../elements/ESection.h"
 
 namespace Catalyst {
-    Catalyst::Map<std::string, IElement *> ElementsState::registeredElements;
+    Catalyst::Map<std::string, IElement *> ElementController::registeredElements;
 
-    Catalyst::List<IElement> *ElementsState::getElements() {
+    Catalyst::List<IElement> *ElementController::getElements() {
         return &elements;
     }
 
-    IElement *ElementsState::searchFor(Catalyst::ListItem<IElement> *item, const std::string &id) {
+    IElement *ElementController::searchFor(Catalyst::ListItem<IElement> *item, const std::string &id) {
         CONSOLE_LOG("SEARCHING: {0}", id)
         if (item->value->getId() == id) {
             return item->value;
@@ -38,7 +38,7 @@ namespace Catalyst {
     }
 
 
-    IElement *ElementsState::add(IElement *element, IElement *parent) {
+    IElement *ElementController::add(IElement *element, IElement *parent) {
         if (element != nullptr) {
             if (parent != nullptr) {
                 CONSOLE_LOG("{0} -> {1}", typeid(*element).name(), typeid(*parent).name())
@@ -58,15 +58,15 @@ namespace Catalyst {
    * @param id
    * @return nullptr if not found or else IElement*
    */
-    IElement *ElementsState::getElementById(std::string id) {
+    IElement *ElementController::getElementById(std::string id) {
         return getElementByIdInternal(id, elements.getFirst());
     }
 
-    IElement *ElementsState::getElementById(std::string id, IElement *root) {
+    IElement *ElementController::getElementById(std::string id, IElement *root) {
         return getElementByIdInternal(id, root->getChildren()->getFirst());
     }
 
-    IElement *ElementsState::getElementByIdInternal(std::string &id, ListItem<IElement> *root) {
+    IElement *ElementController::getElementByIdInternal(std::string &id, ListItem<IElement> *root) {
         CONSOLE_LOG("GETTING ELEMENT: {0}", id)
         Catalyst::ListItem<IElement> *current = root;
         while (current != nullptr) {
@@ -79,12 +79,12 @@ namespace Catalyst {
         return nullptr;
     }
 
-    IElement *ElementsState::createElement(const char *tag) {
-        if (!ElementsState::registeredElements.has(tag)) {
+    IElement *ElementController::createElement(const char *tag) {
+        if (!ElementController::registeredElements.has(tag)) {
             CONSOLE_ERROR("element with tag {0} was not found", tag)
             return nullptr;
         }
-        IElement *element = ElementsState::registeredElements.get(tag);
+        IElement *element = ElementController::registeredElements.get(tag);
         if(element == nullptr){
             CONSOLE_ERROR("element {0} doesn't implement method 'copy'", tag)
             return nullptr;
@@ -92,18 +92,18 @@ namespace Catalyst {
         return element->copy();
     }
 
-    ElementsState::ElementsState() {
-        ElementsState::registeredElements.set("EText", new EText);
-        ElementsState::registeredElements.set("ESection", new ESection);
-        ElementsState::registeredElements.set("ETree", new ETree);
-        ElementsState::registeredElements.set("EButton", new EButton);
-        ElementsState::registeredElements.set("EMenu", new EMenu);
-        ElementsState::registeredElements.set("EMenuBar", new EMenuBar);
-        ElementsState::registeredElements.set("EMenuItem", new EMenuItem);
+    ElementController::ElementController() {
+        ElementController::registeredElements.set("EText", new EText);
+        ElementController::registeredElements.set("ESection", new ESection);
+        ElementController::registeredElements.set("ETree", new ETree);
+        ElementController::registeredElements.set("EButton", new EButton);
+        ElementController::registeredElements.set("EMenu", new EMenu);
+        ElementController::registeredElements.set("EMenuBar", new EMenuBar);
+        ElementController::registeredElements.set("EMenuItem", new EMenuItem);
     }
 
 
-    IElement *ElementsState::addElementInternal(IElement *element, IElement *parent) {
+    IElement *ElementController::addElementInternal(IElement *element, IElement *parent) {
         auto pElement = add(element, parent);
         if (pElement == nullptr) {
             return nullptr;
@@ -111,11 +111,11 @@ namespace Catalyst {
         return pElement;
     }
 
-    IElement *ElementsState::addElement(const char *tag) {
+    IElement *ElementController::addElement(const char *tag) {
         return addElementInternal(createElement(tag), nullptr);
     }
 
-    IElement *ElementsState::addElement(const char *tag, std::string id, IElement *parent) {
+    IElement *ElementController::addElement(const char *tag, std::string id, IElement *parent) {
         IElement *pElement = addElementInternal(createElement(tag), parent);
         if (pElement != nullptr) {
             pElement->setId(id);
@@ -123,11 +123,11 @@ namespace Catalyst {
         return pElement;
     }
 
-    IElement *ElementsState::addElement(IElement *element, IElement *parent) {
+    IElement *ElementController::addElement(IElement *element, IElement *parent) {
         return addElementInternal(element, parent);
     }
 
-    IElement *ElementsState::addElement(const char *tag, IElement *parent) {
+    IElement *ElementController::addElement(const char *tag, IElement *parent) {
         return addElementInternal(createElement(tag), parent);
     }
 }

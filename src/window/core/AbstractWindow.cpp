@@ -45,7 +45,7 @@ namespace Catalyst {
         ImGui_ImplOpenGL3_Init(GLSL_VERSION);
         CONSOLE_LOG("WINDOW CREATED")
 
-        document = new Document;
+        document = new Document(&io);
         runner = new Runner(window, &io, document);
         ready = true;
     }

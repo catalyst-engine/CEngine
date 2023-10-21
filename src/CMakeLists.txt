@@ -16,8 +16,8 @@ add_executable(catalyst main.cpp
         ui/elements/ESection.h
         ui/elements/EText.cpp
         ui/elements/EText.h
-        ui/core/Document.cpp
-        ui/core/Document.h
+        ui/document/Document.cpp
+        ui/document/Document.h
         window/core/AbstractWindow.cpp
         window/core/AbstractWindow.h
         ui/views/IView.cpp
@@ -44,11 +44,11 @@ add_executable(catalyst main.cpp
         window/editor/stores/SelectionStore.h
         window/core/Runner.cpp
         window/core/Runner.h
-        ui/core/ElementsState.cpp
-        ui/core/ElementsState.h
-        ui/core/ElementsState.h
-        ui/core/ViewsState.cpp
-        ui/core/ViewsState.h
+        ui/document/ElementController.cpp
+        ui/document/ElementController.h
+        ui/document/ElementController.h
+        ui/document/ViewController.cpp
+        ui/document/ViewController.h
         window/editor/views/imgui_demo.cpp
         window/editor/views/HierarchyView.cpp
         window/editor/views/HierarchyView.h
@@ -70,6 +70,18 @@ add_executable(catalyst main.cpp
         ui/elements/DynamicElement.h
         window/editor/views/MainView.cpp
         window/editor/views/MainView.h
+        ui/elements/EIcon.cpp
+        ui/elements/EIcon.h
+        ui/document/IOController.cpp
+        ui/document/IOController.h
+        ui/event/EventController.cpp
+        ui/event/EventController.h
+        ui/event/IListener.cpp
+        ui/event/IListener.h
+        ui/event/ListenerWrapper.cpp
+        ui/event/ListenerWrapper.h
+        ui/event/IEventPayload.cpp
+        ui/event/IEventPayload.h
 )
 
 target_link_libraries(catalyst PRIVATE

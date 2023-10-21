@@ -7,8 +7,8 @@ set(SOURCES
         ../src/ui/elements/ESection.h
         ../src/ui/elements/EText.cpp
         ../src/ui/elements/EText.h
-        ../src/ui/core/Document.cpp
-        ../src/ui/core/Document.h
+        ../src/ui/document/Document.cpp
+        ../src/ui/document/Document.h
         ../src/window/core/AbstractWindow.cpp
         ../src/window/core/AbstractWindow.h
         ../src/ui/views/IView.cpp
@@ -35,11 +35,11 @@ set(SOURCES
         ../src/window/editor/stores/SelectionStore.h
         ../src/window/core/Runner.cpp
         ../src/window/core/Runner.h
-        ../src/ui/core/ElementsState.cpp
-        ../src/ui/core/ElementsState.h
-        ../src/ui/core/ElementsState.h
-        ../src/ui/core/ViewsState.cpp
-        ../src/ui/core/ViewsState.h
+        ../src/ui/document/ElementController.cpp
+        ../src/ui/document/ElementController.h
+        ../src/ui/document/ElementController.h
+        ../src/ui/document/ViewController.cpp
+        ../src/ui/document/ViewController.h
         ../src/window/editor/views/imgui_demo.cpp
         ../src/window/editor/views/HierarchyView.cpp
         ../src/window/editor/views/HierarchyView.h

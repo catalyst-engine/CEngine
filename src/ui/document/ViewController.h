@@ -1,5 +1,5 @@
-#ifndef CATALYST_VIEWSSTATE_H
-#define CATALYST_VIEWSSTATE_H
+#ifndef CATALYST_VIEWCONTROLLER_H
+#define CATALYST_VIEWCONTROLLER_H
 
 
 #include "../../util/structures/List.h"
@@ -15,7 +15,7 @@ namespace Catalyst {
 
     class IElement;
 
-    class ViewsState : public ILoggable {
+    class ViewController : public ILoggable {
     private:
         List<IView> views;
     public:

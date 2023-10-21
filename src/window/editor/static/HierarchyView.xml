@@ -14,10 +14,5 @@
             </EMenu>
             <EButton id="hierarchyDeleteButton" title="Delete"/>
         </EMenuBar>
-<!--        <ETree id="hierarchyTree">-->
-<!--            <ETableColumn title="Name"/>-->
-<!--        </ETree>-->
-        <EText id="EntityName">
-        </EText>
     </ESection>
 </Body>

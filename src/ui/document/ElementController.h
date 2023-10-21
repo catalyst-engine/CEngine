@@ -1,5 +1,5 @@
-#ifndef CATALYST_ELEMENTSSTATE_H
-#define CATALYST_ELEMENTSSTATE_H
+#ifndef CATALYST_ELEMENTCONTROLLER_H
+#define CATALYST_ELEMENTCONTROLLER_H
 
 #include "../../util/structures/List.h"
 #include "../../util/debug/ILoggable.h"
@@ -11,7 +11,7 @@ namespace Catalyst {
     template<typename K, typename V>
     class Map;
 
-    class ElementsState : public ILoggable {
+    class ElementController : public ILoggable {
     private:
 
         Catalyst::List<IElement> elements;
@@ -26,7 +26,7 @@ namespace Catalyst {
 
     public:
 
-        explicit ElementsState();
+        explicit ElementController();
 
         static Map<std::string, IElement *> registeredElements;
 

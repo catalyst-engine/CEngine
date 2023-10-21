@@ -504,7 +504,7 @@ void ImGui::ShowDemoWindow(bool* p_open)
                 ImGui::Checkbox("io.ConfigViewportsNoAutoMerge", &io.ConfigViewportsNoAutoMerge);
                 ImGui::SameLine(); HelpMarker("Set to make all floating imgui window always loadView their own viewport. Otherwise, they are merged into the main host viewports when overlapping it.");
                 ImGui::Checkbox("io.ConfigViewportsNoTaskBarIcon", &io.ConfigViewportsNoTaskBarIcon);
-                ImGui::SameLine(); HelpMarker("Toggling this at runtime is normally unsupported (most platform backends won't refresh the task bar icon elementsState right away).");
+                ImGui::SameLine(); HelpMarker("Toggling this at runtime is normally unsupported (most platform backends won't refresh the task bar icon elementController right away).");
                 ImGui::Checkbox("io.ConfigViewportsNoDecoration", &io.ConfigViewportsNoDecoration);
                 ImGui::SameLine(); HelpMarker("Toggling this at runtime is normally unsupported (most platform backends won't refresh the decoration right away).");
                 ImGui::Checkbox("io.ConfigViewportsNoDefaultParent", &io.ConfigViewportsNoDefaultParent);
@@ -942,7 +942,7 @@ static void ShowDemoWindowWidgets()
         {
             for (int i = 0; i < 5; i++)
             {
-                // Use SetNextItemOpen() so set the default elementsState of a node to be open. We could
+                // Use SetNextItemOpen() so set the default elementController of a node to be open. We could
                 // also use TreeNodeEx() with the ImGuiTreeNodeFlags_DefaultOpen flag to achieve the same thing!
                 if (i == 0)
                     ImGui::SetNextItemOpen(true, ImGuiCond_Once);
@@ -977,8 +977,8 @@ static void ShowDemoWindowWidgets()
             if (align_label_with_current_x_position)
                 ImGui::Unindent(ImGui::GetTreeNodeToLabelSpacing());
 
-            // 'selection_mask' is dumb representation of what may be user-side selection elementsState.
-            //  You may retain selection elementsState inside or outside your objects in whatever format you see fit.
+            // 'selection_mask' is dumb representation of what may be user-side selection elementController.
+            //  You may retain selection elementController inside or outside your objects in whatever format you see fit.
             // 'node_clicked' is temporary storage of what node we have clicked to process selection at the end
             /// of the loop. May be a pointer to your own node type, etc.
             static int selection_mask = (1 << 2);
@@ -1028,7 +1028,7 @@ static void ShowDemoWindowWidgets()
             }
             if (node_clicked != -1)
             {
-                // Update selection elementsState
+                // Update selection elementController
                 // (process outside of tree loop to avoid visual inconsistencies during the clicking frame)
                 if (ImGui::GetIO().KeyCtrl)
                     selection_mask ^= (1 << node_clicked);          // CTRL+click to toggle
@@ -1339,7 +1339,7 @@ static void ShowDemoWindowWidgets()
     {
         // Selectable() has 2 overloads:
         // - The one taking "bool selected" as a read-only selection information.
-        //   When Selectable() has been clicked it returns true and you can alter selection elementsState accordingly.
+        //   When Selectable() has been clicked it returns true and you can alter selection elementController accordingly.
         // - The one taking "bool* p_selected" as a read-write selection information (convenient in some cases)
         // The earlier is more flexible, as in real application your selection may be stored in many different ways
         // and not necessarily inside a bool value (e.g. in flags within objects, as an external list, etc).
@@ -1732,7 +1732,7 @@ static void ShowDemoWindowWidgets()
 
             // Tab Bar
             const char* names[4] = { "Artichoke", "Beetroot", "Celery", "Daikon" };
-            static bool opened[4] = { true, true, true, true }; // Persistent user elementsState
+            static bool opened[4] = { true, true, true, true }; // Persistent user elementController
             for (int n = 0; n < IM_ARRAYSIZE(opened); n++)
             {
                 if (n > 0) { ImGui::SameLine(); }
@@ -2533,10 +2533,10 @@ static void ShowDemoWindowWidgets()
         bool hovered_delay_normal = ImGui::IsItemHovered(ImGuiHoveredFlags_DelayNormal);
         bool hovered_delay_tooltip = ImGui::IsItemHovered(ImGuiHoveredFlags_ForTooltip); // = Normal + Stationary
 
-        // Display the values of IsItemHovered() and other common item elementsState functions.
+        // Display the values of IsItemHovered() and other common item elementController functions.
         // Note that the ImGuiHoveredFlags_XXX flags can be combined.
         // Because BulletText is an item itself and that would affect the output of IsItemXXX functions,
-        // we query every elementsState in a single call to avoid storing them and to simplify the code.
+        // we query every elementController in a single call to avoid storing them and to simplify the code.
         ImGui::BulletText(
                 "Return value = %d\n"
                 "IsItemFocused() = %d\n"
@@ -2800,7 +2800,7 @@ static void ShowDemoWindowLayout()
         // - Using SetCursorPos() to position child window (the child window is an item from the POV of parent window)
         //   You can also call SetNextWindowPos() to position the child window. The parent window will effectively
         //   layout from this position.
-        // - Using ImGui::GetItemRectMin/Max() to query the "item" elementsState (because the child window is an item from
+        // - Using ImGui::GetItemRectMin/Max() to query the "item" elementController (because the child window is an item from
         //   the POV of the parent window). See 'Demo->Querying Status (Edited/Active/Hovered etc.)' for details.
         {
             static int offset_x = 0;
@@ -3519,7 +3519,7 @@ static void ShowDemoWindowLayout()
 
         HelpMarker(
                 "Hit-testing is by default performed in item submission order, which generally is perceived as 'back-to-front'.\n\n"
-                "By using SetNextItemAllowOverlap() you can notify that an item may be overlapped by another. Doing so alters the hovering logic: items using AllowOverlap mode requires an extra frame to accept hovered elementsState.");
+                "By using SetNextItemAllowOverlap() you can notify that an item may be overlapped by another. Doing so alters the hovering logic: items using AllowOverlap mode requires an extra frame to accept hovered elementController.");
         ImGui::Checkbox("Enable AllowOverlap", &enable_allow_overlap);
 
         ImVec2 button1_pos = ImGui::GetCursorScreenPos();
@@ -3552,11 +3552,11 @@ static void ShowDemoWindowPopups()
     // The properties of popups window are:
     // - They block normal mouse hovering detection outside them. (*)
     // - Unless modal, they can be closed by clicking anywhere outside them, or by pressing ESCAPE.
-    // - Their visibility elementsState (~bool) is held internally by Dear ImGui instead of being held by the programmer as
-    //   we are used to with regular Begin() calls. User can manipulate the visibility elementsState by calling OpenPopup().
+    // - Their visibility elementController (~bool) is held internally by Dear ImGui instead of being held by the programmer as
+    //   we are used to with regular Begin() calls. User can manipulate the visibility elementController by calling OpenPopup().
     // (*) One can use IsItemHovered(ImGuiHoveredFlags_AllowWhenBlockedByPopup) to bypass it and detect hovering even
     //     when normally blocked by a popup.
-    // Those three properties are connected. The library needs to hold their visibility elementsState BECAUSE it can close
+    // Those three properties are connected. The library needs to hold their visibility elementController BECAUSE it can close
     // popups at any time.
 
     // Typical use for regular window:
@@ -3564,7 +3564,7 @@ static void ShowDemoWindowPopups()
     // Typical use for popups:
     //   if (ImGui::Button("Open")) ImGui::OpenPopup("MyPopup"); if (ImGui::BeginPopup("MyPopup") { [...] EndPopup(); }
 
-    // With popups we have to go through a library call (here OpenPopup) to manipulate the visibility elementsState.
+    // With popups we have to go through a library call (here OpenPopup) to manipulate the visibility elementController.
     // This may be a bit confusing at first but it should quickly make sense. Follow on the examples below.
 
     IMGUI_DEMO_MARKER("Popups/Popups");
@@ -3804,7 +3804,7 @@ static void ShowDemoWindowPopups()
                 ImGui::OpenPopup("Stacked 2");
 
             // Also demonstrate passing a bool* to BeginPopupModal(), this will loadView a regular close button which
-            // will close the popup. Note that the visibility elementsState of popups is owned by imgui, so the input value
+            // will close the popup. Note that the visibility elementController of popups is owned by imgui, so the input value
             // of the bool actually doesn't matter here.
             bool unused_open = true;
             if (ImGui::BeginPopupModal("Stacked 2", &unused_open))
@@ -5985,7 +5985,7 @@ static void ShowDemoWindowInputs()
         if (ImGui::TreeNode("Inputs"))
         {
             HelpMarker(
-                    "This is a simplified view. See more detailed input elementsState:\n"
+                    "This is a simplified view. See more detailed input elementController:\n"
                     "- in 'Tools->Metrics/Debugger->Inputs'.\n"
                     "- in 'Tools->Debug Log->IO'.");
             if (ImGui::IsMousePosValid())
