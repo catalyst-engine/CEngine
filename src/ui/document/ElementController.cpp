@@ -41,11 +41,11 @@ namespace Catalyst {
     IElement *ElementController::add(IElement *element, IElement *parent) {
         if (element != nullptr) {
             if (parent != nullptr) {
-                CONSOLE_LOG("{0} -> {1}", typeid(*element).name(), typeid(*parent).name())
+                CONSOLE_WARN("({0}) -> ({1})", typeid(*element).name(), typeid(*parent).name())
                 Catalyst::List<IElement> *children = parent->getChildren();
                 children->push(element);
             } else {
-                CONSOLE_LOG("{0} -> ROOT", typeid(*element).name())
+                CONSOLE_WARN("({0}) -> (ROOT)", typeid(*element).name())
                 elements.push(element);
             }
         }

@@ -57,7 +57,7 @@ namespace Catalyst {
             const char *idAttr = node.attribute("id").as_string();
             IElement *element;
             if (ViewController::registeredViews.has(tagName)) {
-                addViewInternal(tagName, parent);
+                addViewInternal(tagName, parent, true);
                 continue;
             }
 
@@ -89,7 +89,7 @@ namespace Catalyst {
         return elementController.getElements();
     }
 
-    IView *Document::addViewInternal(const char *tag, IElement *parent) {
+    IView *Document::addViewInternal(const char *tag, IElement *parent, bool recursive) {
         IView *view = viewController.addView(tag);
         if (view) {
             std::string name = typeid(*view).name();
@@ -98,12 +98,16 @@ namespace Catalyst {
             StringUtils::replace(name, "Catalyst::", "");
             loadView(name, view);
             addElement(view, parent);
-            initializeElement(view);
+            CONSOLE_WARN("Finishing initialization of {0}", tag)
+            if(!recursive) {
+                initializeElement(view);
+            }
         }
         return view;
     }
 
     void Document::initializeElement(IElement *element) {
+        CONSOLE_LOG("Initializing {0}", typeid(element).name())
         element->onInitialize();
         List<IElement> *children = element->getChildren();
         children->iterate();
@@ -114,11 +118,11 @@ namespace Catalyst {
     }
 
     IView *Document::addView(const char *tag, IElement *parent) {
-        return addViewInternal(tag, parent);
+        return addViewInternal(tag, parent, false);
     }
 
     IView *Document::addView(const char *tag) {
-        return addViewInternal(tag, nullptr);
+        return addViewInternal(tag, nullptr, false);
     }
 
     Document::Document(ImGuiIO *pIo) {

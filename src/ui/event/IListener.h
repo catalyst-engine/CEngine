@@ -2,11 +2,12 @@
 #define CATALYST_ILISTENER_H
 
 #include <string>
+#include "../../util/debug/ILoggable.h"
 
 namespace Catalyst {
     class IEventPayload;
 
-    class IListener {
+    class IListener : public ILoggable {
     public:
         virtual void onEvent(IEventPayload *payload);
     };

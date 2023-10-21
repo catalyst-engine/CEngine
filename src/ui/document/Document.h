@@ -30,7 +30,7 @@ namespace Catalyst {
 
         void loadView(std::string &src, IView *parent);
 
-        IView *addViewInternal(const char *tag, IElement *parent);
+        IView *addViewInternal(const char *tag, IElement *parent, bool recursive);
 
         void initializeElement(IElement *element);
 

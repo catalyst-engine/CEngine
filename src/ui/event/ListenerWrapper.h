@@ -4,11 +4,12 @@
 #include <string>
 #include "IListener.h"
 #include "../../util/structures/List.h"
+#include "../../util/debug/ILoggable.h"
 
 namespace Catalyst {
     class IEventPayload;
 
-    class ListenerWrapper {
+    class ListenerWrapper : public ILoggable{
     private:
         List<IListener> listeners;
     public:

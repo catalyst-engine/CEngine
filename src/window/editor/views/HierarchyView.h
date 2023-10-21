@@ -21,8 +21,8 @@ namespace Catalyst {
         EMenuItem *selectAll = nullptr;
         EButton *deleteButton = nullptr;
         EMenuItem *addEmpty = nullptr;
-        IElement *hierarchyList;
-        IElement *hierarchyContainer;
+        IElement *hierarchyList = nullptr;
+        IElement *hierarchyContainer = nullptr;
     public:
 
         void onInitialize() override;

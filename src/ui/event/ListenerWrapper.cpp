@@ -18,7 +18,7 @@ namespace Catalyst {
 
     void ListenerWrapper::callListeners(Catalyst::IEventPayload *pPayload) {
         listeners.iterate();
-        while(listeners.hasNext()){
+        while (listeners.hasNext()) {
             IListener *pListener = listeners.next();
             pListener->onEvent(pPayload);
         }

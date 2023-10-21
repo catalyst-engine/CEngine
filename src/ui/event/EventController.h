@@ -2,6 +2,7 @@
 #define CATALYST_EVENTCONTROLLER_H
 
 #include <string>
+#include "../../util/debug/ILoggable.h"
 
 namespace Catalyst {
     class IListener;
@@ -13,20 +14,26 @@ namespace Catalyst {
     template<typename K, typename V>
     class Map;
 
-    class EventController {
+    class EventController : public ILoggable {
     private:
+        static EventController *instance;
+
         static Map<std::string, ListenerWrapper *> wrappers;
 
-        static ListenerWrapper *getWrapper(const std::string& eventType, bool createIfNotPresent);
+        static ListenerWrapper *getWrapper(const std::string &eventType, bool createIfNotPresent);
+
+        explicit EventController();
 
     public:
-        static void addListener(const char *eventType, IListener *listener);
+        static EventController *get();
 
-        static void removeListener(const char *eventType, IListener *listener);
+        void addListener(const char *eventType, IListener *listener);
 
-        static void triggerEvent(IEventPayload &payload);
+        void removeListener(const char *eventType, IListener *listener);
 
-        static void triggerEvent(const char *eventType);
+        void triggerEvent(IEventPayload &payload);
+
+        void triggerEvent(const char *eventType);
     };
 
 }

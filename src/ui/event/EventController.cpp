@@ -4,14 +4,17 @@
 #include "IEventPayload.h"
 
 namespace Catalyst {
+    EventController *EventController::instance;
     Map<std::string, ListenerWrapper *> EventController::wrappers;
 
     void EventController::removeListener(const char *eventType, IListener *listener) {
+        CONSOLE_WARN("Removing listener for {0}", eventType)
         ListenerWrapper *pWrapper = getWrapper(eventType, false);
         if (pWrapper == nullptr) return;
         pWrapper->removeListener(listener);
 
         if (pWrapper->listenersSize() == 0) {
+            CONSOLE_WARN("Cleaning-up event type {0}", eventType)
             wrappers.deleteKey(eventType);
             delete pWrapper;
         }
@@ -19,10 +22,11 @@ namespace Catalyst {
 
     void EventController::addListener(const char *eventType, IListener *listener) {
         ListenerWrapper *pWrapper = getWrapper(eventType, true);
+        CONSOLE_WARN("Adding listener for {0}", eventType)
         pWrapper->addListener(listener);
     }
 
-    ListenerWrapper *EventController::getWrapper(const std::string& eventType, bool createIfNotPresent) {
+    ListenerWrapper *EventController::getWrapper(const std::string &eventType, bool createIfNotPresent) {
         ListenerWrapper *pWrapper = nullptr;
         if (wrappers.has(eventType)) {
             pWrapper = wrappers.get(eventType);
@@ -36,13 +40,24 @@ namespace Catalyst {
     void EventController::triggerEvent(IEventPayload &payload) {
         ListenerWrapper *pWrapper = getWrapper(payload.getEventType(), false);
         if (pWrapper == nullptr) {
+            CONSOLE_WARN("Event type {0} was not found", payload.getEventType())
             return;
         }
+        CONSOLE_WARN("Triggering {0}", payload.getEventType())
         pWrapper->callListeners(&payload);
     }
 
     void EventController::triggerEvent(const char *eventType) {
         IEventPayload pPayload(eventType);
         triggerEvent(pPayload);
+    }
+
+    EventController::EventController() = default;
+
+    EventController *EventController::get() {
+        if (instance == nullptr) {
+            instance = new EventController;
+        }
+        return instance;
     }
 }

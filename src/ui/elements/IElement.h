@@ -20,6 +20,7 @@ namespace Catalyst {
         IElement *getElementById(std::string id);
 
     public:
+        ~IElement();
 
         virtual void onInitialize();
 

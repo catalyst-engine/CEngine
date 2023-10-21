@@ -64,4 +64,8 @@ namespace Catalyst {
     void IElement::onInitialize() {
 
     }
+
+    IElement::~IElement() {
+        children.clear();
+    }
 }

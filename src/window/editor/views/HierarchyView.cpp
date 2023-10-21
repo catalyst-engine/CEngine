@@ -11,13 +11,14 @@
 
 namespace Catalyst {
     void HierarchyView::onInitialize() {
+        CONSOLE_LOG("Initializing hierarchy")
         deleteButton = (EButton *) getElementById("hierarchyDeleteButton");
         selectAll = (EMenuItem *) getElementById("hierarchySelectAll");
         selectHierarchy = (EMenuItem *) getElementById("hierarchySelectHierarchy");
         selectInvert = (EMenuItem *) getElementById("hierarchySelectInvert");
         addEmpty = (EMenuItem *) getElementById("hierarchyAddEmpty");
         hierarchyContainer = getElementById("hierarchyContainer");
-        EventController::addListener("click", this);
+        EventController::get()->addListener("click", this);
         hierarchyList = document->addElement(new HierarchyList, hierarchyContainer);
     }
 

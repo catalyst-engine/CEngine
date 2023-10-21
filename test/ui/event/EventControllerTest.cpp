@@ -9,8 +9,8 @@
 namespace Catalyst::EventControllerTest {
     void shouldTriggerEvent() {
         auto l = new Listener;
-        EventController::addListener("click", l);
-        EventController::triggerEvent("click");
+        EventController::get()->addListener("click", l);
+        EventController::get()->triggerEvent("click");
 
         REQUIRE(l->called == true);
     }
@@ -19,19 +19,19 @@ namespace Catalyst::EventControllerTest {
         auto l = new Listener;
         TypedEventPayload<int> p("click", 1);
 
-        EventController::addListener("click", l);
-        EventController::triggerEvent(p);
+        EventController::get()->addListener("click", l);
+        EventController::get()->triggerEvent(p);
 
-        auto *pPayload = (TypedEventPayload<int> *)l->event;
+        auto *pPayload = (TypedEventPayload<int> *) l->event;
         REQUIRE(l->called == true);
         REQUIRE(pPayload == &p);
     }
 
     void shouldNotTriggerEvent() {
         auto l = new Listener;
-        EventController::addListener("click", l);
-        EventController::removeListener("click", l);
-        EventController::triggerEvent("click");
+        EventController::get()->addListener("click", l);
+        EventController::get()->removeListener("click", l);
+        EventController::get()->triggerEvent("click");
 
         REQUIRE(l->called == false);
     }
@@ -40,12 +40,12 @@ namespace Catalyst::EventControllerTest {
         auto l = new Listener;
         auto l1 = new Listener;
         auto l2 = new Listener;
-        EventController::addListener("click", l);
-        EventController::addListener("click", l1);
-        EventController::addListener("click", l2);
-        EventController::triggerEvent("click");
-        EventController::triggerEvent("click");
-        EventController::triggerEvent("click");
+        EventController::get()->addListener("click", l);
+        EventController::get()->addListener("click", l1);
+        EventController::get()->addListener("click", l2);
+        EventController::get()->triggerEvent("click");
+        EventController::get()->triggerEvent("click");
+        EventController::get()->triggerEvent("click");
 
         REQUIRE(l->called == true);
         REQUIRE(l1->called == true);
