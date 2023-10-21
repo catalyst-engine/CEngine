@@ -1,5 +1,5 @@
 #include "HierarchyView.h"
-#include "../../ui/core/Document.h"
+#include "../../ui/document/Document.h"
 #include "../../../ui/elements/EButton.h"
 #include "../../../ui/elements/EMenuItem.h"
 #include "../../../engine/Engine.h"

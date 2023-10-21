@@ -1,7 +1,7 @@
 #include "IElement.h"
 
 #include <utility>
-#include "../core/Document.h"
+#include "../document/Document.h"
 
 namespace Catalyst {
     Catalyst::List<IElement> *IElement::getChildren() {

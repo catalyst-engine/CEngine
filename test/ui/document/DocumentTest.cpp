@@ -1,11 +1,11 @@
 #include "DocumentTest.h"
-#include <catch2/catch_all.hpp>
-#include "../Tester.h"
-#include "../../src/ui/core/Document.h"
+#include "catch2/catch_all.hpp"
+#include "../../Tester.h"
+#include "../../src/ui/document/Document.h"
 #include "Example.h"
 
 namespace Catalyst::DocumentTest {
-    Document d;
+    Document d(nullptr);
 
     void loadView() {
         Catalyst::Document::registerView("Example", new Example);
@@ -34,7 +34,7 @@ namespace Catalyst::DocumentTest {
     }
 
     Tester *createTester() {
-        auto tester = new Tester("EngineTest");
+        auto tester = new Tester("DocumentTest");
         tester->registerTest("Should load view", loadView);
         tester->registerTest("Should find deep child", findDeepChild);
         return tester;

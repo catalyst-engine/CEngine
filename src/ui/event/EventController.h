@@ -17,14 +17,14 @@ namespace Catalyst {
     private:
         static Map<std::string, ListenerWrapper *> wrappers;
 
-        static ListenerWrapper *getWrapper(std::string eventType, bool createIfNotPresent);
+        static ListenerWrapper *getWrapper(const std::string& eventType, bool createIfNotPresent);
 
     public:
-        static void addEventListener(const char *eventType, IListener *listener);
+        static void addListener(const char *eventType, IListener *listener);
 
         static void removeListener(const char *eventType, IListener *listener);
 
-        static void triggerEvent(IEventPayload *payload);
+        static void triggerEvent(IEventPayload &payload);
 
         static void triggerEvent(const char *eventType);
     };

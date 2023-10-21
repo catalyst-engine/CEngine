@@ -1,7 +1,7 @@
 #include "Runner.h"
 #include "../../ui/elements/IElement.h"
 #include "../../ui/views/IView.h"
-#include "../../ui/core/Document.h"
+#include "../../ui/document/Document.h"
 #include "imgui.h"
 #include "GLFW/glfw3.h"
 #include "imgui_impl_glfw.h"

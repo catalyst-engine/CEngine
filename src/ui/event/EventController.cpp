@@ -17,12 +17,12 @@ namespace Catalyst {
         }
     }
 
-    void EventController::addEventListener(const char *eventType, IListener *listener) {
+    void EventController::addListener(const char *eventType, IListener *listener) {
         ListenerWrapper *pWrapper = getWrapper(eventType, true);
         pWrapper->addListener(listener);
     }
 
-    ListenerWrapper *EventController::getWrapper(std::string eventType, bool createIfNotPresent) {
+    ListenerWrapper *EventController::getWrapper(const std::string& eventType, bool createIfNotPresent) {
         ListenerWrapper *pWrapper = nullptr;
         if (wrappers.has(eventType)) {
             pWrapper = wrappers.get(eventType);
@@ -33,16 +33,16 @@ namespace Catalyst {
         return pWrapper;
     }
 
-    void EventController::triggerEvent(IEventPayload *payload) {
-        ListenerWrapper *pWrapper = getWrapper(payload->getEventType(), false);
+    void EventController::triggerEvent(IEventPayload &payload) {
+        ListenerWrapper *pWrapper = getWrapper(payload.getEventType(), false);
         if (pWrapper == nullptr) {
             return;
         }
-        pWrapper->callListeners(payload);
-        delete payload;
+        pWrapper->callListeners(&payload);
     }
 
     void EventController::triggerEvent(const char *eventType) {
-        triggerEvent(new IEventPayload(eventType));
+        IEventPayload pPayload(eventType);
+        triggerEvent(pPayload);
     }
 }

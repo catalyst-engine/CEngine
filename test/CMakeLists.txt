@@ -1,67 +1,7 @@
-set(SOURCES
-        ../src/util/structures/List.h
-        ../src/util/structures/Map.cpp
-        ../src/util/structures/Map.h
-        ../src/ui/elements/IElement.h
-        ../src/ui/elements/ESection.cpp
-        ../src/ui/elements/ESection.h
-        ../src/ui/elements/EText.cpp
-        ../src/ui/elements/EText.h
-        ../src/ui/document/Document.cpp
-        ../src/ui/document/Document.h
-        ../src/window/core/AbstractWindow.cpp
-        ../src/window/core/AbstractWindow.h
-        ../src/ui/views/IView.cpp
-        ../src/ui/views/IView.h
-        ../src/ui/elements/IElement.cpp
-        ../src/util/debug/ILoggable.cpp
-        ../src/util/debug/ILoggable.h
-        ../src/util/debug/Timer.cpp
-        ../src/util/debug/Timer.h
-        ../src/engine/world/World.cpp
-        ../src/engine/world/World.h
-        ../src/engine/world/WorldRegistry.cpp
-        ../src/engine/world/WorldRegistry.h
-        ../src/engine/components/CMetadata.cpp
-        ../src/engine/components/CMetadata.h
-        ../src/engine/components/IComponent.h
-        ../src/engine/Engine.cpp
-        ../src/engine/Engine.h
-        ../src/util/UUID.h
-        ../src/util/UUID.cpp
-        ../src/window/editor/EditorWindow.cpp
-        ../src/window/editor/EditorWindow.h
-        ../src/window/editor/stores/SelectionStore.cpp
-        ../src/window/editor/stores/SelectionStore.h
-        ../src/window/core/Runner.cpp
-        ../src/window/core/Runner.h
-        ../src/ui/document/ElementController.cpp
-        ../src/ui/document/ElementController.h
-        ../src/ui/document/ElementController.h
-        ../src/ui/document/ViewController.cpp
-        ../src/ui/document/ViewController.h
-        ../src/window/editor/views/imgui_demo.cpp
-        ../src/window/editor/views/HierarchyView.cpp
-        ../src/window/editor/views/HierarchyView.h
-        ../src/ui/elements/ETree.cpp
-        ../src/ui/elements/ETree.h
-        ../src/ui/elements/EButton.cpp
-        ../src/ui/elements/EButton.h
-        ../src/ui/elements/EMenuItem.cpp
-        ../src/ui/elements/EMenuItem.h
-        ../src/ui/elements/EMenu.cpp
-        ../src/ui/elements/EMenu.h
-        ../src/ui/elements/EMenuBar.cpp
-        ../src/ui/elements/EMenuBar.h
-        ../src/ui/elements/AbstractTitledElement.cpp
-        ../src/ui/elements/AbstractTitledElement.h
-        ../src/util/StringUtils.cpp
-        ../src/util/StringUtils.h
-        ../src/ui/elements/DynamicElement.cpp
-        ../src/ui/elements/DynamicElement.h
-        ../src/window/editor/views/MainView.cpp
-        ../src/window/editor/views/MainView.h
+string(REPLACE "src/" "../src/" FILES_LOCAL "${FILE_PATHS}")
 
+set(SOURCES
+        ${FILES_LOCAL}
 
         engine/EngineTest.cpp
         engine/EngineTest.h
@@ -75,17 +15,23 @@ set(SOURCES
         util/MapTest.h
         util/TimerTest.cpp
         util/TimerTest.h
-        ui/Example.cpp
-        ui/Example.h
-        ui/DocumentTest.h
-        ui/DocumentTest.cpp
+        ui/document/Example.cpp
+        ui/document/Example.h
+        ui/document/DocumentTest.h
+        ui/document/DocumentTest.cpp
+        ui/event/EventControllerTest.cpp
+        ui/event/EventControllerTest.h
+        ui/event/Listener.cpp
+        ui/event/Listener.h
+        ui/event/ListenerPayload.cpp
+        ui/event/ListenerPayload.h
 )
 
 include_directories(../src/window/editor)
 include_directories(../src/util)
 
 file(GLOB XML_FILES
-        "ui/*.xml"
+        "ui/document/*.xml"
 )
 foreach (XML_FILE ${XML_FILES})
     file(COPY ${XML_FILE} DESTINATION "${CMAKE_BINARY_DIR}/test")

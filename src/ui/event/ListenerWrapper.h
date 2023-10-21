@@ -17,7 +17,7 @@ namespace Catalyst {
 
         void removeListener(IListener *listener);
 
-        int listenersSize();
+        size_t listenersSize();
 
         void callListeners(Catalyst::IEventPayload *pPayload);
     };

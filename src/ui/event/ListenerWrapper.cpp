@@ -12,7 +12,7 @@ namespace Catalyst {
         listeners.remove(listener);
     }
 
-    int ListenerWrapper::listenersSize() {
+    size_t ListenerWrapper::listenersSize() {
         return listeners.getLength();
     }
 

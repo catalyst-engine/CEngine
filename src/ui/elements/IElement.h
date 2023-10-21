@@ -5,11 +5,12 @@
 #include <string>
 #include "pugixml.hpp"
 #include "../../util/structures/List.h"
+#include "../event/IListener.h"
 
 namespace Catalyst {
     class Document;
 
-    class IElement {
+    class IElement : IListener {
     protected:
         Catalyst::List<IElement> children;
         std::string id;
