@@ -26,6 +26,7 @@ set(COMMON_LIBRARIES
 )
 
 set(FILE_PATHS
+        src/ui/event/TypedEventPayload.h
         src/util/structures/List.h
         src/util/structures/Map.cpp
         src/util/structures/Map.h

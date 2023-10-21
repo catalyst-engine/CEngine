@@ -4,7 +4,7 @@
 #include "../../../src/ui/event/IListener.h"
 #include "Listener.h"
 #include "../../../src/ui/event/EventController.h"
-#include "ListenerPayload.h"
+#include "../../../src/ui/event/TypedEventPayload.h"
 
 namespace Catalyst::EventControllerTest {
     void shouldTriggerEvent() {
@@ -17,13 +17,14 @@ namespace Catalyst::EventControllerTest {
 
     void shouldTriggerEventByPayload() {
         auto l = new Listener;
-        ListenerPayload p("click", 1);
+        TypedEventPayload<int> p("click", 1);
 
         EventController::addListener("click", l);
         EventController::triggerEvent(p);
 
+        auto *pPayload = (TypedEventPayload<int> *)l->event;
         REQUIRE(l->called == true);
-        REQUIRE(l->event == &p);
+        REQUIRE(pPayload == &p);
     }
 
     void shouldNotTriggerEvent() {
@@ -40,11 +41,11 @@ namespace Catalyst::EventControllerTest {
         auto l1 = new Listener;
         auto l2 = new Listener;
         EventController::addListener("click", l);
-        EventController::addListener("click1", l1);
-        EventController::addListener("click2", l2);
+        EventController::addListener("click", l1);
+        EventController::addListener("click", l2);
         EventController::triggerEvent("click");
-        EventController::triggerEvent("click1");
-        EventController::triggerEvent("click2");
+        EventController::triggerEvent("click");
+        EventController::triggerEvent("click");
 
         REQUIRE(l->called == true);
         REQUIRE(l1->called == true);

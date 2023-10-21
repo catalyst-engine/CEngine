@@ -23,8 +23,6 @@ set(SOURCES
         ui/event/EventControllerTest.h
         ui/event/Listener.cpp
         ui/event/Listener.h
-        ui/event/ListenerPayload.cpp
-        ui/event/ListenerPayload.h
 )
 
 include_directories(../src/window/editor)
