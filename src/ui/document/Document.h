@@ -32,6 +32,8 @@ namespace Catalyst {
 
         IView *addViewInternal(const char *tag, IElement *parent);
 
+        void initializeElement(IElement *element);
+
     public:
         explicit Document(ImGuiIO *pIo);
 

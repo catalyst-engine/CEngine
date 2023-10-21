@@ -10,7 +10,7 @@
 namespace Catalyst {
     class Document;
 
-    class IElement : IListener {
+    class IElement : public IListener {
     protected:
         Catalyst::List<IElement> children;
         std::string id;
@@ -20,6 +20,8 @@ namespace Catalyst {
         IElement *getElementById(std::string id);
 
     public:
+
+        virtual void onInitialize();
 
         bool isActive() const;
 

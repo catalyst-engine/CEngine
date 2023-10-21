@@ -1338,7 +1338,7 @@ static void ShowDemoWindowWidgets()
     if (ImGui::TreeNode("Selectables"))
     {
         // Selectable() has 2 overloads:
-        // - The one taking "bool selected" as a read-only selection information.
+        // - The one taking "bool checked" as a read-only selection information.
         //   When Selectable() has been clicked it returns true and you can alter selection elementController accordingly.
         // - The one taking "bool* p_selected" as a read-write selection information (convenient in some cases)
         // The earlier is more flexible, as in real application your selection may be stored in many different ways
@@ -1442,7 +1442,7 @@ static void ShowDemoWindowWidgets()
 
             // Add in a bit of silly fun...
             const float time = (float)ImGui::GetTime();
-            const bool winning_state = memchr(selected, 0, sizeof(selected)) == NULL; // If all cells are selected...
+            const bool winning_state = memchr(selected, 0, sizeof(selected)) == NULL; // If all cells are checked...
             if (winning_state)
                 ImGui::PushStyleVar(ImGuiStyleVar_SelectableTextAlign, ImVec2(0.5f + 0.5f * cosf(time * 2.0f), 0.5f + 0.5f * sinf(time * 3.0f)));
 
@@ -2503,7 +2503,7 @@ static void ShowDemoWindowWidgets()
         HelpMarker("Testing how various types of items are interacting with the IsItemXXX functions. Note that the bool return value of most ImGui function is generally equivalent to calling ImGui::IsItemHovered().");
         ImGui::Checkbox("Item Disabled",  &item_disabled);
 
-        // Submit selected items so we can query their status in the code following it.
+        // Submit checked items so we can query their status in the code following it.
         bool ret = false;
         static bool b = false;
         static float col4f[4] = { 1.0f, 0.5, 0.0f, 1.0f };
@@ -8292,7 +8292,7 @@ struct ExampleAppDocuments
 // If a tab has been closed programmatically (aka closed from another source such as the Checkbox() in the demo,
 // as opposed to clicking on the regular tab closing button) and stops being submitted, it will take a frame for
 // the tab bar to notice its absence. During this frame there will be a gap in the tab bar, and if the tab that has
-// disappeared was the selected one, the tab bar will report no selected tab during the frame. This will effectively
+// disappeared was the checked one, the tab bar will report no checked tab during the frame. This will effectively
 // give the impression of a flicker for one frame.
 // We call SetTabItemClosed() to manually notify the Tab Bar or Docking system of removed tabs to avoid this glitch.
 // Note that this completely optional, and only affect tab bars with the ImGuiTabBarFlags_Reorderable flag.
@@ -8385,7 +8385,7 @@ void ShowExampleAppDocuments(bool* p_open)
     // About the ImGuiWindowFlags_UnsavedDocument / ImGuiTabItemFlags_UnsavedDocument flags.
     // They have multiple effects:
     // - Display a dot next to the title.
-    // - Tab is selected when clicking the X close button.
+    // - Tab is checked when clicking the X close button.
     // - Closure is not assumed (will wait for user to stop submitting the tab).
     //   Otherwise closure is assumed when pressing the X, so if you keep submitting the tab may reappear at end of tab bar.
     //   We need to assume closure by default otherwise waiting for "lack of submission" on the next frame would leave an empty

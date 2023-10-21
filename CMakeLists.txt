@@ -26,6 +26,9 @@ set(COMMON_LIBRARIES
 )
 
 set(FILE_PATHS
+
+        src/window/editor/views/HierarchyList.cpp
+        src/window/editor/views/HierarchyList.h
         src/ui/event/TypedEventPayload.h
         src/util/structures/List.h
         src/util/structures/Map.cpp

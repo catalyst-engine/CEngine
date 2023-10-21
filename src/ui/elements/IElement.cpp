@@ -61,4 +61,7 @@ namespace Catalyst {
         IElement::active = a;
     }
 
+    void IElement::onInitialize() {
+
+    }
 }

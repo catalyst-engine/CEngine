@@ -8,15 +8,11 @@ namespace Catalyst {
 
     class EMenuItem : public AbstractTitledElement {
     private:
-        bool clicked = false;
         std::string shortcut;
         bool addSeparator = false;
         bool enabled = true;
+        bool checked = false;
     public:
-
-        bool isClicked() const;
-
-        void setClicked(bool clicked);
 
         std::string getShortcut();
 
@@ -27,6 +23,8 @@ namespace Catalyst {
         void render() override;
 
         IElement * copy() override;
+
+
     };
 
 }

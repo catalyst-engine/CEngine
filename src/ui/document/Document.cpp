@@ -98,8 +98,19 @@ namespace Catalyst {
             StringUtils::replace(name, "Catalyst::", "");
             loadView(name, view);
             addElement(view, parent);
+            initializeElement(view);
         }
         return view;
+    }
+
+    void Document::initializeElement(IElement *element) {
+        element->onInitialize();
+        List<IElement> *children = element->getChildren();
+        children->iterate();
+        while (children->hasNext()) {
+            IElement *pElement = children->next();
+            initializeElement(pElement);
+        }
     }
 
     IView *Document::addView(const char *tag, IElement *parent) {

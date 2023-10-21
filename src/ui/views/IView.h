@@ -9,10 +9,6 @@ namespace Catalyst {
 
     class IView : public IElement {
     public:
-        /**
-         * Executed after loaded into document
-         */
-        virtual void onInitialize();
 
         /**
          * Executed before removal, useful for unloading resources

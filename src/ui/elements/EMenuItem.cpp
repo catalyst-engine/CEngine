@@ -1,16 +1,15 @@
 #include "EMenuItem.h"
 #include "imgui.h"
+#include "../event/EventController.h"
 
 namespace Catalyst {
     void EMenuItem::render() {
-        clicked = ImGui::MenuItem(title.c_str(), shortcut.c_str(), clicked, enabled);
+        if(ImGui::MenuItem(title.c_str(), shortcut.c_str(), checked, enabled)){
+            EventController::triggerEvent("click");
+        }
         if (addSeparator) {
             ImGui::Separator();
         }
-    }
-
-    bool EMenuItem::isClicked() const {
-        return clicked;
     }
 
     void EMenuItem::setShortcut(std::string t) {
@@ -27,18 +26,14 @@ namespace Catalyst {
             shortcut = node.attribute("shortcut").as_string();
         if (!node.attribute("enabled").empty())
             enabled = node.attribute("enabled").as_bool();
-        if (!node.attribute("selected").empty())
-            clicked = node.attribute("selected").as_bool();
+        if (!node.attribute("checked").empty())
+            checked = node.attribute("checked").as_bool();
         if (!node.attribute("addSeparator").empty())
             addSeparator = node.attribute("addSeparator").as_bool();
     }
 
     IElement *EMenuItem::copy() {
         return new EMenuItem;
-    }
-
-    void EMenuItem::setClicked(bool c) {
-        EMenuItem::clicked = c;
     }
 
 }
