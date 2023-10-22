@@ -8,6 +8,7 @@
 #include "../elements/EMenuItem.h"
 #include "../elements/EText.h"
 #include "../elements/ESection.h"
+#include "../elements/EInlineBlock.h"
 
 namespace Catalyst {
     Catalyst::Map<std::string, IElement *> ElementController::registeredElements;
@@ -100,6 +101,7 @@ namespace Catalyst {
         ElementController::registeredElements.set("EMenu", new EMenu);
         ElementController::registeredElements.set("EMenuBar", new EMenuBar);
         ElementController::registeredElements.set("EMenuItem", new EMenuItem);
+        ElementController::registeredElements.set("EInlineBlock", new EInlineBlock);
     }
 
 

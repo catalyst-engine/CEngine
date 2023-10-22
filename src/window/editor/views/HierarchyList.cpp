@@ -14,11 +14,12 @@ namespace Catalyst {
         for (auto entity: pBasicRegistry->view<engine::CMetadata>()) {
             auto &component = pBasicRegistry->get<engine::CMetadata>(entity);
             entityName->setText(component.getName());
-            entityName->render();
+            block->render();
         }
     }
 
     void HierarchyList::onInitialize() {
-        entityName = (EText *) document->addElement("EText", this);
+        block = document->addElement("EInlineBlock", this);
+        entityName = (EText *) document->addElement("EText", block);
     }
 }

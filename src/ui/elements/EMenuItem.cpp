@@ -4,8 +4,8 @@
 
 namespace Catalyst {
     void EMenuItem::render() {
-        if(ImGui::MenuItem(title.c_str(), shortcut.c_str(), checked, enabled)){
-            EventController::get()->triggerEvent("click");
+        if (ImGui::MenuItem(title.c_str(), shortcut.c_str(), checked, enabled)) {
+            EventController::get()->triggerEvent("click", this);
         }
         if (addSeparator) {
             ImGui::Separator();

@@ -15,6 +15,10 @@ namespace Catalyst {
             return message;
         }
 
+        explicit TypedEventPayload(const char *evT, IElement *target, T m) : IEventPayload(evT, target) {
+            message = m;
+        }
+
         explicit TypedEventPayload(const char *evT, T m) : IEventPayload(evT) {
             message = m;
         }

@@ -42,6 +42,7 @@ namespace Catalyst {
     }
 
     IElement *IElement::copy() {
+        CONSOLE_ERROR("No implementation for method 'copy' found")
         return nullptr;
     }
 

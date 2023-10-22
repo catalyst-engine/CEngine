@@ -6,6 +6,7 @@
 #include "../../../engine/world/WorldRegistry.h"
 #include "../../../engine/world/World.h"
 #include "../../../ui/elements/EText.h"
+#include "../../../ui/event/IEventPayload.h"
 #include "../../../ui/event/EventController.h"
 #include "HierarchyList.h"
 
@@ -26,7 +27,9 @@ namespace Catalyst {
         return new HierarchyView;
     }
 
-    void HierarchyView::onEvent(Catalyst::IEventPayload *payload) {
-        Engine::getWorld()->addEntity();
+    void HierarchyView::onEvent(IEventPayload *payload) {
+        if(payload->getTarget() == addEmpty) {
+            Engine::getWorld()->addEntity();
+        }
     }
 }

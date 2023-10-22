@@ -16,4 +16,4 @@ namespace Catalyst {
     };
 }
 
-#endif //CATALYST_ETEXT_H
+#endif

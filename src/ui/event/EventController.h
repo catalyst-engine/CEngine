@@ -3,6 +3,7 @@
 
 #include <string>
 #include "../../util/debug/ILoggable.h"
+#include "../elements/IElement.h"
 
 namespace Catalyst {
     class IListener;
@@ -34,6 +35,8 @@ namespace Catalyst {
         void triggerEvent(IEventPayload &payload);
 
         void triggerEvent(const char *eventType);
+
+        void triggerEvent(const char *eventType, Catalyst::IElement *target);
     };
 
 }

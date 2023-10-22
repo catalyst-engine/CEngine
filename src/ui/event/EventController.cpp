@@ -52,6 +52,11 @@ namespace Catalyst {
         triggerEvent(pPayload);
     }
 
+    void EventController::triggerEvent(const char *eventType, IElement *target) {
+        IEventPayload pPayload(eventType, target);
+        triggerEvent(pPayload);
+    }
+
     EventController::EventController() = default;
 
     EventController *EventController::get() {

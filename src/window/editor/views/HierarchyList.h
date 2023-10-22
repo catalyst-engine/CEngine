@@ -9,6 +9,7 @@ namespace Catalyst {
     class HierarchyList : public IElement {
     private:
         EText *entityName = nullptr;
+        IElement *block = nullptr;
     public:
         void onInitialize() override;
 
