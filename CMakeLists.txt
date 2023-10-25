@@ -26,11 +26,11 @@ set(COMMON_LIBRARIES
 )
 
 set(FILE_PATHS
-        ui/store/IStore.h
-        window/editor/stores/SelectionState.cpp
-        window/editor/stores/SelectionState.h
-        ui/elements/EInlineBlock.cpp
-        ui/elements/EInlineBlock.h
+        src/ui/store/IStore.h
+        src/window/editor/stores/SelectionState.cpp
+        src/window/editor/stores/SelectionState.h
+        src/ui/elements/EInlineBlock.cpp
+        src/ui/elements/EInlineBlock.h
 
         src/window/editor/views/HierarchyList.cpp
         src/window/editor/views/HierarchyList.h

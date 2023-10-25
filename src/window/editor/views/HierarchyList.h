@@ -4,16 +4,18 @@
 #include "../../../ui/elements/IElement.h"
 
 namespace Catalyst {
-    class EText;
+    class ETreeNode;
+
+    class ETree;
 
     class HierarchyList : public IElement {
     private:
-        EText *entityName = nullptr;
-        IElement *block = nullptr;
+        ETree *tree;
+        IElement *addEmpty;
     public:
         void onInitialize() override;
 
-        void render() override;
+        void onEvent(IEventPayload *payload) override;
     };
 
 }

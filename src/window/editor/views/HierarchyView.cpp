@@ -2,11 +2,7 @@
 #include "../../ui/document/Document.h"
 #include "../../../ui/elements/EButton.h"
 #include "../../../ui/elements/EMenuItem.h"
-#include "../../../engine/Engine.h"
-#include "../../../engine/world/WorldRegistry.h"
-#include "../../../engine/world/World.h"
 #include "../../../ui/elements/EText.h"
-#include "../../../ui/event/IEventPayload.h"
 #include "../../../ui/event/EventController.h"
 #include "HierarchyList.h"
 
@@ -17,9 +13,7 @@ namespace Catalyst {
         selectAll = (EMenuItem *) getElementById("hierarchySelectAll");
         selectHierarchy = (EMenuItem *) getElementById("hierarchySelectHierarchy");
         selectInvert = (EMenuItem *) getElementById("hierarchySelectInvert");
-        addEmpty = (EMenuItem *) getElementById("hierarchyAddEmpty");
         hierarchyContainer = getElementById("hierarchyContainer");
-        EventController::get()->addListener("click", this);
         hierarchyList = document->addElement(new HierarchyList, hierarchyContainer);
     }
 
@@ -27,9 +21,4 @@ namespace Catalyst {
         return new HierarchyView;
     }
 
-    void HierarchyView::onEvent(IEventPayload *payload) {
-        if(payload->getTarget() == addEmpty) {
-            Engine::getWorld()->addEntity();
-        }
-    }
 }

@@ -6,6 +6,7 @@
 #include "pugixml.hpp"
 #include "../../util/structures/List.h"
 #include "../event/IListener.h"
+#include "imgui.h"
 
 namespace Catalyst {
     class Document;
@@ -21,6 +22,8 @@ namespace Catalyst {
 
     public:
         ~IElement();
+
+        virtual void loadFlags();
 
         virtual void onInitialize();
 
@@ -46,6 +49,7 @@ namespace Catalyst {
 
         void setDocument(Document *document);
 
+        IElement *getChildElementById(std::string id);
     };
 }
 #endif

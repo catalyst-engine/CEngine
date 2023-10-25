@@ -18,6 +18,8 @@ namespace Catalyst {
     }
 
     void Runner::renderUI() {
+        ImGui::ShowDemoWindow();
+
         auto *list = document->getElements();
         list->iterate();
         while (list->hasNext()) {

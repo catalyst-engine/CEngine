@@ -2,7 +2,7 @@
 
 namespace Catalyst {
     void ESection::render() {
-        ImGui::Begin(title.c_str(), NULL, flags);
+        ImGui::Begin(title.c_str(), nullptr, flags);
         renderChildren();
         ImGui::End();
     }
@@ -46,7 +46,6 @@ namespace Catalyst {
     void ESection::setSize1(const ImVec2 &v) {
         ESection::size = v;
         loadFlags();
-
     }
 
     bool ESection::isNoTitleBar() const {

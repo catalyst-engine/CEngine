@@ -9,6 +9,7 @@
 #include "../elements/EText.h"
 #include "../elements/ESection.h"
 #include "../elements/EInlineBlock.h"
+#include "../elements/ETreeNode.h"
 
 namespace Catalyst {
     Catalyst::Map<std::string, IElement *> ElementController::registeredElements;
@@ -93,18 +94,6 @@ namespace Catalyst {
         return element->copy();
     }
 
-    ElementController::ElementController() {
-        ElementController::registeredElements.set("EText", new EText);
-        ElementController::registeredElements.set("ESection", new ESection);
-        ElementController::registeredElements.set("ETree", new ETree);
-        ElementController::registeredElements.set("EButton", new EButton);
-        ElementController::registeredElements.set("EMenu", new EMenu);
-        ElementController::registeredElements.set("EMenuBar", new EMenuBar);
-        ElementController::registeredElements.set("EMenuItem", new EMenuItem);
-        ElementController::registeredElements.set("EInlineBlock", new EInlineBlock);
-    }
-
-
     IElement *ElementController::addElementInternal(IElement *element, IElement *parent) {
         auto pElement = add(element, parent);
         if (pElement == nullptr) {
@@ -131,5 +120,17 @@ namespace Catalyst {
 
     IElement *ElementController::addElement(const char *tag, IElement *parent) {
         return addElementInternal(createElement(tag), parent);
+    }
+
+    ElementController::ElementController() {
+        ElementController::registeredElements.set("EText", new EText);
+        ElementController::registeredElements.set("ESection", new ESection);
+        ElementController::registeredElements.set("ETree", new ETree);
+        ElementController::registeredElements.set("EButton", new EButton);
+        ElementController::registeredElements.set("EMenu", new EMenu);
+        ElementController::registeredElements.set("EMenuBar", new EMenuBar);
+        ElementController::registeredElements.set("EMenuItem", new EMenuItem);
+        ElementController::registeredElements.set("EInlineBlock", new EInlineBlock);
+        ElementController::registeredElements.set("ETreeNode", new ETreeNode);
     }
 }

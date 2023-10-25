@@ -940,21 +940,21 @@ static void ShowDemoWindowWidgets()
         IMGUI_DEMO_MARKER("Widgets/Trees/Basic trees");
         if (ImGui::TreeNode("Basic trees"))
         {
-            for (int i = 0; i < 5; i++)
-            {
-                // Use SetNextItemOpen() so set the default elementController of a node to be open. We could
-                // also use TreeNodeEx() with the ImGuiTreeNodeFlags_DefaultOpen flag to achieve the same thing!
-                if (i == 0)
-                    ImGui::SetNextItemOpen(true, ImGuiCond_Once);
-
-                if (ImGui::TreeNode((void*)(intptr_t)i, "Child %d", i))
-                {
-                    ImGui::Text("blah blah");
-                    ImGui::SameLine();
-                    if (ImGui::SmallButton("button")) {}
-                    ImGui::TreePop();
-                }
-            }
+//            for (int i = 0; i < 5; i++)
+//            {
+//                // Use SetNextItemOpen() so set the default elementController of a node to be open. We could
+//                // also use TreeNodeEx() with the ImGuiTreeNodeFlags_DefaultOpen flag to achieve the same thing!
+//                if (i == 0)
+//                    ImGui::SetNextItemOpen(true, ImGuiCond_Once);
+//
+//                if (ImGui::TreeNode((void*)(intptr_t)i, "Child %d", i))
+//                {
+//                    ImGui::Text("blah blah");
+//                    ImGui::SameLine();
+//                    if (ImGui::SmallButton("button")) {}
+//                    ImGui::TreePop();
+//                }
+//            }
             ImGui::TreePop();
         }
 
@@ -1016,8 +1016,8 @@ static void ShowDemoWindowWidgets()
                     // use BulletText() or advance the cursor by GetTreeNodeToLabelSpacing() and call EText().
                     node_flags |= ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen; // ImGuiTreeNodeFlags_Bullet
                     ImGui::TreeNodeEx((void*)(intptr_t)i, node_flags, "Selectable Leaf %d", i);
-                    if (ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen())
-                        node_clicked = i;
+//                    if (ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen())
+//                        node_clicked = i;
                     if (test_drag_and_drop && ImGui::BeginDragDropSource())
                     {
                         ImGui::SetDragDropPayload("_TREENODE", NULL, 0);

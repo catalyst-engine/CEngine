@@ -10,8 +10,8 @@
 namespace Catalyst {
     class ESection : public AbstractTitledElement {
     private:
-        ImVec2 size = ImVec2(10, 10);
         ImGuiWindowFlags flags = 0;
+        ImVec2 size = ImVec2(10, 10);
         bool noTitleBar = false;
         bool noScrollbar = false;
         bool menuBar = true;
@@ -23,8 +23,11 @@ namespace Catalyst {
         bool noBringToFrontOnFocus = false;
         bool noDocking = false;
         bool unsavedDocument = false;
-        void loadFlags();
+
     public:
+
+        void loadFlags() override;
+
         const ImVec2 &getSize() const;
 
         void setSize1(const ImVec2 &size);

@@ -20,7 +20,6 @@ namespace Catalyst {
         EMenuItem *selectHierarchy = nullptr;
         EMenuItem *selectAll = nullptr;
         EButton *deleteButton = nullptr;
-        EMenuItem *addEmpty = nullptr;
         IElement *hierarchyList = nullptr;
         IElement *hierarchyContainer = nullptr;
     public:
@@ -28,8 +27,6 @@ namespace Catalyst {
         void onInitialize() override;
 
         IElement *copy() override;
-
-        void onEvent(Catalyst::IEventPayload *payload) override;
 
     };
 

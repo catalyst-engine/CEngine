@@ -5,21 +5,28 @@
 #include "../../../ui/elements/EText.h"
 #include "../../../ui/document/Document.h"
 #include "../../../engine/components/CMetadata.h"
+#include "../../../ui/elements/ETreeNode.h"
+#include "../../../ui/elements/ETree.h"
+#include "../../../ui/event/IEventPayload.h"
+#include "../../../ui/event/EventController.h"
 
 namespace Catalyst {
-    void HierarchyList::render() {
-        engine::WorldRegistry *pRegistry = Engine::getRegistry();
-        entt::registry *pBasicRegistry = pRegistry->getRegistry();
-
-        for (auto entity: pBasicRegistry->view<engine::CMetadata>()) {
-            auto &component = pBasicRegistry->get<engine::CMetadata>(entity);
-            entityName->setText(component.getName());
-            block->render();
-        }
+    void HierarchyList::onInitialize() {
+        addEmpty = getElementById("hierarchyAddEmpty");
+        tree = (ETree *) document->addElement("ETree", this);
+        tree->setText("Hierarchy");
+        EventController::get()->addListener("click", this);
     }
 
-    void HierarchyList::onInitialize() {
-        block = document->addElement("EInlineBlock", this);
-        entityName = (EText *) document->addElement("EText", block);
+    void HierarchyList::onEvent(IEventPayload *payload) {
+        if (payload->getTarget() == addEmpty) {
+            entt::entity entity = Engine::getWorld()->addEntity();
+            auto &component = Engine::getRegistry()->get<engine::CMetadata>(entity);
+            auto *node = (ETreeNode *) document->addElement("ETreeNode", tree);
+
+            // TODO - EVENT FOR ENTITY UPDATE
+            node->setText(component.getName());
+            node->setIsLeaf(true);
+        }
     }
 }

@@ -51,6 +51,10 @@ namespace Catalyst {
     }
 
     IElement *IElement::getElementById(std::string id) {
+        return document->getElementById(std::move(id));
+    }
+
+    IElement *IElement::getChildElementById(std::string id) {
         return document->getElementById(std::move(id), this);
     }
 
@@ -68,5 +72,9 @@ namespace Catalyst {
 
     IElement::~IElement() {
         children.clear();
+    }
+
+    void IElement::loadFlags() {
+
     }
 }
