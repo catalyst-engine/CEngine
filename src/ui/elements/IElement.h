@@ -12,8 +12,11 @@ namespace Catalyst {
     class Document;
 
     class IElement : public IListener {
-    protected:
+    private:
+        bool initialized = false;
+        IElement *parent = nullptr;
         Catalyst::List<IElement> children;
+    protected:
         std::string id;
         Document *document = nullptr;
         bool active = true;
@@ -37,19 +40,19 @@ namespace Catalyst {
 
         virtual IElement *copy();
 
-        void setId(std::string &newId);
-
-        std::string getId();
-
         Catalyst::List<IElement> *getChildren();
 
         void renderChildren();
 
-        Document *getDocument();
-
-        void setDocument(Document *document);
+        void initialize(Document *document, IElement *parent, const char * pId);
 
         IElement *getChildElementById(std::string id);
+
+        Document *getDocument();
+
+        std::string getId();
+
+        IElement *getParent();
     };
 }
 #endif

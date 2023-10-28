@@ -14,8 +14,8 @@
 namespace Catalyst {
     Catalyst::Map<std::string, IElement *> ElementController::registeredElements;
 
-    Catalyst::List<IElement> *ElementController::getElements() {
-        return &elements;
+    Catalyst::List<IElement> &ElementController::getElements() {
+        return elements;
     }
 
     IElement *ElementController::searchFor(Catalyst::ListItem<IElement> *item, const std::string &id) {
@@ -104,14 +104,6 @@ namespace Catalyst {
 
     IElement *ElementController::addElement(const char *tag) {
         return addElementInternal(createElement(tag), nullptr);
-    }
-
-    IElement *ElementController::addElement(const char *tag, std::string id, IElement *parent) {
-        IElement *pElement = addElementInternal(createElement(tag), parent);
-        if (pElement != nullptr) {
-            pElement->setId(id);
-        }
-        return pElement;
     }
 
     IElement *ElementController::addElement(IElement *element, IElement *parent) {

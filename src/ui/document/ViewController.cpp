@@ -6,8 +6,8 @@
 namespace Catalyst {
     Catalyst::Map<std::string, IView *> ViewController::registeredViews;
 
-    List<Catalyst::IView> *ViewController::getViews() {
-        return &views;
+    List<Catalyst::IView> &ViewController::getViews() {
+        return views;
     }
 
     IView *ViewController::addView(const char *tag) {

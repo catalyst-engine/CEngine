@@ -12,11 +12,6 @@ namespace Catalyst {
         return id;
     }
 
-    void IElement::setId(std::string &newId) {
-        id = newId;
-    }
-
-
     void IElement::renderChildren() {
         children.iterate();
         while (children.hasNext()) {
@@ -33,12 +28,6 @@ namespace Catalyst {
 
     Document *IElement::getDocument() {
         return document;
-    }
-
-    void IElement::setDocument(Document *doc) {
-        if (document == nullptr) {
-            document = doc;
-        }
     }
 
     IElement *IElement::copy() {
@@ -76,5 +65,21 @@ namespace Catalyst {
 
     void IElement::loadFlags() {
 
+    }
+
+    IElement *IElement::getParent() {
+        return parent;
+    }
+
+    void IElement::initialize(Document *pDocument, IElement *pParent, const char *pId) {
+        if (initialized) {
+            return;
+        }
+        document = pDocument;
+        parent = pParent;
+        if(pId != nullptr) {
+            id = pId;
+        }
+        initialized = true;
     }
 }

@@ -14,27 +14,26 @@ namespace Catalyst {
         ViewController::registeredViews.set(tag, instance);
     }
 
-    IElement *Document::addElementInternal(IElement *element) {
-        if (element) element->setDocument(this);
+    IElement *Document::addElementInternal(IElement *element, IElement *parentEl, const char *id) {
+        if (element) element->initialize(this, parentEl, id);
         return element;
     }
 
     IElement *Document::addElement(const char *tag) {
-        return addElementInternal(elementController.addElement(tag));
+        return addElementInternal(elementController.addElement(tag), nullptr, nullptr);
     }
 
     IElement *Document::addElement(const char *tag, const char *id, IElement *parent) {
-        return addElementInternal(elementController.addElement(tag, id, parent));
+        return addElementInternal(elementController.addElement(tag, parent), parent, id);
     }
 
     IElement *Document::addElement(IElement *element, IElement *parent) {
-        return addElementInternal(elementController.addElement(element, parent));
+        return addElementInternal(elementController.addElement(element, parent), parent, nullptr);
     }
 
     IElement *Document::addElement(const char *tag, IElement *parent) {
-        return addElementInternal(elementController.addElement(tag, parent));
+        return addElementInternal(elementController.addElement(tag, parent), parent, nullptr);
     }
-
 
     void Document::loadView(std::string &src, IView *parent) {
         CONSOLE_WARN("LOADING XML {0}", src)
@@ -81,11 +80,11 @@ namespace Catalyst {
         return elementController.getElementById(std::move(id));
     }
 
-    List<IView> *Document::getViews() {
+    List<IView> &Document::getViews() {
         return viewController.getViews();
     }
 
-    List<IElement> *Document::getElements() {
+    List<IElement> &Document::getElements() {
         return elementController.getElements();
     }
 

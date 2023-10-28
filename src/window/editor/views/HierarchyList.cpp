@@ -9,6 +9,7 @@
 #include "../../../ui/elements/ETree.h"
 #include "../../../ui/event/IEventPayload.h"
 #include "../../../ui/event/EventController.h"
+#include "stores/SelectionStore.h"
 
 namespace Catalyst {
     void HierarchyList::onInitialize() {
@@ -19,7 +20,8 @@ namespace Catalyst {
     }
 
     void HierarchyList::onEvent(IEventPayload *payload) {
-        if (payload->getTarget() == addEmpty) {
+        IElement *pElement = payload->getTarget();
+        if (pElement == addEmpty) {
             entt::entity entity = Engine::getWorld()->addEntity();
             auto &component = Engine::getRegistry()->get<engine::CMetadata>(entity);
             auto *node = (ETreeNode *) document->addElement("ETreeNode", tree);
@@ -27,6 +29,8 @@ namespace Catalyst {
             // TODO - EVENT FOR ENTITY UPDATE
             node->setText(component.getName());
             node->setIsLeaf(true);
+        } else if (pElement != nullptr && pElement->getParent() == tree) {
+
         }
     }
 }

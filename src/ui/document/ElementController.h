@@ -36,11 +36,9 @@ namespace Catalyst {
 
         IElement *getElementById(std::string id, IElement *root);
 
-        Catalyst::List<IElement> *getElements();
+        Catalyst::List<IElement> &getElements();
 
         IElement *addElement(const char *tag);
-
-        IElement *addElement(const char *tag, std::string id, IElement *parent);
 
         IElement *addElement(IElement *element, IElement *parent);
 

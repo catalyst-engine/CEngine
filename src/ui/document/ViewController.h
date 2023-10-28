@@ -21,7 +21,7 @@ namespace Catalyst {
     public:
         static Map<std::string, IView *> registeredViews;
 
-        List<IView> *getViews();
+        List<IView> &getViews();
 
         IView *addView(const char *tag);
     };

@@ -9,7 +9,7 @@ namespace Catalyst {
     class ETreeNode : public AbstractSimpleElement {
     private:
         bool leaf = false;
-        ImGuiTreeNodeFlags flags = 0;
+        ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanAvailWidth;
     public:
         IElement *copy() override;
 

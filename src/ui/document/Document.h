@@ -24,7 +24,7 @@ namespace Catalyst {
         ViewController viewController;
         IOController ioController;
 
-        IElement *addElementInternal(IElement *element);
+        IElement *addElementInternal(IElement *element, IElement *parentEl, const char *id);
 
         void loadElements(pugi::xml_node root, IElement *parent);
 
@@ -49,9 +49,9 @@ namespace Catalyst {
 
         IElement *getElementById(std::string id);
 
-        List<IView> *getViews();
+        List<IView> &getViews();
 
-        List<IElement> *getElements();
+        List<IElement> &getElements();
 
         /**
          * Register view instance

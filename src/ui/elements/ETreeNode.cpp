@@ -3,8 +3,11 @@
 
 namespace Catalyst {
     void ETreeNode::render() {
-        if(ImGui::TreeNodeEx(text.c_str(), flags)){
+        ImGui::TreeNodeEx(text.c_str(), flags);
+        if (ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen()) {
             EventController::get()->triggerEvent("click", this);
+        }
+        if (!leaf) {
             ImGui::TreePop();
         }
     }
@@ -14,7 +17,8 @@ namespace Catalyst {
     }
 
     void ETreeNode::loadFlags() {
-        flags = 0;
+        flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick |
+                ImGuiTreeNodeFlags_SpanAvailWidth;
         if (leaf) {
             flags |= ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen;
         }
@@ -28,4 +32,5 @@ namespace Catalyst {
         ETreeNode::leaf = isLeaf;
         loadFlags();
     }
+
 }

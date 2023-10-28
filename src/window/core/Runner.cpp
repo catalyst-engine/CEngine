@@ -9,21 +9,20 @@
 
 namespace Catalyst {
     void Runner::updateUI() {
-        auto *list = document->getViews();
-        list->iterate();
-        while (list->hasNext()) {
-            auto *next = list->next();
+        auto &list = document->getViews();
+        document->getViews().iterate();
+        while (list.hasNext()) {
+            auto *next = list.next();
             next->update();
         }
     }
 
     void Runner::renderUI() {
         ImGui::ShowDemoWindow();
-
-        auto *list = document->getElements();
-        list->iterate();
-        while (list->hasNext()) {
-            auto *next = list->next();
+        auto &list = document->getElements();
+        list.iterate();
+        while (list.hasNext()) {
+            auto *next = list.next();
             if (next->isActive()) {
                 next->render();
             }
