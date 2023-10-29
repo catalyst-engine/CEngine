@@ -28,15 +28,15 @@ namespace Catalyst {
     public:
         static EventController *get();
 
-        void addListener(const char *eventType, IListener *listener);
+        void addListener(std::string eventType, IListener *listener);
 
-        void removeListener(const char *eventType, IListener *listener);
+        void removeListener(std::string eventType, IListener *listener);
 
         void triggerEvent(IEventPayload &payload);
 
-        void triggerEvent(const char *eventType);
+        void triggerEvent(const std::string& eventType);
 
-        void triggerEvent(const char *eventType, Catalyst::IElement *target);
+        void triggerEvent(const std::string& eventType, Catalyst::IElement *target);
     };
 
 }

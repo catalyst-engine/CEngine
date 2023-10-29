@@ -6,6 +6,7 @@
 #include "util/MapTest.h"
 #include "ui/document/DocumentTest.h"
 #include "ui/event/EventControllerTest.h"
+#include "ui/store/IStoreTest.h"
 
 void run(int ind, bool all) {
     if (ind == 0 || all) {
@@ -32,6 +33,10 @@ void run(int ind, bool all) {
         Tester *tester = Catalyst::EventControllerTest::createTester();
         tester->run();
     }
+    if (ind == 6 || all) {
+        Tester *tester = Catalyst::IStoreTest::createTester();
+        tester->run();
+    }
 }
 
 TEST_CASE("Engine test", "[engine-test]") {
@@ -56,6 +61,10 @@ TEST_CASE("Document test", "[document-test]") {
 
 TEST_CASE("EventController test", "[event-controller-test]") {
     run(5, false);
+}
+
+TEST_CASE("IStore test", "[istore-test]") {
+    run(6, false);
 }
 
 TEST_CASE("Run all", "[RUN_ALL]") {

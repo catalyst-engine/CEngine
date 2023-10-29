@@ -12,9 +12,9 @@ namespace Catalyst {
         std::string eventType;
         IElement *target = nullptr;
     public:
-        explicit IEventPayload(const char *type);
+        explicit IEventPayload(std::string type, IElement *target);
 
-        explicit IEventPayload(const char *type, IElement *target);
+        explicit IEventPayload(std::string type);
 
         const std::string &getEventType() const;
 

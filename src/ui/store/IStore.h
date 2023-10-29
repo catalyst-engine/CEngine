@@ -1,26 +1,48 @@
 #ifndef CATALYST_ISTORE_H
 #define CATALYST_ISTORE_H
 
+#include "../../util/UUID.h"
+#include "../event/EventController.h"
+
 namespace Catalyst {
 
-    template<class T>
+    template<class STORE, class DATA>
     class IStore {
     private:
-        static IStore<T> instance;
-        T *data = new T;
+        static std::string storeId;
+        static STORE instance;
+        DATA *data = new DATA;
     public:
-        static T *getData() {
-            return instance.getData();
+        static DATA *getData() {
+            return instance.data;
         }
 
-        static void updateData(T *temp) {
+        static std::string getStoreId() {
+            if(storeId.empty()){
+                storeId = UUID::v4();
+            }
+            return storeId;
+        }
+
+        static void updateData(DATA *temp) {
             if (temp != instance.data) {
                 delete instance.data;
             }
             instance.data = temp;
+            EventController::get()->triggerEvent(getStoreId());
+        }
+
+        static void clear() {
+            instance.data = new DATA;
         }
     };
 
+    template<class STORE, class DATA>
+    STORE IStore<STORE, DATA>::instance;
+
+    template<class STORE, class DATA>
+    std::string IStore<STORE, DATA>::storeId;
 }
+
 
 #endif

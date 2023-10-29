@@ -7,7 +7,7 @@ namespace Catalyst {
     EventController *EventController::instance;
     Map<std::string, ListenerWrapper *> EventController::wrappers;
 
-    void EventController::removeListener(const char *eventType, IListener *listener) {
+    void EventController::removeListener(std::string eventType, IListener *listener) {
         CONSOLE_WARN("Removing listener for {0}", eventType)
         ListenerWrapper *pWrapper = getWrapper(eventType, false);
         if (pWrapper == nullptr) return;
@@ -20,7 +20,7 @@ namespace Catalyst {
         }
     }
 
-    void EventController::addListener(const char *eventType, IListener *listener) {
+    void EventController::addListener(std::string eventType, IListener *listener) {
         ListenerWrapper *pWrapper = getWrapper(eventType, true);
         CONSOLE_WARN("Adding listener for {0}", eventType)
         pWrapper->addListener(listener);
@@ -47,12 +47,12 @@ namespace Catalyst {
         pWrapper->callListeners(&payload);
     }
 
-    void EventController::triggerEvent(const char *eventType) {
+    void EventController::triggerEvent(const std::string& eventType) {
         IEventPayload pPayload(eventType);
         triggerEvent(pPayload);
     }
 
-    void EventController::triggerEvent(const char *eventType, IElement *target) {
+    void EventController::triggerEvent(const std::string& eventType, IElement *target) {
         IEventPayload pPayload(eventType, target);
         triggerEvent(pPayload);
     }

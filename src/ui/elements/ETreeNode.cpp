@@ -22,6 +22,10 @@ namespace Catalyst {
         if (leaf) {
             flags |= ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen;
         }
+
+        if (selected) {
+            flags |= ImGuiTreeNodeFlags_Selected;
+        }
     }
 
     bool ETreeNode::isLeaf() const {
@@ -31,6 +35,15 @@ namespace Catalyst {
     void ETreeNode::setIsLeaf(bool isLeaf) {
         ETreeNode::leaf = isLeaf;
         loadFlags();
+    }
+
+    void ETreeNode::setSelected(bool isSelected) {
+        selected = isSelected;
+        loadFlags();
+    }
+
+    bool ETreeNode::isSelected() const {
+        return selected;
     }
 
 }

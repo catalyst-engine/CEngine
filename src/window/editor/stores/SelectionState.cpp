@@ -1,11 +1,13 @@
 #include "SelectionState.h"
 
+#include <utility>
+
 namespace Catalyst {
-    entt::entity *SelectionState::getSelectedEntity() const {
+    std::string SelectionState::getSelectedEntity() const {
         return selectedEntity;
     }
 
-    void SelectionState::setSelectedEntity(entt::entity *s) {
-        SelectionState::selectedEntity = s;
+    void SelectionState::setSelectedEntity(std::string s) {
+        SelectionState::selectedEntity = std::move(s);
     }
 }

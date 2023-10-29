@@ -31,7 +31,10 @@ set(FILE_PATHS
         src/window/editor/stores/SelectionState.h
         src/ui/elements/EInlineBlock.cpp
         src/ui/elements/EInlineBlock.h
-
+        src/ui/elements/ETreeNode.cpp
+        src/ui/elements/ETreeNode.h
+        src/ui/elements/AbstractSimpleElement.cpp
+        src/ui/elements/AbstractSimpleElement.h
         src/window/editor/views/HierarchyList.cpp
         src/window/editor/views/HierarchyList.h
         src/ui/event/TypedEventPayload.h

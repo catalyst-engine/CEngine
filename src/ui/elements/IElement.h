@@ -18,6 +18,10 @@ namespace Catalyst {
         Catalyst::List<IElement> children;
     protected:
         std::string id;
+    public:
+        void setId(const std::string &id);
+
+    protected:
         Document *document = nullptr;
         bool active = true;
 

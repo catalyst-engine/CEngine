@@ -1,12 +1,11 @@
 #include "IEventPayload.h"
 
-namespace Catalyst {
-    IEventPayload::IEventPayload(const char *type) {
-        eventType = type;
-    }
+#include <utility>
 
-    IEventPayload::IEventPayload(const char *type, IElement *t) {
-        eventType = type;
+namespace Catalyst {
+
+    IEventPayload::IEventPayload(std::string type, IElement *t) {
+        eventType = std::move(type);
         target = t;
     }
 
@@ -16,5 +15,9 @@ namespace Catalyst {
 
     IElement *IEventPayload::getTarget() const {
         return target;
+    }
+
+    IEventPayload::IEventPayload(std::string type) {
+        eventType = std::move(type);
     }
 }

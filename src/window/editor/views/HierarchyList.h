@@ -12,7 +12,9 @@ namespace Catalyst {
     private:
         ETree *tree;
         IElement *addEmpty;
+        std::string previouslySelected;
     public:
+
         void onInitialize() override;
 
         void onEvent(IEventPayload *payload) override;

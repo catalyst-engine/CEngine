@@ -2,16 +2,17 @@
 #define CATALYST_SELECTIONSTATE_H
 
 #include "entt/entity/entity.hpp"
+#include <string>
 
 namespace Catalyst {
 
     class SelectionState {
     private:
-        entt::entity *selectedEntity = nullptr;
+        std::string selectedEntity;
     public:
-        entt::entity *getSelectedEntity() const;
+        std::string getSelectedEntity() const;
 
-        void setSelectedEntity(entt::entity *selectedEntity);
+        void setSelectedEntity(std::string selectedEntity);
     };
 
 }

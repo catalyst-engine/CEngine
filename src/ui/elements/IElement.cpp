@@ -82,4 +82,8 @@ namespace Catalyst {
         }
         initialized = true;
     }
+
+    void IElement::setId(const std::string &id) {
+        IElement::id = id;
+    }
 }

@@ -10,13 +10,13 @@ namespace Catalyst::DocumentTest {
     void loadView() {
         Catalyst::Document::registerView("Example", new Example);
         d.addView("Example");
-        List<IElement> *elements = d.getElements();
+        List<IElement> &elements = d.getElements();
 
-        IElement *first = elements->getFirstValue();
+        IElement *first = elements.getFirstValue();
         IElement *second = first->getChildren()->getFirstValue();
         IElement *third = second->getChildren()->getFirstValue();
 
-        REQUIRE(elements->getLength() == 1);
+        REQUIRE(elements.getLength() == 1);
         REQUIRE(first->getChildren()->getLength() == 1);
         REQUIRE(second->getChildren()->getLength() == 1);
         REQUIRE(second->getId() == "SECTION");
@@ -25,8 +25,8 @@ namespace Catalyst::DocumentTest {
     }
 
     void findDeepChild() {
-        List<IElement> *elements = d.getElements();
-        IElement *first = elements->getFirstValue();
+        List<IElement> &elements = d.getElements();
+        IElement *first = elements.getFirstValue();
         IElement *second = first->getChildren()->getFirstValue();
         IElement *third = second->getChildren()->getFirstValue();
         REQUIRE(d.getElementById("SECTION") == second);

@@ -6,7 +6,7 @@
 #include "SelectionState.h"
 
 namespace Catalyst {
-    class SelectionStore : public IStore<SelectionState> {
+    class SelectionStore : public IStore<SelectionStore, SelectionState> {
 
     };
 }
