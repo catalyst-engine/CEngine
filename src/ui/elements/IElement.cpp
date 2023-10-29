@@ -1,5 +1,8 @@
 #include "IElement.h"
 
+#include <utility>
+#include "../document/Document.h"
+
 namespace Catalyst {
     Catalyst::List<IElement> *IElement::getChildren() {
         return &children;
@@ -9,16 +12,13 @@ namespace Catalyst {
         return id;
     }
 
-    void IElement::setId(std::string &newId) {
-        id = newId;
-    }
-
-
     void IElement::renderChildren() {
         children.iterate();
         while (children.hasNext()) {
             IElement *next = children.next();
-            next->render();
+            if (next->isActive()) {
+                next->render();
+            }
         }
     }
 
@@ -30,17 +30,60 @@ namespace Catalyst {
         return document;
     }
 
-    void IElement::setDocument(Document *doc) {
-        if (IElement::document == nullptr) {
-            IElement::document = doc;
-        }
-    }
-
     IElement *IElement::copy() {
+        CONSOLE_ERROR("No implementation for method 'copy' found")
         return nullptr;
     }
 
     void IElement::collectAttributes(pugi::xml_node node) {
 
+    }
+
+    IElement *IElement::getElementById(std::string id) {
+        return document->getElementById(std::move(id));
+    }
+
+    IElement *IElement::getChildElementById(std::string id) {
+        return document->getElementById(std::move(id), this);
+    }
+
+    bool IElement::isActive() const {
+        return active;
+    }
+
+    void IElement::setActive(bool a) {
+        IElement::active = a;
+    }
+
+    void IElement::onInitialize() {
+
+    }
+
+    IElement::~IElement() {
+        children.clear();
+    }
+
+    void IElement::loadFlags() {
+
+    }
+
+    IElement *IElement::getParent() {
+        return parent;
+    }
+
+    void IElement::initialize(Document *pDocument, IElement *pParent, const char *pId) {
+        if (initialized) {
+            return;
+        }
+        document = pDocument;
+        parent = pParent;
+        if(pId != nullptr) {
+            id = pId;
+        }
+        initialized = true;
+    }
+
+    void IElement::setId(const std::string &id) {
+        IElement::id = id;
     }
 }

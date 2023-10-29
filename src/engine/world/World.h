@@ -12,6 +12,7 @@ namespace Catalyst::engine {
     class World : public ILoggable {
     private:
         WorldRegistry worldReg;
+        size_t entitiesActive = 0;
     public:
 
         WorldRegistry *getRegistry() {

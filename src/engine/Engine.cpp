@@ -5,11 +5,15 @@
 namespace Catalyst {
     engine::World Engine::world;
 
-    engine::WorldRegistry *Engine::getRegistry() {
-        return world.getRegistry();
+    entt::registry * Engine::getRegistry() {
+        return world.getRegistry()->getRegistry();
     }
 
     engine::World *Engine::getWorld() {
         return &world;
+    }
+
+    engine::WorldRegistry *Engine::getWorldRegistry() {
+        return world.getRegistry();
     }
 }

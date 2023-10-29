@@ -1,47 +1,7 @@
+string(REPLACE "src/" "../src/" FILES_LOCAL "${FILE_PATHS}")
+
 set(SOURCES
-        ../src/util/structures/List.h
-        ../src/util/structures/Map.cpp
-        ../src/util/structures/Map.h
-        ../src/ui/elements/IElement.h
-        ../src/ui/elements/ESection.cpp
-        ../src/ui/elements/ESection.h
-        ../src/ui/elements/EText.cpp
-        ../src/ui/elements/EText.h
-        ../src/ui/core/Document.cpp
-        ../src/ui/core/Document.h
-        ../src/window/core/AbstractWindow.cpp
-        ../src/window/core/AbstractWindow.h
-        ../src/ui/views/IView.cpp
-        ../src/ui/views/IView.h
-        ../src/ui/elements/IElement.cpp
-        ../src/util/debug/ILoggable.cpp
-        ../src/util/debug/ILoggable.h
-        ../src/util/debug/Timer.cpp
-        ../src/util/debug/Timer.h
-        ../src/engine/world/World.cpp
-        ../src/engine/world/World.h
-        ../src/engine/world/WorldRegistry.cpp
-        ../src/engine/world/WorldRegistry.h
-        ../src/engine/components/CMetadata.cpp
-        ../src/engine/components/CMetadata.h
-        ../src/engine/components/IComponent.h
-        ../src/engine/Engine.cpp
-        ../src/engine/Engine.h
-        ../src/util/UUID.h
-        ../src/util/UUID.cpp
-        ../src/window/editor/EditorWindow.cpp
-        ../src/window/editor/EditorWindow.h
-        ../src/window/editor/stores/SelectionStore.cpp
-        ../src/window/editor/stores/SelectionStore.h
-        ../src/window/editor/views/EditorView.cpp
-        ../src/window/editor/views/EditorView.h
-        ../src/window/core/Runner.cpp
-        ../src/window/core/Runner.h
-        ../src/ui/core/ElementsState.cpp
-        ../src/ui/core/ElementsState.h
-        ../src/ui/core/ElementsState.h
-        ../src/ui/core/ViewsState.cpp
-        ../src/ui/core/ViewsState.h
+        ${FILES_LOCAL}
 
         engine/EngineTest.cpp
         engine/EngineTest.h
@@ -55,17 +15,25 @@ set(SOURCES
         util/MapTest.h
         util/TimerTest.cpp
         util/TimerTest.h
-        ui/Example.cpp
-        ui/Example.h
-        ui/DocumentTest.h
-        ui/DocumentTest.cpp
+        ui/document/Example.cpp
+        ui/document/Example.h
+        ui/document/DocumentTest.h
+        ui/document/DocumentTest.cpp
+        ui/event/EventControllerTest.cpp
+        ui/event/EventControllerTest.h
+        ui/event/Listener.cpp
+        ui/event/Listener.h
+        ui/store/IStoreTest.cpp
+        ui/store/IStoreTest.h
+        ui/store/SampleStore.h
+        ui/store/SampleData.h
 )
 
 include_directories(../src/window/editor)
 include_directories(../src/util)
 
 file(GLOB XML_FILES
-        "ui/*.xml"
+        "ui/document/*.xml"
 )
 foreach (XML_FILE ${XML_FILES})
     file(COPY ${XML_FILE} DESTINATION "${CMAKE_BINARY_DIR}/test")

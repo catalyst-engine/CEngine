@@ -27,8 +27,8 @@ namespace Catalyst {
     }
 
     void ILoggable::init(const std::string &name) {
-        logger = spdlog::stdout_color_mt(name + " (" + UUID::v4().substr(0, 8) + ")");
-        spdlog::set_pattern("%^[%T - %n] %v%$");
+        logger = spdlog::stdout_color_mt(name + UUID::v4());
+        spdlog::set_pattern("%^[%T - %v%$");
     }
 
     std::shared_ptr<spdlog::logger> ILoggable::getNewLogger(const char *name) {

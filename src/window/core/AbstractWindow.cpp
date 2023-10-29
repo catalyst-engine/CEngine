@@ -1,5 +1,5 @@
 #include "AbstractWindow.h"
-#include "../../ui/core/Document.h"
+#include "../../ui/document/Document.h"
 #include "Runner.h"
 
 namespace Catalyst {
@@ -45,7 +45,7 @@ namespace Catalyst {
         ImGui_ImplOpenGL3_Init(GLSL_VERSION);
         CONSOLE_LOG("WINDOW CREATED")
 
-        document = new Document;
+        document = new Document(&io);
         runner = new Runner(window, &io, document);
         ready = true;
     }

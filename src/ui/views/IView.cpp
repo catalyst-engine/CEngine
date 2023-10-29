@@ -6,10 +6,6 @@ namespace Catalyst {
 
     }
 
-    void IView::onInitialize() {
-
-    }
-
     void IView::onDestroy() {
 
     }

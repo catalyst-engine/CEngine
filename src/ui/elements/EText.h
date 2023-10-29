@@ -3,17 +3,17 @@
 #define CATALYST_ETEXT_H
 
 #include <string>
-#include "IElement.h"
+#include "AbstractSimpleElement.h"
 
 namespace Catalyst {
-    class EText : public IElement {
-        std::string text;
+    class EText : public AbstractSimpleElement  {
     public:
-        void setText(std::string textV);
         void render() override;
+
         void collectAttributes(pugi::xml_node node) override;
-        IElement * copy() override;
+
+        IElement *copy() override;
     };
 }
 
-#endif //CATALYST_ETEXT_H
+#endif

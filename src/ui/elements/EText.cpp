@@ -9,10 +9,6 @@ namespace Catalyst {
         ImGui::Text("%s", text.c_str());
     }
 
-    void EText::setText(std::string textV) {
-        text = std::move(textV);
-    }
-
     void EText::collectAttributes(pugi::xml_node node) {
         setText(node.text().as_string());
     }
