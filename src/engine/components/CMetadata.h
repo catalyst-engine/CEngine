@@ -3,7 +3,7 @@
 
 #include "IComponent.h"
 #include "imgui.h"
-#include "../../util/UUID.h"
+#include "../util/UUID.h"
 
 namespace Catalyst::engine {
 
@@ -11,7 +11,7 @@ namespace Catalyst::engine {
     private:
         std::string name = "New entity";
         ImVec4 color = ImVec4{0, 0, 0, 1};
-        std::string entityUUID = Catalyst::UUID::v4();
+        std::string entityUUID = UUID::v4();
     public:
         explicit CMetadata(entt::entity ent) : IComponent(ent) {}
 

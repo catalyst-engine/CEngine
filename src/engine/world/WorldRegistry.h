@@ -2,7 +2,7 @@
 #define CATALYST_WORLDREGISTRY_H
 
 #include "entt/entt.hpp"
-#include "../../util/debug/ILoggable.h"
+#include "../util/debug/ILoggable.h"
 
 namespace Catalyst::engine {
     class CMetadata;

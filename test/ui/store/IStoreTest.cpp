@@ -1,11 +1,11 @@
 #include "catch2/catch_all.hpp"
 #include "IStoreTest.h"
 #include "../../Tester.h"
-#include "../../../src/ui/store/IStore.h"
+#include "../../../src/editor/core/store/IStore.h"
 #include "SampleStore.h"
 #include "SampleData.h"
 #include "../event/Listener.h"
-#include "../../../src/ui/event/EventController.h"
+#include "../../../src/engine/event/EventController.h"
 
 namespace Catalyst::IStoreTest {
     void clear() {

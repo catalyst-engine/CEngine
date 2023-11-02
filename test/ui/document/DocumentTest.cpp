@@ -1,14 +1,14 @@
 #include "DocumentTest.h"
 #include "catch2/catch_all.hpp"
+#include "../../../src/editor/core/document/Document.h"
 #include "../../Tester.h"
-#include "../../src/ui/document/Document.h"
 #include "Example.h"
 
 namespace Catalyst::DocumentTest {
     Document d(nullptr);
 
     void loadView() {
-        Catalyst::Document::registerView("Example", new Example);
+        Document::registerView("Example", new Example);
         d.addView("Example");
         List<IElement> &elements = d.getElements();
 

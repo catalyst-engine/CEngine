@@ -1,7 +1,7 @@
 #include <catch2/catch_test_macros.hpp>
-#include "../../src/util/structures/List.h"
 
 #include "../Tester.h"
+#include "structures/List.h"
 
 namespace Catalyst::ListTest {
 

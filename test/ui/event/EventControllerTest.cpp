@@ -1,10 +1,10 @@
 #include "EventControllerTest.h"
 #include "catch2/catch_all.hpp"
 #include "../../Tester.h"
-#include "../../../src/ui/event/IListener.h"
 #include "Listener.h"
-#include "../../../src/ui/event/EventController.h"
-#include "../../../src/ui/event/TypedEventPayload.h"
+#include "../../../src/engine/event/EventController.h"
+#include "../../../src/engine/event/TypedEventPayload.h"
+
 
 namespace Catalyst::EventControllerTest {
     void shouldTriggerEvent() {
