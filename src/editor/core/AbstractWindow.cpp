@@ -1,5 +1,5 @@
 #include "AbstractWindow.h"
-#include "../../ui/document/Document.h"
+#include "document/Document.h"
 #include "Runner.h"
 
 namespace Catalyst {

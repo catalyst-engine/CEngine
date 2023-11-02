@@ -82,8 +82,8 @@ Index of this file:
 // [SECTION] Example App: Auto Resize / ShowExampleAppAutoResize()
 // [SECTION] Example App: Constrained Resize / ShowExampleAppConstrainedResize()
 // [SECTION] Example App: Simple overlay / ShowExampleAppSimpleOverlay()
-// [SECTION] Example App: Fullscreen window / ShowExampleAppFullscreen()
-// [SECTION] Example App: Manipulating window titles / ShowExampleAppWindowTitles()
+// [SECTION] Example App: Fullscreen windows / ShowExampleAppFullscreen()
+// [SECTION] Example App: Manipulating windows titles / ShowExampleAppWindowTitles()
 // [SECTION] Example App: Custom Rendering using ImDrawList API / ShowExampleAppCustomRendering()
 // [SECTION] Example App: Docking, DockSpace / ShowExampleAppDockSpace()
 // [SECTION] Example App: Documents Handling / ShowExampleAppDocuments()
@@ -323,7 +323,7 @@ void ImGui::ShowDemoWindow(bool* p_open)
     if (show_tool_about)
         ImGui::ShowAboutWindow(&show_tool_about);
 
-    // Demonstrate the various window flags. Typically you would just use the default!
+    // Demonstrate the various windows flags. Typically you would just use the default!
     static bool no_titlebar = false;
     static bool no_scrollbar = false;
     static bool no_menu = false;
@@ -357,10 +357,10 @@ void ImGui::ShowDemoWindow(bool* p_open)
     ImGui::SetNextWindowPos(ImVec2(main_viewport->WorkPos.x + 650, main_viewport->WorkPos.y + 20), ImGuiCond_FirstUseEver);
     ImGui::SetNextWindowSize(ImVec2(550, 680), ImGuiCond_FirstUseEver);
 
-    // MainView body of the Demo window starts here.
+    // MainView body of the Demo windows starts here.
     if (!ImGui::Begin("Dear ImGui Demo", p_open, window_flags))
     {
-        // Early out if the window is collapsed, as an optimization.
+        // Early out if the windows is collapsed, as an optimization.
         ImGui::End();
         return;
     }
@@ -396,11 +396,11 @@ void ImGui::ShowDemoWindow(bool* p_open)
             ImGui::MenuItem("Simple overlay", NULL, &show_app_simple_overlay);
 
             ImGui::SeparatorText("Concepts");
-            ImGui::MenuItem("Auto-resizing window", NULL, &show_app_auto_resize);
-            ImGui::MenuItem("Constrained-resizing window", NULL, &show_app_constrained_resize);
-            ImGui::MenuItem("Fullscreen window", NULL, &show_app_fullscreen);
+            ImGui::MenuItem("Auto-resizing windows", NULL, &show_app_auto_resize);
+            ImGui::MenuItem("Constrained-resizing windows", NULL, &show_app_constrained_resize);
+            ImGui::MenuItem("Fullscreen windows", NULL, &show_app_fullscreen);
             ImGui::MenuItem("Long text display", NULL, &show_app_long_text);
-            ImGui::MenuItem("Manipulating window titles", NULL, &show_app_window_titles);
+            ImGui::MenuItem("Manipulating windows titles", NULL, &show_app_window_titles);
 
             ImGui::EndMenu();
         }
@@ -479,20 +479,20 @@ void ImGui::ShowDemoWindow(bool* p_open)
             ImGui::CheckboxFlags("io.ConfigFlags: DockingEnable", &io.ConfigFlags, ImGuiConfigFlags_DockingEnable);
             ImGui::SameLine();
             if (io.ConfigDockingWithShift)
-                HelpMarker("Drag from window title bar or their tab to dock/undock. Hold SHIFT to enable docking.\n\nDrag from window menu button (upper-left button) to undock an entire node (all window).");
+                HelpMarker("Drag from windows title bar or their tab to dock/undock. Hold SHIFT to enable docking.\n\nDrag from windows menu button (upper-left button) to undock an entire node (all windows).");
             else
-                HelpMarker("Drag from window title bar or their tab to dock/undock. Hold SHIFT to disable docking.\n\nDrag from window menu button (upper-left button) to undock an entire node (all window).");
+                HelpMarker("Drag from windows title bar or their tab to dock/undock. Hold SHIFT to disable docking.\n\nDrag from windows menu button (upper-left button) to undock an entire node (all windows).");
             if (io.ConfigFlags & ImGuiConfigFlags_DockingEnable)
             {
                 ImGui::Indent();
                 ImGui::Checkbox("io.ConfigDockingNoSplit", &io.ConfigDockingNoSplit);
-                ImGui::SameLine(); HelpMarker("Simplified docking mode: disable window splitting, so docking is limited to merging multiple window together into tab-bars.");
+                ImGui::SameLine(); HelpMarker("Simplified docking mode: disable windows splitting, so docking is limited to merging multiple windows together into tab-bars.");
                 ImGui::Checkbox("io.ConfigDockingWithShift", &io.ConfigDockingWithShift);
                 ImGui::SameLine(); HelpMarker("Enable docking when holding Shift only (allow to drop in wider space, reduce visual noise)");
                 ImGui::Checkbox("io.ConfigDockingAlwaysTabBar", &io.ConfigDockingAlwaysTabBar);
-                ImGui::SameLine(); HelpMarker("Create a docking node and tab-bar on single floating window.");
+                ImGui::SameLine(); HelpMarker("Create a docking node and tab-bar on single floating windows.");
                 ImGui::Checkbox("io.ConfigDockingTransparentPayload", &io.ConfigDockingTransparentPayload);
-                ImGui::SameLine(); HelpMarker("Make window or viewport transparent when docking and only display docking boxes on the target viewport. Useful if rendering of multiple viewport cannot be synced. Best used with ConfigViewportsNoAutoMerge.");
+                ImGui::SameLine(); HelpMarker("Make windows or viewport transparent when docking and only display docking boxes on the target viewport. Useful if rendering of multiple viewport cannot be synced. Best used with ConfigViewportsNoAutoMerge.");
                 ImGui::Unindent();
             }
 
@@ -502,7 +502,7 @@ void ImGui::ShowDemoWindow(bool* p_open)
             {
                 ImGui::Indent();
                 ImGui::Checkbox("io.ConfigViewportsNoAutoMerge", &io.ConfigViewportsNoAutoMerge);
-                ImGui::SameLine(); HelpMarker("Set to make all floating imgui window always loadView their own viewport. Otherwise, they are merged into the main host viewports when overlapping it.");
+                ImGui::SameLine(); HelpMarker("Set to make all floating imgui windows always loadView their own viewport. Otherwise, they are merged into the main host viewports when overlapping it.");
                 ImGui::Checkbox("io.ConfigViewportsNoTaskBarIcon", &io.ConfigViewportsNoTaskBarIcon);
                 ImGui::SameLine(); HelpMarker("Toggling this at runtime is normally unsupported (most platform backends won't refresh the task bar icon elementController right away).");
                 ImGui::Checkbox("io.ConfigViewportsNoDecoration", &io.ConfigViewportsNoDecoration);
@@ -525,7 +525,7 @@ void ImGui::ShowDemoWindow(bool* p_open)
             ImGui::Checkbox("io.ConfigDragClickToInputText", &io.ConfigDragClickToInputText);
             ImGui::SameLine(); HelpMarker("Enable turning DragXXX widgets into text input with a simple mouse click-release (without moving).");
             ImGui::Checkbox("io.ConfigWindowsResizeFromEdges", &io.ConfigWindowsResizeFromEdges);
-            ImGui::SameLine(); HelpMarker("Enable resizing of window from their edges and from the lower-left corner.\nThis requires (io.BackendFlags & ImGuiBackendFlags_HasMouseCursors) because it needs mouse cursor feedback.");
+            ImGui::SameLine(); HelpMarker("Enable resizing of windows from their edges and from the lower-left corner.\nThis requires (io.BackendFlags & ImGuiBackendFlags_HasMouseCursors) because it needs mouse cursor feedback.");
             ImGui::Checkbox("io.ConfigWindowsMoveFromTitleBarOnly", &io.ConfigWindowsMoveFromTitleBarOnly);
             ImGui::Checkbox("io.ConfigMacOSXBehaviors", &io.ConfigMacOSXBehaviors);
             ImGui::Text("Also see Style->Rendering for rendering options.");
@@ -536,7 +536,7 @@ void ImGui::ShowDemoWindow(bool* p_open)
             ImGui::EndDisabled();
             ImGui::SameLine(); HelpMarker("First calls to Begin()/BeginChild() will return false.\n\nTHIS OPTION IS DISABLED because it needs to be set at application boot-time to make sense. Showing the disabled option is a way to make this feature easier to discover");
             ImGui::Checkbox("io.ConfigDebugBeginReturnValueLoop", &io.ConfigDebugBeginReturnValueLoop);
-            ImGui::SameLine(); HelpMarker("Some calls to Begin()/BeginChild() will return false.\n\nWill cycle through window depths then repeat. Windows should be flickering while running.");
+            ImGui::SameLine(); HelpMarker("Some calls to Begin()/BeginChild() will return false.\n\nWill cycle through windows depths then repeat. Windows should be flickering while running.");
             ImGui::Checkbox("io.ConfigDebugIgnoreFocusLoss", &io.ConfigDebugIgnoreFocusLoss);
             ImGui::SameLine(); HelpMarker("Option to deactivate io.AddFocusEvent(false) handling. May facilitate interactions with a debugger when focus loss leads to clearing inputs data.");
             ImGui::Checkbox("io.ConfigDebugIniSettings", &io.ConfigDebugIniSettings);
@@ -582,8 +582,8 @@ void ImGui::ShowDemoWindow(bool* p_open)
         {
             HelpMarker(
                     "The logging API redirects all text output so you can easily capture the content of "
-                    "a window or a block. Tree nodes can be automatically expanded.\n"
-                    "Try opening any of the contents below in this window and then click one of the \"Log To\" button.");
+                    "a windows or a block. Tree nodes can be automatically expanded.\n"
+                    "Try opening any of the contents below in this windows and then click one of the \"Log To\" button.");
             ImGui::LogButtons();
 
             HelpMarker("You can also call ImGui::LogText() to output directly to the log without a visual output.");
@@ -838,7 +838,7 @@ static void ShowDemoWindowWidgets()
     IMGUI_DEMO_MARKER("Widgets/Tooltips");
     if (ImGui::TreeNode("Tooltips"))
     {
-        // Tooltips are window following the mouse. They do not take focus away.
+        // Tooltips are windows following the mouse. They do not take focus away.
         ImGui::SeparatorText("General");
 
         // Typical use cases:
@@ -1100,7 +1100,7 @@ static void ShowDemoWindowWidgets()
         {
             // Using shortcut. You can use PushTextWrapPos()/PopTextWrapPos() for more flexibility.
             ImGui::TextWrapped(
-                    "This text should automatically wrap on the edge of the window. The current implementation "
+                    "This text should automatically wrap on the edge of the windows. The current implementation "
                     "for text wrapping follows simple rules suitable for English and possibly other languages.");
             ImGui::Spacing();
 
@@ -2516,7 +2516,7 @@ static void ShowDemoWindowWidgets()
         if (item_type == 3) { ret = ImGui::Checkbox("ITEM: Checkbox", &b); }                            // Testing checkbox
         if (item_type == 4) { ret = ImGui::SliderFloat("ITEM: SliderFloat", &col4f[0], 0.0f, 1.0f); }   // Testing basic item
         if (item_type == 5) { ret = ImGui::InputText("ITEM: InputText", &str[0], IM_ARRAYSIZE(str)); }  // Testing input text (which handles tabbing)
-        if (item_type == 6) { ret = ImGui::InputTextMultiline("ITEM: InputTextMultiline", &str[0], IM_ARRAYSIZE(str)); } // Testing input text (which uses a child window)
+        if (item_type == 6) { ret = ImGui::InputTextMultiline("ITEM: InputTextMultiline", &str[0], IM_ARRAYSIZE(str)); } // Testing input text (which uses a child windows)
         if (item_type == 7) { ret = ImGui::InputFloat("ITEM: InputFloat", col4f, 1.0f); }               // Testing +/- buttons on scalar input
         if (item_type == 8) { ret = ImGui::InputFloat3("ITEM: InputFloat3", col4f); }                   // Testing multi-component items (IsItemXXX flags are reported merged)
         if (item_type == 9) { ret = ImGui::ColorEdit4("ITEM: ColorEdit4", col4f); }                     // Testing multi-component items (IsItemXXX flags are reported merged)
@@ -2603,7 +2603,7 @@ static void ShowDemoWindowWidgets()
     if (ImGui::TreeNode("Querying AbstractWindow Status (Focused/Hovered etc.)"))
     {
         static bool embed_all_inside_a_child_window = false;
-        ImGui::Checkbox("Embed everything inside a child window for testing _RootWindow flag.", &embed_all_inside_a_child_window);
+        ImGui::Checkbox("Embed everything inside a child windows for testing _RootWindow flag.", &embed_all_inside_a_child_window);
         if (embed_all_inside_a_child_window)
             ImGui::BeginChild("outer_child", ImVec2(0, ImGui::GetFontSize() * 20.0f), true);
 
@@ -2666,19 +2666,19 @@ static void ShowDemoWindowWidgets()
                 ImGui::IsWindowHovered(ImGuiHoveredFlags_Stationary));
 
         ImGui::BeginChild("child", ImVec2(0, 50), true);
-        ImGui::Text("This is another child window for testing the _ChildWindows flag.");
+        ImGui::Text("This is another child windows for testing the _ChildWindows flag.");
         ImGui::EndChild();
         if (embed_all_inside_a_child_window)
             ImGui::EndChild();
 
         // Calling IsItemHovered() after begin returns the hovered status of the title bar.
-        // This is useful in particular if you want to loadView a context menu associated to the title bar of a window.
+        // This is useful in particular if you want to loadView a context menu associated to the title bar of a windows.
         // This will also work when docked into a Tab (the Tab replace the Title Bar and guarantee the same properties).
         static bool test_window = false;
         ImGui::Checkbox("Hovered/Active tests after Begin() for title bar testing", &test_window);
         if (test_window)
         {
-            // FIXME-DOCK: This window cannot be docked within the ImGui Demo window, this will cause a feedback loop and get them stuck.
+            // FIXME-DOCK: This windows cannot be docked within the ImGui Demo windows, this will cause a feedback loop and get them stuck.
             // Could we fix this through an ImGuiWindowClass feature? Or an API call to tag our parent as "don't skip items"?
             ImGui::Begin("Title bar Hovered/Active tests", &test_window);
             if (ImGui::BeginPopupContextItem()) // <-- This is using IsItemHovered()
@@ -2688,7 +2688,7 @@ static void ShowDemoWindowWidgets()
             }
             ImGui::Text(
                     "IsItemHovered() after begin = %d (== is title bar hovered)\n"
-                    "IsItemActive() after begin = %d (== is window being clicked/moved)\n",
+                    "IsItemActive() after begin = %d (== is windows being clicked/moved)\n",
                     ImGui::IsItemHovered(), ImGui::IsItemActive());
             ImGui::End();
         }
@@ -2736,12 +2736,12 @@ static void ShowDemoWindowLayout()
     if (!ImGui::CollapsingHeader("Layout & Scrolling"))
         return;
 
-    IMGUI_DEMO_MARKER("Layout/Child window");
-    if (ImGui::TreeNode("Child window"))
+    IMGUI_DEMO_MARKER("Layout/Child windows");
+    if (ImGui::TreeNode("Child windows"))
     {
-        ImGui::SeparatorText("Child window");
+        ImGui::SeparatorText("Child windows");
 
-        HelpMarker("Use child window to begin into a self-contained independent scrolling/clipping regions within a host window.");
+        HelpMarker("Use child windows to begin into a self-contained independent scrolling/clipping regions within a host windows.");
         static bool disable_mouse_wheel = false;
         static bool disable_menu = false;
         ImGui::Checkbox("Disable Mouse Wheel", &disable_mouse_wheel);
@@ -2797,11 +2797,11 @@ static void ShowDemoWindowLayout()
 
         // Demonstrate a few extra things
         // - Changing ImGuiCol_ChildBg (which is transparent black in default styles)
-        // - Using SetCursorPos() to position child window (the child window is an item from the POV of parent window)
-        //   You can also call SetNextWindowPos() to position the child window. The parent window will effectively
+        // - Using SetCursorPos() to position child windows (the child windows is an item from the POV of parent windows)
+        //   You can also call SetNextWindowPos() to position the child windows. The parent windows will effectively
         //   layout from this position.
-        // - Using ImGui::GetItemRectMin/Max() to query the "item" elementController (because the child window is an item from
-        //   the POV of the parent window). See 'Demo->Querying Status (Edited/Active/Hovered etc.)' for details.
+        // - Using ImGui::GetItemRectMin/Max() to query the "item" elementController (because the child windows is an item from
+        //   the POV of the parent windows). See 'Demo->Querying Status (Edited/Active/Hovered etc.)' for details.
         {
             static int offset_x = 0;
             ImGui::SetNextItemWidth(ImGui::GetFontSize() * 8);
@@ -2818,7 +2818,7 @@ static void ShowDemoWindowLayout()
             ImVec2 child_rect_max = ImGui::GetItemRectMax();
             ImGui::PopStyleColor();
             ImGui::Text("Hovered: %d", child_is_hovered);
-            ImGui::Text("Rect of child window is: (%.0f,%.0f) (%.0f,%.0f)", child_rect_min.x, child_rect_min.y, child_rect_max.x, child_rect_max.y);
+            ImGui::Text("Rect of child windows is: (%.0f,%.0f) (%.0f,%.0f)", child_rect_min.x, child_rect_min.y, child_rect_max.x, child_rect_max.y);
         }
 
         ImGui::TreePop();
@@ -3243,7 +3243,7 @@ static void ShowDemoWindowLayout()
         ImGui::Spacing();
         HelpMarker(
                 "Use SetScrollHereX() or SetScrollFromPosX() to scroll to a given horizontal position.\n\n"
-                "Because the clipping rectangle of most window hides half worth of WindowPadding on the "
+                "Because the clipping rectangle of most windows hides half worth of WindowPadding on the "
                 "left/right, using SetScrollFromPosX(+1) will usually result in clipped text whereas the "
                 "equivalent SetScrollFromPosY(+1) wouldn't.");
         ImGui::PushID("##HorizontalScrolling");
@@ -3287,7 +3287,7 @@ static void ShowDemoWindowLayout()
         // Miscellaneous Horizontal Scrolling Demo
         IMGUI_DEMO_MARKER("Layout/Scrolling/Horizontal (more)");
         HelpMarker(
-                "Horizontal scrolling for a window is enabled via the ImGuiWindowFlags_HorizontalScrollbar flag.\n\n"
+                "Horizontal scrolling for a windows is enabled via the ImGuiWindowFlags_HorizontalScrollbar flag.\n\n"
                 "You may want to also explicitly specify content width by using SetNextWindowContentWidth() before Begin().");
         static int lines = 7;
         ImGui::SliderInt("Lines", &lines, 1, 15);
@@ -3335,8 +3335,8 @@ static void ShowDemoWindowLayout()
         ImGui::Text("%.0f/%.0f", scroll_x, scroll_max_x);
         if (scroll_x_delta != 0.0f)
         {
-            // Demonstrate a trick: you can use Begin to set yourself in the context of another window
-            // (here we are already out of your child window)
+            // Demonstrate a trick: you can use Begin to set yourself in the context of another windows
+            // (here we are already out of your child windows)
             ImGui::BeginChild("scrolling");
             ImGui::SetScrollX(ImGui::GetScrollX() + scroll_x_delta);
             ImGui::EndChild();
@@ -3344,7 +3344,7 @@ static void ShowDemoWindowLayout()
         ImGui::Spacing();
 
         static bool show_horizontal_contents_size_demo_window = false;
-        ImGui::Checkbox("Show Horizontal contents size demo window", &show_horizontal_contents_size_demo_window);
+        ImGui::Checkbox("Show Horizontal contents size demo windows", &show_horizontal_contents_size_demo_window);
 
         if (show_horizontal_contents_size_demo_window)
         {
@@ -3359,11 +3359,11 @@ static void ShowDemoWindowLayout()
             static float contents_size_x = 300.0f;
             if (explicit_content_size)
                 ImGui::SetNextWindowContentSize(ImVec2(contents_size_x, 0.0f));
-            ImGui::Begin("Horizontal contents size demo window", &show_horizontal_contents_size_demo_window, show_h_scrollbar ? ImGuiWindowFlags_HorizontalScrollbar : 0);
-            IMGUI_DEMO_MARKER("Layout/Scrolling/Horizontal contents size demo window");
+            ImGui::Begin("Horizontal contents size demo windows", &show_horizontal_contents_size_demo_window, show_h_scrollbar ? ImGuiWindowFlags_HorizontalScrollbar : 0);
+            IMGUI_DEMO_MARKER("Layout/Scrolling/Horizontal contents size demo windows");
             ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(2, 0));
             ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(2, 0));
-            HelpMarker("Test of different widgets react and impact the work rectangle growing when horizontal scrolling is enabled.\n\nUse 'Metrics->Tools->Show window rectangles' to visualize rectangles.");
+            HelpMarker("Test of different widgets react and impact the work rectangle growing when horizontal scrolling is enabled.\n\nUse 'Metrics->Tools->Show windows rectangles' to visualize rectangles.");
             ImGui::Checkbox("H-scrollbar", &show_h_scrollbar);
             ImGui::Checkbox("Button", &show_button);            // Will grow contents size (unless explicitly overwritten)
             ImGui::Checkbox("Tree nodes", &show_tree_nodes);    // Will grow contents size and display highlight over full width
@@ -3546,10 +3546,10 @@ static void ShowDemoWindowLayout()
 static void ShowDemoWindowPopups()
 {
     IMGUI_DEMO_MARKER("Popups");
-    if (!ImGui::CollapsingHeader("Popups & Modal window"))
+    if (!ImGui::CollapsingHeader("Popups & Modal windows"))
         return;
 
-    // The properties of popups window are:
+    // The properties of popups windows are:
     // - They block normal mouse hovering detection outside them. (*)
     // - Unless modal, they can be closed by clicking anywhere outside them, or by pressing ESCAPE.
     // - Their visibility elementController (~bool) is held internally by Dear ImGui instead of being held by the programmer as
@@ -3559,7 +3559,7 @@ static void ShowDemoWindowPopups()
     // Those three properties are connected. The library needs to hold their visibility elementController BECAUSE it can close
     // popups at any time.
 
-    // Typical use for regular window:
+    // Typical use for regular windows:
     //   bool my_tool_is_active = false; if (ImGui::Button("Open")) my_tool_is_active = true; [...] if (my_tool_is_active) Begin("My Tool", &my_tool_is_active) { [...] } End();
     // Typical use for popups:
     //   if (ImGui::Button("Open")) ImGui::OpenPopup("MyPopup"); if (ImGui::BeginPopup("MyPopup") { [...] EndPopup(); }
@@ -3571,7 +3571,7 @@ static void ShowDemoWindowPopups()
     if (ImGui::TreeNode("Popups"))
     {
         ImGui::TextWrapped(
-                "When a popup is active, it inhibits interacting with window that are behind the popup. "
+                "When a popup is active, it inhibits interacting with windows that are behind the popup. "
                 "Clicking outside the popup closes it.");
 
         static int selected_fish = -1;
@@ -3750,12 +3750,12 @@ static void ShowDemoWindowPopups()
     IMGUI_DEMO_MARKER("Popups/Modals");
     if (ImGui::TreeNode("Modals"))
     {
-        ImGui::TextWrapped("Modal window are like popups but the user cannot close them by clicking outside.");
+        ImGui::TextWrapped("Modal windows are like popups but the user cannot close them by clicking outside.");
 
         if (ImGui::Button("Delete.."))
             ImGui::OpenPopup("Delete?");
 
-        // Always center this window when appearing
+        // Always center this windows when appearing
         ImVec2 center = ImGui::GetMainViewport()->GetCenter();
         ImGui::SetNextWindowPos(center, ImGuiCond_Appearing, ImVec2(0.5f, 0.5f));
 
@@ -3823,14 +3823,14 @@ static void ShowDemoWindowPopups()
         ImGui::TreePop();
     }
 
-    IMGUI_DEMO_MARKER("Popups/Menus inside a regular window");
-    if (ImGui::TreeNode("Menus inside a regular window"))
+    IMGUI_DEMO_MARKER("Popups/Menus inside a regular windows");
+    if (ImGui::TreeNode("Menus inside a regular windows"))
     {
-        ImGui::TextWrapped("Below we are testing adding menu items to a regular window. It's rather unusual but should work!");
+        ImGui::TextWrapped("Below we are testing adding menu items to a regular windows. It's rather unusual but should work!");
         ImGui::Separator();
 
         ImGui::MenuItem("Menu item", "CTRL+M");
-        if (ImGui::BeginMenu("Menu inside a regular window"))
+        if (ImGui::BeginMenu("Menu inside a regular windows"))
         {
             ShowExampleMenuFile();
             ImGui::EndMenu();
@@ -3932,7 +3932,7 @@ static void EditTableSizingFlags(ImGuiTableFlags* p_flags)
     struct EnumDesc { ImGuiTableFlags Value; const char* Name; const char* Tooltip; };
     static const EnumDesc policies[] =
             {
-                    { ImGuiTableFlags_None,               "Default",                            "Use default sizing policy:\n- ImGuiTableFlags_SizingFixedFit if ScrollX is on or if host window has ImGuiWindowFlags_AlwaysAutoResize.\n- ImGuiTableFlags_SizingStretchSame otherwise." },
+                    { ImGuiTableFlags_None,               "Default",                            "Use default sizing policy:\n- ImGuiTableFlags_SizingFixedFit if ScrollX is on or if host windows has ImGuiWindowFlags_AlwaysAutoResize.\n- ImGuiTableFlags_SizingStretchSame otherwise." },
                     { ImGuiTableFlags_SizingFixedFit,     "ImGuiTableFlags_SizingFixedFit",     "Columns default to _WidthFixed (if resizable) or _WidthAuto (if not resizable), matching contents width." },
                     { ImGuiTableFlags_SizingFixedSame,    "ImGuiTableFlags_SizingFixedSame",    "Columns are all the same width, matching the maximum contents width.\nImplicitly disable ImGuiTableFlags_Resizable and enable ImGuiTableFlags_NoKeepColumnsVisible." },
                     { ImGuiTableFlags_SizingStretchProp,  "ImGuiTableFlags_SizingStretchProp",  "Columns default to _WidthStretch with weights proportional to their widths." },
@@ -4025,7 +4025,7 @@ static void ShowDemoWindowTables()
     static bool disable_indent = false;
     ImGui::Checkbox("Disable tree indentation", &disable_indent);
     ImGui::SameLine();
-    HelpMarker("Disable the indenting of tree nodes so demo tables can use the full window width.");
+    HelpMarker("Disable the indenting of tree nodes so demo tables can use the full windows width.");
     ImGui::Separator();
     if (disable_indent)
         ImGui::PushStyleVar(ImGuiStyleVar_IndentSpacing, 0.0f);
@@ -4564,7 +4564,7 @@ static void ShowDemoWindowTables()
     IMGUI_DEMO_MARKER("Tables/Vertical scrolling, with clipping");
     if (ImGui::TreeNode("Vertical scrolling, with clipping"))
     {
-        HelpMarker("Here we activate ScrollY, which will loadView a child window container to allow hosting scrollable contents.\n\nWe also demonstrate using ImGuiListClipper to virtualize the submission of many items.");
+        HelpMarker("Here we activate ScrollY, which will loadView a child windows container to allow hosting scrollable contents.\n\nWe also demonstrate using ImGuiListClipper to virtualize the submission of many items.");
         static ImGuiTableFlags flags = ImGuiTableFlags_ScrollY | ImGuiTableFlags_RowBg | ImGuiTableFlags_BordersOuter | ImGuiTableFlags_BordersV | ImGuiTableFlags_Resizable | ImGuiTableFlags_Reorderable | ImGuiTableFlags_Hideable;
 
         PushStyleCompact();
@@ -4611,7 +4611,7 @@ static void ShowDemoWindowTables()
                 "When ScrollX is enabled, the default sizing policy becomes ImGuiTableFlags_SizingFixedFit, "
                 "as automatically stretching columns doesn't make much sense with horizontal scrolling.\n\n"
                 "Also note that as of the current version, you will almost always want to enable ScrollY along with ScrollX,"
-                "because the container window won't automatically extend vertically to fix contents (this may be improved in future versions).");
+                "because the container windows won't automatically extend vertically to fix contents (this may be improved in future versions).");
         static ImGuiTableFlags flags = ImGuiTableFlags_ScrollX | ImGuiTableFlags_ScrollY | ImGuiTableFlags_RowBg | ImGuiTableFlags_BordersOuter | ImGuiTableFlags_BordersV | ImGuiTableFlags_Resizable | ImGuiTableFlags_Reorderable | ImGuiTableFlags_Hideable;
         static int freeze_cols = 1;
         static int freeze_rows = 1;
@@ -4727,7 +4727,7 @@ static void ShowDemoWindowTables()
 
         // Create the real table we care about for the example!
         // We use a scrolling table to be able to showcase the difference between the _IsEnabled and _IsVisible flags above, otherwise in
-        // a non-scrolling table columns are always visible (unless using ImGuiTableFlags_NoKeepColumnsVisible + resizing the parent window down)
+        // a non-scrolling table columns are always visible (unless using ImGuiTableFlags_NoKeepColumnsVisible + resizing the parent windows down)
         const ImGuiTableFlags flags
                 = ImGuiTableFlags_SizingFixedFit | ImGuiTableFlags_ScrollX | ImGuiTableFlags_ScrollY
                   | ImGuiTableFlags_RowBg | ImGuiTableFlags_BordersOuter | ImGuiTableFlags_BordersV
@@ -5567,7 +5567,7 @@ static void ShowDemoWindowTables()
                 ImGui::Checkbox("outer_size", &outer_size_enabled);
                 ImGui::SameLine();
                 HelpMarker("If scrolling is disabled (ScrollX and ScrollY not set):\n"
-                           "- The table is output directly in the parent window.\n"
+                           "- The table is output directly in the parent windows.\n"
                            "- OuterSize.x < 0.0f will right-align the table.\n"
                            "- OuterSize.x = 0.0f will narrow fit the table unless there are any Stretch columns.\n"
                            "- OuterSize.y then becomes the minimum size for the table, which will extend vertically if there are more rows (unless NoHostExtendY is set).");
@@ -5749,10 +5749,10 @@ static void ShowDemoWindowTables()
             ImGui::SameLine(0.0f, 0.0f);
             const int table_draw_list_draw_cmd_count = table_draw_list->CmdBuffer.Size;
             if (table_draw_list == parent_draw_list)
-                ImGui::Text(": DrawCmd: +%d (in same window)",
+                ImGui::Text(": DrawCmd: +%d (in same windows)",
                             table_draw_list_draw_cmd_count - parent_draw_list_draw_cmd_count);
             else
-                ImGui::Text(": DrawCmd: +%d (in child window), Scroll: (%.f/%.f) (%.f/%.f)",
+                ImGui::Text(": DrawCmd: +%d (in child windows), Scroll: (%.f/%.f) (%.f/%.f)",
                             table_draw_list_draw_cmd_count - 1, table_scroll_cur.x, table_scroll_max.x, table_scroll_cur.y, table_scroll_max.y);
         }
         ImGui::TreePop();
@@ -6022,7 +6022,7 @@ static void ShowDemoWindowInputs()
                     "The value of io.WantCaptureMouse and io.WantCaptureKeyboard are normally set by Dear ImGui "
                     "to instruct your application of how to route inputs. Typically, when a value is true, it means "
                     "Dear ImGui wants the corresponding inputs and we expect the underlying application to ignore them.\n\n"
-                    "The most typical case is: when hovering a window, Dear ImGui set io.WantCaptureMouse to true, "
+                    "The most typical case is: when hovering a windows, Dear ImGui set io.WantCaptureMouse to true, "
                     "and underlying application should ignore mouse inputs (in practice there are many and more subtle "
                     "rules leading to how those flags are set).");
             ImGui::Text("io.WantCaptureMouse: %d", io.WantCaptureMouse);
@@ -6594,7 +6594,7 @@ void ImGui::ShowStyleEditor(ImGuiStyle* ref)
                     "Using those settings here will give you poor quality results.");
             static float window_scale = 1.0f;
             ImGui::PushItemWidth(ImGui::GetFontSize() * 8);
-            if (ImGui::DragFloat("window scale", &window_scale, 0.005f, MIN_SCALE, MAX_SCALE, "%.2f", ImGuiSliderFlags_AlwaysClamp)) // Scale only this window
+            if (ImGui::DragFloat("windows scale", &window_scale, 0.005f, MIN_SCALE, MAX_SCALE, "%.2f", ImGuiSliderFlags_AlwaysClamp)) // Scale only this windows
                 ImGui::SetWindowFontScale(window_scale);
             ImGui::DragFloat("global scale", &io.FontGlobalScale, 0.005f, MIN_SCALE, MAX_SCALE, "%.2f", ImGuiSliderFlags_AlwaysClamp); // Scale everything
             ImGui::PopItemWidth();
@@ -6680,15 +6680,15 @@ void ImGui::ShowStyleEditor(ImGuiStyle* ref)
 void ImGui::ShowUserGuide()
 {
     ImGuiIO& io = ImGui::GetIO();
-    ImGui::BulletText("Double-click on title bar to collapse window.");
+    ImGui::BulletText("Double-click on title bar to collapse windows.");
     ImGui::BulletText(
-            "Click and drag on lower corner to resize window\n"
-            "(double-click to auto fit window to its contents).");
+            "Click and drag on lower corner to resize windows\n"
+            "(double-click to auto fit windows to its contents).");
     ImGui::BulletText("CTRL+Click on a slider or drag box to input value as text.");
     ImGui::BulletText("TAB/SHIFT+TAB to cycle through keyboard editable fields.");
-    ImGui::BulletText("CTRL+Tab to select a window.");
+    ImGui::BulletText("CTRL+Tab to select a windows.");
     if (io.FontAllowUserScaling)
-        ImGui::BulletText("CTRL+Mouse Wheel to zoom window contents.");
+        ImGui::BulletText("CTRL+Mouse Wheel to zoom windows contents.");
     ImGui::BulletText("While inputing text:\n");
     ImGui::Indent();
     ImGui::BulletText("CTRL+Left/Right to word jump.");
@@ -6702,8 +6702,8 @@ void ImGui::ShowUserGuide()
     ImGui::BulletText("Arrow keys to navigate.");
     ImGui::BulletText("Space to activate a widget.");
     ImGui::BulletText("Return to input text into a widget.");
-    ImGui::BulletText("Escape to deactivate a widget, close popup, exit child window.");
-    ImGui::BulletText("Alt to jump to the menu layer of a window.");
+    ImGui::BulletText("Escape to deactivate a widget, close popup, exit child windows.");
+    ImGui::BulletText("Alt to jump to the menu layer of a windows.");
     ImGui::Unindent();
 }
 
@@ -6716,8 +6716,8 @@ void ImGui::ShowUserGuide()
 
 // Demonstrate creating a "main" fullscreen menu bar and populating it.
 // Note the difference between BeginMainMenuBar() and BeginMenuBar():
-// - BeginMenuBar() = menu-bar inside current window (which needs the ImGuiWindowFlags_MenuBar flag!)
-// - BeginMainMenuBar() = helper to loadView menu-bar-sized window at the top of the main viewport + call BeginMenuBar() into it.
+// - BeginMenuBar() = menu-bar inside current windows (which needs the ImGuiWindowFlags_MenuBar flag!)
+// - BeginMainMenuBar() = helper to loadView menu-bar-sized windows at the top of the main viewport + call BeginMenuBar() into it.
 static void ShowExampleAppMainMenuBar()
 {
     if (ImGui::BeginMainMenuBar())
@@ -6828,7 +6828,7 @@ static void ShowExampleMenuFile()
 // [SECTION] Example App: Debug ILoggable / ShowExampleAppConsole()
 //-----------------------------------------------------------------------------
 
-// Demonstrate creating a simple console window, with scrolling, filtering, completion and history.
+// Demonstrate creating a simple console windows, with scrolling, filtering, completion and history.
 // For the console example, we are using a more C++ like approach of declaring a class to hold both data and functions.
 struct ExampleAppConsole
 {
@@ -7021,7 +7021,7 @@ struct ExampleAppConsole
             reclaim_focus = true;
         }
 
-        // Auto-focus on window apparition
+        // Auto-focus on windows apparition
         ImGui::SetItemDefaultFocus();
         if (reclaim_focus)
             ImGui::SetKeyboardFocusHere(-1); // Auto focus previous widget
@@ -7241,7 +7241,7 @@ struct ExampleAppLog
             ImGui::EndPopup();
         }
 
-        // MainView window
+        // MainView windows
         if (ImGui::Button("Options"))
             ImGui::OpenPopup("Options");
         ImGui::SameLine();
@@ -7317,14 +7317,14 @@ struct ExampleAppLog
     }
 };
 
-// Demonstrate creating a simple log window with basic filtering.
+// Demonstrate creating a simple log windows with basic filtering.
 static void ShowExampleAppLog(bool* p_open)
 {
     static ExampleAppLog log;
 
-    // For the demo: add a debug button _BEFORE_ the normal log window contents
-    // We take advantage of a rarely used feature: multiple calls to Begin()/End() are appending to the _same_ window.
-    // Most of the contents of the window will be added by the log.Draw() call.
+    // For the demo: add a debug button _BEFORE_ the normal log windows contents
+    // We take advantage of a rarely used feature: multiple calls to Begin()/End() are appending to the _same_ windows.
+    // Most of the contents of the windows will be added by the log.Draw() call.
     ImGui::SetNextWindowSize(ImVec2(500, 400), ImGuiCond_FirstUseEver);
     ImGui::Begin("Example: Log", p_open);
     IMGUI_DEMO_MARKER("Examples/Log");
@@ -7344,7 +7344,7 @@ static void ShowExampleAppLog(bool* p_open)
     }
     ImGui::End();
 
-    // Actually call in the regular Log helper (which will Begin() into the same window as we just did)
+    // Actually call in the regular Log helper (which will Begin() into the same windows as we just did)
     log.Draw("Example: Log", p_open);
 }
 
@@ -7352,7 +7352,7 @@ static void ShowExampleAppLog(bool* p_open)
 // [SECTION] Example App: Simple Layout / ShowExampleAppLayout()
 //-----------------------------------------------------------------------------
 
-// Demonstrate loadView a window with multiple child window.
+// Demonstrate loadView a windows with multiple child windows.
 static void ShowExampleAppLayout(bool* p_open)
 {
     ImGui::SetNextWindowSize(ImVec2(500, 440), ImGuiCond_FirstUseEver);
@@ -7567,20 +7567,20 @@ static void ShowExampleAppLongText(bool* p_open)
 // [SECTION] Example App: Auto Resize / ShowExampleAppAutoResize()
 //-----------------------------------------------------------------------------
 
-// Demonstrate creating a window which gets auto-resized according to its content.
+// Demonstrate creating a windows which gets auto-resized according to its content.
 static void ShowExampleAppAutoResize(bool* p_open)
 {
-    if (!ImGui::Begin("Example: Auto-resizing window", p_open, ImGuiWindowFlags_AlwaysAutoResize))
+    if (!ImGui::Begin("Example: Auto-resizing windows", p_open, ImGuiWindowFlags_AlwaysAutoResize))
     {
         ImGui::End();
         return;
     }
-    IMGUI_DEMO_MARKER("Examples/Auto-resizing window");
+    IMGUI_DEMO_MARKER("Examples/Auto-resizing windows");
 
     static int lines = 10;
     ImGui::TextUnformatted(
             "AbstractWindow will resize every-frame to the size of its content.\n"
-            "Note that you probably don't want to query the window size to\n"
+            "Note that you probably don't want to query the windows size to\n"
             "output your content because that would loadView a feedback loop.");
     ImGui::SliderInt("Number of lines", &lines, 1, 20);
     for (int i = 0; i < lines; i++)
@@ -7592,8 +7592,8 @@ static void ShowExampleAppAutoResize(bool* p_open)
 // [SECTION] Example App: Constrained Resize / ShowExampleAppConstrainedResize()
 //-----------------------------------------------------------------------------
 
-// Demonstrate creating a window with custom resize constraints.
-// Note that size constraints currently don't work on a docked window (when in 'docking' branch)
+// Demonstrate creating a windows with custom resize constraints.
+// Note that size constraints currently don't work on a docked windows (when in 'docking' branch)
 static void ShowExampleAppConstrainedResize(bool* p_open)
 {
     struct CustomConstraints
@@ -7635,7 +7635,7 @@ static void ShowExampleAppConstrainedResize(bool* p_open)
     if (type == 6) ImGui::SetNextWindowSizeConstraints(ImVec2(0, 0),     ImVec2(FLT_MAX, FLT_MAX), CustomConstraints::Square);                              // Always Square
     if (type == 7) ImGui::SetNextWindowSizeConstraints(ImVec2(0, 0),     ImVec2(FLT_MAX, FLT_MAX), CustomConstraints::Step, (void*)&fixed_step);            // Fixed Step
 
-    // Submit window
+    // Submit windows
     if (!window_padding)
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
     const ImGuiWindowFlags window_flags = auto_resize ? ImGuiWindowFlags_AlwaysAutoResize : 0;
@@ -7644,7 +7644,7 @@ static void ShowExampleAppConstrainedResize(bool* p_open)
         ImGui::PopStyleVar();
     if (window_open)
     {
-        IMGUI_DEMO_MARKER("Examples/Constrained Resizing window");
+        IMGUI_DEMO_MARKER("Examples/Constrained Resizing windows");
         if (ImGui::GetIO().KeyShift)
         {
             // Display a dummy viewport (in your real app you would likely use ImageButton() to display a texture.
@@ -7658,7 +7658,7 @@ static void ShowExampleAppConstrainedResize(bool* p_open)
         {
             ImGui::Text("(Hold SHIFT to display a dummy viewport)");
             if (ImGui::IsWindowDocked())
-                ImGui::Text("Warning: Sizing Constraints won't work if the window is docked!");
+                ImGui::Text("Warning: Sizing Constraints won't work if the windows is docked!");
             if (ImGui::Button("Set 200x200")) { ImGui::SetWindowSize(ImVec2(200, 200)); } ImGui::SameLine();
             if (ImGui::Button("Set 500x500")) { ImGui::SetWindowSize(ImVec2(500, 500)); } ImGui::SameLine();
             if (ImGui::Button("Set 800x200")) { ImGui::SetWindowSize(ImVec2(800, 200)); }
@@ -7679,7 +7679,7 @@ static void ShowExampleAppConstrainedResize(bool* p_open)
 // [SECTION] Example App: Simple overlay / ShowExampleAppSimpleOverlay()
 //-----------------------------------------------------------------------------
 
-// Demonstrate creating a simple static window with no decoration
+// Demonstrate creating a simple static windows with no decoration
 // + a context-menu to choose which corner of the screen to use.
 static void ShowExampleAppSimpleOverlay(bool* p_open)
 {
@@ -7703,7 +7703,7 @@ static void ShowExampleAppSimpleOverlay(bool* p_open)
     }
     else if (location == -2)
     {
-        // Center window
+        // Center windows
         ImGui::SetNextWindowPos(ImGui::GetMainViewport()->GetCenter(), ImGuiCond_Always, ImVec2(0.5f, 0.5f));
         window_flags |= ImGuiWindowFlags_NoMove;
     }
@@ -7733,10 +7733,10 @@ static void ShowExampleAppSimpleOverlay(bool* p_open)
 }
 
 //-----------------------------------------------------------------------------
-// [SECTION] Example App: Fullscreen window / ShowExampleAppFullscreen()
+// [SECTION] Example App: Fullscreen windows / ShowExampleAppFullscreen()
 //-----------------------------------------------------------------------------
 
-// Demonstrate creating a window covering the entire screen/viewport
+// Demonstrate creating a windows covering the entire screen/viewport
 static void ShowExampleAppFullscreen(bool* p_open)
 {
     static bool use_work_area = true;
@@ -7748,7 +7748,7 @@ static void ShowExampleAppFullscreen(bool* p_open)
     ImGui::SetNextWindowPos(use_work_area ? viewport->WorkPos : viewport->Pos);
     ImGui::SetNextWindowSize(use_work_area ? viewport->WorkSize : viewport->Size);
 
-    if (ImGui::Begin("Example: Fullscreen window", p_open, flags))
+    if (ImGui::Begin("Example: Fullscreen windows", p_open, flags))
     {
         ImGui::Checkbox("Use work area instead of main area", &use_work_area);
         ImGui::SameLine();
@@ -7762,7 +7762,7 @@ static void ShowExampleAppFullscreen(bool* p_open)
         ImGui::CheckboxFlags("ImGuiWindowFlags_NoScrollbar", &flags, ImGuiWindowFlags_NoScrollbar);
         ImGui::Unindent();
 
-        if (p_open && ImGui::Button("Close this window"))
+        if (p_open && ImGui::Button("Close this windows"))
             *p_open = false;
     }
     ImGui::End();
@@ -7785,14 +7785,14 @@ static void ShowExampleAppWindowTitles(bool*)
 
     // Using "##" to display same title but have unique identifier.
     ImGui::SetNextWindowPos(ImVec2(base_pos.x + 100, base_pos.y + 100), ImGuiCond_FirstUseEver);
-    ImGui::Begin("Same title as another window##1");
-    IMGUI_DEMO_MARKER("Examples/Manipulating window titles");
-    ImGui::Text("This is window 1.\nMy title is the same as window 2, but my identifier is unique.");
+    ImGui::Begin("Same title as another windows##1");
+    IMGUI_DEMO_MARKER("Examples/Manipulating windows titles");
+    ImGui::Text("This is windows 1.\nMy title is the same as windows 2, but my identifier is unique.");
     ImGui::End();
 
     ImGui::SetNextWindowPos(ImVec2(base_pos.x + 100, base_pos.y + 200), ImGuiCond_FirstUseEver);
-    ImGui::Begin("Same title as another window##2");
-    ImGui::Text("This is window 2.\nMy title is the same as window 1, but my identifier is unique.");
+    ImGui::Begin("Same title as another windows##2");
+    ImGui::Text("This is windows 2.\nMy title is the same as windows 1, but my identifier is unique.");
     ImGui::End();
 
     // Using "###" to display a changing title but keep a static identifier "AnimatedTitle"
@@ -7800,7 +7800,7 @@ static void ShowExampleAppWindowTitles(bool*)
     sprintf(buf, "Animated title %c %d###AnimatedTitle", "|/-\\"[(int)(ImGui::GetTime() / 0.25f) & 3], ImGui::GetFrameCount());
     ImGui::SetNextWindowPos(ImVec2(base_pos.x + 100, base_pos.y + 300), ImGuiCond_FirstUseEver);
     ImGui::Begin(buf);
-    ImGui::Text("This window has a changing title.");
+    ImGui::Text("This windows has a changing title.");
     ImGui::End();
 }
 
@@ -7941,7 +7941,7 @@ static void ShowExampleAppCustomRendering(bool* p_open)
 
             // Typically you would use a BeginChild()/EndChild() pair to benefit from a clipping region + own scrolling.
             // Here we demonstrate that this can be replaced by simple offsetting + custom drawing + PushClipRect/PopClipRect() calls.
-            // To use a child window instead we could use, e.g:
+            // To use a child windows instead we could use, e.g:
             //      ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));      // Disable padding
             //      ImGui::PushStyleColor(ImGuiCol_ChildBg, IM_COL32(50, 50, 50, 255));  // Set a background color
             //      ImGui::BeginChild("canvas", ImVec2(0.0f, 0.0f), true, ImGuiWindowFlags_NoMove);
@@ -8029,9 +8029,9 @@ static void ShowExampleAppCustomRendering(bool* p_open)
             static bool draw_bg = true;
             static bool draw_fg = true;
             ImGui::Checkbox("Draw in Background draw list", &draw_bg);
-            ImGui::SameLine(); HelpMarker("The Background draw list will be rendered below every Dear ImGui window.");
+            ImGui::SameLine(); HelpMarker("The Background draw list will be rendered below every Dear ImGui windows.");
             ImGui::Checkbox("Draw in Foreground draw list", &draw_fg);
-            ImGui::SameLine(); HelpMarker("The Foreground draw list will be rendered over every Dear ImGui window.");
+            ImGui::SameLine(); HelpMarker("The Foreground draw list will be rendered over every Dear ImGui windows.");
             ImVec2 window_pos = ImGui::GetWindowPos();
             ImVec2 window_size = ImGui::GetWindowSize();
             ImVec2 window_center = ImVec2(window_pos.x + window_size.x * 0.5f, window_pos.y + window_size.y * 0.5f);
@@ -8089,21 +8089,21 @@ static void ShowExampleAppCustomRendering(bool* p_open)
 // [SECTION] Example App: Docking, DockSpace / ShowExampleAppDockSpace()
 //-----------------------------------------------------------------------------
 
-// Demonstrate using DockSpace() to loadView an explicit docking node within an existing window.
+// Demonstrate using DockSpace() to loadView an explicit docking node within an existing windows.
 // Note: You can use most Docking facilities without calling any API. You DO NOT need to call DockSpace() to use Docking!
-// - Drag from window title bar or their tab to dock/undock. Hold SHIFT to disable docking.
-// - Drag from window menu button (upper-left button) to undock an entire node (all window).
+// - Drag from windows title bar or their tab to dock/undock. Hold SHIFT to disable docking.
+// - Drag from windows menu button (upper-left button) to undock an entire node (all windows).
 // - When io.ConfigDockingWithShift == true, you instead need to hold SHIFT to enable docking.
 // About dockspaces:
-// - Use DockSpace() to loadView an explicit dock node _within_ an existing window.
+// - Use DockSpace() to loadView an explicit dock node _within_ an existing windows.
 // - Use DockSpaceOverViewport() to loadView an explicit dock node covering the screen or a specific viewport.
 //   This is often used with ImGuiDockNodeFlags_PassthruCentralNode.
-// - Important: Dockspaces need to be submitted _before_ any window they can host. Submit it early in your frame! (*)
-// - Important: Dockspaces need to be kept alive if hidden, otherwise window docked into it will be undocked.
+// - Important: Dockspaces need to be submitted _before_ any windows they can host. Submit it early in your frame! (*)
+// - Important: Dockspaces need to be kept alive if hidden, otherwise windows docked into it will be undocked.
 //   e.g. if you have multiple tabs with a dockspace inside each tab: submit the non-visible dockspaces with ImGuiDockNodeFlags_KeepAliveOnly.
-// (*) because of this constraint, the implicit \"Debug\" window can not be docked into an explicit DockSpace() node,
-// because that window is submitted as part of the part of the NewFrame() call. An easy workaround is that you can loadView
-// your own implicit "Debug##2" window after calling DockSpace() and leave it in the window stack for anyone to use.
+// (*) because of this constraint, the implicit \"Debug\" windows can not be docked into an explicit DockSpace() node,
+// because that windows is submitted as part of the part of the NewFrame() call. An easy workaround is that you can loadView
+// your own implicit "Debug##2" windows after calling DockSpace() and leave it in the windows stack for anyone to use.
 void ShowExampleAppDockSpace(bool* p_open)
 {
     // READ THIS !!!
@@ -8115,17 +8115,17 @@ void ShowExampleAppDockSpace(bool* p_open)
     //     }
     // In most cases you should be able to just call DockSpaceOverViewport() and ignore all the code below!
     // In this specific demo, we are not using DockSpaceOverViewport() because:
-    // - (1) we allow the host window to be floating/moveable instead of filling the viewport (when opt_fullscreen == false)
-    // - (2) we allow the host window to have padding (when opt_padding == true)
+    // - (1) we allow the host windows to be floating/moveable instead of filling the viewport (when opt_fullscreen == false)
+    // - (2) we allow the host windows to have padding (when opt_padding == true)
     // - (3) we expose many flags and need a way to have them visible.
-    // - (4) we have a local menu bar in the host window (vs. you could use BeginMainMenuBar() + DockSpaceOverViewport()
-    //      in your code, but we don't here because we allow the window to be floating)
+    // - (4) we have a local menu bar in the host windows (vs. you could use BeginMainMenuBar() + DockSpaceOverViewport()
+    //      in your code, but we don't here because we allow the windows to be floating)
 
     static bool opt_fullscreen = true;
     static bool opt_padding = false;
     static ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None;
 
-    // We are using the ImGuiWindowFlags_NoDocking flag to make the parent window not dockable into,
+    // We are using the ImGuiWindowFlags_NoDocking flag to make the parent windows not dockable into,
     // because it would be confusing to have two docking targets within each others.
     ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking;
     if (opt_fullscreen)
@@ -8149,11 +8149,11 @@ void ShowExampleAppDockSpace(bool* p_open)
     if (dockspace_flags & ImGuiDockNodeFlags_PassthruCentralNode)
         window_flags |= ImGuiWindowFlags_NoBackground;
 
-    // Important: note that we proceed even if Begin() returns false (aka window is collapsed).
+    // Important: note that we proceed even if Begin() returns false (aka windows is collapsed).
     // This is because we want to keep our DockSpace() active. If a DockSpace() is inactive,
-    // all active window docked into it will lose their parent and become undocked.
-    // We cannot preserve the docking relationship between an active window and an inactive docking, otherwise
-    // any change of dockspace/settings would lead to window being stuck in limbo and never being visible.
+    // all active windows docked into it will lose their parent and become undocked.
+    // We cannot preserve the docking relationship between an active windows and an inactive docking, otherwise
+    // any change of dockspace/settings would lead to windows being stuck in limbo and never being visible.
     if (!opt_padding)
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
     ImGui::Begin("DockSpace Demo", p_open, window_flags);
@@ -8179,8 +8179,8 @@ void ShowExampleAppDockSpace(bool* p_open)
     {
         if (ImGui::BeginMenu("Options"))
         {
-            // Disabling fullscreen would allow the window to be moved to the front of other window,
-            // which we can't undo at the moment without finer window depth/z control.
+            // Disabling fullscreen would allow the windows to be moved to the front of other windows,
+            // which we can't undo at the moment without finer windows depth/z control.
             ImGui::MenuItem("Fullscreen", NULL, &opt_fullscreen);
             ImGui::MenuItem("Padding", NULL, &opt_padding);
             ImGui::Separator();
@@ -8198,13 +8198,13 @@ void ShowExampleAppDockSpace(bool* p_open)
             ImGui::EndMenu();
         }
         HelpMarker(
-                "When docking is enabled, you can ALWAYS dock MOST window into another! Try it now!" "\n"
-                "- Drag from window title bar or their tab to dock/undock." "\n"
-                "- Drag from window menu button (upper-left button) to undock an entire node (all window)." "\n"
+                "When docking is enabled, you can ALWAYS dock MOST windows into another! Try it now!" "\n"
+                "- Drag from windows title bar or their tab to dock/undock." "\n"
+                "- Drag from windows menu button (upper-left button) to undock an entire node (all windows)." "\n"
                 "- Hold SHIFT to disable docking (if io.ConfigDockingWithShift == false, default)" "\n"
                 "- Hold SHIFT to enable docking (if io.ConfigDockingWithShift == true)" "\n"
                 "This demo app has nothing to do with enabling docking!" "\n\n"
-                "This demo app only demonstrate the use of ImGui::DockSpace() which allows you to manually loadView a docking node _within_ another window." "\n\n"
+                "This demo app only demonstrate the use of ImGui::DockSpace() which allows you to manually loadView a docking node _within_ another windows." "\n\n"
                 "Read comments in ShowExampleAppDockSpace() for more details.");
 
         ImGui::EndMenuBar();
@@ -8315,18 +8315,18 @@ void ShowExampleAppDocuments(bool* p_open)
     {
         Target_None,
         Target_Tab,                 // Create documents as local tab into a local tab bar
-        Target_DockSpaceAndWindow   // Create documents as regular window, and loadView an embedded dockspace
+        Target_DockSpaceAndWindow   // Create documents as regular windows, and loadView an embedded dockspace
     };
     static Target opt_target = Target_Tab;
     static bool opt_reorderable = true;
     static ImGuiTabBarFlags opt_fitting_flags = ImGuiTabBarFlags_FittingPolicyDefault_;
 
-    // When (opt_target == Target_DockSpaceAndWindow) there is the possibily that one of our child Document window (e.g. "Eggplant")
-    // that we emit gets docked into the same spot as the parent window ("Example: Documents").
+    // When (opt_target == Target_DockSpaceAndWindow) there is the possibily that one of our child Document windows (e.g. "Eggplant")
+    // that we emit gets docked into the same spot as the parent windows ("Example: Documents").
     // This would loadView a problematic feedback loop because selecting the "Eggplant" tab would make the "Example: Documents" tab
-    // not visible, which in turn would stop submitting the "Eggplant" window.
-    // We avoid this problem by submitting our documents window even if our parent window is not currently visible.
-    // Another solution may be to make the "Example: Documents" window use the ImGuiWindowFlags_NoDocking.
+    // not visible, which in turn would stop submitting the "Eggplant" windows.
+    // We avoid this problem by submitting our documents windows even if our parent windows is not currently visible.
+    // Another solution may be to make the "Example: Documents" windows use the ImGuiWindowFlags_NoDocking.
 
     bool window_contents_visible = ImGui::Begin("Example: Documents", p_open, ImGuiWindowFlags_MenuBar);
     if (!window_contents_visible && opt_target != Target_DockSpaceAndWindow)
@@ -8389,7 +8389,7 @@ void ShowExampleAppDocuments(bool* p_open)
     // - Closure is not assumed (will wait for user to stop submitting the tab).
     //   Otherwise closure is assumed when pressing the X, so if you keep submitting the tab may reappear at end of tab bar.
     //   We need to assume closure by default otherwise waiting for "lack of submission" on the next frame would leave an empty
-    //   hole for one-frame, both in the tab-bar and in tab-contents when closing a tab/window.
+    //   hole for one-frame, both in the tab-bar and in tab-contents when closing a tab/windows.
     //   The rarely used SetTabItemClosed() function is a way to notify of programmatic closure to avoid the one-frame hole.
 
     // Tabs
@@ -8438,7 +8438,7 @@ void ShowExampleAppDocuments(bool* p_open)
         {
             NotifyOfDocumentsClosedElsewhere(app);
 
-            // Create a DockSpace node where any window can be docked
+            // Create a DockSpace node where any windows can be docked
             ImGuiID dockspace_id = ImGui::GetID("MyDockSpace");
             ImGui::DockSpace(dockspace_id);
 

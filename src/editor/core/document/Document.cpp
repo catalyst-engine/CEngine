@@ -1,12 +1,10 @@
 #include "Document.h"
-
 #include <utility>
 #include "../elements/ETree.h"
-
 #include "../elements/ESection.h"
-#include "../../util/structures/Map.cpp"
-#include "../../util/StringUtils.h"
-#include "../../ui/views/IView.h"
+#include "../../../engine/util/structures/Map.cpp"
+#include "../../../engine/util/StringUtils.h"
+#include "../views/IView.h"
 
 namespace Catalyst {
 
