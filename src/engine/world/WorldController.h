@@ -5,6 +5,7 @@
 #include "entt/entt.hpp"
 #include "debug/ILoggable.h"
 #include "structures/Map.h"
+#include "components/IComponent.h"
 
 namespace CEngine {
     /**
@@ -20,7 +21,7 @@ namespace CEngine {
 
         IEntity *addEntityInternal(std::string uuid, const char *name);
 
-        entt::entity getEntityFromWrapper(IEntity *entity);
+        static entt::entity getEntityFromWrapper(IEntity *entity);
 
     public:
 
@@ -29,10 +30,13 @@ namespace CEngine {
         void removeEntity(const std::string &uuid);
 
         template<class T>
-        void addComponent(IEntity *ent) {
+        IComponent &addComponent(IEntity *ent) {
             CONSOLE_LOG("Adding component to entity")
             entt::entity entity = getEntityFromWrapper(ent);
-            worldReg.emplace<T>(entity, entity);
+            worldReg.emplace<T>(entity);
+            IComponent &comp = worldReg.get<T>(entity);
+            comp.setEntity(ent);
+            return comp;
         }
 
         template<class T>
@@ -43,9 +47,9 @@ namespace CEngine {
         }
 
         template<class T>
-        T *getComponent(IEntity *ent) {
+        IComponent *getComponent(IEntity *ent) {
             entt::entity entity = getEntityFromWrapper(ent);
-            return worldReg.get<T>(entity);
+            return worldReg.try_get<T>(entity);
         }
 
         template<class T>
@@ -53,6 +57,10 @@ namespace CEngine {
             entt::entity entity = getEntityFromWrapper(ent);
             return worldReg.all_of<T>(entity);
         }
+
+        bool hasEntity(const std::string &uuid);
+
+        entt::registry &getRegistry();
     };
 }
 

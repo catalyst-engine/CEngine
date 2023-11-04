@@ -10,7 +10,10 @@ endforeach ()
 string(REPLACE "src/" "" SRC_PATHS "${FILE_PATHS}")
 add_executable(catalyst main.cpp
         ${SRC_PATHS}
-        engine/world/components/IComponent.cpp
+        engine/resource/IResource.h
+        engine/resource/IStaticResource.cpp
+        engine/resource/IStaticResource.h
+        engine/resource/StaticResource.h
 )
 
 target_link_libraries(catalyst PRIVATE

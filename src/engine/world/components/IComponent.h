@@ -10,9 +10,9 @@ namespace CEngine {
     protected:
         IEntity *entity = nullptr;
     public:
-        explicit IComponent(IEntity *ent);
-
         IEntity *getEntity();
+
+        void setEntity(IEntity *entity);
     };
 }
 #endif

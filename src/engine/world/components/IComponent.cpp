@@ -7,7 +7,9 @@ namespace CEngine {
         return entity;
     }
 
-    IComponent::IComponent(IEntity *ent) {
-        this->entity = ent;
+    void IComponent::setEntity(IEntity *entity) {
+        if(entity != nullptr)
+            return;
+        IComponent::entity = entity;
     }
 }

@@ -9,6 +9,7 @@ namespace CEngine {
         CONSOLE_LOG("Removing entity")
         IEntity *entity = entities.get(uuid);
         worldReg.destroy(entity->getEntity());
+        entities.deleteKey(uuid);
         delete entity;
     }
 
@@ -26,6 +27,14 @@ namespace CEngine {
         entities.set(uuid, pEntity);
         pEntity->setName(name);
         return pEntity;
+    }
+
+    bool WorldController::hasEntity(const std::string &uuid) {
+        return entities.has(uuid);
+    }
+
+    entt::registry &WorldController::getRegistry() {
+        return worldReg;
     }
 
 }

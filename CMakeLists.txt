@@ -26,6 +26,12 @@ set(COMMON_LIBRARIES
 )
 
 set(FILE_PATHS
+
+        src/engine/world/components/IComponent.cpp
+        src/engine/world/Component.h
+        src/engine/world/components/CTransform.cpp
+        src/engine/world/components/CTransform.h
+
         src/engine/event/IEventTarget.h
         src/engine/system/SystemsController.cpp
         src/engine/system/SystemsController.h
