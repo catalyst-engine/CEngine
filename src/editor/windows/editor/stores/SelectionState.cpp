@@ -2,7 +2,7 @@
 
 #include <utility>
 
-namespace Catalyst {
+namespace CEngine {
     std::string SelectionState::getSelectedEntity() const {
         return selectedEntity;
     }

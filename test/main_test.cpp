@@ -10,31 +10,31 @@
 
 void run(int ind, bool all) {
     if (ind == 0 || all) {
-        Tester *tester = Catalyst::EngineTest::createTester();
+        Tester *tester = CEngine::EngineTest::createTester();
         tester->run();
     }
     if (ind == 1 || all) {
-        Tester *tester = Catalyst::LoggerTest::createTester();
+        Tester *tester = CEngine::LoggerTest::createTester();
         tester->run();
     }
     if (ind == 2 || all) {
-        Tester *tester = Catalyst::ListTest::createTester();
+        Tester *tester = CEngine::ListTest::createTester();
         tester->run();
     }
     if (ind == 3 || all) {
-        Tester *tester = Catalyst::MapTest::createTester();
+        Tester *tester = CEngine::MapTest::createTester();
         tester->run();
     }
     if (ind == 4 || all) {
-        Tester *tester = Catalyst::DocumentTest::createTester();
+        Tester *tester = CEngine::DocumentTest::createTester();
         tester->run();
     }
     if (ind == 5 || all) {
-        Tester *tester = Catalyst::EventControllerTest::createTester();
+        Tester *tester = CEngine::EventControllerTest::createTester();
         tester->run();
     }
     if (ind == 6 || all) {
-        Tester *tester = Catalyst::IStoreTest::createTester();
+        Tester *tester = CEngine::IStoreTest::createTester();
         tester->run();
     }
 }

@@ -1,6 +1,6 @@
 #include "MainView.h"
 
-namespace Catalyst {
+namespace CEngine {
     IElement *MainView::copy() {
         return new MainView;
     }

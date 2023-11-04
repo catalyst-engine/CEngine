@@ -2,7 +2,7 @@
 #include "../../src/engine/util/structures/Map.cpp"
 #include "../Tester.h"
 
-namespace Catalyst::MapTest {
+namespace CEngine::MapTest {
 
 
     void add() {

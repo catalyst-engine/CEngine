@@ -1,28 +1,31 @@
 #include "WorldController.h"
-#include "components/CMetadata.h"
+#include "IEntity.h"
+#include "../util/structures/Map.cpp"
 
-namespace Catalyst::engine {
-    void WorldController::removeEntity(entt::entity ent) {
+namespace CEngine {
+    void WorldController::removeEntity(const std::string &uuid) {
+        if (!entities.has(uuid))
+            return;
         CONSOLE_LOG("Removing entity")
-        worldReg.destroy(ent);
-        entitiesActive--;
+        IEntity *entity = entities.get(uuid);
+        worldReg.destroy(entity->getEntity());
+        delete entity;
     }
 
-    entt::entity WorldController::addEntity() {
+    IEntity *WorldController::addEntity() {
         CONSOLE_LOG("Creating entity")
-        entitiesActive++;
-        entt::entity ent = worldReg.create();
-        addComponent<CMetadata>(ent);
-        CMetadata *pMetadata = getComponent<CMetadata>(ent);
-        component.setName(component.getName() + " (" + std::to_string(entitiesActive) + ")");
-        return ent;
+        return addEntityInternal(UUID::v4(), nullptr);
     }
 
-    entt::registry &WorldController::getRegistry() {
-        return worldReg;
+    entt::entity WorldController::getEntityFromWrapper(IEntity *entity) {
+        return entity->getEntity();
     }
 
-    CMetadata *WorldController::getEntityMetadata(entt::entity ent) {
-        return nullptr;
+    IEntity *WorldController::addEntityInternal(std::string uuid, const char *name) {
+        auto *pEntity = new IEntity(worldReg.create(), uuid);
+        entities.set(uuid, pEntity);
+        pEntity->setName(name);
+        return pEntity;
     }
+
 }

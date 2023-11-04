@@ -1,6 +1,6 @@
 #include "DynamicElement.h"
 
-namespace Catalyst {
+namespace CEngine {
     void DynamicElement::render() {
         renderElements(element);
     }

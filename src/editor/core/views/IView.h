@@ -5,7 +5,7 @@
 #include <string>
 #include "../elements/IElement.h"
 
-namespace Catalyst {
+namespace CEngine {
 
     class IView : public IElement {
     public:

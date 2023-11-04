@@ -63,14 +63,14 @@ Index of this file:
 
 // [SECTION] Forward Declarations
 // [SECTION] Helpers
-// [SECTION] Demo AbstractWindow / ShowDemoWindow()
+// [SECTION] Demo IWindow / ShowDemoWindow()
 // - ShowDemoWindow()
 // - sub section: ShowDemoWindowWidgets()
 // - sub section: ShowDemoWindowLayout()
 // - sub section: ShowDemoWindowPopups()
 // - sub section: ShowDemoWindowTables()
 // - sub section: ShowDemoWindowInputs()
-// [SECTION] About AbstractWindow / ShowAboutWindow()
+// [SECTION] About IWindow / ShowAboutWindow()
 // [SECTION] Style EditorWindow / ShowStyleEditor()
 // [SECTION] User Guide / ShowUserGuide()
 // [SECTION] Example App: MainView Menu Bar / ShowExampleAppMainMenuBar()
@@ -250,7 +250,7 @@ void*                               GImGuiDemoMarkerCallbackUserData = NULL;
 #define IMGUI_DEMO_MARKER(section)  do { if (GImGuiDemoMarkerCallback != NULL) GImGuiDemoMarkerCallback(__FILE__, __LINE__, section, GImGuiDemoMarkerCallbackUserData); } while (0)
 
 //-----------------------------------------------------------------------------
-// [SECTION] Demo AbstractWindow / ShowDemoWindow()
+// [SECTION] Demo IWindow / ShowDemoWindow()
 //-----------------------------------------------------------------------------
 // - ShowDemoWindow()
 // - ShowDemoWindowWidgets()
@@ -597,8 +597,8 @@ void ImGui::ShowDemoWindow(bool* p_open)
         }
     }
 
-    IMGUI_DEMO_MARKER("AbstractWindow options");
-    if (ImGui::CollapsingHeader("AbstractWindow options"))
+    IMGUI_DEMO_MARKER("IWindow options");
+    if (ImGui::CollapsingHeader("IWindow options"))
     {
         if (ImGui::BeginTable("split", 3))
         {
@@ -2599,8 +2599,8 @@ static void ShowDemoWindowWidgets()
         ImGui::TreePop();
     }
 
-    IMGUI_DEMO_MARKER("Widgets/Querying AbstractWindow Status (Focused,Hovered etc.)");
-    if (ImGui::TreeNode("Querying AbstractWindow Status (Focused/Hovered etc.)"))
+    IMGUI_DEMO_MARKER("Widgets/Querying IWindow Status (Focused,Hovered etc.)");
+    if (ImGui::TreeNode("Querying IWindow Status (Focused/Hovered etc.)"))
     {
         static bool embed_all_inside_a_child_window = false;
         ImGui::Checkbox("Embed everything inside a child windows for testing _RootWindow flag.", &embed_all_inside_a_child_window);
@@ -3663,7 +3663,7 @@ static void ShowDemoWindowPopups()
     IMGUI_DEMO_MARKER("Popups/Context menus");
     if (ImGui::TreeNode("Context menus"))
     {
-        HelpMarker("\"Context\" functions are simple helpers to associate a Popup to a given Item or AbstractWindow identifier.");
+        HelpMarker("\"Context\" functions are simple helpers to associate a Popup to a given Item or IWindow identifier.");
 
         // BeginPopupContextItem() is a helper to provide common/simple popup behavior of essentially doing:
         //     if (id == 0)
@@ -4212,7 +4212,7 @@ static void ShowDemoWindowTables()
         // Here we use ImGuiTableFlags_SizingFixedFit (even though _ScrollX is not set)
         // So columns will adopt the "Fixed" policy and will maintain a fixed width regardless of the whole available width (unless table is small)
         // If there is not enough available width to fit all columns, they will however be resized down.
-        // FIXME-TABLE: Providing a stretch-on-init would make sense especially for tables which don't have saved settings
+        // FIXME-TABLE: Providing a stretch-on-onInitialize would make sense especially for tables which don't have saved settings
         HelpMarker(
                 "Using _Resizable + _SizingFixedFit flags.\n"
                 "Fixed-width columns generally makes more sense if you want to use horizontal scrolling.\n\n"
@@ -6176,7 +6176,7 @@ static void ShowDemoWindowInputs()
 }
 
 //-----------------------------------------------------------------------------
-// [SECTION] About AbstractWindow / ShowAboutWindow()
+// [SECTION] About IWindow / ShowAboutWindow()
 // Access from Dear ImGui Demo -> Tools -> About
 //-----------------------------------------------------------------------------
 
@@ -7579,7 +7579,7 @@ static void ShowExampleAppAutoResize(bool* p_open)
 
     static int lines = 10;
     ImGui::TextUnformatted(
-            "AbstractWindow will resize every-frame to the size of its content.\n"
+            "IWindow will resize every-frame to the size of its content.\n"
             "Note that you probably don't want to query the windows size to\n"
             "output your content because that would loadView a feedback loop.");
     ImGui::SliderInt("Number of lines", &lines, 1, 20);
@@ -7667,7 +7667,7 @@ static void ShowExampleAppConstrainedResize(bool* p_open)
             ImGui::SetNextItemWidth(ImGui::GetFontSize() * 20);
             ImGui::DragInt("Lines", &display_lines, 0.2f, 1, 100);
             ImGui::Checkbox("Auto-resize", &auto_resize);
-            ImGui::Checkbox("AbstractWindow padding", &window_padding);
+            ImGui::Checkbox("IWindow padding", &window_padding);
             for (int i = 0; i < display_lines; i++)
                 ImGui::Text("%*sHello, sailor! Making this line long enough for the example.", i * 4, "");
         }
@@ -7769,7 +7769,7 @@ static void ShowExampleAppFullscreen(bool* p_open)
 }
 
 //-----------------------------------------------------------------------------
-// [SECTION] Example App: Manipulating AbstractWindow Titles / ShowExampleAppWindowTitles()
+// [SECTION] Example App: Manipulating IWindow Titles / ShowExampleAppWindowTitles()
 //-----------------------------------------------------------------------------
 
 // Demonstrate the use of "##" and "###" in identifiers to manipulate ID generation.
@@ -8374,7 +8374,7 @@ void ShowExampleAppDocuments(bool* p_open)
         ImGui::PopID();
     }
     ImGui::PushItemWidth(ImGui::GetFontSize() * 12);
-    ImGui::Combo("Output", (int*)&opt_target, "None\0TabBar+Tabs\0DockSpace+AbstractWindow\0");
+    ImGui::Combo("Output", (int*)&opt_target, "None\0TabBar+Tabs\0DockSpace+IWindow\0");
     ImGui::PopItemWidth();
     bool redock_all = false;
     if (opt_target == Target_Tab)                { ImGui::SameLine(); ImGui::Checkbox("Reorderable Tabs", &opt_reorderable); }

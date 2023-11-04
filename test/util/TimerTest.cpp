@@ -3,7 +3,7 @@
 #include "debug/Timer.h"
 #include "../Tester.h"
 
-namespace Catalyst::TimerTest {
+namespace CEngine::TimerTest {
 
 
     const char *name = "EXECUTION";

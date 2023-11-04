@@ -10,7 +10,7 @@
 #include "spdlog/fmt/ostr.h"
 #include "../structures/List.h"
 
-namespace Catalyst {
+namespace CEngine {
     class ILoggable {
     private:
         static List<std::shared_ptr<spdlog::logger>> loggers;

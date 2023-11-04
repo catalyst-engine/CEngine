@@ -1,7 +1,7 @@
 #include "EInlineBlock.h"
 #include "imgui.h"
 
-namespace Catalyst {
+namespace CEngine {
     void EInlineBlock::render() {
         renderChildren();
         ImGui::SameLine();

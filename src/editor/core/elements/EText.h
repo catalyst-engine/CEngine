@@ -5,7 +5,7 @@
 #include <string>
 #include "AbstractSimpleElement.h"
 
-namespace Catalyst {
+namespace CEngine {
     class EText : public AbstractSimpleElement  {
     public:
         void render() override;

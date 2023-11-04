@@ -3,7 +3,7 @@
 
 #include "IEventPayload.h"
 
-namespace Catalyst {
+namespace CEngine {
 
     template<typename T>
     class TypedEventPayload : public IEventPayload {

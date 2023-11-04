@@ -4,5 +4,5 @@
 
 #include "SystemsController.h"
 
-namespace Catalyst {
+namespace CEngine {
 } // Catalyst

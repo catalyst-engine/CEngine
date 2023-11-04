@@ -1,15 +1,15 @@
 #include "HierarchyList.h"
 #include "../../../../../engine/Engine.h"
+#include "../../../../../engine/world/IEntity.h"
 #include "../../../../../engine/world/WorldController.h"
 #include "../../../../core/elements/EText.h"
 #include "../../../../core/document/Document.h"
-#include "../../../../../engine/components/CMetadata.h"
 #include "../../../../../engine/event/IEventPayload.h"
 #include "../../../../core/elements/ETreeNode.h"
 #include "../../../../core/elements/ETree.h"
 #include "stores/SelectionStore.h"
 
-namespace Catalyst {
+namespace CEngine {
     void HierarchyList::onInitialize() {
         addEmpty = getElementById("hierarchyAddEmpty");
         tree = (ETree *) document->addElement("ETree", this);
@@ -37,14 +37,13 @@ namespace Catalyst {
         } else if (payload->getEventType() == "click") {
             auto *pElement = (IElement *) payload->getTarget();
             if (pElement == addEmpty) {
-                entt::entity entity = Engine::getWorld()->addEntity();
-                auto &component = Engine::getRegistry()->get<engine::CMetadata>(entity);
+                IEntity *entity = getEngine()->getWorldController().addEntity();
                 auto *node = (ETreeNode *) document->addElement("ETreeNode", tree);
 
                 // TODO - EVENT FOR ENTITY UPDATE
-                node->setText(component.getName());
+                node->setText(entity->getName());
                 node->setIsLeaf(true);
-                node->setId(component.getEntityUUID());
+                node->setId(entity->getUUID());
             } else if (pElement != nullptr && pElement->getParent() == tree) {
                 SelectionState *state = SelectionStore::getData();
                 state->setSelectedEntity(pElement->getId());

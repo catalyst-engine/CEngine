@@ -3,7 +3,7 @@
 
 #include "imgui.h"
 
-namespace Catalyst {
+namespace CEngine {
 
     class IOController {
     private:

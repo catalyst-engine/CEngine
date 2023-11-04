@@ -7,7 +7,7 @@
 #include "../event/Listener.h"
 #include "../../../src/engine/event/EventController.h"
 
-namespace Catalyst::IStoreTest {
+namespace CEngine::IStoreTest {
     void clear() {
         SampleData *pData = SampleStore::getData();
         SampleStore::clear();

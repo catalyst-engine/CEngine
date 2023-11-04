@@ -3,7 +3,7 @@
 #include <utility>
 #include "imgui.h"
 
-namespace Catalyst {
+namespace CEngine {
     bool EButton::isClicked() const {
         return clicked;
     }

@@ -2,7 +2,7 @@
 #include "imgui.h"
 #include "../../../engine/event/EventController.h"
 
-namespace Catalyst {
+namespace CEngine {
     void EMenuItem::render() {
         if (ImGui::MenuItem(title.c_str(), shortcut.c_str(), checked, enabled)) {
             EventController::get()->triggerEvent("click", this);

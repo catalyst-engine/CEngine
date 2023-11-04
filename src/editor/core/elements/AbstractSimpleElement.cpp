@@ -1,6 +1,6 @@
 #include "AbstractSimpleElement.h"
 
-namespace Catalyst {
+namespace CEngine {
     void AbstractSimpleElement::setText(std::string textV) {
         text = std::move(textV);
     }

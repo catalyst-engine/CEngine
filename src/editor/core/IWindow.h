@@ -1,6 +1,6 @@
 #pragma once
-#ifndef CATALYST_ABSTRACTWINDOW_H
-#define CATALYST_ABSTRACTWINDOW_H
+#ifndef CATALYST_IWINDOW_H
+#define CATALYST_IWINDOW_H
 
 #include "imgui.h"
 #include "GLFW/glfw3.h"
@@ -10,12 +10,12 @@
 
 #define GLSL_VERSION "#version 130"
 
-namespace Catalyst {
+namespace CEngine {
     class Runner;
 
     class Document;
 
-    class AbstractWindow : public ILoggable {
+    class IWindow : public ILoggable {
     protected:
         GLFWwindow *window = nullptr;
         Runner *runner = nullptr;
@@ -31,7 +31,7 @@ namespace Catalyst {
         void createWindowIO();
 
     public:
-        virtual void init();
+        virtual void onInitialize();
 
         bool isVsyncEnabled() const;
 
@@ -39,10 +39,10 @@ namespace Catalyst {
 
         void start();
 
-        explicit AbstractWindow();
+        explicit IWindow();
 
         Document *getDocument();
 
     };
 }
-#endif //CATALYST_ABSTRACTWINDOW_H
+#endif //CATALYST_IWINDOW_H

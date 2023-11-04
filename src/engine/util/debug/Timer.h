@@ -5,7 +5,7 @@
 #include "ILoggable.h"
 #include <chrono>
 
-namespace Catalyst {
+namespace CEngine {
     template<typename K, typename V>
     class Map;
 

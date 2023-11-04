@@ -4,7 +4,7 @@
 #include "../../../../core/elements/EMenuItem.h"
 #include "HierarchyList.h"
 
-namespace Catalyst {
+namespace CEngine {
     void HierarchyView::onInitialize() {
         CONSOLE_LOG("Initializing hierarchy")
         deleteButton = (EButton *) getElementById("hierarchyDeleteButton");

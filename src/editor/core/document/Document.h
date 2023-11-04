@@ -10,7 +10,7 @@
 #include "../../../engine/util/debug/ILoggable.h"
 #include <string>
 
-namespace Catalyst {
+namespace CEngine {
     template<typename K, typename V>
     class Map;
 
@@ -18,12 +18,16 @@ namespace Catalyst {
 
     class IView;
 
+    class Engine;
+
     class Document : public ILoggable {
     private:
+        Document(ImGuiIO *pIo);
+
         ElementController elementController;
         ViewController viewController;
         IOController ioController;
-
+        Engine *engine;
         IElement *addElementInternal(IElement *element, IElement *parentEl, const char *id);
 
         void loadElements(pugi::xml_node root, IElement *parent);
@@ -35,7 +39,7 @@ namespace Catalyst {
         void initializeElement(IElement *element);
 
     public:
-        explicit Document(ImGuiIO *pIo);
+        explicit Document(ImGuiIO *pIo, Engine *engine);
 
         IElement *addElement(const char *tag, const char *id, IElement *parent);
 

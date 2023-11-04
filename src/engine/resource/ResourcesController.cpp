@@ -4,5 +4,5 @@
 
 #include "ResourcesController.h"
 
-namespace Catalyst {
+namespace CEngine {
 } // Catalyst

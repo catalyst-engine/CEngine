@@ -1,7 +1,7 @@
 #ifndef CATALYST_ENGINE_LIST_H
 #define CATALYST_ENGINE_LIST_H
 
-namespace Catalyst {
+namespace CEngine {
     template<typename T>
     struct ListItem {
         T *value;

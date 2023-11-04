@@ -4,7 +4,7 @@
 #include "../../Tester.h"
 #include "Example.h"
 
-namespace Catalyst::DocumentTest {
+namespace CEngine::DocumentTest {
     Document d(nullptr);
 
     void loadView() {

@@ -2,7 +2,7 @@
 #define CATALYST_ISTORETEST_H
 
 class Tester;
-namespace Catalyst::IStoreTest {
+namespace CEngine::IStoreTest {
     Tester *createTester();
 }
 

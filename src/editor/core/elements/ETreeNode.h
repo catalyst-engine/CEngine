@@ -4,7 +4,7 @@
 #include "IElement.h"
 #include "AbstractSimpleElement.h"
 
-namespace Catalyst {
+namespace CEngine {
 
     class ETreeNode : public AbstractSimpleElement {
     private:

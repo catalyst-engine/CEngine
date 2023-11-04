@@ -2,12 +2,16 @@
 #define CATALYST_EDITORWINDOW_H
 
 
-#include "../../core/AbstractWindow.h"
+#include "../../core/IWindow.h"
+#include "../../../engine/Engine.h"
 
-namespace Catalyst {
-    class EditorWindow : public AbstractWindow {
+namespace CEngine {
+    class EditorWindow : public IWindow {
+    private:
+        Engine engine;
     public:
-        void init() override;
+        explicit EditorWindow();
+        void onInitialize() override;
     };
 }
 

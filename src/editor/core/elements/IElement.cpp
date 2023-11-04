@@ -3,8 +3,8 @@
 #include <utility>
 #include "../document/Document.h"
 
-namespace Catalyst {
-    Catalyst::List<IElement> *IElement::getChildren() {
+namespace CEngine {
+    CEngine::List<IElement> *IElement::getChildren() {
         return &children;
     }
 
@@ -71,13 +71,14 @@ namespace Catalyst {
         return parent;
     }
 
-    void IElement::initialize(Document *pDocument, IElement *pParent, const char *pId) {
+    void IElement::initialize(Document *pDocument, Engine *pEngine, IElement *pParent, const char *pId) {
         if (initialized) {
             return;
         }
+        engine = pEngine;
         document = pDocument;
         parent = pParent;
-        if(pId != nullptr) {
+        if (pId != nullptr) {
             id = pId;
         }
         initialized = true;
@@ -85,5 +86,9 @@ namespace Catalyst {
 
     void IElement::setId(const std::string &id) {
         IElement::id = id;
+    }
+
+    Engine *IElement::getEngine() {
+        return engine;
     }
 }

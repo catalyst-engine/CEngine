@@ -1,22 +1,22 @@
 #include <catch2/catch_test_macros.hpp>
 #include "entt/entt.hpp"
-#include "../../src/engine/components/CMetadata.h"
 #include "../../src/engine/world/WorldController.h"
 #include "../../src/engine/Engine.h"
 #include "../Tester.h"
+#include "../../src/engine/world/components/IComponent.h"
+#include "../../src/engine/world/IEntity.h"
 
-namespace Catalyst::EngineTest{
+namespace CEngine::EngineTest {
+    static Engine engine;
 
-    class Comp : public Catalyst::engine::IComponent {
+    class Comp : public IComponent {
     public:
-        explicit Comp(entt::entity ent) : IComponent(ent) {}
+        explicit Comp(IEntity *ent) : IComponent(ent) {}
     };
 
 
     void shouldAddEntity() {
-        engine::WorldController *world = Engine::getWorld();
-        engine::WorldRegistry *reg = Engine::getWorldRegistry();
-        entt::entity entity = world->addEntity();
+        IEntity *entity = engine.getWorldController().addEntity();
         bool found = false;
         auto v = reg->getRegistry()->view<engine::CMetadata>();
         for (auto ent: v) {
@@ -28,9 +28,7 @@ namespace Catalyst::EngineTest{
     }
 
     void shouldRemoveEntity() {
-        engine::WorldController *world = Engine::getWorld();
-        engine::WorldRegistry *reg = Engine::getWorldRegistry();
-        entt::entity entity = world->addEntity();
+        IEntity *entity = engine.getWorldController().addEntity();
 
         world->removeEntity(entity);
 
@@ -46,12 +44,9 @@ namespace Catalyst::EngineTest{
 
 
     void shouldAddComponent() {
-        engine::WorldController *world = Engine::getWorld();
-        engine::WorldRegistry *reg = Engine::getWorldRegistry();
-        entt::entity entity = world->addEntity();
+        IEntity *entity = engine.getWorldController().addEntity();
 
-        world->addComponent<Comp>(entity);
-
+        engine.getWorldController().addComponent<Comp>(entity);
         bool found = false;
         auto v = reg->getRegistry()->view<Comp>();
         for (auto ent: v) {
@@ -63,11 +58,9 @@ namespace Catalyst::EngineTest{
     }
 
     void shouldRemoveComponent() {
-        engine::WorldController *world = Engine::getWorld();
-        engine::WorldRegistry *reg = Engine::getWorldRegistry();
-        entt::entity entity = world->addEntity();
+        IEntity *entity = engine.getWorldController().addEntity();
 
-        world->addComponent<Comp>(entity);
+        engine.getWorldController().addComponent<Comp>(entity);
         world->removeComponent<Comp>(entity);
 
         bool found = false;
@@ -81,18 +74,10 @@ namespace Catalyst::EngineTest{
     }
 
     void shouldHaveComponent() {
-        engine::WorldController *world = Engine::getWorld();
-        engine::WorldRegistry *reg = Engine::getWorldRegistry();
-        entt::entity entity = world->addEntity();
-        world->addComponent<Comp>(entity);
-        REQUIRE(reg->hasComponent<Comp>(entity) == true);
-    }
+        IEntity *entity = engine.getWorldController().addEntity();
 
-    void shouldHaveMetadata() {
-        engine::WorldController *world = Engine::getWorld();
-        engine::WorldRegistry *reg = Engine::getWorldRegistry();
-        entt::entity entity = world->addEntity();
-        REQUIRE(reg->getEntityMetadata(entity) != nullptr);
+        engine.getWorldController().addComponent<Comp>(entity);
+        REQUIRE(engine.getWorldController().hasComponent<Comp>(entity) == true);
     }
 
 
@@ -103,9 +88,7 @@ namespace Catalyst::EngineTest{
         tester->registerTest("Should add component", shouldAddComponent);
         tester->registerTest("Should remove component", shouldRemoveComponent);
         tester->registerTest("Should have component", shouldHaveComponent);
-        tester->registerTest("Should have metadata", shouldHaveMetadata);
         return tester;
     }
-
 
 }

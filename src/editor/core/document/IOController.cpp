@@ -1,6 +1,6 @@
 #include "IOController.h"
 
-namespace Catalyst {
+namespace CEngine {
     ImGuiIO *IOController::getIo() const {
         return io;
     }

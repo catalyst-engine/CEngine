@@ -4,7 +4,7 @@
 
 #include "../../../src/engine/event/IListener.h"
 
-namespace Catalyst {
+namespace CEngine {
 
     class Listener : public IListener {
     private:

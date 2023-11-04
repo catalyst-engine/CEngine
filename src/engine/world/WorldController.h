@@ -3,51 +3,56 @@
 #define CATALYST_WORLDCONTROLLER_H
 
 #include "entt/entt.hpp"
+#include "debug/ILoggable.h"
+#include "structures/Map.h"
 
-namespace Catalyst::engine {
+namespace CEngine {
     /**
      * For manipulating data
      * */
+
+    class IEntity;
+
     class WorldController : public ILoggable {
     private:
         entt::registry worldReg;
-        size_t entitiesActive = 0;
+        Map<std::string, IEntity *> entities;
+
+        IEntity *addEntityInternal(std::string uuid, const char *name);
+
+        entt::entity getEntityFromWrapper(IEntity *entity);
+
     public:
 
-        entt::entity addEntity();
+        IEntity *addEntity();
 
-        void removeEntity(entt::entity ent);
+        void removeEntity(const std::string &uuid);
 
-        /**
-         * @tparam T extends IComponent
-         * @param ent
-         * @return component instance
-         */
         template<class T>
-        void addComponent(entt::entity ent) {
+        void addComponent(IEntity *ent) {
             CONSOLE_LOG("Adding component to entity")
-            worldReg.emplace<T>(ent, ent);
+            entt::entity entity = getEntityFromWrapper(ent);
+            worldReg.emplace<T>(entity, entity);
         }
 
         template<class T>
-        void removeComponent(entt::entity ent) {
+        void removeComponent(IEntity *ent) {
             CONSOLE_LOG("Removing component from entity")
-            worldReg.erase<T>(ent);
+            entt::entity entity = getEntityFromWrapper(ent);
+            worldReg.erase<T>(entity);
         }
 
         template<class T>
-        T *getComponent(entt::entity ent) {
-            return worldReg.get<T>(ent);
+        T *getComponent(IEntity *ent) {
+            entt::entity entity = getEntityFromWrapper(ent);
+            return worldReg.get<T>(entity);
         }
 
         template<class T>
-        bool hasComponent(entt::entity ent) {
-            return worldReg.all_of<T>(ent);
+        bool hasComponent(IEntity *ent) {
+            entt::entity entity = getEntityFromWrapper(ent);
+            return worldReg.all_of<T>(entity);
         }
-
-        CMetadata *getEntityMetadata(entt::entity ent);
-
-        entt::registry &getRegistry();
     };
 }
 

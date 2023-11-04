@@ -6,7 +6,7 @@
 #include "../util/structures/List.h"
 #include "../util/debug/ILoggable.h"
 
-namespace Catalyst {
+namespace CEngine {
     class IEventPayload;
 
     class ListenerWrapper : public ILoggable{
@@ -20,7 +20,7 @@ namespace Catalyst {
 
         size_t listenersSize();
 
-        void callListeners(Catalyst::IEventPayload *pPayload);
+        void callListeners(CEngine::IEventPayload *pPayload);
     };
 
 }

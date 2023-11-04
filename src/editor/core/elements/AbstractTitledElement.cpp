@@ -1,6 +1,6 @@
 #include "AbstractTitledElement.h"
 
-namespace Catalyst {
+namespace CEngine {
 
     std::string AbstractTitledElement::getTitle() {
         return title;

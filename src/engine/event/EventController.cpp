@@ -3,7 +3,7 @@
 #include "ListenerWrapper.h"
 #include "IEventPayload.h"
 
-namespace Catalyst {
+namespace CEngine {
     EventController *EventController::instance;
     Map<std::string, ListenerWrapper *> EventController::wrappers;
 

@@ -3,10 +3,10 @@
 #include "../../../engine/util/StringUtils.h"
 #include "../../../engine/util/structures/Map.cpp"
 
-namespace Catalyst {
-    Catalyst::Map<std::string, IView *> ViewController::registeredViews;
+namespace CEngine {
+    CEngine::Map<std::string, IView *> ViewController::registeredViews;
 
-    List<Catalyst::IView> &ViewController::getViews() {
+    List<CEngine::IView> &ViewController::getViews() {
         return views;
     }
 

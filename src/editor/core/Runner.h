@@ -9,7 +9,7 @@
 #define BACKGROUND_B .5
 #define BACKGROUND_A 1
 
-namespace Catalyst {
+namespace CEngine {
     class Document;
 
     class Runner {

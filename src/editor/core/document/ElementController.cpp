@@ -11,21 +11,21 @@
 #include "../elements/EInlineBlock.h"
 #include "../elements/ETreeNode.h"
 
-namespace Catalyst {
-    Catalyst::Map<std::string, IElement *> ElementController::registeredElements;
+namespace CEngine {
+    CEngine::Map<std::string, IElement *> ElementController::registeredElements;
 
-    Catalyst::List<IElement> &ElementController::getElements() {
+    CEngine::List<IElement> &ElementController::getElements() {
         return elements;
     }
 
-    IElement *ElementController::searchFor(Catalyst::ListItem<IElement> *item, const std::string &id) {
+    IElement *ElementController::searchFor(CEngine::ListItem<IElement> *item, const std::string &id) {
         CONSOLE_LOG("SEARCHING: {0}", id)
         if (item->value->getId() == id) {
             return item->value;
         }
 
-        Catalyst::List<IElement> *children = item->value->getChildren();
-        Catalyst::ListItem<IElement> *child = children->getFirst();
+        CEngine::List<IElement> *children = item->value->getChildren();
+        CEngine::ListItem<IElement> *child = children->getFirst();
         while (child != nullptr) {
             if (child->value->getId() == id) {
                 return child->value;
@@ -44,7 +44,7 @@ namespace Catalyst {
         if (element != nullptr) {
             if (parent != nullptr) {
                 CONSOLE_WARN("({0}) -> ({1})", typeid(*element).name(), typeid(*parent).name())
-                Catalyst::List<IElement> *children = parent->getChildren();
+                CEngine::List<IElement> *children = parent->getChildren();
                 children->push(element);
             } else {
                 CONSOLE_WARN("({0}) -> (ROOT)", typeid(*element).name())
@@ -70,7 +70,7 @@ namespace Catalyst {
 
     IElement *ElementController::getElementByIdInternal(std::string &id, ListItem<IElement> *root) {
         CONSOLE_LOG("GETTING ELEMENT: {0}", id)
-        Catalyst::ListItem<IElement> *current = root;
+        CEngine::ListItem<IElement> *current = root;
         while (current != nullptr) {
             IElement *found = searchFor(current, id);
             if (found != nullptr) {

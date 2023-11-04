@@ -4,7 +4,7 @@
 #include "entt/entity/entity.hpp"
 #include <string>
 
-namespace Catalyst {
+namespace CEngine {
 
     class SelectionState {
     private:

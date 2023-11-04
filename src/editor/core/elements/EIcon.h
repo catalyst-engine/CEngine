@@ -5,7 +5,7 @@
 #include <string>
 #include "IElement.h"
 
-namespace Catalyst {
+namespace CEngine {
     class EIcon : public IElement {
         std::string text;
     public:

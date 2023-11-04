@@ -5,7 +5,7 @@
 #include "../../../engine/event/EventController.h"
 #include "../../../engine/util/UUID.h"
 
-namespace Catalyst {
+namespace CEngine {
 
     template<class STORE, class DATA>
     class IStore {

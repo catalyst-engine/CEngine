@@ -2,7 +2,7 @@
 #define CATALYST_ENGINETEST_H
 
 class Tester;
-namespace Catalyst::EngineTest {
+namespace CEngine::EngineTest {
     Tester *createTester();
 };
 

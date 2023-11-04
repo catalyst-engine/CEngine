@@ -5,7 +5,7 @@
 #include "SelectionState.h"
 #include "../../../core/store/IStore.h"
 
-namespace Catalyst {
+namespace CEngine {
     class SelectionStore : public IStore<SelectionStore, SelectionState> {
 
     };

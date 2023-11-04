@@ -4,7 +4,7 @@
 
 #include <string>
 
-namespace Catalyst {
+namespace CEngine {
     class IEventTarget;
 
     class IEventPayload {

@@ -5,7 +5,7 @@
 #include "IEventTarget.h"
 #include "../util/debug/ILoggable.h"
 
-namespace Catalyst {
+namespace CEngine {
     class IListener;
 
     class ListenerWrapper;

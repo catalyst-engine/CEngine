@@ -2,7 +2,7 @@
 
 #include <utility>
 
-namespace Catalyst {
+namespace CEngine {
 
     IEventPayload::IEventPayload(std::string type, IEventTarget *t) {
         eventType = std::move(type);

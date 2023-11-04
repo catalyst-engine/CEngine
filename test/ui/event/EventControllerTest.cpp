@@ -6,7 +6,7 @@
 #include "../../../src/engine/event/TypedEventPayload.h"
 
 
-namespace Catalyst::EventControllerTest {
+namespace CEngine::EventControllerTest {
     void shouldTriggerEvent() {
         auto l = new Listener;
         EventController::get()->addListener("click", l);

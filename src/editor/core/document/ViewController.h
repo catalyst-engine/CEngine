@@ -6,7 +6,7 @@
 #include "../../../engine/util/debug/ILoggable.h"
 #include <string>
 
-namespace Catalyst {
+namespace CEngine {
     template<typename K, typename V>
     class Map;
 

@@ -1,6 +1,6 @@
 #include "IView.h"
 
-namespace Catalyst {
+namespace CEngine {
     void IView::update() {
 
     }

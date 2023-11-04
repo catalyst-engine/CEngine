@@ -2,7 +2,7 @@
 #include "IListener.h"
 #include "IEventPayload.h"
 
-namespace Catalyst {
+namespace CEngine {
 
     void ListenerWrapper::addListener(IListener *listener) {
         listeners.push(listener);
@@ -16,7 +16,7 @@ namespace Catalyst {
         return listeners.getLength();
     }
 
-    void ListenerWrapper::callListeners(Catalyst::IEventPayload *pPayload) {
+    void ListenerWrapper::callListeners(CEngine::IEventPayload *pPayload) {
         listeners.iterate();
         while (listeners.hasNext()) {
             IListener *pListener = listeners.next();

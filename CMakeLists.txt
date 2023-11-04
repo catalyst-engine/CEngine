@@ -26,6 +26,14 @@ set(COMMON_LIBRARIES
 )
 
 set(FILE_PATHS
+        src/engine/event/IEventTarget.h
+        src/engine/system/SystemsController.cpp
+        src/engine/system/SystemsController.h
+        src/engine/resource/ResourcesController.cpp
+        src/engine/resource/ResourcesController.h
+        src/engine/world/IEntity.cpp
+        src/engine/world/IEntity.h
+
         src/editor/core/store/IStore.h
         src/editor/windows/editor/stores/SelectionState.cpp
         src/editor/windows/editor/stores/SelectionState.h
@@ -48,8 +56,8 @@ set(FILE_PATHS
         src/editor/core/elements/EText.h
         src/editor/core/document/Document.cpp
         src/editor/core/document/Document.h
-        src/editor/core/AbstractWindow.cpp
-        src/editor/core/AbstractWindow.h
+        src/editor/core/IWindow.cpp
+        src/editor/core/IWindow.h
         src/editor/core/views/IView.cpp
         src/editor/core/views/IView.h
         src/editor/core/elements/IElement.cpp
@@ -59,8 +67,6 @@ set(FILE_PATHS
         src/engine/util/debug/Timer.h
         src/engine/world/WorldController.cpp
         src/engine/world/WorldController.h
-        src/engine/world/components/CMetadata.cpp
-        src/engine/world/components/CMetadata.h
         src/engine/world/components/IComponent.h
         src/engine/Engine.cpp
         src/engine/Engine.h

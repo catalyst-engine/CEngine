@@ -2,9 +2,9 @@
 #include "debug/ILoggable.h"
 #include "../Tester.h"
 
-namespace Catalyst::LoggerTest {
+namespace CEngine::LoggerTest {
 
-    class Example : public Catalyst::ILoggable {
+    class Example : public CEngine::ILoggable {
     public:
         void log() {
             CONSOLE_LOG("EXAMPLE {0}", "INJECT")
@@ -27,7 +27,7 @@ namespace Catalyst::LoggerTest {
     void loggerName() {
         Example c;
         c.log();
-        REQUIRE(c.getLogger()->name().find("class Catalyst::LoggerTest::Example") != std::string::npos);
+        REQUIRE(c.getLogger()->name().find("class CEngine::LoggerTest::Example") != std::string::npos);
     }
 
     void loggerSwitch() {

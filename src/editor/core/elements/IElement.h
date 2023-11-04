@@ -8,14 +8,17 @@
 #include "../../../engine/util/structures/List.h"
 #include "../../../engine/event/IListener.h"
 
-namespace Catalyst {
+namespace CEngine {
     class Document;
+
+    class Engine;
 
     class IElement : public IListener {
     private:
         bool initialized = false;
         IElement *parent = nullptr;
-        Catalyst::List<IElement> children;
+        CEngine::List<IElement> children;
+        Engine *engine;
     protected:
         std::string id;
     public:
@@ -44,15 +47,17 @@ namespace Catalyst {
 
         virtual IElement *copy();
 
-        Catalyst::List<IElement> *getChildren();
+        CEngine::List<IElement> *getChildren();
 
         void renderChildren();
 
-        void initialize(Document *document, IElement *parent, const char * pId);
+        void initialize(Document *document, Engine *engine, IElement *parent, const char *pId);
 
         IElement *getChildElementById(std::string id);
 
         Document *getDocument();
+
+        Engine *getEngine();
 
         std::string getId();
 

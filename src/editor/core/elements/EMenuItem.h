@@ -4,7 +4,7 @@
 #include "IElement.h"
 #include "AbstractTitledElement.h"
 
-namespace Catalyst {
+namespace CEngine {
 
     class EMenuItem : public AbstractTitledElement {
     private:

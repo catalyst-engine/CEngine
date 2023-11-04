@@ -7,7 +7,7 @@
 #include "IElement.h"
 #include "AbstractTitledElement.h"
 
-namespace Catalyst {
+namespace CEngine {
     class ESection : public AbstractTitledElement {
     private:
         ImGuiWindowFlags flags = 0;

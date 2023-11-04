@@ -5,7 +5,7 @@
 #ifndef CATALYST_RESOURCESCONTROLLER_H
 #define CATALYST_RESOURCESCONTROLLER_H
 
-namespace Catalyst {
+namespace CEngine {
 
     class ResourcesController {
 

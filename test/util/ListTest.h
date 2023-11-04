@@ -2,7 +2,7 @@
 #ifndef CATALYST_LISTTEST_H
 #define CATALYST_LISTTEST_H
 class Tester;
-namespace Catalyst::ListTest {
+namespace CEngine::ListTest {
     Tester *createTester();
 };
 #endif

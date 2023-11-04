@@ -3,7 +3,7 @@
 
 #include "IElement.h"
 
-namespace Catalyst {
+namespace CEngine {
     /**
      * Can be added as child to any other element and have a custom rendering implementation
      */

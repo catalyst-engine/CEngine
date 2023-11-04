@@ -1,7 +1,7 @@
 #include "ETreeNode.h"
 #include "../../../engine/event/EventController.h"
 
-namespace Catalyst {
+namespace CEngine {
     void ETreeNode::render() {
         ImGui::TreeNodeEx(text.c_str(), flags);
         if (ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen()) {

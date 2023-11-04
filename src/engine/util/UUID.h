@@ -5,7 +5,7 @@
 #include <random>
 #include <sstream>
 
-namespace Catalyst {
+namespace CEngine {
    class UUID{
    private:
        static std::random_device              rd;

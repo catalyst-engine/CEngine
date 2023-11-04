@@ -7,7 +7,7 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 
-namespace Catalyst {
+namespace CEngine {
     void Runner::updateUI() {
         auto &list = document->getViews();
         document->getViews().iterate();

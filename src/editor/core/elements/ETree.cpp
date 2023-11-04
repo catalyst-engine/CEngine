@@ -1,7 +1,7 @@
 #include "ETree.h"
 #include "imgui.h"
 
-namespace Catalyst {
+namespace CEngine {
     void ETree::render() {
         if(ImGui::TreeNode(text.c_str())){
             renderChildren();

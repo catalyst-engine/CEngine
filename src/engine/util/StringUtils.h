@@ -3,7 +3,7 @@
 
 #include <string>
 
-namespace Catalyst {
+namespace CEngine {
 
     class StringUtils {
     public:

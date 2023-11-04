@@ -4,7 +4,7 @@
 #include "../../../src/editor/core/store/IStore.h"
 #include "SampleData.h"
 
-namespace Catalyst {
+namespace CEngine {
 
     class SampleStore : public IStore<SampleStore, SampleData> {
 

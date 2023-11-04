@@ -1,7 +1,7 @@
 #include "ILoggable.h"
 #include "../UUID.h"
 
-namespace Catalyst {
+namespace CEngine {
     List<std::shared_ptr<spdlog::logger>> ILoggable::loggers;
 
     ILoggable::ILoggable(const char *name) {

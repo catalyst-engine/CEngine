@@ -3,7 +3,7 @@
 
 #include "IElement.h"
 
-namespace Catalyst {
+namespace CEngine {
 
     class AbstractTitledElement : public IElement {
     protected:

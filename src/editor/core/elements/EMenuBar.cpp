@@ -1,7 +1,7 @@
 #include "EMenuBar.h"
 #include "imgui.h"
 
-namespace Catalyst {
+namespace CEngine {
     void EMenuBar::render() {
         if (!mainMenu) {
             if(ImGui::BeginMenuBar()) {

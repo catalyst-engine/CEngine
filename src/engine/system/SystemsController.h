@@ -5,7 +5,7 @@
 #ifndef CATALYST_SYSTEMSCONTROLLER_H
 #define CATALYST_SYSTEMSCONTROLLER_H
 
-namespace Catalyst {
+namespace CEngine {
 
     class SystemsController {
 

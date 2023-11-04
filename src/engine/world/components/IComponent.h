@@ -3,19 +3,16 @@
 #define CATALYST_ICOMPONENT_H
 
 #include "entt/entt.hpp"
+#include "../IEntity.h"
 
-namespace Catalyst::engine {
+namespace CEngine {
     class IComponent {
     protected:
-        entt::entity entity = entt::null;
+        IEntity *entity = nullptr;
     public:
-        explicit IComponent(entt::entity ent) {
-            this->entity = ent;
-        }
+        explicit IComponent(IEntity *ent);
 
-        entt::entity getEntity() {
-            return entity;
-        }
+        IEntity *getEntity();
     };
 }
 #endif

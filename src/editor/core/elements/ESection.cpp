@@ -1,6 +1,6 @@
 #include "ESection.h"
 
-namespace Catalyst {
+namespace CEngine {
     void ESection::render() {
         ImGui::Begin(title.c_str(), nullptr, flags);
         renderChildren();

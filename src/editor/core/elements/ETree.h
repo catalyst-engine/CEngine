@@ -3,7 +3,7 @@
 
 #include "AbstractSimpleElement.h"
 
-namespace Catalyst {
+namespace CEngine {
 
     class ETree : public AbstractSimpleElement  {
     public:

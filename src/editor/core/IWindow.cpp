@@ -1,9 +1,9 @@
-#include "AbstractWindow.h"
+#include "IWindow.h"
 #include "document/Document.h"
 #include "Runner.h"
 
-namespace Catalyst {
-    void AbstractWindow::createWindowIO() {
+namespace CEngine {
+    void IWindow::createWindowIO() {
         IMGUI_CHECKVERSION();
         ImGui::CreateContext();
         io = ImGui::GetIO();
@@ -21,7 +21,7 @@ namespace Catalyst {
         }
     }
 
-    AbstractWindow::AbstractWindow() {
+    IWindow::IWindow() {
         CONSOLE_LOG("INITIALIZING...")
         glfwSetErrorCallback(onError);
         if (!glfwInit()) {
@@ -44,13 +44,10 @@ namespace Catalyst {
         ImGui_ImplGlfw_InitForOpenGL(window, true);
         ImGui_ImplOpenGL3_Init(GLSL_VERSION);
         CONSOLE_LOG("WINDOW CREATED")
-
-        document = new Document(&io);
-        runner = new Runner(window, &io, document);
         ready = true;
     }
 
-    void AbstractWindow::start() {
+    void IWindow::start() {
         if (!ready || runner == nullptr || document == nullptr) {
             return;
         }
@@ -64,20 +61,20 @@ namespace Catalyst {
         glfwTerminate();
     }
 
-    Document *AbstractWindow::getDocument() {
+    Document *IWindow::getDocument() {
         return document;
     }
 
-    bool AbstractWindow::isVsyncEnabled() const {
+    bool IWindow::isVsyncEnabled() const {
         return vsyncEnabled;
     }
 
-    void AbstractWindow::setVsyncEnabled(bool v) {
+    void IWindow::setVsyncEnabled(bool v) {
         glfwSwapInterval(v ? 1 : 0);
-        AbstractWindow::vsyncEnabled = v;
+        IWindow::vsyncEnabled = v;
     }
 
-    void AbstractWindow::init() {
+    void IWindow::onInitialize() {
 
     }
 }

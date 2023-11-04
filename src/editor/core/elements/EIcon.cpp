@@ -3,7 +3,7 @@
 
 #include <utility>
 
-namespace Catalyst {
+namespace CEngine {
 
     void EIcon::render() {
         ImGui::Text("%s", text.c_str());

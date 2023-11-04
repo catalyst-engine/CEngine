@@ -3,8 +3,9 @@
 
 
 #include "../../../../core/elements/IElement.h"
+#include "../../../../../engine/Engine.h"
 
-namespace Catalyst {
+namespace CEngine {
     class ETreeNode;
 
     class ETree;
@@ -19,6 +20,7 @@ namespace Catalyst {
         void onInitialize() override;
 
         void onEvent(IEventPayload *payload) override;
+
     };
 
 }

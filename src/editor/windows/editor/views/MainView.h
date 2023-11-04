@@ -3,7 +3,7 @@
 
 #include "../../../core/views/IView.h"
 
-namespace Catalyst {
+namespace CEngine {
 
     class MainView : public IView{
 

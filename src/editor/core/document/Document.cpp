@@ -6,14 +6,14 @@
 #include "../../../engine/util/StringUtils.h"
 #include "../views/IView.h"
 
-namespace Catalyst {
+namespace CEngine {
 
     void Document::registerView(const char *tag, IView *instance) {
         ViewController::registeredViews.set(tag, instance);
     }
 
     IElement *Document::addElementInternal(IElement *element, IElement *parentEl, const char *id) {
-        if (element) element->initialize(this, parentEl, id);
+        if (element) element->initialize(this, engine, parentEl, id);
         return element;
     }
 
@@ -92,11 +92,11 @@ namespace Catalyst {
             std::string name = typeid(*view).name();
             name = name + ".xml";
             StringUtils::replace(name, "class ", "");
-            StringUtils::replace(name, "Catalyst::", "");
+            StringUtils::replace(name, "CEngine::", "");
             loadView(name, view);
             addElement(view, parent);
             CONSOLE_WARN("Finishing initialization of {0}", tag)
-            if(!recursive) {
+            if (!recursive) {
                 initializeElement(view);
             }
         }
@@ -120,6 +120,11 @@ namespace Catalyst {
 
     IView *Document::addView(const char *tag) {
         return addViewInternal(tag, nullptr, false);
+    }
+
+    Document::Document(ImGuiIO *pIo, Engine *engine) {
+        ioController.setIo(pIo);
+        Document::engine = engine;
     }
 
     Document::Document(ImGuiIO *pIo) {

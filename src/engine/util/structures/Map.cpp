@@ -1,6 +1,6 @@
 #include "Map.h"
 
-namespace Catalyst {
+namespace CEngine {
     template<typename K, typename V>
     void Map<K, V>::set(K key, V value) {
         map[key] = value;

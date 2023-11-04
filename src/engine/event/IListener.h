@@ -5,7 +5,7 @@
 #include "../util/debug/ILoggable.h"
 #include "IEventTarget.h"
 
-namespace Catalyst {
+namespace CEngine {
     class IEventPayload;
 
     class IListener : public ILoggable, public IEventTarget {

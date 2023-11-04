@@ -4,7 +4,7 @@
 #include <string>
 #include "../../../engine/util/debug/ILoggable.h"
 
-namespace Catalyst {
+namespace CEngine {
     class IElement;
 
     template<typename K, typename V>

@@ -4,7 +4,7 @@
 
 #include "../../../../core/views/IView.h"
 
-namespace Catalyst {
+namespace CEngine {
     class EMenuItem;
 
     class EButton;

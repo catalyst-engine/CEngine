@@ -1,7 +1,7 @@
 
 #include "UUID.h"
 
-namespace Catalyst {
+namespace CEngine {
     std::random_device              UUID::rd;
     std::mt19937                    UUID::gen(rd());
     std::uniform_int_distribution<> UUID::dis(0, 15);
