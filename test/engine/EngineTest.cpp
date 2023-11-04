@@ -1,7 +1,7 @@
 #include <catch2/catch_test_macros.hpp>
 #include "entt/entt.hpp"
 #include "../../src/engine/components/CMetadata.h"
-#include "../../src/engine/world/World.h"
+#include "../../src/engine/world/WorldController.h"
 #include "../../src/engine/Engine.h"
 #include "../Tester.h"
 
@@ -14,7 +14,7 @@ namespace Catalyst::EngineTest{
 
 
     void shouldAddEntity() {
-        engine::World *world = Engine::getWorld();
+        engine::WorldController *world = Engine::getWorld();
         engine::WorldRegistry *reg = Engine::getWorldRegistry();
         entt::entity entity = world->addEntity();
         bool found = false;
@@ -28,7 +28,7 @@ namespace Catalyst::EngineTest{
     }
 
     void shouldRemoveEntity() {
-        engine::World *world = Engine::getWorld();
+        engine::WorldController *world = Engine::getWorld();
         engine::WorldRegistry *reg = Engine::getWorldRegistry();
         entt::entity entity = world->addEntity();
 
@@ -46,7 +46,7 @@ namespace Catalyst::EngineTest{
 
 
     void shouldAddComponent() {
-        engine::World *world = Engine::getWorld();
+        engine::WorldController *world = Engine::getWorld();
         engine::WorldRegistry *reg = Engine::getWorldRegistry();
         entt::entity entity = world->addEntity();
 
@@ -63,7 +63,7 @@ namespace Catalyst::EngineTest{
     }
 
     void shouldRemoveComponent() {
-        engine::World *world = Engine::getWorld();
+        engine::WorldController *world = Engine::getWorld();
         engine::WorldRegistry *reg = Engine::getWorldRegistry();
         entt::entity entity = world->addEntity();
 
@@ -81,7 +81,7 @@ namespace Catalyst::EngineTest{
     }
 
     void shouldHaveComponent() {
-        engine::World *world = Engine::getWorld();
+        engine::WorldController *world = Engine::getWorld();
         engine::WorldRegistry *reg = Engine::getWorldRegistry();
         entt::entity entity = world->addEntity();
         world->addComponent<Comp>(entity);
@@ -89,7 +89,7 @@ namespace Catalyst::EngineTest{
     }
 
     void shouldHaveMetadata() {
-        engine::World *world = Engine::getWorld();
+        engine::WorldController *world = Engine::getWorld();
         engine::WorldRegistry *reg = Engine::getWorldRegistry();
         entt::entity entity = world->addEntity();
         REQUIRE(reg->getEntityMetadata(entity) != nullptr);

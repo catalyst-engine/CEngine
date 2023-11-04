@@ -1,7 +1,6 @@
 #include "HierarchyList.h"
 #include "../../../../../engine/Engine.h"
-#include "../../../../../engine/world/WorldRegistry.h"
-#include "../../../../../engine/world/World.h"
+#include "../../../../../engine/world/WorldController.h"
 #include "../../../../core/elements/EText.h"
 #include "../../../../core/document/Document.h"
 #include "../../../../../engine/components/CMetadata.h"

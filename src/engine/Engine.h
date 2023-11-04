@@ -5,16 +5,16 @@
 
 namespace Catalyst {
     namespace engine {
-        class World;
+        class WorldController;
 
         class WorldRegistry;
     }
 
     class Engine {
     private:
-        static engine::World world;
+        static engine::WorldController world;
     public:
-        static engine::World *getWorld();
+        static engine::WorldController *getWorld();
 
         static entt::basic_registry<> * getRegistry();
 

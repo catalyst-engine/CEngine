@@ -1,23 +1,18 @@
 #pragma once
-#ifndef CATALYST_WORLD_H
-#define CATALYST_WORLD_H
+#ifndef CATALYST_WORLDCONTROLLER_H
+#define CATALYST_WORLDCONTROLLER_H
 
 #include "entt/entt.hpp"
-#include "WorldRegistry.h"
 
 namespace Catalyst::engine {
     /**
      * For manipulating data
      * */
-    class World : public ILoggable {
+    class WorldController : public ILoggable {
     private:
-        WorldRegistry worldReg;
+        entt::registry worldReg;
         size_t entitiesActive = 0;
     public:
-
-        WorldRegistry *getRegistry() {
-            return &worldReg;
-        }
 
         entt::entity addEntity();
 
@@ -31,14 +26,28 @@ namespace Catalyst::engine {
         template<class T>
         void addComponent(entt::entity ent) {
             CONSOLE_LOG("Adding component to entity")
-            worldReg.getRegistry()->emplace<T>(ent, ent);
+            worldReg.emplace<T>(ent, ent);
         }
 
         template<class T>
         void removeComponent(entt::entity ent) {
             CONSOLE_LOG("Removing component from entity")
-            worldReg.getRegistry()->erase<T>(ent);
+            worldReg.erase<T>(ent);
         }
+
+        template<class T>
+        T *getComponent(entt::entity ent) {
+            return worldReg.get<T>(ent);
+        }
+
+        template<class T>
+        bool hasComponent(entt::entity ent) {
+            return worldReg.all_of<T>(ent);
+        }
+
+        CMetadata *getEntityMetadata(entt::entity ent);
+
+        entt::registry &getRegistry();
     };
 }
 

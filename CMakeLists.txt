@@ -57,13 +57,11 @@ set(FILE_PATHS
         src/engine/util/debug/ILoggable.h
         src/engine/util/debug/Timer.cpp
         src/engine/util/debug/Timer.h
-        src/engine/world/World.cpp
-        src/engine/world/World.h
-        src/engine/world/WorldRegistry.cpp
-        src/engine/world/WorldRegistry.h
-        src/engine/components/CMetadata.cpp
-        src/engine/components/CMetadata.h
-        src/engine/components/IComponent.h
+        src/engine/world/WorldController.cpp
+        src/engine/world/WorldController.h
+        src/engine/world/components/CMetadata.cpp
+        src/engine/world/components/CMetadata.h
+        src/engine/world/components/IComponent.h
         src/engine/Engine.cpp
         src/engine/Engine.h
         src/engine/util/UUID.h

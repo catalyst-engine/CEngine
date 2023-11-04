@@ -1,19 +1,14 @@
 #include "Engine.h"
-#include "world/WorldRegistry.h"
-#include "world/World.h"
+#include "world/WorldController.h"
 
 namespace Catalyst {
-    engine::World Engine::world;
+    engine::WorldController Engine::world;
 
     entt::registry * Engine::getRegistry() {
-        return world.getRegistry()->getRegistry();
-    }
-
-    engine::World *Engine::getWorld() {
-        return &world;
-    }
-
-    engine::WorldRegistry *Engine::getWorldRegistry() {
         return world.getRegistry();
+    }
+
+    engine::WorldController *Engine::getWorld() {
+        return &world;
     }
 }

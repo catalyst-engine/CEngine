@@ -3,7 +3,7 @@
 
 #include "IComponent.h"
 #include "imgui.h"
-#include "../util/UUID.h"
+#include "UUID.h"
 
 namespace Catalyst::engine {
 
