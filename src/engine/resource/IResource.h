@@ -6,14 +6,7 @@
 namespace CEngine {
 
     class IResource {
-    public:
-        virtual bool isDeletable(){
-            return true;
-        }
 
-        virtual std::string getId(){
-            return "";
-        }
     };
 
 }
