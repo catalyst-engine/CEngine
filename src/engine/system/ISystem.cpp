@@ -13,11 +13,15 @@ namespace CEngine {
         return false;
     }
 
-    void ISystem::setWorld(WorldController *controller) {
-        world = controller;
-    }
-
-    void ISystem::setResources(ResourcesController *controller) {
-        resources = controller;
+    void ISystem::initialize(ResourcesController *r, WorldController *w, IIOController *ioController,
+                             IFSController *fsController) {
+        if (initialized) {
+            return;
+        }
+        initialized = true;
+        fs = fsController;
+        io = ioController;
+        world = w;
+        resources = r;
     }
 }

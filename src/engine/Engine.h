@@ -16,8 +16,8 @@ namespace CEngine {
         WorldController world;
         ResourcesController resources;
         SystemsController systems;
-        IIOController *io;
-        IFSController *fs;
+        IIOController *io = nullptr;
+        IFSController *fs = nullptr;
     public:
 
         explicit Engine(IIOController *ioController, IFSController *fsController);
@@ -26,9 +26,9 @@ namespace CEngine {
 
         ResourcesController &getResources();
 
-        IIOController *getIo() const;
+        IIOController *getIo();
 
-        IFSController *getFs() const;
+        IFSController *getFs();
 
         void run();
     };

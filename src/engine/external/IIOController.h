@@ -1,12 +1,12 @@
 #ifndef CATALYST_IIOCONTROLLER_H
 #define CATALYST_IIOCONTROLLER_H
 
-#include "../util/structures/Map.h"
-
 namespace CEngine {
+    template<typename K, typename V>
+    class Map;
+
+
     class IIOController {
-    protected:
-        Map<int, bool> pressedKeys;
     public:
         virtual bool isMousePosValid();
 
@@ -24,7 +24,7 @@ namespace CEngine {
 
         virtual float getMouseWheelAcceleration();
 
-        virtual Map<int, bool> getPressedKeys();
+        virtual Map<int, bool> *getPressedKeys();
 
         virtual bool isCTRL();
 

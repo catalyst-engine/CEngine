@@ -1,6 +1,9 @@
 #include "IOController.h"
+#include "../../../engine/util/structures/Map.cpp"
 
 namespace CEngine {
+    Map<int, bool> IOController::pressedKeys;
+
     bool IOController::isMouseButtonDown(int index) {
         if (index >= MAX_SIZE_MOUSE) {
             return false;
@@ -39,12 +42,12 @@ namespace CEngine {
         return io.MouseWheel;
     }
 
-    Map<int, bool> IOController::getPressedKeys() {
+    Map<int, bool> *IOController::getPressedKeys() {
         for (auto key = (ImGuiKey) 0; key < ImGuiKey_NamedKey_END; key = (ImGuiKey) (key + 1)) {
             pressedKeys.set(key, !ImGui::IsKeyDown(key));
         }
 
-        return IIOController::getPressedKeys();
+        return &pressedKeys;
     }
 
     bool IOController::isSuper() {

@@ -17,7 +17,7 @@ namespace CEngine {
 
     public:
 
-        void setEngine(Engine *engine);
+        void setEngine(Engine *eg);
 
         template<class T>
         void createSystem() {

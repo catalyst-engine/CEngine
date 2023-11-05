@@ -10,6 +10,7 @@ namespace CEngine {
     private:
         ImGuiIO &io;
         const int MAX_SIZE_MOUSE = IM_ARRAYSIZE(io.MouseDown);
+        static Map<int, bool> pressedKeys;
     public:
         explicit IOController() : io(ImGui::GetIO()) {}
 
@@ -29,7 +30,7 @@ namespace CEngine {
 
         float getMouseWheelAcceleration() override;
 
-        Map<int, bool> getPressedKeys() override;
+        Map<int, bool> *getPressedKeys() override;
 
         bool isAlt() override;
 

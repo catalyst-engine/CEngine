@@ -24,11 +24,11 @@ namespace CEngine {
         systems.run();
     }
 
-    IIOController *Engine::getIo() const {
+    IIOController *Engine::getIo() {
         return io;
     }
 
-    IFSController *Engine::getFs() const {
+    IFSController *Engine::getFs() {
         return fs;
     }
 }

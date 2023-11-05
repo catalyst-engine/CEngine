@@ -1,6 +1,5 @@
 
 #include "IIOController.h"
-#include "../util/structures/Map.cpp"
 
 namespace CEngine {
     bool IIOController::isMousePosValid() {
@@ -35,8 +34,8 @@ namespace CEngine {
         return 0;
     }
 
-    Map<int, bool> IIOController::getPressedKeys() {
-        return pressedKeys;
+    Map<int, bool> *IIOController::getPressedKeys() {
+        return nullptr;
     }
 
     bool IIOController::isCTRL() {
