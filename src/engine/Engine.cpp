@@ -1,8 +1,17 @@
 #include "Engine.h"
 #include "world/WorldController.h"
 #include "system/systems/InputSystem.h"
+#include "external/IIOController.h"
+#include "external/IFSController.h"
 
 namespace CEngine {
+    Engine::Engine(IIOController *ioController, IFSController *fsController) {
+        io = ioController;
+        fs = fsController;
+        systems.setEngine(this);
+        systems.createSystem<InputSystem>();
+    }
+
     WorldController &Engine::getWorld() {
         return world;
     }
@@ -15,8 +24,11 @@ namespace CEngine {
         systems.run();
     }
 
-    Engine::Engine() {
-        systems.setEngine(this);
-        systems.createSystem<InputSystem>();
+    IIOController *Engine::getIo() const {
+        return io;
+    }
+
+    IFSController *Engine::getFs() const {
+        return fs;
     }
 }

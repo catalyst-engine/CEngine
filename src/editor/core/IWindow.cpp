@@ -1,12 +1,12 @@
 #include "IWindow.h"
 #include "document/Document.h"
-#include "Runner.h"
+#include "runner/Runner.h"
 
 namespace CEngine {
     void IWindow::createWindowIO() {
         IMGUI_CHECKVERSION();
         ImGui::CreateContext();
-        io = ImGui::GetIO();
+        ImGuiIO &io = ImGui::GetIO();
         (void) io;
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
@@ -48,7 +48,7 @@ namespace CEngine {
     }
 
     void IWindow::start() {
-        if (!ready || runner == nullptr || document == nullptr) {
+        if (!ready || runner == nullptr) {
             return;
         }
         runner->run();
@@ -61,7 +61,7 @@ namespace CEngine {
         glfwTerminate();
     }
 
-    Document *IWindow::getDocument() {
+    Document &IWindow::getDocument() {
         return document;
     }
 

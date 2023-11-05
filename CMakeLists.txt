@@ -26,6 +26,14 @@ set(COMMON_LIBRARIES
 )
 
 set(FILE_PATHS
+
+        src/engine/external/IIOController.h
+        src/engine/external/IFSController.h
+        src/editor/windows/editor/basic/IOController.cpp
+        src/editor/windows/editor/basic/IOController.h
+        src/editor/windows/editor/basic/FSController.cpp
+        src/editor/windows/editor/basic/FSController.h
+
         src/engine/resource/IResource.h
         src/engine/resource/StaticResource.h
         src/engine/resource/resources/RFBO.cpp
@@ -99,8 +107,8 @@ set(FILE_PATHS
         src/editor/windows/editor/EditorWindow.cpp
         src/editor/windows/editor/EditorWindow.h
         src/editor/windows/editor/stores/SelectionStore.h
-        src/editor/core/Runner.cpp
-        src/editor/core/Runner.h
+        src/editor/windows/editor/runner/Runner.cpp
+        src/editor/windows/editor/runner/Runner.h
         src/editor/core/document/ElementController.cpp
         src/editor/core/document/ElementController.h
         src/editor/core/document/ElementController.h
@@ -129,8 +137,6 @@ set(FILE_PATHS
         src/editor/windows/editor/views/MainView.h
         src/editor/core/elements/EIcon.cpp
         src/editor/core/elements/EIcon.h
-        src/editor/core/document/IOController.cpp
-        src/editor/core/document/IOController.h
         src/engine/event/EventController.cpp
         src/engine/event/EventController.h
         src/engine/event/IListener.cpp

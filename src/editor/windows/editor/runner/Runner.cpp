@@ -1,17 +1,17 @@
 #include "Runner.h"
-#include "elements/IElement.h"
-#include "views/IView.h"
-#include "document/Document.h"
+#include "../../../core/elements/IElement.h"
+#include "../../../core/views/IView.h"
+#include "../../../core/document/Document.h"
 #include "imgui.h"
 #include "GLFW/glfw3.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
-#include "../../engine/Engine.h"
+#include "../../../../engine/Engine.h"
 
 namespace CEngine {
     void Runner::update() {
-        auto &list = document->getViews();
-        document->getViews().iterate();
+        auto &list = document.getViews();
+        document.getViews().iterate();
         while (list.hasNext()) {
             auto *next = list.next();
             next->update();
@@ -20,7 +20,7 @@ namespace CEngine {
 
     void Runner::render() {
         ImGui::ShowDemoWindow();
-        auto &list = document->getElements();
+        auto &list = document.getElements();
         list.iterate();
         while (list.hasNext()) {
             auto *next = list.next();
@@ -30,19 +30,11 @@ namespace CEngine {
         }
     }
 
-    Runner::Runner(GLFWwindow *window, ImGuiIO *io, Document *document) {
-        this->io = io;
-        this->window = window;
-        this->document = document;
-    }
-
     void Runner::updateViewports() const {
-        if (io->ConfigFlags & ImGuiConfigFlags_ViewportsEnable) {
-            GLFWwindow *backup_current_context = glfwGetCurrentContext();
-            ImGui::UpdatePlatformWindows();
-            ImGui::RenderPlatformWindowsDefault();
-            glfwMakeContextCurrent(backup_current_context);
-        }
+        GLFWwindow *backup_current_context = glfwGetCurrentContext();
+        ImGui::UpdatePlatformWindows();
+        ImGui::RenderPlatformWindowsDefault();
+        glfwMakeContextCurrent(backup_current_context);
     }
 
     void Runner::startNewFrame() {
@@ -53,7 +45,7 @@ namespace CEngine {
     }
 
     void Runner::drawNewFrame() {
-        document->getEngine()->run();
+        document.getEngine()->run();
         ImGui::Render();
         glfwGetFramebufferSize(window, &windowWidth, &windowHeight);
         glViewport(0, 0, windowWidth, windowHeight);

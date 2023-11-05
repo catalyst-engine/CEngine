@@ -4,13 +4,16 @@
 
 #include "../../core/IWindow.h"
 #include "../../../engine/Engine.h"
+#include "basic/IOController.h"
+#include "basic/FSController.h"
 
 namespace CEngine {
     class EditorWindow : public IWindow {
     private:
-        Engine engine;
+        Engine engine = Engine(new IOController, new FSController);
     public:
         explicit EditorWindow();
+
         void onInitialize() override;
     };
 }

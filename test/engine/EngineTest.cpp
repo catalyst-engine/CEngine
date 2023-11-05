@@ -6,7 +6,7 @@
 #include "../../src/engine/world/components/CTransform.h"
 
 namespace CEngine::EngineTest {
-    static Engine engine;
+    static Engine engine(nullptr, nullptr);
 
 
     void shouldAddEntity() {

@@ -3,6 +3,7 @@
 
 #include "GLFW/glfw3.h"
 #include "imgui.h"
+#include "../../../core/IRunner.h"
 
 #define BACKGROUND_R .5
 #define BACKGROUND_G .5
@@ -12,11 +13,8 @@
 namespace CEngine {
     class Document;
 
-    class Runner {
+    class Runner : public IRunner {
     private:
-        GLFWwindow *window = nullptr;
-        ImGuiIO *io = nullptr;
-        Document *document = nullptr;
         bool isRunning = false;
         int windowWidth = 0;
         int windowHeight = 0;
@@ -34,17 +32,17 @@ namespace CEngine {
         void update();
 
     public:
-        explicit Runner(GLFWwindow *window, ImGuiIO *io, Document *document);
+        explicit Runner(GLFWwindow *win, Document &doc) : IRunner(win, doc) {}
 
-        int getWindowWidth() const;
+        int getWindowWidth() const override;
 
-        void setWindowWidth(int ww);
+        void setWindowWidth(int ww) override;
 
-        int getWindowHeight() const;
+        int getWindowHeight() const override;
 
-        void setWindowHeight(int wh);
+        void setWindowHeight(int wh) override;
 
-        void run();
+        void run() override;
 
 
     };

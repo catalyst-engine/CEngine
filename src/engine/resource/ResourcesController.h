@@ -13,7 +13,7 @@ namespace CEngine {
         Map<StaticResource, IResource *> staticResources;
         Map<std::string, IResource *> dynamicResources;
 
-        void registerStaticResource(IResource *resource, StaticResource id);
+        void registerResource(IResource *resource, StaticResource id);
 
         void registerResource(IResource *resource, const char *id);
 
@@ -30,7 +30,7 @@ namespace CEngine {
     public:
         template<class T>
         void createStaticResource(StaticResource id) {
-            registerStaticResource(new T, id);
+            registerResource(new T, id);
         }
 
         template<class T>
@@ -40,13 +40,13 @@ namespace CEngine {
 
         IResource *getResource(const std::string &id);
 
-        IResource *getStaticResource(StaticResource id);
+        IResource *getResource(StaticResource id);
 
         bool hasResource(const std::string &id);
 
-        bool hasStaticResource(StaticResource id);
+        bool hasResource(StaticResource id);
 
-        void deleteStaticResource(StaticResource id);
+        void deleteResource(StaticResource id);
 
         void deleteResource(const std::string &id);
 
