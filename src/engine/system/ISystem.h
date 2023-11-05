@@ -8,18 +8,24 @@ namespace CEngine {
 
     class WorldController;
 
+    class IIOController;
+
+    class IFSController;
+
     class ISystem : public ILoggable {
+    private:
+        bool initialized = false;
     protected:
         ResourcesController *resources = nullptr;
         WorldController *world = nullptr;
+        IIOController *io = nullptr;
+        IFSController *fs = nullptr;
     public:
         virtual void run();
 
         virtual bool isEnabled();
 
-        void setWorld(WorldController *controller);
-
-        void setResources(ResourcesController *controller);
+        void initialize(ResourcesController *r, WorldController *w, IIOController *ioController, IFSController *fsController);
     };
 
 }

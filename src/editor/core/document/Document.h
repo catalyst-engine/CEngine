@@ -6,7 +6,6 @@
 #include "pugixml.hpp"
 #include "ViewController.h"
 #include "imgui.h"
-#include "IOController.h"
 #include "../../../engine/util/debug/ILoggable.h"
 #include <string>
 
@@ -22,12 +21,10 @@ namespace CEngine {
 
     class Document : public ILoggable {
     private:
-        Document(ImGuiIO *pIo);
-
         ElementController elementController;
         ViewController viewController;
-        IOController ioController;
-        Engine *engine;
+        Engine *engine = nullptr;
+
         IElement *addElementInternal(IElement *element, IElement *parentEl, const char *id);
 
         void loadElements(pugi::xml_node root, IElement *parent);
@@ -39,7 +36,6 @@ namespace CEngine {
         void initializeElement(IElement *element);
 
     public:
-        explicit Document(ImGuiIO *pIo, Engine *engine);
 
         IElement *addElement(const char *tag, const char *id, IElement *parent);
 
@@ -70,6 +66,7 @@ namespace CEngine {
 
         Engine *getEngine() const;
 
+        void setEngine(Engine *eg);
     };
 }
 

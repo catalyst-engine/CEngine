@@ -122,16 +122,13 @@ namespace CEngine {
         return addViewInternal(tag, nullptr, false);
     }
 
-    Document::Document(ImGuiIO *pIo, Engine *engine) {
-        ioController.setIo(pIo);
-        Document::engine = engine;
-    }
-
-    Document::Document(ImGuiIO *pIo) {
-        ioController.setIo(pIo);
-    }
-
     Engine *Document::getEngine() const {
         return engine;
+    }
+
+    void Document::setEngine(Engine *eg) {
+        if(engine == nullptr) {
+            engine = eg;
+        }
     }
 }

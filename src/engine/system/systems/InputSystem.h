@@ -7,6 +7,8 @@ namespace CEngine {
 
     class InputSystem : public ISystem {
     public:
+        bool isEnabled() override;
+
         void run() override;
     };
 

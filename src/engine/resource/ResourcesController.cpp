@@ -7,7 +7,7 @@
 #include "resources/RTexture.h"
 
 namespace CEngine {
-    void ResourcesController::registerStaticResource(IResource *resource, StaticResource id) {
+    void ResourcesController::registerResource(IResource *resource, StaticResource id) {
         CONSOLE_WARN("Creating {0}", std::to_string(id))
         if (staticResources.has(id)) {
             CONSOLE_ERROR("Static resources already exists {0}", std::to_string(id))
@@ -20,7 +20,7 @@ namespace CEngine {
         return dynamicResources.get(id);
     }
 
-    IResource *ResourcesController::getStaticResource(StaticResource id) {
+    IResource *ResourcesController::getResource(StaticResource id) {
         return staticResources.get(id);
     }
 
@@ -28,7 +28,7 @@ namespace CEngine {
         return dynamicResources.has(id);
     }
 
-    bool ResourcesController::hasStaticResource(StaticResource id) {
+    bool ResourcesController::hasResource(StaticResource id) {
         return staticResources.has(id);
     }
 
@@ -52,7 +52,7 @@ namespace CEngine {
         dynamicResources.deleteKey(id);
     }
 
-    void ResourcesController::deleteStaticResource(StaticResource id) {
+    void ResourcesController::deleteResource(StaticResource id) {
         CONSOLE_WARN("Deleting {0}", std::to_string(id))
         if (!staticResources.has(id)) {
             CONSOLE_ERROR("Static resources doesn't exists {0}", std::to_string(id))
@@ -68,7 +68,7 @@ namespace CEngine {
             return nullptr;
         }
         IResource *pResource = createTexture();
-        registerStaticResource(pResource, id);
+        registerResource(pResource, id);
         return pResource;
     }
 
@@ -86,7 +86,7 @@ namespace CEngine {
             return nullptr;
         }
         IResource *pResource = createShader();
-        registerStaticResource(pResource, id);
+        registerResource(pResource, id);
         return pResource;
     }
 
@@ -104,7 +104,7 @@ namespace CEngine {
             return nullptr;
         }
         IResource *pResource = createFBO();
-        registerStaticResource(pResource, id);
+        registerResource(pResource, id);
         return pResource;
     }
 
@@ -122,7 +122,7 @@ namespace CEngine {
             return nullptr;
         }
         IResource *pResource = createVBO();
-        registerStaticResource(pResource, id);
+        registerResource(pResource, id);
         return pResource;
     }
 
@@ -140,7 +140,7 @@ namespace CEngine {
             return nullptr;
         }
         IResource *pResource = createMesh();
-        registerStaticResource(pResource, id);
+        registerResource(pResource, id);
         return pResource;
     }
 

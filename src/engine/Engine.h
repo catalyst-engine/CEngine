@@ -7,19 +7,28 @@
 #include "system/SystemsController.h"
 
 namespace CEngine {
+    class IIOController;
+
+    class IFSController;
 
     class Engine {
     private:
         WorldController world;
         ResourcesController resources;
         SystemsController systems;
+        IIOController *io = nullptr;
+        IFSController *fs = nullptr;
     public:
 
-        explicit Engine();
+        explicit Engine(IIOController *ioController, IFSController *fsController);
 
         WorldController &getWorld();
 
         ResourcesController &getResources();
+
+        IIOController *getIo();
+
+        IFSController *getFs();
 
         void run();
     };

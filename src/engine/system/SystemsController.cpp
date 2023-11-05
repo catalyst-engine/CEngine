@@ -4,20 +4,19 @@
 namespace CEngine {
     void SystemsController::run() {
         size_t size = systems.size();
-        for(int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             ISystem *&pSystem = systems[i];
-            if(pSystem->isEnabled()) { pSystem->run(); }
+            if (pSystem->isEnabled()) { pSystem->run(); }
         }
     }
 
-    void SystemsController::setEngine(Engine *engine) {
+    void SystemsController::setEngine(Engine *eg) {
         if (engine != nullptr) return;
-        SystemsController::engine = engine;
+        engine = eg;
     }
 
     void SystemsController::registerSystem(ISystem *system) {
-        system->setWorld(&engine->getWorld());
-        system->setResources(&engine->getResources());
+        system->initialize(&engine->getResources(), &engine->getWorld(), engine->getIo(), engine->getFs());
         systems.push_back(system);
     }
 }

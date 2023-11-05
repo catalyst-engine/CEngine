@@ -7,20 +7,19 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 #include "../../engine/util/debug/ILoggable.h"
+#include "document/Document.h"
 
 #define GLSL_VERSION "#version 130"
 
 namespace CEngine {
-    class Runner;
-
-    class Document;
+    class IRunner;
 
     class IWindow : public ILoggable {
     protected:
         GLFWwindow *window = nullptr;
-        Runner *runner = nullptr;
-        Document *document = nullptr;
-        ImGuiIO io;
+        Document document;
+        IRunner *runner = nullptr;
+
         bool ready = false;
         bool vsyncEnabled = false;
 
@@ -31,6 +30,8 @@ namespace CEngine {
         void createWindowIO();
 
     public:
+        explicit IWindow();
+
         virtual void onInitialize();
 
         bool isVsyncEnabled() const;
@@ -39,9 +40,7 @@ namespace CEngine {
 
         void start();
 
-        explicit IWindow();
-
-        Document *getDocument();
+        Document &getDocument();
 
     };
 }
