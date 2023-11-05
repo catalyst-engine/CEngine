@@ -1,5 +1,5 @@
 #include "Example.h"
 
-Catalyst::IElement *Catalyst::Example::copy() {
+CEngine::IElement *CEngine::Example::copy() {
     return new Example;
 }

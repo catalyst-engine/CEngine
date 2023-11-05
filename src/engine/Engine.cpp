@@ -1,19 +1,22 @@
 #include "Engine.h"
-#include "world/WorldRegistry.h"
-#include "world/World.h"
+#include "world/WorldController.h"
+#include "system/systems/InputSystem.h"
 
-namespace Catalyst {
-    engine::World Engine::world;
-
-    entt::registry * Engine::getRegistry() {
-        return world.getRegistry()->getRegistry();
+namespace CEngine {
+    WorldController &Engine::getWorld() {
+        return world;
     }
 
-    engine::World *Engine::getWorld() {
-        return &world;
+    ResourcesController &Engine::getResources() {
+        return resources;
     }
 
-    engine::WorldRegistry *Engine::getWorldRegistry() {
-        return world.getRegistry();
+    void Engine::run() {
+        systems.run();
+    }
+
+    Engine::Engine() {
+        systems.setEngine(this);
+        systems.createSystem<InputSystem>();
     }
 }

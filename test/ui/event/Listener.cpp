@@ -1,7 +1,7 @@
 #include "Listener.h"
 
-namespace Catalyst {
-    void Listener::onEvent(Catalyst::IEventPayload *payload) {
+namespace CEngine {
+    void Listener::onEvent(CEngine::IEventPayload *payload) {
         called = true;
         event = payload;
     }

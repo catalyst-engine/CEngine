@@ -2,23 +2,26 @@
 #define CATALYST_ENGINE_H
 
 #include "entt/entity/registry.hpp"
+#include "world/WorldController.h"
+#include "resource/ResourcesController.h"
+#include "system/SystemsController.h"
 
-namespace Catalyst {
-    namespace engine {
-        class World;
-
-        class WorldRegistry;
-    }
+namespace CEngine {
 
     class Engine {
     private:
-        static engine::World world;
+        WorldController world;
+        ResourcesController resources;
+        SystemsController systems;
     public:
-        static engine::World *getWorld();
 
-        static entt::basic_registry<> * getRegistry();
+        explicit Engine();
 
-        static engine::WorldRegistry *getWorldRegistry();
+        WorldController &getWorld();
+
+        ResourcesController &getResources();
+
+        void run();
     };
 }
 

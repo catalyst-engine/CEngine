@@ -1,3 +1,0 @@
-## Editor
-
-Editor UI

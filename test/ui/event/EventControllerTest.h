@@ -2,7 +2,7 @@
 #define CATALYST_EVENTCONTROLLERTEST_H
 
 class Tester;
-namespace Catalyst::EventControllerTest {
+namespace CEngine::EventControllerTest {
     Tester *createTester();
 };
 

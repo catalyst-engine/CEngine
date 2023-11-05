@@ -1,8 +1,8 @@
 #include <catch2/catch_all.hpp>
-#include "../../src/util/structures/Map.cpp"
+#include "../../src/engine/util/structures/Map.cpp"
 #include "../Tester.h"
 
-namespace Catalyst::MapTest {
+namespace CEngine::MapTest {
 
 
     void add() {

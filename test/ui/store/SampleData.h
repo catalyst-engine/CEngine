@@ -1,7 +1,7 @@
 #ifndef CATALYST_SAMPLEDATA_H
 #define CATALYST_SAMPLEDATA_H
 
-namespace Catalyst {
+namespace CEngine {
 
     class SampleData {
     public:

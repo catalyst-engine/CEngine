@@ -2,9 +2,9 @@
 #define CATALYST_EXAMPLE_H
 
 
-#include "../../../src/ui/views/IView.h"
+#include "../../../src/editor/core/views/IView.h"
 
-namespace Catalyst{
+namespace CEngine{
     class Example : public IView{
     public:
         IElement * copy() override;

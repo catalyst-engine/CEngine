@@ -1,13 +1,13 @@
 #include "catch2/catch_all.hpp"
 #include "IStoreTest.h"
 #include "../../Tester.h"
-#include "../../../src/ui/store/IStore.h"
+#include "../../../src/editor/core/store/IStore.h"
 #include "SampleStore.h"
 #include "SampleData.h"
 #include "../event/Listener.h"
-#include "../../../src/ui/event/EventController.h"
+#include "../../../src/engine/event/EventController.h"
 
-namespace Catalyst::IStoreTest {
+namespace CEngine::IStoreTest {
     void clear() {
         SampleData *pData = SampleStore::getData();
         SampleStore::clear();
@@ -52,9 +52,9 @@ namespace Catalyst::IStoreTest {
         auto tester = new Tester("IStoreTest");
         tester->registerTest("Should clear", clear);
         tester->registerTest("Should have data", isNotNull);
-        tester->registerTest("Should update same", shouldUpdateSame);
-        tester->registerTest("Should update new", shouldUpdateNew);
-        tester->registerTest("Should trigger update", shouldTriggerEvent);
+        tester->registerTest("Should run same", shouldUpdateSame);
+        tester->registerTest("Should run new", shouldUpdateNew);
+        tester->registerTest("Should trigger run", shouldTriggerEvent);
         return tester;
     }
 }
