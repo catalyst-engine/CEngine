@@ -1,8 +1,9 @@
 #include "Engine.h"
 #include "world/WorldController.h"
+#include "system/systems/InputSystem.h"
 
 namespace CEngine {
-    const WorldController &Engine::getWorldController() const {
+    const WorldController &Engine::getWorld() const {
         return world;
     }
 
@@ -12,5 +13,11 @@ namespace CEngine {
 
     void Engine::update() {
         systems.update();
+    }
+
+    Engine::Engine() {
+        systems.setEngine(this);
+
+        systems.createSystem<InputSystem>();
     }
 }

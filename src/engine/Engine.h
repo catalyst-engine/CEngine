@@ -14,7 +14,10 @@ namespace CEngine {
         ResourcesController resources;
         SystemsController systems;
     public:
-        const WorldController &getWorldController() const;
+
+        explicit Engine();
+
+        const WorldController &getWorld() const;
 
         const ResourcesController &getResources() const;
 

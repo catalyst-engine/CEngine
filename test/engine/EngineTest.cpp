@@ -10,54 +10,54 @@ namespace CEngine::EngineTest {
 
 
     void shouldAddEntity() {
-        IEntity *entity = engine.getWorldController().addEntity();
-        REQUIRE(engine.getWorldController().hasEntity(entity->getUUID()) == true);
+        IEntity *entity = engine.getWorld().addEntity();
+        REQUIRE(engine.getWorld().hasEntity(entity->getUUID()) == true);
     }
 
     void shouldRemoveEntity() {
-        IEntity *entity = engine.getWorldController().addEntity();
+        IEntity *entity = engine.getWorld().addEntity();
         std::string uuid = entity->getUUID();
-        engine.getWorldController().removeEntity(uuid);
-        REQUIRE(engine.getWorldController().hasEntity(uuid) == false);
+        engine.getWorld().removeEntity(uuid);
+        REQUIRE(engine.getWorld().hasEntity(uuid) == false);
     }
 
 
     void shouldAddComponent() {
-        IEntity *entity = engine.getWorldController().addEntity();
-        engine.getWorldController().addComponent<CTransform>(entity);
-        IComponent *component = engine.getWorldController().getComponent<CTransform>(entity);
+        IEntity *entity = engine.getWorld().addEntity();
+        engine.getWorld().addComponent<CTransform>(entity);
+        IComponent *component = engine.getWorld().getComponent<CTransform>(entity);
 
         REQUIRE(component != nullptr);
     }
 
     void shouldRemoveComponent() {
-        IEntity *entity = engine.getWorldController().addEntity();
-        engine.getWorldController().addComponent<CTransform>(entity);
-        engine.getWorldController().removeComponent<CTransform>(entity);
+        IEntity *entity = engine.getWorld().addEntity();
+        engine.getWorld().addComponent<CTransform>(entity);
+        engine.getWorld().removeComponent<CTransform>(entity);
 
         bool found = false;
-        auto v = engine.getWorldController().getRegistry().view<CTransform>();
+        auto v = engine.getWorld().getRegistry().view<CTransform>();
         for (auto ent: v) {
             if (ent == entity->getEntity()) {
                 found = true;
             }
         }
-        REQUIRE(engine.getWorldController().hasComponent<CTransform>(entity) == false);
+        REQUIRE(engine.getWorld().hasComponent<CTransform>(entity) == false);
         REQUIRE(found == false);
     }
 
     void shouldHaveComponent() {
-        IEntity *entity = engine.getWorldController().addEntity();
-        engine.getWorldController().addComponent<CTransform>(entity);
+        IEntity *entity = engine.getWorld().addEntity();
+        engine.getWorld().addComponent<CTransform>(entity);
 
         bool found = false;
-        auto v = engine.getWorldController().getRegistry().view<CTransform>();
+        auto v = engine.getWorld().getRegistry().view<CTransform>();
         for (auto ent: v) {
             if (ent == entity->getEntity()) {
                 found = true;
             }
         }
-        REQUIRE(engine.getWorldController().hasComponent<CTransform>(entity) == true);
+        REQUIRE(engine.getWorld().hasComponent<CTransform>(entity) == true);
         REQUIRE(found == true);
     }
 
