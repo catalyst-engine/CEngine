@@ -22,6 +22,12 @@ add_executable(catalyst main.cpp
         engine/resource/resources/RVBO.h
         engine/resource/resources/RTexture.cpp
         engine/resource/resources/RTexture.h
+        engine/resource/ResourceType.h
+        engine/resource/IResource.cpp
+        engine/system/ISystem.cpp
+        engine/system/ISystem.h
+        engine/system/systems/InputSystem.cpp
+        engine/system/systems/InputSystem.h
 )
 
 target_link_libraries(catalyst PRIVATE

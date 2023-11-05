@@ -1,12 +1,16 @@
-
-
 #ifndef CATALYST_RMESH_H
 #define CATALYST_RMESH_H
 
+#include "../IResource.h"
 
-class RMesh {
+namespace CEngine {
 
-};
+    class RMesh : public IResource {
+    public:
+        explicit RMesh() : IResource(ResourceType::MESH){}
+    };
+
+}
 
 
-#endif //CATALYST_RMESH_H
+#endif

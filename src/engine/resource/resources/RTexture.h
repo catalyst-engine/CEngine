@@ -1,10 +1,14 @@
 #ifndef CATALYST_RTEXTURE_H
 #define CATALYST_RTEXTURE_H
 
+#include "../IResource.h"
 
-class RTexture {
+namespace CEngine{
 
-};
+    class RTexture : public IResource {
+    public:
+        explicit RTexture() : IResource(ResourceType::TEXTURE){}
+    };
+}
 
-
-#endif //CATALYST_RTEXTURE_H
+#endif

@@ -1,12 +1,15 @@
-
-
 #ifndef CATALYST_RSHADER_H
 #define CATALYST_RSHADER_H
 
+#include "../IResource.h"
 
-class RShader {
+namespace CEngine{
 
-};
+    class RShader : public IResource {
+    public:
+        explicit RShader() : IResource(ResourceType::SHADER){}
+    };
 
+}
 
-#endif //CATALYST_RSHADER_H
+#endif

@@ -8,7 +8,7 @@
 
 namespace CEngine {
 
-    class ResourcesController : public ILoggable{
+    class ResourcesController : public ILoggable {
     private:
         Map<StaticResource, IResource *> staticResources;
         Map<std::string, IResource *> dynamicResources;
@@ -16,6 +16,16 @@ namespace CEngine {
         void registerStaticResource(IResource *resource, StaticResource id);
 
         void registerResource(IResource *resource, const char *id);
+
+        IResource *createShader();
+
+        IResource *createFBO();
+
+        IResource *createVBO();
+
+        IResource *createMesh();
+
+        IResource *createTexture();
 
     public:
         template<class T>
@@ -40,6 +50,26 @@ namespace CEngine {
 
         void deleteResource(const std::string &id);
 
+
+        IResource *createShader(const char *id);
+
+        IResource *createShader(StaticResource id);
+
+        IResource *createFBO(const char *id);
+
+        IResource *createFBO(StaticResource id);
+
+        IResource *createVBO(const char *id);
+
+        IResource *createVBO(StaticResource id);
+
+        IResource *createMesh(const char *id);
+
+        IResource *createMesh(StaticResource id);
+
+        IResource *createTexture(const char *id);
+
+        IResource *createTexture(StaticResource id);
     };
 
 }
