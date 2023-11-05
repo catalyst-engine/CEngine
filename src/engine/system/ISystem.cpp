@@ -5,7 +5,7 @@
 
 namespace CEngine {
 
-    void ISystem::update() {
+    void ISystem::run() {
 
     }
 

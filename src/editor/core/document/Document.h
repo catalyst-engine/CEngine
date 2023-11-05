@@ -68,6 +68,8 @@ namespace CEngine {
 
         IView *addView(const char *tag);
 
+        Engine *getEngine() const;
+
     };
 }
 

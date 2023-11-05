@@ -2,11 +2,11 @@
 #include "../Engine.h"
 
 namespace CEngine {
-    void SystemsController::update() {
+    void SystemsController::run() {
         size_t size = systems.size();
         for(int i = 0; i < size; i++){
             ISystem *&pSystem = systems[i];
-            if(pSystem->isEnabled()) { pSystem->update(); }
+            if(pSystem->isEnabled()) { pSystem->run(); }
         }
     }
 

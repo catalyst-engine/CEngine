@@ -1,7 +1,7 @@
 #include "InputSystem.h"
 
 namespace CEngine {
-    void InputSystem::update() {
+    void InputSystem::run() {
 
     }
 }

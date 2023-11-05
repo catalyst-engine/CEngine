@@ -21,7 +21,7 @@ namespace CEngine {
 
         ResourcesController &getResources();
 
-        void update();
+        void run();
     };
 }
 

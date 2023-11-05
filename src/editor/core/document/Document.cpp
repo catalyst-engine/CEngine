@@ -130,4 +130,8 @@ namespace CEngine {
     Document::Document(ImGuiIO *pIo) {
         ioController.setIo(pIo);
     }
+
+    Engine *Document::getEngine() const {
+        return engine;
+    }
 }

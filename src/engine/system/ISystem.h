@@ -13,7 +13,7 @@ namespace CEngine {
         ResourcesController *resources = nullptr;
         WorldController *world = nullptr;
     public:
-        virtual void update();
+        virtual void run();
 
         virtual bool isEnabled();
 

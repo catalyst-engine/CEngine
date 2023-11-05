@@ -6,9 +6,10 @@
 #include "GLFW/glfw3.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
+#include "../../engine/Engine.h"
 
 namespace CEngine {
-    void Runner::updateUI() {
+    void Runner::update() {
         auto &list = document->getViews();
         document->getViews().iterate();
         while (list.hasNext()) {
@@ -17,7 +18,7 @@ namespace CEngine {
         }
     }
 
-    void Runner::renderUI() {
+    void Runner::render() {
         ImGui::ShowDemoWindow();
         auto &list = document->getElements();
         list.iterate();
@@ -52,6 +53,7 @@ namespace CEngine {
     }
 
     void Runner::drawNewFrame() {
+        document->getEngine()->run();
         ImGui::Render();
         glfwGetFramebufferSize(window, &windowWidth, &windowHeight);
         glViewport(0, 0, windowWidth, windowHeight);
@@ -69,9 +71,9 @@ namespace CEngine {
         }
         isRunning = true;
         while (!glfwWindowShouldClose(window)) {
-            updateUI();
+            update();
             startNewFrame();
-            renderUI();
+            render();
             drawNewFrame();
             clearWindow();
             updateViewports();

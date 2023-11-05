@@ -52,9 +52,9 @@ namespace CEngine::IStoreTest {
         auto tester = new Tester("IStoreTest");
         tester->registerTest("Should clear", clear);
         tester->registerTest("Should have data", isNotNull);
-        tester->registerTest("Should update same", shouldUpdateSame);
-        tester->registerTest("Should update new", shouldUpdateNew);
-        tester->registerTest("Should trigger update", shouldTriggerEvent);
+        tester->registerTest("Should run same", shouldUpdateSame);
+        tester->registerTest("Should run new", shouldUpdateNew);
+        tester->registerTest("Should trigger run", shouldTriggerEvent);
         return tester;
     }
 }

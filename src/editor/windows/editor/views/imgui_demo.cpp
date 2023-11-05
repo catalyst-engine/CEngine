@@ -515,7 +515,7 @@ void ImGui::ShowDemoWindow(bool* p_open)
             ImGui::Checkbox("io.ConfigInputTrickleEventQueue", &io.ConfigInputTrickleEventQueue);
             ImGui::SameLine(); HelpMarker("Enable input queue trickling: some types of events submitted during the same frame (e.g. button down + up) will be spread over multiple frames, improving interactions with low framerates.");
             ImGui::Checkbox("io.MouseDrawCursor", &io.MouseDrawCursor);
-            ImGui::SameLine(); HelpMarker("Instruct Dear ImGui to renderUI a mouse cursor itself. Note that a mouse cursor rendered via your application GPU rendering path will feel more laggy than hardware cursor, but will be more in sync with your other visuals.\n\nSome desktop applications may use both kinds of cursors (e.g. enable software cursor only when resizing/dragging something).");
+            ImGui::SameLine(); HelpMarker("Instruct Dear ImGui to run a mouse cursor itself. Note that a mouse cursor rendered via your application GPU rendering path will feel more laggy than hardware cursor, but will be more in sync with your other visuals.\n\nSome desktop applications may use both kinds of cursors (e.g. enable software cursor only when resizing/dragging something).");
 
             ImGui::SeparatorText("Widgets");
             ImGui::Checkbox("io.ConfigInputTextCursorBlink", &io.ConfigInputTextCursorBlink);
@@ -6072,7 +6072,7 @@ static void ShowDemoWindowInputs()
 
             ImGui::Text("Hover to see mouse cursors:");
             ImGui::SameLine(); HelpMarker(
-                    "Your application can renderUI a different mouse cursor based on what ImGui::GetMouseCursor() returns. "
+                    "Your application can run a different mouse cursor based on what ImGui::GetMouseCursor() returns. "
                     "If software cursor rendering (io.MouseDrawCursor) is set ImGui will draw the right cursor for you, "
                     "otherwise your backend needs to handle it.");
             for (int i = 0; i < ImGuiMouseCursor_COUNT; i++)
@@ -6610,7 +6610,7 @@ void ImGui::ShowStyleEditor(ImGuiStyle* ref)
 
             ImGui::Checkbox("Anti-aliased lines use texture", &style.AntiAliasedLinesUseTex);
             ImGui::SameLine();
-            HelpMarker("Faster lines using texture data. Require backend to renderUI with bilinear filtering (not point/nearest filtering).");
+            HelpMarker("Faster lines using texture data. Require backend to run with bilinear filtering (not point/nearest filtering).");
 
             ImGui::Checkbox("Anti-aliased fill", &style.AntiAliasedFill);
             ImGui::PushItemWidth(ImGui::GetFontSize() * 8);
@@ -8144,8 +8144,8 @@ void ShowExampleAppDockSpace(bool* p_open)
         dockspace_flags &= ~ImGuiDockNodeFlags_PassthruCentralNode;
     }
 
-    // When using ImGuiDockNodeFlags_PassthruCentralNode, DockSpace() will renderUI our background
-    // and handle the pass-thru hole, so we ask Begin() to not renderUI a background.
+    // When using ImGuiDockNodeFlags_PassthruCentralNode, DockSpace() will run our background
+    // and handle the pass-thru hole, so we ask Begin() to not run a background.
     if (dockspace_flags & ImGuiDockNodeFlags_PassthruCentralNode)
         window_flags |= ImGuiWindowFlags_NoBackground;
 
@@ -8222,7 +8222,7 @@ struct MyDocument
 {
     const char* Name;       // Document title
     bool        Open;       // Set when open (we keep an array of all available documents to simplify demo code!)
-    bool        OpenPrev;   // Copy of Open from last update.
+    bool        OpenPrev;   // Copy of Open from last run.
     bool        Dirty;      // Set when the document has been modified
     bool        WantClose;  // Set when the document
     ImVec4      Color;      // An arbitrary variable associated to the document

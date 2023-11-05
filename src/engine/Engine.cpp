@@ -11,8 +11,8 @@ namespace CEngine {
         return resources;
     }
 
-    void Engine::update() {
-        systems.update();
+    void Engine::run() {
+        systems.run();
     }
 
     Engine::Engine() {

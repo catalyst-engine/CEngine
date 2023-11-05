@@ -21,7 +21,7 @@ namespace CEngine {
         int windowWidth = 0;
         int windowHeight = 0;
 
-        void renderUI();
+        void render();
 
         void updateViewports() const;
 
@@ -31,7 +31,7 @@ namespace CEngine {
 
         static void clearWindow();
 
-        void updateUI();
+        void update();
 
     public:
         explicit Runner(GLFWwindow *window, ImGuiIO *io, Document *document);

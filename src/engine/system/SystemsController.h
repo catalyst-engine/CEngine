@@ -25,7 +25,7 @@ namespace CEngine {
             registerSystem(pSystem);
         }
 
-        void update();
+        void run();
     };
 
 }
