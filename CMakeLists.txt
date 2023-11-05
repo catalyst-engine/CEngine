@@ -33,6 +33,7 @@ set(FILE_PATHS
         src/editor/windows/editor/basic/IOController.h
         src/editor/windows/editor/basic/FSController.cpp
         src/editor/windows/editor/basic/FSController.h
+        src/engine/external/IIOController.cpp
 
         src/engine/resource/IResource.h
         src/engine/resource/StaticResource.h
