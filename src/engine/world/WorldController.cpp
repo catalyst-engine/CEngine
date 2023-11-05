@@ -18,14 +18,21 @@ namespace CEngine {
         return addEntityInternal(UUID::v4(), nullptr);
     }
 
+    IEntity *WorldController::addEntity(std::string name) {
+        CONSOLE_LOG("Creating entity {0}", name)
+        return addEntityInternal(UUID::v4(), name.c_str());
+    }
+
     entt::entity WorldController::getEntityFromWrapper(IEntity *entity) {
         return entity->getEntity();
     }
 
-    IEntity *WorldController::addEntityInternal(std::string uuid, const char *name) {
+    IEntity *WorldController::addEntityInternal(const std::string& uuid, const char *name) {
         auto *pEntity = new IEntity(worldReg.create(), uuid);
         entities.set(uuid, pEntity);
-        pEntity->setName(name);
+        if(name != nullptr) {
+            pEntity->setName(name);
+        }
         return pEntity;
     }
 

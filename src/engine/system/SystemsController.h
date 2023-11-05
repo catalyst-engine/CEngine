@@ -3,7 +3,7 @@
 
 #include <vector>
 #include "ISystem.h"
-#include "structures/List.h"
+#include "../util/structures/List.h"
 
 namespace CEngine {
     class Engine;
@@ -21,7 +21,8 @@ namespace CEngine {
 
         template<class T>
         void createSystem() {
-            registerSystem((ISystem *) new T);
+            auto *pSystem = (ISystem *) new T;
+            registerSystem(pSystem);
         }
 
         void update();

@@ -3,8 +3,8 @@
 #define CATALYST_WORLDCONTROLLER_H
 
 #include "entt/entt.hpp"
-#include "debug/ILoggable.h"
-#include "structures/Map.h"
+#include "../util/debug/ILoggable.h"
+#include "../util/structures/Map.h"
 #include "components/IComponent.h"
 
 namespace CEngine {
@@ -19,7 +19,7 @@ namespace CEngine {
         entt::registry worldReg;
         Map<std::string, IEntity *> entities;
 
-        IEntity *addEntityInternal(std::string uuid, const char *name);
+        IEntity *addEntityInternal(const std::string& uuid, const char *name);
 
         static entt::entity getEntityFromWrapper(IEntity *entity);
 
@@ -61,6 +61,8 @@ namespace CEngine {
         bool hasEntity(const std::string &uuid);
 
         entt::registry &getRegistry();
+
+        IEntity *addEntity(std::string name);
     };
 }
 

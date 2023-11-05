@@ -3,11 +3,11 @@
 #include "system/systems/InputSystem.h"
 
 namespace CEngine {
-    const WorldController &Engine::getWorld() const {
+    WorldController &Engine::getWorld() {
         return world;
     }
 
-    const ResourcesController &Engine::getResources() const {
+    ResourcesController &Engine::getResources() {
         return resources;
     }
 
@@ -17,7 +17,6 @@ namespace CEngine {
 
     Engine::Engine() {
         systems.setEngine(this);
-
         systems.createSystem<InputSystem>();
     }
 }

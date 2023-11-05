@@ -16,8 +16,8 @@ namespace CEngine {
     }
 
     void SystemsController::registerSystem(ISystem *system) {
-        system->setWorld(engine->getWorld());
-        system->setResources(engine->getResources());
+        system->setWorld(&engine->getWorld());
+        system->setResources(&engine->getResources());
         systems.push_back(system);
     }
 }

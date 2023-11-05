@@ -26,6 +26,24 @@ set(COMMON_LIBRARIES
 )
 
 set(FILE_PATHS
+        src/engine/resource/IResource.h
+        src/engine/resource/StaticResource.h
+        src/engine/resource/resources/RFBO.cpp
+        src/engine/resource/resources/RFBO.h
+        src/engine/resource/resources/RMesh.cpp
+        src/engine/resource/resources/RMesh.h
+        src/engine/resource/resources/RShader.cpp
+        src/engine/resource/resources/RShader.h
+        src/engine/resource/resources/RVBO.cpp
+        src/engine/resource/resources/RVBO.h
+        src/engine/resource/resources/RTexture.cpp
+        src/engine/resource/resources/RTexture.h
+        src/engine/resource/ResourceType.h
+        src/engine/resource/IResource.cpp
+        src/engine/system/ISystem.cpp
+        src/engine/system/ISystem.h
+        src/engine/system/systems/InputSystem.cpp
+        src/engine/system/systems/InputSystem.h
 
         src/engine/world/components/IComponent.cpp
         src/engine/world/Component.h

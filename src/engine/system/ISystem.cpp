@@ -4,13 +4,6 @@
 #include "../world/WorldController.h"
 
 namespace CEngine {
-    void ISystem::setResources(const ResourcesController &controller) {
-        resources = controller;
-    }
-
-    void ISystem::setWorld(const WorldController &controller) {
-        world = controller;
-    }
 
     void ISystem::update() {
 
@@ -18,5 +11,13 @@ namespace CEngine {
 
     bool ISystem::isEnabled() {
         return false;
+    }
+
+    void ISystem::setWorld(WorldController *controller) {
+        world = controller;
+    }
+
+    void ISystem::setResources(ResourcesController *controller) {
+        resources = controller;
     }
 }

@@ -37,7 +37,7 @@ namespace CEngine {
         } else if (payload->getEventType() == "click") {
             auto *pElement = (IElement *) payload->getTarget();
             if (pElement == addEmpty) {
-                IEntity *entity = getEngine()->getWorld().addEntity();
+                IEntity *entity = getEngine()->getWorld().addEntity("New entity");
                 auto *node = (ETreeNode *) document->addElement("ETreeNode", tree);
 
                 // TODO - EVENT FOR ENTITY UPDATE

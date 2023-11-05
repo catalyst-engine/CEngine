@@ -17,9 +17,9 @@ namespace CEngine {
 
         explicit Engine();
 
-        const WorldController &getWorld() const;
+        WorldController &getWorld();
 
-        const ResourcesController &getResources() const;
+        ResourcesController &getResources();
 
         void update();
     };

@@ -3,12 +3,12 @@
 #include <utility>
 
 namespace CEngine {
-    const char *IEntity::getName() const {
+    const std::string &IEntity::getName() const {
         return name;
     }
 
-    void IEntity::setName(const char *name) {
-        IEntity::name = name;
+    void IEntity::setName(std::string name) {
+        IEntity::name = std::move(name);
     }
 
     const std::string &IEntity::getUUID() const {

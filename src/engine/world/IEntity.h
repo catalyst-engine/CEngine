@@ -8,15 +8,15 @@
 namespace CEngine {
     class IEntity {
     private:
-        const char *name = nullptr;
+        std::string name;
         std::string uuid;
         entt::entity entity;
     public:
         explicit IEntity(entt::entity entity, std::string uuid);
 
-        const char *getName() const;
+        const std::string &getName() const;
 
-        void setName(const char *name);
+        void setName(std::string name);
 
         const std::string &getUUID() const;
 

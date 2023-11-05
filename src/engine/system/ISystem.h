@@ -1,23 +1,25 @@
 #ifndef CATALYST_ISYSTEM_H
 #define CATALYST_ISYSTEM_H
 
+#include "../util/debug/ILoggable.h"
+
 namespace CEngine {
     class ResourcesController;
 
     class WorldController;
 
-    class ISystem {
+    class ISystem : public ILoggable {
     protected:
-        ResourcesController &resources;
-        WorldController &world;
+        ResourcesController *resources = nullptr;
+        WorldController *world = nullptr;
     public:
-        void setResources(const ResourcesController &controller);
-
-        void setWorld(const WorldController &controller);
-
         virtual void update();
 
         virtual bool isEnabled();
+
+        void setWorld(WorldController *controller);
+
+        void setResources(ResourcesController *controller);
     };
 
 }

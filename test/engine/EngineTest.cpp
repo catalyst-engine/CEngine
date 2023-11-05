@@ -11,7 +11,10 @@ namespace CEngine::EngineTest {
 
     void shouldAddEntity() {
         IEntity *entity = engine.getWorld().addEntity();
+        IEntity *entityWithName = engine.getWorld().addEntity("Name");
         REQUIRE(engine.getWorld().hasEntity(entity->getUUID()) == true);
+        REQUIRE(engine.getWorld().hasEntity(entityWithName->getUUID()) == true);
+        REQUIRE(entityWithName->getName() == "Name");
     }
 
     void shouldRemoveEntity() {
