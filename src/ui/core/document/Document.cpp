@@ -2,8 +2,8 @@
 #include <utility>
 #include "../elements/ETree.h"
 #include "../elements/ESection.h"
-#include "../../../engine/util/structures/Map.cpp"
-#include "../../../engine/util/StringUtils.h"
+#include "../../../util/structures/Map.cpp"
+#include "../../../util/StringUtils.h"
 #include "../views/IView.h"
 
 namespace CEngine {

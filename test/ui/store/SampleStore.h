@@ -1,7 +1,7 @@
 #ifndef CATALYST_SAMPLESTORE_H
 #define CATALYST_SAMPLESTORE_H
 
-#include "../../../src/editor/core/store/IStore.h"
+#include "../../../src/ui/core/store/IStore.h"
 #include "SampleData.h"
 
 namespace CEngine {

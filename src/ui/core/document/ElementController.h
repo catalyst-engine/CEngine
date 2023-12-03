@@ -2,7 +2,7 @@
 #define CATALYST_ELEMENTCONTROLLER_H
 
 #include <string>
-#include "../../../engine/util/debug/ILoggable.h"
+#include "../../../util/debug/ILoggable.h"
 
 namespace CEngine {
     class IElement;

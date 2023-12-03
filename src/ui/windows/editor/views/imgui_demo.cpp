@@ -411,7 +411,7 @@ void ImGui::ShowDemoWindow(bool *p_open) {
             ImGui::MenuItem("Dockspace", NULL, &show_app_dockspace);
             ImGui::MenuItem("Documents", NULL, &show_app_documents);
             ImGui::MenuItem("Log", NULL, &show_app_log);
-            ImGui::MenuItem("Property editor", NULL, &show_app_property_editor);
+            ImGui::MenuItem("Property ui", NULL, &show_app_property_editor);
             ImGui::MenuItem("Simple layout", NULL, &show_app_layout);
             ImGui::MenuItem("Simple overlay", NULL, &show_app_simple_overlay);
 
@@ -2004,7 +2004,7 @@ static void ShowDemoWindowWidgets() {
                 (options_menu ? 0 : ImGuiColorEditFlags_NoOptions);
 
         IMGUI_DEMO_MARKER("Widgets/Color/ColorEdit");
-        ImGui::SeparatorText("Inline color editor");
+        ImGui::SeparatorText("Inline color ui");
         ImGui::Text("Color widget:");
         ImGui::SameLine();
         HelpMarker(
@@ -7605,18 +7605,18 @@ static void ShowPlaceholderObject(const char *prefix, int uid) {
     ImGui::PopID();
 }
 
-// Demonstrate loadView a simple property editor.
+// Demonstrate loadView a simple property ui.
 // This demo is a bit lackluster nowadays, would be nice to improve.
 static void ShowExampleAppPropertyEditor(bool *p_open) {
     ImGui::SetNextWindowSize(ImVec2(430, 450), ImGuiCond_FirstUseEver);
-    if (!ImGui::Begin("Example: Property editor", p_open)) {
+    if (!ImGui::Begin("Example: Property ui", p_open)) {
         ImGui::End();
         return;
     }
 
     IMGUI_DEMO_MARKER("Examples/Property EditorWindow");
     HelpMarker(
-            "This example shows how you may implement a property editor using two columns.\n"
+            "This example shows how you may implement a property ui using two columns.\n"
             "All objects/fields data are dummies here.\n");
 
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(2, 2));

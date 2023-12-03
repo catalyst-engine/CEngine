@@ -2,7 +2,7 @@
 #define CATALYST_ILISTENER_H
 
 #include <string>
-#include "../util/debug/ILoggable.h"
+#include "../../util/debug/ILoggable.h"
 #include "IEventTarget.h"
 
 namespace CEngine {

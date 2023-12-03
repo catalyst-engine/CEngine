@@ -29,8 +29,8 @@ set(SOURCES
         ui/store/SampleData.h
 )
 
-include_directories(../src/editor/windows/editor)
-include_directories(../src/engine/util)
+include_directories(../src/ui/windows/editor)
+include_directories(../src/util)
 
 file(GLOB XML_FILES
         "ui/document/*.xml"

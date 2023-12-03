@@ -1,5 +1,5 @@
 #include <catch2/catch_all.hpp>
-#include "../../src/engine/util/structures/Map.cpp"
+#include "../../src/util/structures/Map.cpp"
 #include "../Tester.h"
 
 namespace CEngine::MapTest {

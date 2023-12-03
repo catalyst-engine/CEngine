@@ -6,7 +6,7 @@
 #include "GLFW/glfw3.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
-#include "../../engine/util/debug/ILoggable.h"
+#include "../../../util/debug/ILoggable.h"
 #include "document/Document.h"
 
 #define GLSL_VERSION "#version 130"

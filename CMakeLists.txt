@@ -29,10 +29,10 @@ set(FILE_PATHS
 
         src/engine/external/IIOController.h
         src/engine/external/IFSController.h
-        src/editor/windows/editor/basic/IOController.cpp
-        src/editor/windows/editor/basic/IOController.h
-        src/editor/windows/editor/basic/FSController.cpp
-        src/editor/windows/editor/basic/FSController.h
+        src/ui/windows/editor/basic/IOController.cpp
+        src/ui/windows/editor/basic/IOController.h
+        src/ui/windows/editor/basic/FSController.cpp
+        src/ui/windows/editor/basic/FSController.h
         src/engine/external/IIOController.cpp
 
         src/engine/resource/IResource.h
@@ -67,77 +67,77 @@ set(FILE_PATHS
         src/engine/world/IEntity.cpp
         src/engine/world/IEntity.h
 
-        src/editor/core/store/IStore.h
-        src/editor/windows/editor/stores/SelectionState.cpp
-        src/editor/windows/editor/stores/SelectionState.h
-        src/editor/core/elements/EInlineBlock.cpp
-        src/editor/core/elements/EInlineBlock.h
-        src/editor/core/elements/ETreeNode.cpp
-        src/editor/core/elements/ETreeNode.h
-        src/editor/core/elements/AbstractSimpleElement.cpp
-        src/editor/core/elements/AbstractSimpleElement.h
-        src/editor/windows/editor/views/hierarchy/HierarchyList.cpp
-        src/editor/windows/editor/views/hierarchy/HierarchyList.h
+        src/ui/core/store/IStore.h
+        src/ui/windows/editor/stores/SelectionState.cpp
+        src/ui/windows/editor/stores/SelectionState.h
+        src/ui/core/elements/EInlineBlock.cpp
+        src/ui/core/elements/EInlineBlock.h
+        src/ui/core/elements/ETreeNode.cpp
+        src/ui/core/elements/ETreeNode.h
+        src/ui/core/elements/AbstractSimpleElement.cpp
+        src/ui/core/elements/AbstractSimpleElement.h
+        src/ui/windows/editor/views/hierarchy/HierarchyList.cpp
+        src/ui/windows/editor/views/hierarchy/HierarchyList.h
         src/engine/event/TypedEventPayload.h
-        src/engine/util/structures/List.h
-        src/engine/util/structures/Map.cpp
-        src/engine/util/structures/Map.h
-        src/editor/core/elements/IElement.h
-        src/editor/core/elements/ESection.cpp
-        src/editor/core/elements/ESection.h
-        src/editor/core/elements/EText.cpp
-        src/editor/core/elements/EText.h
-        src/editor/core/document/Document.cpp
-        src/editor/core/document/Document.h
-        src/editor/core/IWindow.cpp
-        src/editor/core/IWindow.h
-        src/editor/core/views/IView.cpp
-        src/editor/core/views/IView.h
-        src/editor/core/elements/IElement.cpp
-        src/engine/util/debug/ILoggable.cpp
-        src/engine/util/debug/ILoggable.h
-        src/engine/util/debug/Timer.cpp
-        src/engine/util/debug/Timer.h
+        src/util/structures/List.h
+        src/util/structures/Map.cpp
+        src/util/structures/Map.h
+        src/ui/core/elements/IElement.h
+        src/ui/core/elements/ESection.cpp
+        src/ui/core/elements/ESection.h
+        src/ui/core/elements/EText.cpp
+        src/ui/core/elements/EText.h
+        src/ui/core/document/Document.cpp
+        src/ui/core/document/Document.h
+        src/ui/core/IWindow.cpp
+        src/ui/core/IWindow.h
+        src/ui/core/views/IView.cpp
+        src/ui/core/views/IView.h
+        src/ui/core/elements/IElement.cpp
+        src/util/debug/ILoggable.cpp
+        src/util/debug/ILoggable.h
+        src/util/debug/Timer.cpp
+        src/util/debug/Timer.h
         src/engine/world/WorldController.cpp
         src/engine/world/WorldController.h
         src/engine/world/components/IComponent.h
         src/engine/Engine.cpp
         src/engine/Engine.h
-        src/engine/util/UUID.h
-        src/engine/util/UUID.cpp
-        src/editor/windows/editor/EditorWindow.cpp
-        src/editor/windows/editor/EditorWindow.h
-        src/editor/windows/editor/stores/SelectionStore.h
-        src/editor/windows/editor/runner/Runner.cpp
-        src/editor/windows/editor/runner/Runner.h
-        src/editor/core/document/ElementController.cpp
-        src/editor/core/document/ElementController.h
-        src/editor/core/document/ElementController.h
-        src/editor/core/document/ViewController.cpp
-        src/editor/core/document/ViewController.h
-        src/editor/windows/editor/views/imgui_demo.cpp
-        src/editor/windows/editor/views/hierarchy/HierarchyView.cpp
-        src/editor/windows/editor/views/hierarchy/HierarchyView.h
-        src/editor/core/elements/ETree.cpp
-        src/editor/core/elements/ETree.h
-        src/editor/core/elements/EButton.cpp
-        src/editor/core/elements/EButton.h
-        src/editor/core/elements/EMenuItem.cpp
-        src/editor/core/elements/EMenuItem.h
-        src/editor/core/elements/EMenu.cpp
-        src/editor/core/elements/EMenu.h
-        src/editor/core/elements/EMenuBar.cpp
-        src/editor/core/elements/EMenuBar.h
-        src/editor/core/elements/AbstractTitledElement.cpp
-        src/editor/core/elements/AbstractTitledElement.h
-        src/engine/util/StringUtils.cpp
-        src/engine/util/StringUtils.h
-        src/editor/core/elements/DynamicElement.cpp
-        src/editor/core/elements/DynamicElement.h
-        src/editor/windows/editor/views/MainView.cpp
-        src/editor/windows/editor/views/MainView.h
-        src/editor/core/elements/EIcon.cpp
-        src/editor/core/elements/EIcon.h
+        src/util/UUID.h
+        src/util/UUID.cpp
+        src/ui/windows/editor/EditorWindow.cpp
+        src/ui/windows/editor/EditorWindow.h
+        src/ui/windows/editor/stores/SelectionStore.h
+        src/ui/windows/editor/runner/Runner.cpp
+        src/ui/windows/editor/runner/Runner.h
+        src/ui/core/document/ElementController.cpp
+        src/ui/core/document/ElementController.h
+        src/ui/core/document/ElementController.h
+        src/ui/core/document/ViewController.cpp
+        src/ui/core/document/ViewController.h
+        src/ui/windows/editor/views/imgui_demo.cpp
+        src/ui/windows/editor/views/hierarchy/HierarchyView.cpp
+        src/ui/windows/editor/views/hierarchy/HierarchyView.h
+        src/ui/core/elements/ETree.cpp
+        src/ui/core/elements/ETree.h
+        src/ui/core/elements/EButton.cpp
+        src/ui/core/elements/EButton.h
+        src/ui/core/elements/EMenuItem.cpp
+        src/ui/core/elements/EMenuItem.h
+        src/ui/core/elements/EMenu.cpp
+        src/ui/core/elements/EMenu.h
+        src/ui/core/elements/EMenuBar.cpp
+        src/ui/core/elements/EMenuBar.h
+        src/ui/core/elements/AbstractTitledElement.cpp
+        src/ui/core/elements/AbstractTitledElement.h
+        src/util/StringUtils.cpp
+        src/util/StringUtils.h
+        src/ui/core/elements/DynamicElement.cpp
+        src/ui/core/elements/DynamicElement.h
+        src/ui/windows/editor/views/MainView.cpp
+        src/ui/windows/editor/views/MainView.h
+        src/ui/core/elements/EIcon.cpp
+        src/ui/core/elements/EIcon.h
         src/engine/event/EventController.cpp
         src/engine/event/EventController.h
         src/engine/event/IListener.cpp

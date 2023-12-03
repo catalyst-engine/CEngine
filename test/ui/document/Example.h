@@ -2,7 +2,7 @@
 #define CATALYST_EXAMPLE_H
 
 
-#include "../../../src/editor/core/views/IView.h"
+#include "../../../src/ui/core/views/IView.h"
 
 namespace CEngine{
     class Example : public IView{

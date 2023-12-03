@@ -6,7 +6,7 @@
 #include "pugixml.hpp"
 #include "ViewController.h"
 #include "imgui.h"
-#include "../../../engine/util/debug/ILoggable.h"
+#include "../../../util/debug/ILoggable.h"
 #include <string>
 
 namespace CEngine {

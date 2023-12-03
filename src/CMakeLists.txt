@@ -1,7 +1,7 @@
-include_directories(editor/windows/editor)
+include_directories(ui/windows/editor)
 
 file(GLOB XML_FILES
-        "editor/windows/editor/static/*.xml"
+        "ui/windows/editor/static/*.xml"
 )
 foreach (XML_FILE ${XML_FILES})
     file(COPY ${XML_FILE} DESTINATION "${CMAKE_BINARY_DIR}/src")

@@ -3,8 +3,8 @@
 
 #include <string>
 #include "IListener.h"
-#include "../util/structures/List.h"
-#include "../util/debug/ILoggable.h"
+#include "../../util/structures/List.h"
+#include "../../util/debug/ILoggable.h"
 
 namespace CEngine {
     class IEventPayload;
