@@ -1,6 +1,6 @@
 #include <catch2/catch_test_macros.hpp>
 #include "entt/entt.hpp"
-#include "../../src/engine/world/WorldController.h"
+#include "../../src/engine/world/WorldSystem.h"
 #include "../../src/engine/Engine.h"
 #include "../Tester.h"
 #include "../../src/engine/world/components/CTransform.h"

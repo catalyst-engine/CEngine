@@ -1,14 +1,14 @@
-#ifndef CATALYST_RESOURCESCONTROLLER_H
-#define CATALYST_RESOURCESCONTROLLER_H
+#ifndef CATALYST_RESOURCESSYSTEM_H
+#define CATALYST_RESOURCESSYSTEM_H
 
 #include "StaticResource.h"
-#include "IResource.h"
+#include "resources/IResource.h"
 #include "../../core/structures/Map.h"
 #include "../../core/debug/ILoggable.h"
 
 namespace CEngine {
 
-    class ResourcesController : public ILoggable {
+    class ResourcesSystem : public ILoggable {
     private:
         Map<StaticResource, IResource *> staticResources;
         Map<std::string, IResource *> dynamicResources;

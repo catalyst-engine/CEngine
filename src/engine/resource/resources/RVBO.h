@@ -1,7 +1,7 @@
 #ifndef CATALYST_RVBO_H
 #define CATALYST_RVBO_H
 
-#include "../IResource.h"
+#include "IResource.h"
 
 namespace CEngine {
 

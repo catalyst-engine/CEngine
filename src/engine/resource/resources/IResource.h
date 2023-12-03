@@ -2,7 +2,7 @@
 #define CATALYST_IRESOURCE_H
 
 #include <string>
-#include "ResourceType.h"
+#include "../ResourceType.h"
 
 namespace CEngine {
 

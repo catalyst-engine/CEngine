@@ -35,7 +35,7 @@ set(FILE_PATHS
         src/ui/windows/editor/basic/FSController.h
         src/engine/external/IIOController.cpp
 
-        src/engine/resource/IResource.h
+        src/engine/resource/resources/IResource.h
         src/engine/resource/StaticResource.h
         src/engine/resource/resources/RFBO.cpp
         src/engine/resource/resources/RFBO.h
@@ -48,9 +48,9 @@ set(FILE_PATHS
         src/engine/resource/resources/RTexture.cpp
         src/engine/resource/resources/RTexture.h
         src/engine/resource/ResourceType.h
-        src/engine/resource/IResource.cpp
-        src/engine/runtime/ISystem.cpp
-        src/engine/runtime/ISystem.h
+        src/engine/resource/resources/IResource.cpp
+        src/engine/runtime/systems/ISystem.cpp
+        src/engine/runtime/systems/ISystem.h
         src/engine/runtime/systems/InputSystem.cpp
         src/engine/runtime/systems/InputSystem.h
 
@@ -60,10 +60,10 @@ set(FILE_PATHS
         src/engine/world/components/CTransform.h
 
         src/core/event/IEventTarget.h
-        src/engine/runtime/SystemsController.cpp
-        src/engine/runtime/SystemsController.h
-        src/engine/resource/ResourcesController.cpp
-        src/engine/resource/ResourcesController.h
+        src/engine/runtime/RuntimeSystem.cpp
+        src/engine/runtime/RuntimeSystem.h
+        src/engine/resource/ResourcesSystem.cpp
+        src/engine/resource/ResourcesSystem.h
         src/engine/world/IEntity.cpp
         src/engine/world/IEntity.h
 
@@ -98,8 +98,8 @@ set(FILE_PATHS
         src/core/debug/ILoggable.h
         src/core/debug/Timer.cpp
         src/core/debug/Timer.h
-        src/engine/world/WorldController.cpp
-        src/engine/world/WorldController.h
+        src/engine/world/WorldSystem.cpp
+        src/engine/world/WorldSystem.h
         src/engine/world/components/IComponent.h
         src/engine/Engine.cpp
         src/engine/Engine.h

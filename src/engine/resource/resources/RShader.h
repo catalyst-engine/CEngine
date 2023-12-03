@@ -1,7 +1,7 @@
 #ifndef CATALYST_RSHADER_H
 #define CATALYST_RSHADER_H
 
-#include "../IResource.h"
+#include "IResource.h"
 
 namespace CEngine{
 

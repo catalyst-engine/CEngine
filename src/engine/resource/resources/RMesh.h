@@ -1,7 +1,7 @@
 #ifndef CATALYST_RMESH_H
 #define CATALYST_RMESH_H
 
-#include "../IResource.h"
+#include "IResource.h"
 
 namespace CEngine {
 

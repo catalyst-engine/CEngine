@@ -1,7 +1,7 @@
 #include "HierarchyList.h"
 #include "../../../../../engine/Engine.h"
 #include "../../../../../engine/world/IEntity.h"
-#include "../../../../../engine/world/WorldController.h"
+#include "../../../../../engine/world/WorldSystem.h"
 #include "../../../../core/elements/EText.h"
 #include "../../../../core/document/Document.h"
 #include "../../../../../core/event/IEventPayload.h"

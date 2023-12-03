@@ -1,8 +1,8 @@
-#include "SystemsController.h"
+#include "RuntimeSystem.h"
 #include "../Engine.h"
 
 namespace CEngine {
-    void SystemsController::run() {
+    void RuntimeSystem::run() {
         size_t size = systems.size();
         for (int i = 0; i < size; i++) {
             ISystem *&pSystem = systems[i];
@@ -10,12 +10,12 @@ namespace CEngine {
         }
     }
 
-    void SystemsController::setEngine(Engine *eg) {
+    void RuntimeSystem::setEngine(Engine *eg) {
         if (engine != nullptr) return;
         engine = eg;
     }
 
-    void SystemsController::registerSystem(ISystem *system) {
+    void RuntimeSystem::registerSystem(ISystem *system) {
         system->initialize(&engine->getResources(), &engine->getWorld(), engine->getIo(), engine->getFs());
         systems.push_back(system);
     }

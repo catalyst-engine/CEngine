@@ -1,7 +1,7 @@
 
 #include "ISystem.h"
-#include "../resource/ResourcesController.h"
-#include "../world/WorldController.h"
+#include "../../resource/ResourcesSystem.h"
+#include "../../world/WorldSystem.h"
 
 namespace CEngine {
 
@@ -13,7 +13,7 @@ namespace CEngine {
         return false;
     }
 
-    void ISystem::initialize(ResourcesController *r, WorldController *w, IIOController *ioController,
+    void ISystem::initialize(ResourcesSystem *r, WorldSystem *w, IIOController *ioController,
                              IFSController *fsController) {
         if (initialized) {
             return;

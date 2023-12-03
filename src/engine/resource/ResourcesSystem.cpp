@@ -1,4 +1,4 @@
-#include "ResourcesController.h"
+#include "ResourcesSystem.h"
 #include "../../core/structures/Map.cpp"
 #include "resources/RMesh.h"
 #include "resources/RFBO.h"
@@ -7,7 +7,7 @@
 #include "resources/RTexture.h"
 
 namespace CEngine {
-    void ResourcesController::registerResource(IResource *resource, StaticResource id) {
+    void ResourcesSystem::registerResource(IResource *resource, StaticResource id) {
         CONSOLE_WARN("Creating {0}", std::to_string(id))
         if (staticResources.has(id)) {
             CONSOLE_ERROR("Static resources already exists {0}", std::to_string(id))
@@ -16,23 +16,23 @@ namespace CEngine {
         staticResources.set(id, resource);
     }
 
-    IResource *ResourcesController::getResource(const std::string &id) {
+    IResource *ResourcesSystem::getResource(const std::string &id) {
         return dynamicResources.get(id);
     }
 
-    IResource *ResourcesController::getResource(StaticResource id) {
+    IResource *ResourcesSystem::getResource(StaticResource id) {
         return staticResources.get(id);
     }
 
-    bool ResourcesController::hasResource(const std::string &id) {
+    bool ResourcesSystem::hasResource(const std::string &id) {
         return dynamicResources.has(id);
     }
 
-    bool ResourcesController::hasResource(StaticResource id) {
+    bool ResourcesSystem::hasResource(StaticResource id) {
         return staticResources.has(id);
     }
 
-    void ResourcesController::registerResource(IResource *resource, const char *id) {
+    void ResourcesSystem::registerResource(IResource *resource, const char *id) {
         CONSOLE_WARN("Creating {0}", id)
         if (dynamicResources.has(id)) {
             CONSOLE_ERROR("Dynamic resources already exists {0}", id)
@@ -41,7 +41,7 @@ namespace CEngine {
         dynamicResources.set(id, resource);
     }
 
-    void ResourcesController::deleteResource(const std::string &id) {
+    void ResourcesSystem::deleteResource(const std::string &id) {
         CONSOLE_WARN("Deleting {0}", id)
         if (!dynamicResources.has(id)) {
             CONSOLE_ERROR("Dynamic resources doesn't exists {0}", id)
@@ -52,7 +52,7 @@ namespace CEngine {
         dynamicResources.deleteKey(id);
     }
 
-    void ResourcesController::deleteResource(StaticResource id) {
+    void ResourcesSystem::deleteResource(StaticResource id) {
         CONSOLE_WARN("Deleting {0}", std::to_string(id))
         if (!staticResources.has(id)) {
             CONSOLE_ERROR("Static resources doesn't exists {0}", std::to_string(id))
@@ -63,7 +63,7 @@ namespace CEngine {
         staticResources.deleteKey(id);
     }
 
-    IResource *ResourcesController::createTexture(StaticResource id) {
+    IResource *ResourcesSystem::createTexture(StaticResource id) {
         if (staticResources.has(id)) {
             return nullptr;
         }
@@ -72,7 +72,7 @@ namespace CEngine {
         return pResource;
     }
 
-    IResource *ResourcesController::createShader(const char *id) {
+    IResource *ResourcesSystem::createShader(const char *id) {
         if (dynamicResources.has(id)) {
             return nullptr;
         }
@@ -81,7 +81,7 @@ namespace CEngine {
         return pResource;
     }
 
-    IResource *ResourcesController::createShader(StaticResource id) {
+    IResource *ResourcesSystem::createShader(StaticResource id) {
         if (staticResources.has(id)) {
             return nullptr;
         }
@@ -90,7 +90,7 @@ namespace CEngine {
         return pResource;
     }
 
-    IResource *ResourcesController::createFBO(const char *id) {
+    IResource *ResourcesSystem::createFBO(const char *id) {
         if (dynamicResources.has(id)) {
             return nullptr;
         }
@@ -99,7 +99,7 @@ namespace CEngine {
         return pResource;
     }
 
-    IResource *ResourcesController::createFBO(StaticResource id) {
+    IResource *ResourcesSystem::createFBO(StaticResource id) {
         if (staticResources.has(id)) {
             return nullptr;
         }
@@ -108,7 +108,7 @@ namespace CEngine {
         return pResource;
     }
 
-    IResource *ResourcesController::createVBO(const char *id) {
+    IResource *ResourcesSystem::createVBO(const char *id) {
         if (dynamicResources.has(id)) {
             return nullptr;
         }
@@ -117,7 +117,7 @@ namespace CEngine {
         return pResource;
     }
 
-    IResource *ResourcesController::createVBO(StaticResource id) {
+    IResource *ResourcesSystem::createVBO(StaticResource id) {
         if (staticResources.has(id)) {
             return nullptr;
         }
@@ -126,7 +126,7 @@ namespace CEngine {
         return pResource;
     }
 
-    IResource *ResourcesController::createMesh(const char *id) {
+    IResource *ResourcesSystem::createMesh(const char *id) {
         if (dynamicResources.has(id)) {
             return nullptr;
         }
@@ -135,7 +135,7 @@ namespace CEngine {
         return pResource;
     }
 
-    IResource *ResourcesController::createMesh(StaticResource id) {
+    IResource *ResourcesSystem::createMesh(StaticResource id) {
         if (staticResources.has(id)) {
             return nullptr;
         }
@@ -144,7 +144,7 @@ namespace CEngine {
         return pResource;
     }
 
-    IResource *ResourcesController::createTexture(const char *id) {
+    IResource *ResourcesSystem::createTexture(const char *id) {
         if (dynamicResources.has(id)) {
             return nullptr;
         }
@@ -153,27 +153,27 @@ namespace CEngine {
         return pResource;
     }
 
-    IResource *ResourcesController::createMesh() {
+    IResource *ResourcesSystem::createMesh() {
         // TODO - ACTUAL IMPLEMENTATION OF RESOURCE INITIALIZATION
         return new RMesh;
     }
 
-    IResource *ResourcesController::createFBO() {
+    IResource *ResourcesSystem::createFBO() {
         // TODO - ACTUAL IMPLEMENTATION OF RESOURCE INITIALIZATION
         return new RFBO;
     }
 
-    IResource *ResourcesController::createVBO() {
+    IResource *ResourcesSystem::createVBO() {
         // TODO - ACTUAL IMPLEMENTATION OF RESOURCE INITIALIZATION
         return new RVBO;
     }
 
-    IResource *ResourcesController::createShader() {
+    IResource *ResourcesSystem::createShader() {
         // TODO - ACTUAL IMPLEMENTATION OF RESOURCE INITIALIZATION
         return new RShader;
     }
 
-    IResource *ResourcesController::createTexture() {
+    IResource *ResourcesSystem::createTexture() {
         // TODO - ACTUAL IMPLEMENTATION OF RESOURCE INITIALIZATION
         return new RTexture;
     }

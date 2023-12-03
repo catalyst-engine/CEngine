@@ -1,7 +1,7 @@
 #ifndef CATALYST_RTEXTURE_H
 #define CATALYST_RTEXTURE_H
 
-#include "../IResource.h"
+#include "IResource.h"
 
 namespace CEngine{
 

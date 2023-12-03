@@ -1,9 +1,9 @@
-#include "WorldController.h"
+#include "WorldSystem.h"
 #include "IEntity.h"
 #include "../../core/structures/Map.cpp"
 
 namespace CEngine {
-    void WorldController::removeEntity(const std::string &uuid) {
+    void WorldSystem::removeEntity(const std::string &uuid) {
         if (!entities.has(uuid))
             return;
         CONSOLE_LOG("Removing entity")
@@ -13,21 +13,21 @@ namespace CEngine {
         delete entity;
     }
 
-    IEntity *WorldController::addEntity() {
+    IEntity *WorldSystem::addEntity() {
         CONSOLE_LOG("Creating entity")
         return addEntityInternal(UUID::v4(), nullptr);
     }
 
-    IEntity *WorldController::addEntity(std::string name) {
+    IEntity *WorldSystem::addEntity(std::string name) {
         CONSOLE_LOG("Creating entity {0}", name)
         return addEntityInternal(UUID::v4(), name.c_str());
     }
 
-    entt::entity WorldController::getEntityFromWrapper(IEntity *entity) {
+    entt::entity WorldSystem::getEntityFromWrapper(IEntity *entity) {
         return entity->getEntity();
     }
 
-    IEntity *WorldController::addEntityInternal(const std::string& uuid, const char *name) {
+    IEntity *WorldSystem::addEntityInternal(const std::string& uuid, const char *name) {
         auto *pEntity = new IEntity(worldReg.create(), uuid);
         entities.set(uuid, pEntity);
         if(name != nullptr) {
@@ -36,11 +36,11 @@ namespace CEngine {
         return pEntity;
     }
 
-    bool WorldController::hasEntity(const std::string &uuid) {
+    bool WorldSystem::hasEntity(const std::string &uuid) {
         return entities.has(uuid);
     }
 
-    entt::registry &WorldController::getRegistry() {
+    entt::registry &WorldSystem::getRegistry() {
         return worldReg;
     }
 

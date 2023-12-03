@@ -1,6 +1,6 @@
 #pragma once
-#ifndef CATALYST_WORLDCONTROLLER_H
-#define CATALYST_WORLDCONTROLLER_H
+#ifndef CATALYST_WORLDSYSTEM_H
+#define CATALYST_WORLDSYSTEM_H
 
 #include "entt/entt.hpp"
 #include "../../core/debug/ILoggable.h"
@@ -14,7 +14,7 @@ namespace CEngine {
 
     class IEntity;
 
-    class WorldController : public ILoggable {
+    class WorldSystem : public ILoggable {
     private:
         entt::registry worldReg;
         Map<std::string, IEntity *> entities;

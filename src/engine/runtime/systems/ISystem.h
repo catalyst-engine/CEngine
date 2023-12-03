@@ -1,12 +1,12 @@
 #ifndef CATALYST_ISYSTEM_H
 #define CATALYST_ISYSTEM_H
 
-#include "../../core/debug/ILoggable.h"
+#include "debug/ILoggable.h"
 
 namespace CEngine {
-    class ResourcesController;
+    class ResourcesSystem;
 
-    class WorldController;
+    class WorldSystem;
 
     class IIOController;
 
@@ -16,8 +16,8 @@ namespace CEngine {
     private:
         bool initialized = false;
     protected:
-        ResourcesController *resources = nullptr;
-        WorldController *world = nullptr;
+        ResourcesSystem *resources = nullptr;
+        WorldSystem *world = nullptr;
         IIOController *io = nullptr;
         IFSController *fs = nullptr;
     public:
@@ -25,7 +25,7 @@ namespace CEngine {
 
         virtual bool isEnabled();
 
-        void initialize(ResourcesController *r, WorldController *w, IIOController *ioController, IFSController *fsController);
+        void initialize(ResourcesSystem *r, WorldSystem *w, IIOController *ioController, IFSController *fsController);
     };
 
 }

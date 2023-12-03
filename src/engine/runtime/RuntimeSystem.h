@@ -1,14 +1,14 @@
-#ifndef CATALYST_SYSTEMSCONTROLLER_H
-#define CATALYST_SYSTEMSCONTROLLER_H
+#ifndef CATALYST_RUNTIMESYSTEM_H
+#define CATALYST_RUNTIMESYSTEM_H
 
 #include <vector>
-#include "ISystem.h"
+#include "systems/ISystem.h"
 #include "../../core/structures/List.h"
 
 namespace CEngine {
     class Engine;
 
-    class SystemsController {
+    class RuntimeSystem {
     private:
         Engine *engine = nullptr;
         std::vector<ISystem *> systems;
