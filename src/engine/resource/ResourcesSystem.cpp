@@ -1,3 +1,4 @@
+#include <glad/glad.h>
 #include "ResourcesSystem.h"
 #include "../../core/structures/Map.cpp"
 #include "core/RMesh.h"
@@ -55,14 +56,14 @@ namespace CEngine {
             unsigned int *target,
             unsigned int width,
             unsigned int height,
-            GLint internalFormat,
-            GLint border,
-            GLint format,
-            GLint type,
-            GLint minFilter,
-            GLint magFilter,
-            GLint wrapS,
-            GLint wrapT,
+            unsigned int internalFormat,
+            unsigned int border,
+            unsigned int format,
+            unsigned int type,
+            unsigned int minFilter,
+            unsigned int magFilter,
+            unsigned int wrapS,
+            unsigned int wrapT,
             unsigned char *data
     ) {
         glGenTextures(1, target);

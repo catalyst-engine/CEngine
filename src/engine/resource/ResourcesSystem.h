@@ -1,7 +1,6 @@
 #ifndef CATALYST_RESOURCESSYSTEM_H
 #define CATALYST_RESOURCESSYSTEM_H
 
-#include <glad/glad.h>
 #include "StaticResource.h"
 #include "core/IResource.h"
 #include "../../core/structures/Map.h"
@@ -24,14 +23,14 @@ namespace CEngine {
                 unsigned int *target,
                 unsigned int width,
                 unsigned int height,
-                GLint internalFormat,
-                GLint border,
-                GLint format,
-                GLint type,
-                GLint minFilter,
-                GLint magFilter,
-                GLint wrapS,
-                GLint wrapT,
+                unsigned int internalFormat,
+                unsigned int border,
+                unsigned int format,
+                unsigned int type,
+                unsigned int minFilter,
+                unsigned int magFilter,
+                unsigned int wrapS,
+                unsigned int wrapT,
                 unsigned char *data
         );
 
