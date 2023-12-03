@@ -9,5 +9,12 @@ namespace CEngine {
         return type;
     }
 
+    void IResource::setResourceSystem(ResourcesSystem *system) {
+        if (this->resourcesSystem != nullptr) {
+            return;
+        }
+        this->resourcesSystem = system;
+    }
 
+    IResource::~IResource() = default;
 }

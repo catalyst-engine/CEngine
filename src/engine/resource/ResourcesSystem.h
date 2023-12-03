@@ -1,6 +1,7 @@
 #ifndef CATALYST_RESOURCESSYSTEM_H
 #define CATALYST_RESOURCESSYSTEM_H
 
+#include <glad/glad.h>
 #include "StaticResource.h"
 #include "resources/IResource.h"
 #include "../../core/structures/Map.h"
@@ -17,30 +18,54 @@ namespace CEngine {
 
         void registerResource(IResource *resource, const char *id);
 
-        IResource *createShader();
-
-        IResource *createFBO();
-
-        IResource *createVBO();
-
-        IResource *createMesh();
-
-        IResource *createTexture();
-
     public:
+
+        static void createTexture(
+                unsigned int *target,
+                unsigned int width,
+                unsigned int height,
+                GLint internalFormat,
+                GLint border,
+                GLint format,
+                GLint type,
+                GLint minFilter,
+                GLint magFilter,
+                GLint wrapS,
+                GLint wrapT
+        );
+
+        static void createBuffer(
+                unsigned int *target,
+                unsigned int type,
+                std::vector<float> &data,
+                unsigned int renderingType
+        );
+
         template<class T>
-        void createStaticResource(StaticResource id) {
-            registerResource(new T, id);
+        IResource *createResource(StaticResource id) {
+            T *newResource = new T;
+            newResource->setResourceSystem(this);
+            registerResource(newResource, id);
+            return newResource;
         }
 
         template<class T>
-        void createResource(const char *id) {
-            registerResource(new T, id);
+        IResource *createResource(const char *id) {
+            T *newResource = new T;
+            newResource->setResourceSystem(this);
+            registerResource(newResource, id);
+            return newResource;
         }
 
-        IResource *getResource(const std::string &id);
+        template<class T>
+        T *getResource(const std::string &id) {
+            return (T *) dynamicResources.get(id);
+        }
 
-        IResource *getResource(StaticResource id);
+        template<class T>
+        T *getResource(StaticResource id) {
+            return (T *) staticResources.get(id);
+        }
 
         bool hasResource(const std::string &id);
 
@@ -49,27 +74,6 @@ namespace CEngine {
         void deleteResource(StaticResource id);
 
         void deleteResource(const std::string &id);
-
-
-        IResource *createShader(const char *id);
-
-        IResource *createShader(StaticResource id);
-
-        IResource *createFBO(const char *id);
-
-        IResource *createFBO(StaticResource id);
-
-        IResource *createVBO(const char *id);
-
-        IResource *createVBO(StaticResource id);
-
-        IResource *createMesh(const char *id);
-
-        IResource *createMesh(StaticResource id);
-
-        IResource *createTexture(const char *id);
-
-        IResource *createTexture(StaticResource id);
     };
 
 }

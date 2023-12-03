@@ -43,8 +43,8 @@ set(FILE_PATHS
         src/engine/resource/resources/RMesh.h
         src/engine/resource/resources/RShader.cpp
         src/engine/resource/resources/RShader.h
-        src/engine/resource/resources/RVBO.cpp
-        src/engine/resource/resources/RVBO.h
+        src/engine/resource/resources/VertexBufferObject.cpp
+        src/engine/resource/resources/VertexBufferObject.h
         src/engine/resource/resources/RTexture.cpp
         src/engine/resource/resources/RTexture.h
         src/engine/resource/ResourceType.h

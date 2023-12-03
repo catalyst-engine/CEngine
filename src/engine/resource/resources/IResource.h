@@ -5,14 +5,20 @@
 #include "../ResourceType.h"
 
 namespace CEngine {
+    class ResourcesSystem;
 
     class IResource {
-    private:
+    protected:
         ResourceType type;
+        ResourcesSystem *resourcesSystem = nullptr;
     public:
-        explicit IResource (ResourceType type);
+        explicit IResource(ResourceType type);
+
+        virtual ~IResource();
 
         ResourceType getType() const;
+
+        void setResourceSystem(ResourcesSystem *resourcesSystem);
     };
 
 }
