@@ -5,7 +5,7 @@
 #include "Example.h"
 
 namespace CEngine::DocumentTest {
-    Document d(nullptr, nullptr);
+    Document d;
 
     void loadView() {
         Document::registerView("Example", new Example);
