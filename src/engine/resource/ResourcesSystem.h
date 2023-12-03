@@ -3,7 +3,7 @@
 
 #include <glad/glad.h>
 #include "StaticResource.h"
-#include "resources/IResource.h"
+#include "core/IResource.h"
 #include "../../core/structures/Map.h"
 #include "../../core/debug/ILoggable.h"
 
@@ -31,7 +31,8 @@ namespace CEngine {
                 GLint minFilter,
                 GLint magFilter,
                 GLint wrapS,
-                GLint wrapT
+                GLint wrapT,
+                unsigned char *data
         );
 
         static void createBuffer(

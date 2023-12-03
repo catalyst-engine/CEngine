@@ -6,7 +6,8 @@ namespace CEngine {
         FBO,
         MESH,
         SHADER,
-        TEXTURE
+        TEXTURE,
+        UBO
     };
 }
 #endif

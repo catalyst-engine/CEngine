@@ -2,10 +2,8 @@
 #ifndef CATALYST_IWINDOW_H
 #define CATALYST_IWINDOW_H
 
+#include <imgui_impl_glfw.h>
 #include "imgui.h"
-#include "GLFW/glfw3.h"
-#include "imgui_impl_glfw.h"
-#include "imgui_impl_opengl3.h"
 #include "../../../core/debug/ILoggable.h"
 #include "document/Document.h"
 

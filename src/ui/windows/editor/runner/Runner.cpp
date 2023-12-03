@@ -3,10 +3,10 @@
 #include "../../../core/views/IView.h"
 #include "../../../core/document/Document.h"
 #include "imgui.h"
-#include "GLFW/glfw3.h"
+#include "../../../../engine/Engine.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
-#include "../../../../engine/Engine.h"
+
 
 namespace CEngine {
     void Runner::update() {

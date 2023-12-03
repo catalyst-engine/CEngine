@@ -23,7 +23,8 @@ namespace CEngine {
                 GL_NEAREST,
                 GL_NEAREST,
                 GL_CLAMP_TO_EDGE,
-                GL_CLAMP_TO_EDGE
+                GL_CLAMP_TO_EDGE,
+                nullptr
         );
 
         glFramebufferTexture2D(

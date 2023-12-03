@@ -11,7 +11,7 @@ namespace CEngine {
     public:
 
         /**
-         * Executed before removal, useful for unloading resources
+         * Executed before removal, useful for unloading core
          */
         virtual void onDestroy();
 

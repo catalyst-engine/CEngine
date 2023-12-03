@@ -1,6 +1,8 @@
 #include "IWindow.h"
 #include "document/Document.h"
 #include "runner/Runner.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
 
 namespace CEngine {
     void IWindow::createWindowIO() {

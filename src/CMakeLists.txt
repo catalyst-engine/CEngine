@@ -10,7 +10,8 @@ endforeach ()
 string(REPLACE "src/" "" SRC_PATHS "${FILE_PATHS}")
 add_executable(catalyst main.cpp
         ${SRC_PATHS}
-        engine/resource/dto/FBOTextureDTO.h
+        engine/resource/core/RUBO.cpp
+        engine/resource/core/RUBO.h
 )
 
 target_link_libraries(catalyst PRIVATE

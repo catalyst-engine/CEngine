@@ -1,8 +1,6 @@
 #ifndef CATALYST_RUNNER_H
 #define CATALYST_RUNNER_H
 
-#include "GLFW/glfw3.h"
-#include "imgui.h"
 #include "../../../core/IRunner.h"
 
 #define BACKGROUND_R .5
@@ -12,7 +10,6 @@
 
 namespace CEngine {
     class Document;
-
     class Runner : public IRunner {
     private:
         bool isRunning = false;

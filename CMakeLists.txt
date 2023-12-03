@@ -7,13 +7,11 @@ find_package(glfw3 REQUIRED)
 find_package(glm REQUIRED)
 find_package(imgui REQUIRED)
 find_package(Catch2 REQUIRED)
-find_package(OpenGL REQUIRED)
 find_package(pugixml CONFIG REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
 find_package(EnTT CONFIG REQUIRED)
 
 set(COMMON_LIBRARIES
-        ${OPENGL_gl_LIBRARY}
         glad::glad
         glfw
         glm::glm
@@ -26,6 +24,10 @@ set(COMMON_LIBRARIES
 )
 
 set(FILE_PATHS
+        src/engine/resource/dto/FBOTextureDTO.h
+
+        src/engine/resource/static/direct_shadows.vs
+        src/engine/resource/static/direct_shadows.fs
 
         src/engine/external/IIOController.h
         src/engine/external/IFSController.h
@@ -35,20 +37,20 @@ set(FILE_PATHS
         src/ui/windows/editor/basic/FSController.h
         src/engine/external/IIOController.cpp
 
-        src/engine/resource/resources/IResource.h
+        src/engine/resource/core/IResource.h
         src/engine/resource/StaticResource.h
-        src/engine/resource/resources/RFBO.cpp
-        src/engine/resource/resources/RFBO.h
-        src/engine/resource/resources/RMesh.cpp
-        src/engine/resource/resources/RMesh.h
-        src/engine/resource/resources/RShader.cpp
-        src/engine/resource/resources/RShader.h
-        src/engine/resource/resources/VertexBufferObject.cpp
-        src/engine/resource/resources/VertexBufferObject.h
-        src/engine/resource/resources/RTexture.cpp
-        src/engine/resource/resources/RTexture.h
+        src/engine/resource/core/RFBO.cpp
+        src/engine/resource/core/RFBO.h
+        src/engine/resource/core/RMesh.cpp
+        src/engine/resource/core/RMesh.h
+        src/engine/resource/core/RShader.cpp
+        src/engine/resource/core/RShader.h
+        src/engine/resource/core/VertexBufferObject.cpp
+        src/engine/resource/core/VertexBufferObject.h
+        src/engine/resource/core/RTexture.cpp
+        src/engine/resource/core/RTexture.h
         src/engine/resource/ResourceType.h
-        src/engine/resource/resources/IResource.cpp
+        src/engine/resource/core/IResource.cpp
         src/engine/runtime/systems/ISystem.cpp
         src/engine/runtime/systems/ISystem.h
         src/engine/runtime/systems/InputSystem.cpp
