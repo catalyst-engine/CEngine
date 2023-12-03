@@ -1,6 +1,6 @@
 #include <catch2/catch_all.hpp>
-#include "../../src/util/structures/Map.cpp"
-#include "debug/Timer.h"
+#include "../../src/core/structures/Map.cpp"
+#include "../../src/core/debug/Timer.h"
 #include "../Tester.h"
 
 namespace CEngine::TimerTest {

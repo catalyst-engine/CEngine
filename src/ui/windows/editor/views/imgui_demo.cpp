@@ -5196,7 +5196,7 @@ static void ShowDemoWindowTables() {
             ImGui::TableSetupColumn("Type", ImGuiTableColumnFlags_WidthFixed, TEXT_BASE_WIDTH * 18.0f);
             ImGui::TableHeadersRow();
 
-            // Simple storage to output a dummy file-system.
+            // Simple storage to output a dummy file-runtime.
             struct MyTreeNode {
                 const char *Name;
                 const char *Type;
@@ -5843,7 +5843,7 @@ static void ShowDemoWindowTables() {
                     // Here we demonstrate marking our data set as needing to be sorted again if we modified a quantity,
                     // and we are currently sorting on the column showing the Quantity.
                     // To avoid triggering a sort while holding the button, we only trigger it when the button has been released.
-                    // You will probably need a more advanced system in your code if you want to automatically sort when a specific entry changes.
+                    // You will probably need a more advanced runtime in your code if you want to automatically sort when a specific entry changes.
                     if (ImGui::TableSetColumnIndex(2)) {
                         if (ImGui::SmallButton("Chop")) { item->Quantity += 1; }
                         if (sorts_specs_using_quantity && ImGui::IsItemDeactivated()) { items_need_sort = true; }
@@ -8460,13 +8460,13 @@ struct ExampleAppDocuments {
     }
 };
 
-// [Optional] Notify the system of Tabs/Windows closure that happened outside the regular tab interface.
+// [Optional] Notify the runtime of Tabs/Windows closure that happened outside the regular tab interface.
 // If a tab has been closed programmatically (aka closed from another source such as the Checkbox() in the demo,
 // as opposed to clicking on the regular tab closing button) and stops being submitted, it will take a frame for
 // the tab bar to notice its absence. During this frame there will be a gap in the tab bar, and if the tab that has
 // disappeared was the checked one, the tab bar will report no checked tab during the frame. This will effectively
 // give the impression of a flicker for one frame.
-// We call SetTabItemClosed() to manually notify the Tab Bar or Docking system of removed tabs to avoid this glitch.
+// We call SetTabItemClosed() to manually notify the Tab Bar or Docking runtime of removed tabs to avoid this glitch.
 // Note that this completely optional, and only affect tab bars with the ImGuiTabBarFlags_Reorderable flag.
 static void NotifyOfDocumentsClosedElsewhere(ExampleAppDocuments &app) {
     for (MyDocument &doc: app.Documents) {

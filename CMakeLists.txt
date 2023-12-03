@@ -49,19 +49,19 @@ set(FILE_PATHS
         src/engine/resource/resources/RTexture.h
         src/engine/resource/ResourceType.h
         src/engine/resource/IResource.cpp
-        src/engine/system/ISystem.cpp
-        src/engine/system/ISystem.h
-        src/engine/system/systems/InputSystem.cpp
-        src/engine/system/systems/InputSystem.h
+        src/engine/runtime/ISystem.cpp
+        src/engine/runtime/ISystem.h
+        src/engine/runtime/systems/InputSystem.cpp
+        src/engine/runtime/systems/InputSystem.h
 
         src/engine/world/components/IComponent.cpp
         src/engine/world/Component.h
         src/engine/world/components/CTransform.cpp
         src/engine/world/components/CTransform.h
 
-        src/engine/event/IEventTarget.h
-        src/engine/system/SystemsController.cpp
-        src/engine/system/SystemsController.h
+        src/core/event/IEventTarget.h
+        src/engine/runtime/SystemsController.cpp
+        src/engine/runtime/SystemsController.h
         src/engine/resource/ResourcesController.cpp
         src/engine/resource/ResourcesController.h
         src/engine/world/IEntity.cpp
@@ -78,10 +78,10 @@ set(FILE_PATHS
         src/ui/core/elements/AbstractSimpleElement.h
         src/ui/windows/editor/views/hierarchy/HierarchyList.cpp
         src/ui/windows/editor/views/hierarchy/HierarchyList.h
-        src/engine/event/TypedEventPayload.h
-        src/util/structures/List.h
-        src/util/structures/Map.cpp
-        src/util/structures/Map.h
+        src/core/event/TypedEventPayload.h
+        src/core/structures/List.h
+        src/core/structures/Map.cpp
+        src/core/structures/Map.h
         src/ui/core/elements/IElement.h
         src/ui/core/elements/ESection.cpp
         src/ui/core/elements/ESection.h
@@ -94,17 +94,17 @@ set(FILE_PATHS
         src/ui/core/views/IView.cpp
         src/ui/core/views/IView.h
         src/ui/core/elements/IElement.cpp
-        src/util/debug/ILoggable.cpp
-        src/util/debug/ILoggable.h
-        src/util/debug/Timer.cpp
-        src/util/debug/Timer.h
+        src/core/debug/ILoggable.cpp
+        src/core/debug/ILoggable.h
+        src/core/debug/Timer.cpp
+        src/core/debug/Timer.h
         src/engine/world/WorldController.cpp
         src/engine/world/WorldController.h
         src/engine/world/components/IComponent.h
         src/engine/Engine.cpp
         src/engine/Engine.h
-        src/util/UUID.h
-        src/util/UUID.cpp
+        src/core/UUID.h
+        src/core/UUID.cpp
         src/ui/windows/editor/EditorWindow.cpp
         src/ui/windows/editor/EditorWindow.h
         src/ui/windows/editor/stores/SelectionStore.h
@@ -130,22 +130,22 @@ set(FILE_PATHS
         src/ui/core/elements/EMenuBar.h
         src/ui/core/elements/AbstractTitledElement.cpp
         src/ui/core/elements/AbstractTitledElement.h
-        src/util/StringUtils.cpp
-        src/util/StringUtils.h
+        src/core/StringUtils.cpp
+        src/core/StringUtils.h
         src/ui/core/elements/DynamicElement.cpp
         src/ui/core/elements/DynamicElement.h
         src/ui/windows/editor/views/MainView.cpp
         src/ui/windows/editor/views/MainView.h
         src/ui/core/elements/EIcon.cpp
         src/ui/core/elements/EIcon.h
-        src/engine/event/EventController.cpp
-        src/engine/event/EventController.h
-        src/engine/event/IListener.cpp
-        src/engine/event/IListener.h
-        src/engine/event/ListenerWrapper.cpp
-        src/engine/event/ListenerWrapper.h
-        src/engine/event/IEventPayload.cpp
-        src/engine/event/IEventPayload.h
+        src/core/event/EventController.cpp
+        src/core/event/EventController.h
+        src/core/event/IListener.cpp
+        src/core/event/IListener.h
+        src/core/event/ListenerWrapper.cpp
+        src/core/event/ListenerWrapper.h
+        src/core/event/IEventPayload.cpp
+        src/core/event/IEventPayload.h
 )
 
 set(CMAKE_TOOLCHAIN_FILE "C:/src/vcpkg/scripts/buildsystems/vcpkg.cmake")

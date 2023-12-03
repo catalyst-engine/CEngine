@@ -1,7 +1,7 @@
 #include "ViewController.h"
 #include "../views/IView.h"
-#include "../../../util/StringUtils.h"
-#include "../../../util/structures/Map.cpp"
+#include "../../../core/StringUtils.h"
+#include "../../../core/structures/Map.cpp"
 
 namespace CEngine {
     CEngine::Map<std::string, IView *> ViewController::registeredViews;

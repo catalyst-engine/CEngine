@@ -7,14 +7,14 @@ set(SOURCES
         engine/EngineTest.h
         Tester.cpp
         Tester.h
-        util/ListTest.cpp
-        util/ListTest.h
-        util/LoggerTest.cpp
-        util/LoggerTest.h
-        util/MapTest.cpp
-        util/MapTest.h
-        util/TimerTest.cpp
-        util/TimerTest.h
+        core/ListTest.cpp
+        core/ListTest.h
+        core/LoggerTest.cpp
+        core/LoggerTest.h
+        core/MapTest.cpp
+        core/MapTest.h
+        core/TimerTest.cpp
+        core/TimerTest.h
         ui/document/Example.cpp
         ui/document/Example.h
         ui/document/DocumentTest.h
@@ -30,7 +30,7 @@ set(SOURCES
 )
 
 include_directories(../src/ui/windows/editor)
-include_directories(../src/util)
+include_directories(../src/core)
 
 file(GLOB XML_FILES
         "ui/document/*.xml"

@@ -3,8 +3,8 @@
 #define CATALYST_WORLDCONTROLLER_H
 
 #include "entt/entt.hpp"
-#include "../../util/debug/ILoggable.h"
-#include "../../util/structures/Map.h"
+#include "../../core/debug/ILoggable.h"
+#include "../../core/structures/Map.h"
 #include "components/IComponent.h"
 
 namespace CEngine {

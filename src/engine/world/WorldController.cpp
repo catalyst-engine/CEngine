@@ -1,6 +1,6 @@
 #include "WorldController.h"
 #include "IEntity.h"
-#include "../../util/structures/Map.cpp"
+#include "../../core/structures/Map.cpp"
 
 namespace CEngine {
     void WorldController::removeEntity(const std::string &uuid) {

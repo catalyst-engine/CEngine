@@ -3,8 +3,8 @@
 
 #include "StaticResource.h"
 #include "IResource.h"
-#include "../../util/structures/Map.h"
-#include "../../util/debug/ILoggable.h"
+#include "../../core/structures/Map.h"
+#include "../../core/debug/ILoggable.h"
 
 namespace CEngine {
 

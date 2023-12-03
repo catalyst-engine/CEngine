@@ -4,7 +4,7 @@
 #include "../../../../../engine/world/WorldController.h"
 #include "../../../../core/elements/EText.h"
 #include "../../../../core/document/Document.h"
-#include "../../../../../engine/event/IEventPayload.h"
+#include "../../../../../core/event/IEventPayload.h"
 #include "../../../../core/elements/ETreeNode.h"
 #include "../../../../core/elements/ETree.h"
 #include "stores/SelectionStore.h"

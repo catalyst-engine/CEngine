@@ -1,6 +1,6 @@
 #include "Engine.h"
 #include "world/WorldController.h"
-#include "system/systems/InputSystem.h"
+#include "runtime/systems/InputSystem.h"
 #include "external/IIOController.h"
 #include "external/IFSController.h"
 

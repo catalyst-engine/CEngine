@@ -1,7 +1,7 @@
 #include <catch2/catch_test_macros.hpp>
 
 #include "../Tester.h"
-#include "structures/List.h"
+#include "../../src/core/structures/List.h"
 
 namespace CEngine::ListTest {
 

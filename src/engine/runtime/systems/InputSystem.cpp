@@ -1,6 +1,6 @@
 #include "InputSystem.h"
 #include "../../external/IIOController.h"
-#include "../../event/EventController.h"
+#include "../../../core/event/EventController.h"
 
 #define MOUSE_0 0
 #define MOUSE_1 1

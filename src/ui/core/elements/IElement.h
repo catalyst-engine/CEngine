@@ -5,8 +5,8 @@
 #include <string>
 #include "pugixml.hpp"
 #include "imgui.h"
-#include "../../../util/structures/List.h"
-#include "../../../engine/event/IListener.h"
+#include "../../../core/structures/List.h"
+#include "../../../core/event/IListener.h"
 
 namespace CEngine {
     class Document;

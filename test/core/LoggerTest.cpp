@@ -1,5 +1,5 @@
 #include <catch2/catch_all.hpp>
-#include "debug/ILoggable.h"
+#include "../../src/core/debug/ILoggable.h"
 #include "../Tester.h"
 
 namespace CEngine::LoggerTest {

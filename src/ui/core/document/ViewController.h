@@ -3,7 +3,7 @@
 
 
 #include "pugixml.hpp"
-#include "../../../util/debug/ILoggable.h"
+#include "../../../core/debug/ILoggable.h"
 #include <string>
 
 namespace CEngine {

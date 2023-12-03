@@ -2,8 +2,8 @@
 #define CATALYST_ISTORE_H
 
 
-#include "../../../engine/event/EventController.h"
-#include "../../../util/UUID.h"
+#include "../../../core/event/EventController.h"
+#include "../../../core/UUID.h"
 
 namespace CEngine {
 

@@ -5,7 +5,7 @@
 #include "SampleStore.h"
 #include "SampleData.h"
 #include "../event/Listener.h"
-#include "../../../src/engine/event/EventController.h"
+#include "../../../src/core/event/EventController.h"
 
 namespace CEngine::IStoreTest {
     void clear() {

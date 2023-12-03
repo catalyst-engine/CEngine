@@ -1,7 +1,7 @@
 #ifndef CATALYST_ISYSTEM_H
 #define CATALYST_ISYSTEM_H
 
-#include "../../util/debug/ILoggable.h"
+#include "../../core/debug/ILoggable.h"
 
 namespace CEngine {
     class ResourcesController;
