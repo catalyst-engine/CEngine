@@ -2,7 +2,7 @@
 #define CATALYST_LISTENER_H
 
 
-#include "../../../src/engine/event/IListener.h"
+#include "../../../src/core/event/IListener.h"
 
 namespace CEngine {
 

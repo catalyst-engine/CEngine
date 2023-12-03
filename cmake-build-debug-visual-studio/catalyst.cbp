@@ -1,0 +1,848 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="catalyst"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="msvc8"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\vcpkg\;CMake Files\..\..\..\..\vcpkg\scripts\;CMake Files\..\..\..\..\vcpkg\scripts\buildsystems\;CMake Files\..\..\..\..\src\;CMake Files\..\..\..\..\src\vcpkg\;CMake Files\..\..\..\..\src\vcpkg\scripts\;CMake Files\..\..\..\..\src\vcpkg\scripts\buildsystems\;CMake Files\cmake-build-debug-visual-studio\;CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\;CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\;CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\;CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\glad\;CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\glfw3\;CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\glm\;CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\imgui\;CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\Catch2\;CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\pugixml\;CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\spdlog\;CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\fmt\;CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\entt\;CMake Files\test\;CMake Files\src\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main_test">
+				<Option output="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/test/main_test.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add option="-DGLFW_DLL"/>
+					<Add option="-DSPDLOG_SHARED_LIB"/>
+					<Add option="-DSPDLOG_COMPILED_LIB"/>
+					<Add option="-DSPDLOG_FMT_EXTERNAL"/>
+					<Add option="-DFMT_SHARED"/>
+					<Add directory="C:/Users/russi/CLionProjects/CEngine/test/../src/ui/windows/editor"/>
+					<Add directory="C:/Users/russi/CLionProjects/CEngine/test/../src/core"/>
+					<Add directory="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\ATLMFC\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\test\Makefile VERBOSE=1 main_test"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\test\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\test\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\test\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main_test/fast">
+				<Option output="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/test/main_test.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add option="-DGLFW_DLL"/>
+					<Add option="-DSPDLOG_SHARED_LIB"/>
+					<Add option="-DSPDLOG_COMPILED_LIB"/>
+					<Add option="-DSPDLOG_FMT_EXTERNAL"/>
+					<Add option="-DFMT_SHARED"/>
+					<Add directory="C:/Users/russi/CLionProjects/CEngine/test/../src/ui/windows/editor"/>
+					<Add directory="C:/Users/russi/CLionProjects/CEngine/test/../src/core"/>
+					<Add directory="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\ATLMFC\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\test\Makefile VERBOSE=1 main_test/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\test\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\test\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\test\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="catalyst">
+				<Option output="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/src/catalyst.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add option="-DGLFW_DLL"/>
+					<Add option="-DSPDLOG_SHARED_LIB"/>
+					<Add option="-DSPDLOG_COMPILED_LIB"/>
+					<Add option="-DSPDLOG_FMT_EXTERNAL"/>
+					<Add option="-DFMT_SHARED"/>
+					<Add directory="C:/Users/russi/CLionProjects/CEngine/src/ui/windows/editor"/>
+					<Add directory="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\ATLMFC\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\src\Makefile VERBOSE=1 catalyst"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\src\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\src\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\src\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="catalyst/fast">
+				<Option output="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/src/catalyst.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add option="-DGLFW_DLL"/>
+					<Add option="-DSPDLOG_SHARED_LIB"/>
+					<Add option="-DSPDLOG_COMPILED_LIB"/>
+					<Add option="-DSPDLOG_FMT_EXTERNAL"/>
+					<Add option="-DFMT_SHARED"/>
+					<Add directory="C:/Users/russi/CLionProjects/CEngine/src/ui/windows/editor"/>
+					<Add directory="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\ATLMFC\include"/>
+					<Add directory="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\src\Makefile VERBOSE=1 catalyst/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\src\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\src\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\russi\CLionProjects\CEngine\cmake-build-debug-visual-studio\src\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/StringUtils.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/StringUtils.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/UUID.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/UUID.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/debug/ILoggable.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/debug/ILoggable.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/debug/Timer.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/debug/Timer.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/event/EventController.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/event/EventController.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/event/IEventPayload.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/event/IEventPayload.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/event/IEventTarget.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/event/IListener.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/event/IListener.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/event/ListenerWrapper.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/event/ListenerWrapper.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/event/TypedEventPayload.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/structures/List.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/structures/Map.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/structures/Map.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/Engine.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/Engine.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/external/IFSController.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/external/IIOController.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/external/IIOController.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/ResourceType.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/ResourcesSystem.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/ResourcesSystem.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/StaticResource.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/core/IResource.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/core/IResource.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/core/RFBO.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/core/RFBO.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/core/RMesh.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/core/RMesh.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/core/RShader.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/core/RShader.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/core/RTexture.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/core/RTexture.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/core/RUBO.cpp">
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/core/RUBO.h">
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/core/VertexBufferObject.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/core/VertexBufferObject.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/dto/FBOTextureDTO.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/static/direct_shadows.fs">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/static/direct_shadows.vs">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/runtime/RuntimeSystem.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/runtime/RuntimeSystem.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/runtime/systems/ISystem.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/runtime/systems/ISystem.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/runtime/systems/InputSystem.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/runtime/systems/InputSystem.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/world/Component.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/world/IEntity.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/world/IEntity.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/world/WorldSystem.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/world/WorldSystem.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/world/components/CTransform.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/world/components/CTransform.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/world/components/IComponent.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/world/components/IComponent.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/main.cpp">
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/IWindow.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/IWindow.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/document/Document.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/document/Document.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/document/ElementController.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/document/ElementController.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/document/ViewController.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/document/ViewController.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/AbstractSimpleElement.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/AbstractSimpleElement.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/AbstractTitledElement.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/AbstractTitledElement.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/DynamicElement.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/DynamicElement.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/EButton.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/EButton.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/EIcon.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/EIcon.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/EInlineBlock.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/EInlineBlock.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/EMenu.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/EMenu.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/EMenuBar.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/EMenuBar.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/EMenuItem.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/EMenuItem.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/ESection.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/ESection.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/EText.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/EText.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/ETree.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/ETree.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/ETreeNode.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/ETreeNode.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/IElement.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/elements/IElement.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/store/IStore.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/views/IView.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/core/views/IView.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/windows/editor/EditorWindow.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/windows/editor/EditorWindow.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/windows/editor/basic/FSController.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/windows/editor/basic/FSController.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/windows/editor/basic/IOController.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/windows/editor/basic/IOController.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/windows/editor/runner/Runner.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/windows/editor/runner/Runner.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/windows/editor/stores/SelectionState.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/windows/editor/stores/SelectionState.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/windows/editor/stores/SelectionStore.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/windows/editor/views/MainView.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/windows/editor/views/MainView.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/windows/editor/views/hierarchy/HierarchyList.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/windows/editor/views/hierarchy/HierarchyList.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/windows/editor/views/hierarchy/HierarchyView.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/windows/editor/views/hierarchy/HierarchyView.h">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/ui/windows/editor/views/imgui_demo.cpp">
+			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/Tester.cpp">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/Tester.h">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/core/ListTest.cpp">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/core/ListTest.h">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/core/LoggerTest.cpp">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/core/LoggerTest.h">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/core/MapTest.cpp">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/core/MapTest.h">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/core/TimerTest.cpp">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/core/TimerTest.h">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/engine/EngineTest.cpp">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/engine/EngineTest.h">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/main_test.cpp">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/ui/document/DocumentTest.cpp">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/ui/document/DocumentTest.h">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/ui/document/Example.cpp">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/ui/document/Example.h">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/ui/event/EventControllerTest.cpp">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/ui/event/EventControllerTest.h">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/ui/event/Listener.cpp">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/ui/event/Listener.h">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/ui/store/IStoreTest.cpp">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/ui/store/IStoreTest.h">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/ui/store/SampleData.h">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/ui/store/SampleStore.h">
+			<Option target="main_test"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/vcpkg.json">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/../../../../vcpkg/scripts/buildsystems/vcpkg.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\vcpkg\scripts\buildsystems\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/../../../../src/vcpkg/scripts/buildsystems/vcpkg.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\src\vcpkg\scripts\buildsystems\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/glad/gladConfig.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\glad\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/glad/gladConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\glad\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/glad/gladTargets-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\glad\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/glad/gladTargets-release.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\glad\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/glad/gladTargets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\glad\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/glfw3/glfw3Config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\glfw3\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/glfw3/glfw3ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\glfw3\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/glfw3/glfw3Targets-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\glfw3\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/glfw3/glfw3Targets-release.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\glfw3\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/glfw3/glfw3Targets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\glfw3\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/glm/glm-config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\glm\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/imgui/imgui-config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\imgui\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/imgui/imgui-targets-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\imgui\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/imgui/imgui-targets-release.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\imgui\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/imgui/imgui-targets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\imgui\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/Catch2/Catch2Config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\Catch2\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/Catch2/Catch2ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\Catch2\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/Catch2/Catch2Targets-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\Catch2\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/Catch2/Catch2Targets-release.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\Catch2\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/Catch2/Catch2Targets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\Catch2\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/pugixml/pugixml-config-version.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\pugixml\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/pugixml/pugixml-config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\pugixml\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/pugixml/pugixml-targets-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\pugixml\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/pugixml/pugixml-targets-release.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\pugixml\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/pugixml/pugixml-targets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\pugixml\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/spdlog/spdlogConfig.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\spdlog\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/spdlog/spdlogConfigTargets-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\spdlog\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/spdlog/spdlogConfigTargets-release.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\spdlog\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/spdlog/spdlogConfigTargets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\spdlog\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/spdlog/spdlogConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\spdlog\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/fmt/fmt-config-version.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\fmt\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/fmt/fmt-config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\fmt\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/fmt/fmt-targets-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\fmt\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/fmt/fmt-targets-release.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\fmt\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/fmt/fmt-targets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\fmt\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/entt/EnTTConfig.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\entt\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/entt/EnTTConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\entt\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/cmake-build-debug-visual-studio/vcpkg_installed/x64-windows/share/entt/EnTTTargets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug-visual-studio\vcpkg_installed\x64-windows\share\entt\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\test\"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

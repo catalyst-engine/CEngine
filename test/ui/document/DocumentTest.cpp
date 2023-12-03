@@ -1,11 +1,11 @@
 #include "DocumentTest.h"
 #include "catch2/catch_all.hpp"
-#include "../../../src/editor/core/document/Document.h"
+#include "../../../src/ui/core/document/Document.h"
 #include "../../Tester.h"
 #include "Example.h"
 
 namespace CEngine::DocumentTest {
-    Document d(nullptr, nullptr);
+    Document d;
 
     void loadView() {
         Document::registerView("Example", new Example);

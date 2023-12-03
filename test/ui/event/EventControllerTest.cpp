@@ -2,8 +2,8 @@
 #include "catch2/catch_all.hpp"
 #include "../../Tester.h"
 #include "Listener.h"
-#include "../../../src/engine/event/EventController.h"
-#include "../../../src/engine/event/TypedEventPayload.h"
+#include "../../../src/core/event/EventController.h"
+#include "../../../src/core/event/TypedEventPayload.h"
 
 
 namespace CEngine::EventControllerTest {

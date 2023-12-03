@@ -1,11 +1,11 @@
 #include "catch2/catch_all.hpp"
 #include "IStoreTest.h"
 #include "../../Tester.h"
-#include "../../../src/editor/core/store/IStore.h"
+#include "../../../src/ui/core/store/IStore.h"
 #include "SampleStore.h"
 #include "SampleData.h"
 #include "../event/Listener.h"
-#include "../../../src/engine/event/EventController.h"
+#include "../../../src/core/event/EventController.h"
 
 namespace CEngine::IStoreTest {
     void clear() {

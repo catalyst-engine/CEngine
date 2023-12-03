@@ -1,6 +1,6 @@
 #include "Engine.h"
-#include "world/WorldController.h"
-#include "system/systems/InputSystem.h"
+#include "world/WorldSystem.h"
+#include "runtime/systems/InputSystem.h"
 #include "external/IIOController.h"
 #include "external/IFSController.h"
 
@@ -12,11 +12,11 @@ namespace CEngine {
         systems.createSystem<InputSystem>();
     }
 
-    WorldController &Engine::getWorld() {
+    WorldSystem &Engine::getWorld() {
         return world;
     }
 
-    ResourcesController &Engine::getResources() {
+    ResourcesSystem &Engine::getResources() {
         return resources;
     }
 

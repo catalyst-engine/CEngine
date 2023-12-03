@@ -2,9 +2,9 @@
 #define CATALYST_ENGINE_H
 
 #include "entt/entity/registry.hpp"
-#include "world/WorldController.h"
-#include "resource/ResourcesController.h"
-#include "system/SystemsController.h"
+#include "world/WorldSystem.h"
+#include "resource/ResourcesSystem.h"
+#include "runtime/RuntimeSystem.h"
 
 namespace CEngine {
     class IIOController;
@@ -13,18 +13,18 @@ namespace CEngine {
 
     class Engine {
     private:
-        WorldController world;
-        ResourcesController resources;
-        SystemsController systems;
+        WorldSystem world;
+        ResourcesSystem resources;
+        RuntimeSystem systems;
         IIOController *io = nullptr;
         IFSController *fs = nullptr;
     public:
 
         explicit Engine(IIOController *ioController, IFSController *fsController);
 
-        WorldController &getWorld();
+        WorldSystem &getWorld();
 
-        ResourcesController &getResources();
+        ResourcesSystem &getResources();
 
         IIOController *getIo();
 
