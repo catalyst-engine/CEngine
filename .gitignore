@@ -5,6 +5,8 @@ out/
 CMakeFiles/
 CMakeCache.txt
 CMakeScripts/
+cmake-build-debug-visual-studio
+/cmake-build-debug-visual-studio
 Makefile
 CMakeTmp/
 compile_commands.json
