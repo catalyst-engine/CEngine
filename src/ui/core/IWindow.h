@@ -6,8 +6,7 @@
 #include "imgui.h"
 #include "../../../core/debug/ILoggable.h"
 #include "document/Document.h"
-
-#define GLSL_VERSION "#version 130"
+#include "../../core/Definitions.h"
 
 namespace CEngine {
     class IRunner;

@@ -3,11 +3,12 @@
 
 #include <string>
 #include "../ResourceType.h"
+#include "../../../core/debug/ILoggable.h"
 
 namespace CEngine {
     class ResourcesSystem;
 
-    class IResource {
+    class IResource : public ILoggable {
     protected:
         ResourceType type;
         ResourcesSystem *resourcesSystem = nullptr;

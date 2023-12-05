@@ -8,7 +8,7 @@ namespace CEngine {
 
     class VertexBufferObject {
     private:
-        unsigned int vbo;
+        GLuint vbo;
         int stride;
         unsigned int index;
         unsigned int type;

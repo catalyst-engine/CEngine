@@ -13,8 +13,8 @@ namespace CEngine {
         size_t trianglesQuantity;
         std::vector<float> maxBoundingBox;
         std::vector<float> minBoundingBox;
-        unsigned int vao;
-        unsigned int indexBuffer;
+        GLuint vao;
+        GLuint indexBuffer;
         VertexBufferObject vertexVBO;
         VertexBufferObject normalVBO;
         VertexBufferObject uvVBO;

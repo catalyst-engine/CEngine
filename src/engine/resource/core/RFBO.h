@@ -1,6 +1,7 @@
 #ifndef CATALYST_RFBO_H
 #define CATALYST_RFBO_H
 
+#include <glad/glad.h>
 #include <vector>
 #include "IResource.h"
 #include "../dto/FBOTextureDTO.h"
@@ -11,10 +12,10 @@ namespace CEngine {
     private:
         int width = 640;
         int height = 480;
-        unsigned int fbo;
-        unsigned int rbo;
-        unsigned int depthSampler;
-        std::vector<unsigned int> colors;
+        GLuint fbo;
+        GLuint rbo;
+        GLuint depthSampler;
+        std::vector<GLuint> colors;
         std::vector<unsigned int> attachments;
         std::vector<FBOTextureDTO *> colorsMetadata;
     public:

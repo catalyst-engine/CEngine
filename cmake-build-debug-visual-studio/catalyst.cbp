@@ -160,6 +160,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/Definitions.h">
+			<Option target="catalyst"/>
+		</Unit>
 		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/core/StringUtils.cpp">
 			<Option target="main_test"/>
 			<Option target="catalyst"/>
@@ -280,6 +283,9 @@
 			<Option target="main_test"/>
 			<Option target="catalyst"/>
 		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/UBOType.h">
+			<Option target="catalyst"/>
+		</Unit>
 		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/core/IResource.cpp">
 			<Option target="main_test"/>
 			<Option target="catalyst"/>
@@ -336,6 +342,12 @@
 		</Unit>
 		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/dto/FBOTextureDTO.h">
 			<Option target="main_test"/>
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/dto/UBODataDTO.h">
+			<Option target="catalyst"/>
+		</Unit>
+		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/dto/UBOItemDTO.h">
 			<Option target="catalyst"/>
 		</Unit>
 		<Unit filename="C:/Users/russi/CLionProjects/CEngine/src/engine/resource/static/direct_shadows.fs">
